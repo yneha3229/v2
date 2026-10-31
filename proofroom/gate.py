@@ -262,8 +262,8 @@ def date_matches(stated: FullDate, record: FullDate) -> bool:
 def amount_matches(stated: Amount, record: Amount) -> bool:
     """Same currency (an unknown currency matches only the same symbol), the record at
     least as precise as the sentence, and the values equal at the sentence's precision
-    (graph.amounts_match). An exact half-unit tie counts as rounding up, so "$20M" does
-    not pass for 20.5M while "$21M" does."""
+    (graph.amounts_match). An exact half-unit tie is ambiguous rounding and fails, so
+    neither "$20M" nor "$21M" passes for 20.5M; the sentence must say "$20.5M"."""
     if stated.currency != record.currency:
         return False
     if stated.currency == "unknown" and stated.symbol != record.symbol:
@@ -272,8 +272,8 @@ def amount_matches(stated: Amount, record: Amount) -> bool:
         return False
     if not amounts_match(stated.value, record.value, stated.unit):
         return False
-    diff = record.value - stated.value
-    return not (diff > 0 and abs(abs(diff) - stated.unit / 2) <= stated.unit * 1e-9)
+    diff = abs(record.value - stated.value)
+    return not (diff > 0 and abs(diff - stated.unit / 2) <= stated.unit * 1e-9)
 
 
 # ---- Evidence facts -------------------------------------------------------------------

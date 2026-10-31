@@ -200,7 +200,7 @@ async def _execute(r: _Run, rd: store.RunDir) -> RunOutcome:
         await r.progress("start", domain=req.domain, profile=prof.name, mode=req.run_mode)
 
         # Stage 2 resolve || Mode B fetch (independent).
-        mode_b = (packet.assemble_mode_b(client, req.pasted, req.urls)
+        mode_b = (packet.assemble_mode_b(client, req.pasted, req.urls, domain=req.domain)
                   if req.input_mode == "B" else _none())
         g, pk_b = await asyncio.gather(graph.resolve(client, req.domain), mode_b)
         r.limitations += g.limitations
