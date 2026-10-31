@@ -49,18 +49,36 @@ def test_herrick_fang_prior_employer_joins(koah):
     assert joins["Affirm"].joined and joins["Affirm"].employer_id == 632082
     assert joins["Supermove"].joined and joins["Supermove"].employer_id == 780882
     assert joins["Affirm"].entry.start == "2019" and joins["Affirm"].entry.start_precision == "year"
+    assert joins["Affirm"].basis == "id"
     # Real finding: Identify("Qualified") returns 25 candidates, none is 632707
-    # ("Qualified (Acquired by Salesforce)"), so the strict §7 rule cannot join it.
-    assert not joins["Qualified"].joined
-    assert "not a refutation" in joins["Qualified"].note
-    assert any(e.employer_id == 632707 for e in herrick.past)
+    # ("Qualified (Acquired by Salesforce)"); the D14 name-match fallback finds it, labelled.
+    q = joins["Qualified"]
+    assert not q.joined and q.basis == "name_match" and q.employer_id == 632707
+    assert q.note.startswith("name match (not an ID join)")
+
+
+def test_name_match_fallback_needs_exactly_one_id():
+    from proofroom.models import Employment
+
+    def e(name, cid):
+        return Employment(employer_name=name, employer_id=cid, title="", start="", end="",
+                          start_precision="unknown", current=False)
+
+    row = TeamRow(name="Synthetic", person_id=1,
+                  past=[e("Acme Corp", 1), e("Acme Labs", 2), e("Acmeville", 3)])
+    j = graph.prior_joins(row, ["Acme"], {"acme": {99}})[0]
+    assert j.basis == "none" and "not a refutation" in j.note  # two IDs -> no join
+    j2 = graph.prior_joins(row, ["Acme Labs"], {})[0]
+    assert j2.basis == "name_match" and j2.employer_id == 2
+    assert graph.prior_joins(row, ["Acm"], {})[0].basis == "none"  # whole words only
 
 
 def test_other_founders_do_not_join_affirm(koah):
     res, cands, _ = koah
     for r in res.team:
         if r.name != "Herrick Fang":
-            assert not any(j.joined for j in graph.prior_joins(r, ["Affirm", "Supermove"], cands))
+            joins = graph.prior_joins(r, ["Affirm", "Supermove", "Qualified"], cands)
+            assert all(j.basis == "none" for j in joins)
 
 
 def test_g4_koah_financing(koah):
