@@ -315,20 +315,29 @@ def _json_ld_dates(soup: BeautifulSoup) -> tuple[str, str]:
     return pub, upd
 
 
-def _time_dates(soup: BeautifulSoup) -> tuple[str, str]:
-    pub = upd = ""
+def _time_dates(soup: BeautifulSoup) -> tuple[str, str, str, str]:
+    """(labeled_pub, labeled_upd, unlabeled_pub, unlabeled_upd) from `<time>` elements.
+    A label is the element's own text or the text just before it ("Published", "Updated")
+    or an itemprop/class hint; labeled elements outrank unlabeled ones."""
+    lab_pub = lab_upd = any_pub = any_upd = ""
     for t in soup.find_all("time"):
         if not isinstance(t, Tag):
             continue
         value = machine_date(t.get("datetime") or "") or parse_date_text(t.get_text(" "))
         if not value:
             continue
+        prev = t.find_previous(string=True)
+        before = str(prev)[-40:] if prev is not None and prev.find_parent("time") is None else ""
+        own = t.get_text(" ")
         hint = " ".join([str(t.get("itemprop") or ""), " ".join(t.get("class") or [])]).lower()
-        if any(w in hint for w in ("modified", "updated")):
-            upd = upd or value
+        label = f"{before} {own} {hint}".lower()
+        if re.search(r"updated|modified", label):
+            lab_upd = lab_upd or value
+        elif re.search(r"published|posted|datepublished|released", label):
+            lab_pub = lab_pub or value
         else:
-            pub = pub or value
-    return pub, upd
+            any_pub = any_pub or value
+    return lab_pub, lab_upd, any_pub, any_upd
 
 
 def _title(soup: BeautifulSoup) -> str:
@@ -359,8 +368,8 @@ def extract_text(html: str) -> PageText:
     """Visible text, title and published/updated dates from raw HTML (or plain text).
 
     Date priority: meta (`article:published_time` / `article:modified_time`) >
-    JSON-LD (`datePublished` / `dateModified`) > visible "Published ... · Updated ..."
-    text > `<time datetime>`. Each date is chosen separately, so an update date never
+    JSON-LD (`datePublished` / `dateModified`) > a labeled `<time datetime>` >
+    visible "Published ... · Updated ..." text > an unlabeled `<time>`. Each date is chosen separately, so an update date never
     replaces the published date. Never raises on odd input."""
     s = html if isinstance(html, str) else ("" if html is None else str(html))
     if not s.strip():
@@ -380,7 +389,7 @@ def extract_text(html: str) -> PageText:
     meta_upd = machine_date(_meta(soup, "article:modified_time", "og:updated_time",
                                   "dateModified", "last-modified"))
     ld_pub, ld_upd = _json_ld_dates(soup)
-    time_pub, time_upd = _time_dates(soup)
+    tl_pub, tl_upd, time_pub, time_upd = _time_dates(soup)
 
     for c in soup.find_all(string=lambda x: isinstance(x, Comment)):
         c.extract()
@@ -406,8 +415,8 @@ def extract_text(html: str) -> PageText:
         body = best
     text = _clean_lines(body.get_text())
 
-    published = meta_pub or ld_pub or text_pub or time_pub
-    updated = meta_upd or ld_upd or text_upd or time_upd
+    published = meta_pub or ld_pub or tl_pub or text_pub or time_pub
+    updated = meta_upd or ld_upd or tl_upd or text_upd or time_upd
     if updated and updated == published:
         updated = ""  # an identical "update" adds nothing
     return PageText(title, text, published, updated, len(text.split()))
@@ -799,7 +808,7 @@ def pick_search_results(results: Any, company_name: str, domain: str,
         url = str(r.get("url") or r.get("link") or "").strip()
         title = re.sub(r"\s+", " ", str(r.get("title") or "")).strip()
         snippet = re.sub(r"\s+", " ", str(r.get("snippet") or "")).strip()
-        publisher = str(r.get("source") or host_of(url) or "")
+        publisher = host_of(url) or str(r.get("source") or "")
         base = dict(url=url, title=title, publisher=publisher, publish_date="")
         if not url.startswith(("http://", "https://")):
             excluded.append(_item(**base, reason="no usable URL"))

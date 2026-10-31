@@ -153,7 +153,7 @@ def parse_amounts(text: str) -> list[Amount]:
 # ---- Percentages and years ----------------------------------------------------------
 
 _PCT_RE = re.compile(r"(?<![\d.])(\d+(?:\.\d+)?)\s?(?:%|(?i:percent|per\s+cent|pct)(?![A-Za-z]))")
-_YEAR_RE = re.compile(r"(?<![\d.,$£€₹])((?:19|20)\d{2})(?![\d,%]|\.\d)")
+_YEAR_RE = re.compile(r"(?<!\d,)(?<![\d.$£€₹])((?:19|20)\d{2})(?!\d|,\d|%|\.\d)")
 
 
 def parse_percentages(text: str) -> list[Percent]:
@@ -198,10 +198,9 @@ def _valid(y: int, m: int, d: int = 1) -> bool:
 
 
 def parse_full_dates(text: str, *, evidence: bool = False) -> list[FullDate]:
-    """Dates written with digits: ISO (day or month), DD/MM/YYYY (day-first when
-    ambiguous; month-first only if the first number is not a month... i.e. >12 in the
-    second field), "24 Feb 2026", "Feb 24, 2026" (day) and "Feb 2026" / "Aug '25"
-    (month).
+    """Dates written with digits: ISO (day or month), DD/MM/YYYY (day-first; read as
+    MM/DD only when the second number exceeds 12), "24 Feb 2026", "Feb 24, 2026" (day)
+    and "Feb 2026" / "Aug '25" (month).
 
     With `evidence=True`, ISO dates follow the project rule (`YYYY-01-01` -> year,
     `YYYY-MM-01` -> month, via graph.date_and_precision) and an explicit "(day)",
