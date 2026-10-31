@@ -146,8 +146,13 @@ class _Run:
 
     async def call_model(self, provider: Any, name: str, system: str, user: str,
                          schema: type, effort: str) -> Any:
-        out = await provider.call(name, system, user, schema, effort, self.model_timeout(provider))
-        self.model_attempts.append(out.attempt)
+        try:
+            out = await provider.call(name, system, user, schema, effort,
+                                      self.model_timeout(provider))
+        except ModelError as e:
+            self.model_attempts += list(getattr(e, "attempts", None) or [])
+            raise
+        self.model_attempts += list(getattr(out, "attempts", None) or [out.attempt])
         if out.parsed is None:
             raise ModelError(f"{name}: {out.stop_reason or 'no parsed output'}")
         return out.parsed
@@ -184,9 +189,9 @@ async def run(req: RunRequest, *, st: store.Store | None = None,
 
 async def _execute(r: _Run, rd: store.RunDir) -> RunOutcome:
     req, prof = r.req, r.prof
-    provider = llm.make_provider(req.provider, rd.path / "model",
+    provider = llm.make_provider(req.provider, rd.path,
                                  config.FIXTURES_DIR / req.fixture / "model" if req.fixture else None)
-    model_source = getattr(provider, "label", req.provider)
+    model_source = _provider_label(provider)
     deadline = r.t0 + prof.retrieval_deadline_s
     client = cd.Crustdata(req.run_mode, fixture=req.fixture, deadline=deadline,
                           use_cache=req.run_mode != cd.LIVE)
@@ -503,7 +508,10 @@ def _validate_assess(ass: AssessResult, claims: list[Claim],
     if isinstance(out, tuple):
         result, lims = out[0], list(out[1])
         return result, lims
-    return out.result, list(out.limitations)  # dataclass form
+    lims = list(out.limitations)
+    for item in getattr(out, "suppressed", None) or []:
+        lims.append(f"suppressed before the gate: {item}")
+    return out.result, lims  # AssessValidation
 
 
 def _apply_checks(findings: list, checks: list, limitations: list[str]) -> list:
@@ -544,6 +552,16 @@ def _write_failed(rd: store.RunDir, r: _Run, err: Exception) -> None:
             "model_attempts": [a.model_dump() for a in r.model_attempts]}, indent=2))
     except OSError as e:
         log.error("could not write failed.json: %s", e)
+
+
+def _provider_label(provider: Any) -> str:
+    if isinstance(provider, llm.AnthropicProvider):
+        return f"{provider.model} (Anthropic API)"
+    if isinstance(provider, llm.SessionProvider):
+        return "agent session (request files, D15)"
+    if isinstance(provider, llm.FixtureProvider):
+        return "recorded model responses (FIXTURE)"
+    return type(provider).__name__
 
 
 def _today() -> str:

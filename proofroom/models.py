@@ -87,6 +87,7 @@ class CheckResult(Strict):
 # ---- Internal records -----------------------------------------------------------
 
 RunMode = Literal["LIVE", "CACHED", "FIXTURE"]
+AttemptMode = Literal["LIVE", "CACHED", "FIXTURE", "SESSION"]  # SESSION: answered by an agent (D15)
 InputMode = Literal["A", "B"]
 RunStatus = Literal["DELIVERED", "NARROWED", "FAILED"]
 
@@ -162,7 +163,7 @@ class AttemptRecord(BaseModel):
 
     stage: str
     endpoint: str
-    mode: RunMode
+    mode: AttemptMode
     status: str
     seconds: float
     credits_used: str = ""
