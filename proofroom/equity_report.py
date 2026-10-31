@@ -794,7 +794,10 @@ def _kpis(case: CaseRecord, s: Signals, flags: list[Flag]) -> str:
     if rt and rt.value is not None and not rm:
         rsub = _delta(rt.value, " band midpoint") + "<br>" + rsub
     rsrc = (rb or rm).source if (rb or rm) else ("Signals revenue band" if band else "")
-    tiles.append(_tile("Revenue estimate", rv, rsub, "neutral",
+    reported = bool(rm and rm.source.startswith("SEC"))
+    if reported:                    # D32: a listed company's filed revenue, not an estimate
+        rsub, rsrc = f'<span class="muted">{_e(rm.label)}</span>', rm.source
+    tiles.append(_tile("Reported revenue" if reported else "Revenue estimate", rv, rsub, "neutral",
                        svg_sparkline(_series(s, "revenue_high"), color=BLUE), rsrc))
     mm = _metric(s, "months_since_last_round")
     if mm:
@@ -969,7 +972,10 @@ def _traction_bullets(s: Signals) -> list[str]:
     elif fo and ch:
         out.append(f"Followers changed {fmt_pct(ch[0])} over {ch[1]} months to "
                    f"{fmt_compact(_valid_points(fo)[-1][1])}.")
-    if s.revenue_band_usd:
+    rm = _metric(s, "revenue_estimate_usd")
+    if rm and rm.source.startswith("SEC"):          # D32: filed accounts of a listed company
+        out.append(f"{rm.label}: {fmt_usd(rm.value)} ({rm.source}).")
+    elif s.revenue_band_usd:
         out.append(f"Revenue estimate band: {fmt_usd(s.revenue_band_usd[0])}–{fmt_usd(s.revenue_band_usd[1])} "
                    "(an estimate range, not reported revenue).")
     mix = _fold_mix(s.role_mix)
@@ -1471,10 +1477,16 @@ def _page_economics(n: int, company: str, s: Signals, eco: Any, rev: dict | None
     prim = _metric(s, "total_funding_primary_usd", "total_funding_usd")
     if prim and prim.value and pay.loaded_cost_usd:
         runway = prim.value / (pay.loaded_cost_usd / 12)
+    fin = rev.get("reported")
+    rev_tile = (_tile("Reported revenue / yr", fmt_usd(point) if point else "n/a",
+                      f'<span class="muted">FY ending {_e(fin["fiscal_year_end"])} · {_e(fin["form"])}, SEC EDGAR</span>')
+                if fin else
+                _tile("Estimated revenue / yr", fmt_usd(point) if point else "n/a",
+                      f'<span class="muted">range {_e(fmt_usd(lo))}–{_e(fmt_usd(hi))}</span>' if lo and hi else ""))
     tiles = ('<div class="tiles t4">'
-             + _tile("Estimated revenue / yr", fmt_usd(point) if point else "n/a",
-                     f'<span class="muted">range {_e(fmt_usd(lo))}–{_e(fmt_usd(hi))}</span>' if lo and hi else "")
-             + _tile("Revenue per employee", fmt_usd(rpe) if rpe else "n/a", '<span class="muted">estimate / headcount</span>')
+             + rev_tile
+             + _tile("Revenue per employee", fmt_usd(rpe) if rpe else "n/a",
+                     f'<span class="muted">{"reported revenue" if fin else "estimate"} / headcount</span>')
              + _tile("Average salary (est.)", fmt_usd(pay.avg_salary_usd) if pay.avg_salary_usd else "n/a",
                      (f'<span class="muted">≈ ₹{pay.avg_salary_usd * INR_PER_USD / 1e5:.1f} lakh / yr</span>'
                       if _pay_market(eco) == "india" and pay.avg_salary_usd else
@@ -1517,6 +1529,21 @@ def _page_economics(n: int, company: str, s: Signals, eco: Any, rev: dict | None
                      + "</p>")
     reason = str(rev.get("reason") or "").replace("No reported revenue to compare: ", "")
     reason = reason[:1].upper() + reason[1:]
+    if fin:
+        signed = lambda v: ("-" if v < 0 else "") + fmt_usd(abs(v))  # noqa: E731
+        model = rev.get("model_estimate_usd")
+        method = ("<h3>Where revenue comes from</h3><p class='small'>Listed company: revenue is taken from its "
+                  f"filed accounts, not a model. {_e(fin['entity'])} ({_e(fin['ticker'])}), {_e(fin['form'])} filed "
+                  f"{_e(fin['filed'])}, fiscal year ending {_e(fin['fiscal_year_end'])}: revenue {signed(fin['revenue'])}"
+                  + (f" ({fmt_pct(fin['revenue_yoy_pct'])} YoY)" if fin.get("revenue_yoy_pct") is not None else "")
+                  + (f", net income {signed(fin['net_income'])}" if fin.get("net_income") is not None else "")
+                  + f". Source: SEC EDGAR XBRL, tag {_e(fin['tag'])}."
+                  + (f" The private-company model would have said {fmt_usd(model)}." if model else "") + "</p>")
+    else:
+        method = ("<h3>How revenue is estimated</h3><p class='small'>Interval-censored regression on 126 companies' "
+                  "Crustdata revenue bands, corrected by a leave-one-out bias factor from reported revenue, blended 50/50 "
+                  "with a revenue-per-employee benchmark for scaleups, then guardrails. Median error 14% on 6 companies "
+                  f"with public revenue (all within 2×). {_e(reason)}</p>")
     body = (tiles
             + _chart_card("Average salary vs local benchmarks" + (" (₹ lakh / yr)" if market == "india" else " ($K / yr)"),
                           pay_chart, pay_note + " The company figure is a model estimate (benchmarks × role mix × "
@@ -1526,10 +1553,7 @@ def _page_economics(n: int, company: str, s: Signals, eco: Any, rev: dict | None
             + "<div><h3>Role mix (people)</h3><table class='data'><thead><tr><th>Role</th><th class='num'>People</th>"
               "</tr></thead><tbody>" + role_rows + "</tbody></table></div></div>"
             + cust_html
-            + "<h3>How revenue is estimated</h3><p class='small'>Interval-censored regression on 126 companies' "
-              "Crustdata revenue bands, corrected by a leave-one-out bias factor from reported revenue, blended 50/50 "
-              "with a revenue-per-employee benchmark for scaleups, then guardrails. Median error 14% on 6 companies "
-              f"with public revenue (all within 2×). {_e(reason)}</p>")
+            + method)
     return _page(n, "Team economics and revenue", company, body,
                  "What the team costs, how that compares locally, and what the company likely earns.", pid="pe")
 

@@ -167,9 +167,10 @@ function render(){charts.forEach(c=>c.destroy());charts=[];const c=D.company,r=D
   <div class="card"><h3>Suggested allocation</h3><div class="big" id="alloc">$0</div><div class="bigsub">of a ${fmtUSD(r.check)} standard check</div>
    <div class="bar" style="margin-top:16px"><i id="allocbar" style="width:0"></i></div>
    <div class="bigsub" style="margin-top:14px">Risk flags: <b style="color:${risk.length?'var(--orange)':'var(--green)'}">${risk.length}</b> · strengths: <b class="up">${greens.length}</b></div></div>
-  <div class="card"><h3>Estimated revenue / yr</h3><span class="how" onclick="howRevenue()">how?</span>
+  <div class="card"><h3>${rv.reported?'Reported revenue / yr':'Estimated revenue / yr'}</h3><span class="how" onclick="howRevenue()">${rv.reported?'source':'how?'}</span>
    <div class="big" id="rev" style="background:linear-gradient(90deg,var(--cyan),var(--blue));-webkit-background-clip:text;color:transparent">$0</div>
-   <div class="bigsub">range ${fmtUSD(rv.low_usd)} – ${fmtUSD(rv.high_usd)} · <i>estimated</i></div>
+   ${rv.reported?`<div class="bigsub">FY ending ${esc(rv.reported.fiscal_year_end)} · ${pct(rv.reported.revenue_yoy_pct)} YoY · <i>${esc(rv.reported.form)}, SEC EDGAR</i></div>`
+   :`<div class="bigsub">range ${fmtUSD(rv.low_usd)} – ${fmtUSD(rv.high_usd)} · <i>estimated</i></div>`}
    <div class="bigsub">${fmtUSD(rv.revenue_per_employee_usd)} per employee</div></div>
  </div>
  <div class="grid g4">
@@ -253,8 +254,18 @@ function drawCharts(){const S=D.series,p=D.payroll;line('#c_hc0',S.headcount,'#4
 
 function openM(h){$('#mbox').innerHTML='<span class="x" onclick="closeM()">✕</span>'+h;$('#modal').style.display='flex'}
 function closeM(){$('#modal').style.display='none';charts.filter(c=>c._modal).forEach(c=>c.destroy())}
+function howReported(){const rv=D.revenue,f=rv.reported,sUSD=v=>v==null?'n/a':(v<0?'-':'')+fmtUSD(Math.abs(v)),m=rv.model_estimate_usd;
+ openM(`<h2>Reported revenue</h2><p class="muted">${esc(D.company.name)} is a listed company, so we use its filed accounts instead of a model.</p>
+ <div class="step"><div class="n">1</div><div><b>Filing</b><p>${esc(f.entity)} (${esc(f.ticker)}), ${esc(f.form)} filed ${esc(f.filed)}, fiscal year ending ${esc(f.fiscal_year_end)}. <a href="${esc(f.source_url)}" target="_blank" rel="noopener">Open on SEC EDGAR</a></p></div></div>
+ <div class="step"><div class="n">2</div><div><b>Figures</b><p>Revenue ${sUSD(f.revenue)}${f.prior_revenue?` (prior year ${sUSD(f.prior_revenue)}, ${pct(f.revenue_yoy_pct)})`:''}${f.net_income!=null?`; net income ${sUSD(f.net_income)} (${f.net_margin_pct.toFixed(0)}% margin)`:''}. XBRL tag <code>${esc(f.tag)}</code>.</p></div></div>
+ ${m?`<div class="step"><div class="n">3</div><div><b>Why not the model</b><p>Our private-company model would have said ${fmtUSD(m)}: ${(f.revenue/m).toFixed(1)}× off. Models are for companies that don't publish; this one does.</p></div></div>`:''}
+ <div style="height:170px"><canvas id="m_hist"></canvas></div>
+ <p class="small muted">Revenue per employee uses Crustdata's headcount. ${esc(D.company.name)!==esc(f.entity)?`Figures are for the filing entity, ${esc(f.entity)}, consolidated.`:''}</p>`);
+ const h=f.history||[],c=new Chart($('#m_hist'),{type:'bar',data:{labels:h.map(x=>'FY '+x.end.slice(0,7)),datasets:[{data:h.map(x=>x.value),backgroundColor:'#22d3ee',borderRadius:6}]},
+ options:{maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmtUSD(c.raw)}}},scales:{y:{ticks:{callback:v=>fmtUSD(v)}}}}});c._modal=1;charts.push(c)}
 function howRevenue(){const rv=D.revenue,drv=rv.drivers||[];const base=Math.pow(10,rv.intercept_log10||0);
- openM(`<h2>How we estimate revenue</h2><p class="muted">Private companies don't publish revenue, so we triangulate. Intuition, not the exact model:</p>
+ if(rv.reported)return howReported();
+ openM(`<h2>How we estimate revenue</h2>${rv.public_note?`<p class="muted">Listed company, but ${esc(rv.public_note)}, so this is still a model estimate.</p>`:''}<p class="muted">Private companies don't publish revenue, so we triangulate. Intuition, not the exact model:</p>
  <div class="step"><div class="n">1</div><div><b>Start from a typical company</b><p>A regression learned from 126 companies' revenue bands gives a baseline for an average company (${fmtUSD(base)}).</p></div></div>
  <div class="step"><div class="n">2</div><div><b>Adjust for this company's signals</b><p>Each factor multiplies the baseline up or down: bigger teams, more funding and an older company mean more revenue.</p></div></div>
  <div style="height:${70+drv.length*40}px"><canvas id="m_drv"></canvas></div>

@@ -79,7 +79,7 @@ There are two connected parts. Both start from a request with nothing but a comp
 | Identify | Name or domain → one company ID | `/company/identify` |
 | Growth | Headcount, web visitors and followers over time, plus job postings and engineering share | `/company/enrich` |
 | Team & talent | Founders, their schools and prior employers, tiered by home market (IIT/IISc/IIM/BITS for India; Ivy/Stanford/MIT/Oxbridge elsewhere). Staff share from elite schools and ex-big-tech, with namesake profiles filtered out | `/company/enrich`, `/person/search` (counts only) |
-| Money | Primary capital vs. secondary sales (type-matched rounds); loaded payroll from headcount × location × role salary benchmarks; a **revenue estimate** with a range and its drivers | `/company/enrich`, `/company/search` (training set) |
+| Money | Primary capital vs. secondary sales (type-matched rounds); loaded payroll from headcount × location × role salary benchmarks; a **revenue estimate** with a range and its drivers. **Listed companies use their filed accounts instead:** latest annual revenue, growth and net income from SEC EDGAR (10-K / 20-F / 40-F), labelled REPORTED with the filing | `/company/enrich`, `/company/search` (training set); SEC EDGAR for listed companies |
 | Market | Category, funded peers in the last 24 months (crowding), and growth vs. the peer median | `/company/search` |
 | Score | 5 pillars, each 0–100 with its reasons: Team 25%, Traction 30%, Market 15%, Financing 15%, Verification 15%. Critical / red / amber / green flags from **fixed published rules** in `scoring.py` | none (no model) |
 | Signal | **INVEST** (≥70) / **ACCUMULATE** (≥58) / **HOLD** (≥45) / **AVOID**. Critical and red flags cap the rating. A suggested allocation of the reader's standard check (default $100K) is scaled by confidence | none |
@@ -134,6 +134,7 @@ A verified claims check feeds the **Verification** pillar of the signal. A compa
 | **Namesake prior employers** | Identify("Qualified") returns 25 companies, and none is the right one | A clearly labelled name-match fallback (≈) that is never counted as an ID join |
 | **Inflated headcount** (Clay, Ramp, Mercury) | Namesake profiles inflate staff counts, and per-employee numbers go wrong | The namesake check flags the headcount ⚠️, excludes it from revenue benchmarks, and says so on the page |
 | **Stale revenue bands** | "Linear earns $10–20M" | The band is treated as stale when headcount has outgrown it, and the estimate shows its drivers and range instead |
+| **Listed companies** (NVIDIA, Google) | A private-company model says NVIDIA earns $12.4B; its 10-K says **$215.9B** | When Crustdata marks a company public, Proofroom reads its filed accounts from SEC EDGAR and labels the figure REPORTED, with the form, filing date and XBRL tag. Private records with made-up tickers (Attio's is "ATTIO") never qualify |
 | **Prompt injection in fetched pages** | Text aimed at AI agents changes the output | Fetched text is data, never instructions. Agent-addressed text is counted (the injection meter) and ignored |
 | **Tools that fail** | One API error crashes the run | All three of Crustdata's error shapes are normalized; 429s wait for the reset; failed attempts are kept and shown; a missing source becomes "Needs a person", not a guess |
 
@@ -184,7 +185,7 @@ This rests on only 6 reported companies (3 without namesake flags), so treat it 
 
 ### Tests
 
-`pytest -q` gives **311 passed, 1 skipped**, offline, with no keys.
+`pytest -q` gives **319 passed, 1 skipped**, offline, with no keys.
 
 | Group | Files | Tests |
 |---|---|---|
@@ -198,6 +199,7 @@ This rests on only 6 reported companies (3 without namesake flags), so treat it 
 | Signals, scoring, talent | `test_signals.py`, `test_scoring.py`, `test_talent.py` | 39 |
 | Economics and revenue models | `test_economics.py`, `test_calibration.py`, `test_revenue_model_2.py`, `test_revenue_model_3.py`, `test_revenue_models_alt.py` | 58 |
 | Equity-research report | `test_equity_report.py` | 10 |
+| Reported financials for listed companies | `test_public_financials.py` | 8 |
 | Web UI | `test_web.py` | 23 |
 | Pipeline helpers | `test_pipeline_helpers.py` | 4 |
 
@@ -222,7 +224,7 @@ You need **Python 3.12+**. Node.js is optional; it is used only for the PDF down
 
 ```bash
 python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt
-cp .env.example .env            # set CRUSTDATA_API_KEY for live search of new companies
+cp .env.example .env            # set CRUSTDATA_API_KEY for live search; SEC_USER_AGENT="Name email" for listed companies
 .venv/bin/uvicorn proofroom.web:app --port 8000
 ```
 
@@ -343,7 +345,8 @@ The Crustdata MCP server was used only to probe data shapes during development. 
 
 - Coverage of very new startups in Crustdata's graph can be thin. A missing record is reported as "not found", never as a refutation.
 - Profiles are self-maintained, and funding records are Crunchbase-derived. They are labelled "indexed record", never "independent".
-- Revenue and payroll figures are **estimates**, and the revenue accuracy rests on n = 6.
+- Revenue and payroll figures are **estimates**, and the revenue accuracy rests on n = 6. The exception is revenue for listed companies that file with the SEC, which is reported. Listed companies that don't file with the SEC (for example NSE-only Indian listings) still get the model estimate, labelled as such.
+- Reported revenue is for the filing entity, consolidated. Google's figures are Alphabet's.
 - The signal is a rules-based screen, not financial advice, and it does not replace references or legal review.
 - In this build the model calls were answered by a Claude Code session through request files. The Anthropic SDK provider is implemented and unit-tested against a fake client, but it was not exercised against the live API during the event.
 
