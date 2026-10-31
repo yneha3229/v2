@@ -1,0 +1,4026 @@
+{
+ "as_of": "2026-10-31",
+ "source": "POST /social_post/search (actor.crustdata_entity_id = company id, actor_type company, newest first, limit 10)",
+ "why_not_enrich": "Company Enrich field group social_posts returned 403 permission_error (field not enabled on the event key).",
+ "selection": "16 per size stratum of training_set.json, ordered by sha256('rev2:<id>')",
+ "features": [
+  "has_posts",
+  "log_total_posts",
+  "posts_per_30d",
+  "days_since_last_post",
+  "log_median_engagement",
+  "log_mean_engagement",
+  "video_share",
+  "original_share",
+  "topic_customers",
+  "topic_launches",
+  "topic_hiring",
+  "topic_funding",
+  "topic_partnerships",
+  "topic_events",
+  "n_posts",
+  "median_engagement",
+  "mean_engagement"
+ ],
+ "snippets_note": "first 200 characters of up to 3 newest posts, for audit only",
+ "credits_used_live_this_pull": 362.0,
+ "credits_unknown_attempts": 1,
+ "account_credits_before_pull": 15067.35,
+ "account_credits_after_pull": 15067.35,
+ "account_credits_note": "account balance is shared with other concurrent work; credits_used_live_this_pull is this script's own spend (sum of x-credits-used)",
+ "stopped": "",
+ "companies": [
+  {
+   "company_id": 1382963,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 1.7558748556724915,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 44.0,
+    "log_median_engagement": 1.4393326938302626,
+    "log_mean_engagement": 1.4996870826184039,
+    "video_share": 0.0,
+    "original_share": 0.8,
+    "n_posts": 10.0,
+    "median_engagement": 26.5,
+    "mean_engagement": 30.6,
+    "topic_customers": 0.2,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 56.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-17",
+     "post_type": "original",
+     "engagement": 32.0,
+     "text": "Dubai, we’re coming to Seamless Middle East.\n\nFrom September 22–24, the Saber Money team will be at the Dubai World Trade Centre, meeting banks, fintechs and remittance operators building across the M"
+    },
+    {
+     "date_posted": "2026-09-14",
+     "post_type": "original",
+     "engagement": 67.0,
+     "text": "Great few days at Stablecon 2026.\n\nWe spent time catching up with partners, customers, and other teams building in stablecoins and cross-border payments.\n\nPlenty of good conversations, new ideas, and "
+    },
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "original",
+     "engagement": 36.0,
+     "text": "Geo Paul Joseph (Head of GCC) and Sathish Sharma (GTM lead) from Saber Money are heading to Money20/20 Middle East in Saudi next week.\n\nAs we continue expanding Saber’s footprint across the Middle Eas"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Saber Money",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 6048,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.413299764081252,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 45.0,
+    "log_median_engagement": 1.3117538610557542,
+    "log_mean_engagement": 1.271841606536499,
+    "video_share": 0.2,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 19.5,
+    "mean_engagement": 17.7,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.2,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 258.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-16",
+     "post_type": "repost_without_thoughts",
+     "engagement": 24.0,
+     "text": "1Funds Trust 2 (IN/AIF1/22-23/1078)\n\nBacking the technologies shaping the next chapter of space-tech.\n\nAt Bengaluru Space Expo 2026, two of our portfolio companies, Eon Space Labs and AkashaLabdhi Pvt"
+    },
+    {
+     "date_posted": "2026-09-09",
+     "post_type": "original",
+     "engagement": 20.0,
+     "text": "1Funds Trust 2 | SEBI Reg. No. IN/AIF1/22-23/1078\n\nThis #WorldEVDay, the road to electrification starts beyond the road.\n\nAnd that’s where The Energy Company, a 1Crowd portfolio company, is making a d"
+    },
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 2.0,
+     "text": "1Funds Trust (IN/AIF1/17-18/0344) | 1Funds Trust 2 (IN/AIF1/22-23/1078)\n \nWith #WorldEVDay around the corner, test your EV knowledge with our quick quiz!\n \nComment below with how many you got right!\n "
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "1Crowd",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 713454,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 0.7781512503836436,
+    "posts_per_30d": 0.083659,
+    "days_since_last_post": 730.0,
+    "log_median_engagement": 0.0,
+    "log_mean_engagement": 2.0277572046905536,
+    "video_share": 0.0,
+    "original_share": 0.8,
+    "n_posts": 5.0,
+    "median_engagement": 0.0,
+    "mean_engagement": 105.6,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 5,
+   "total_count": 5.0,
+   "snippets": [
+    {
+     "date_posted": "2024-07-09",
+     "post_type": "repost_without_thoughts",
+     "engagement": 528.0,
+     "text": "Due to the absence of employee verification on LinkedIn, Telegram has a \"No LinkedIn\" policy. LinkedIn accounts claiming to be past or present employees have never worked at Telegram.\n\nFor press reque"
+    },
+    {
+     "date_posted": "2021-07-30",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "If you're looking for news about Telegram, follow https://t.me/telegram and  the official channel of Pavel Durov – https://t.me/durov"
+    },
+    {
+     "date_posted": "2020-08-03",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "\"In May, I predicted that backdoors in WhatsApp would keep getting discovered, and one serious security issue would follow another, as it did in the past. This week a new backdoor was quietly found in"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "2.5",
+   "name": "Telegram Messenger",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 653125,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 0.6989700043360189,
+    "posts_per_30d": 0.169972,
+    "days_since_last_post": 79.0,
+    "log_median_engagement": 1.1903316981702914,
+    "log_mean_engagement": 1.2174839442139063,
+    "video_share": 0.0,
+    "original_share": 0.5,
+    "n_posts": 4.0,
+    "median_engagement": 14.5,
+    "mean_engagement": 15.5,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 4,
+   "total_count": 4.0,
+   "snippets": [
+    {
+     "date_posted": "2026-08-13",
+     "post_type": "original",
+     "engagement": 3.0,
+     "text": ""
+    },
+    {
+     "date_posted": "2026-08-13",
+     "post_type": "original",
+     "engagement": 1.0,
+     "text": ""
+    },
+    {
+     "date_posted": "2025-09-06",
+     "post_type": "repost_without_thoughts",
+     "engagement": 32.0,
+     "text": "The trouble with writing code to track money is you never see the money. And by the time you find out you wrote it wrong, it’s too late.\n\nEnter Scenarios, a visual programming interface that shows you"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "2",
+   "name": "Fragment",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 6068,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 0.0,
+    "log_total_posts": 0.0,
+    "posts_per_30d": 0.0,
+    "days_since_last_post": 0.0,
+    "log_median_engagement": 0.0,
+    "log_mean_engagement": 0.0,
+    "video_share": 0.0,
+    "original_share": 0.0,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0,
+    "n_posts": 0.0,
+    "median_engagement": 0.0,
+    "mean_engagement": 0.0
+   },
+   "n_posts": 0,
+   "total_count": null,
+   "snippets": [],
+   "mode": "LIVE",
+   "credits_used": "0",
+   "name": "Checkers India Technology Pvt Ltd",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 822791,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 1.3979400086720377,
+    "posts_per_30d": 0.821918,
+    "days_since_last_post": 419.0,
+    "log_median_engagement": 0.0,
+    "log_mean_engagement": 0.4471580313422192,
+    "video_share": 0.4,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 0.0,
+    "mean_engagement": 1.8,
+    "topic_customers": 0.0,
+    "topic_launches": 0.4,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 24.0,
+   "snippets": [
+    {
+     "date_posted": "2025-09-07",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Alcance novos públicos com o apoio de 800 mil clipadores!\nO Igor do Flow nos contou que estar em todos os lugares com cortes é essencial para crescer. Baseado nisso, criamos o Campeonato de Cortes uma"
+    },
+    {
+     "date_posted": "2025-08-14",
+     "post_type": "repost_without_thoughts",
+     "engagement": 18.0,
+     "text": "We have some exciting news to share with you – Wisecut is now available on Android! 🎉\n \nOur team has been hard at work to bring all the features you love on Wisecut to the Google Play Store. Now, edit"
+    },
+    {
+     "date_posted": "2025-08-11",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "🎃👻 Happy Halloween from Team Wisecut! 👻🎃\n\nToday, we’re celebrating with some spooky vibes and ghostly get-togethers! Whether you're carving pumpkins or creating magical video content, we hope you enjo"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Wisecut",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 5884,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 0.0,
+    "log_total_posts": 0.0,
+    "posts_per_30d": 0.0,
+    "days_since_last_post": 0.0,
+    "log_median_engagement": 0.0,
+    "log_mean_engagement": 0.0,
+    "video_share": 0.0,
+    "original_share": 0.0,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0,
+    "n_posts": 0.0,
+    "median_engagement": 0.0,
+    "mean_engagement": 0.0
+   },
+   "n_posts": 0,
+   "total_count": null,
+   "snippets": [],
+   "mode": "LIVE",
+   "credits_used": "0",
+   "name": "Vmates",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 711852,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 0.3010299956639812,
+    "posts_per_30d": 1.0,
+    "days_since_last_post": 730.0,
+    "log_median_engagement": 0.0,
+    "log_mean_engagement": 0.0,
+    "video_share": 0.0,
+    "original_share": 1.0,
+    "n_posts": 1.0,
+    "median_engagement": 0.0,
+    "mean_engagement": 0.0,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 1,
+   "total_count": 1.0,
+   "snippets": [
+    {
+     "date_posted": "2016-08-04",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Urgent Hire: Looking for a Non-Japan Asia Index trader, could be an ex-bank trader. If you are based in Hong Kong currently you will need to be in Singapore for the first 6 months and then move back t"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "0.5",
+   "name": "Three Arrows Capital Pte Ltd",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 646475,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 1.9777236052888478,
+    "posts_per_30d": 1.25523,
+    "days_since_last_post": 53.0,
+    "log_median_engagement": 1.7481880270062005,
+    "log_mean_engagement": 1.8475726591421122,
+    "video_share": 0.0,
+    "original_share": 1.0,
+    "n_posts": 10.0,
+    "median_engagement": 55.0,
+    "mean_engagement": 69.4,
+    "topic_customers": 0.0,
+    "topic_launches": 0.2,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.1,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 94.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 82.0,
+     "text": "Great Rock Capital expands its origination and capital markets leadership! Christina Zielinski has been promoted to Chief Commercial - Head of Originations, and Jake Goldberg to Head of Capital Market"
+    },
+    {
+     "date_posted": "2026-08-10",
+     "post_type": "original",
+     "engagement": 48.0,
+     "text": "Great Rock Capital has significantly expanded its revolver and administrative agent capabilities over the past two years, strengthening our ability to structure, arrange, and agent bespoke asset-based"
+    },
+    {
+     "date_posted": "2026-06-11",
+     "post_type": "original",
+     "engagement": 48.0,
+     "text": "Great Rock Capital is proud to celebrate Josh Nissel for his career achievements. His drive, structuring expertise, and innovative mindset continue to distinguish him as a rising leader in private cre"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Great Rock Capital Partners, LLC",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 1092824,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.146128035678238,
+    "posts_per_30d": 5.555556,
+    "days_since_last_post": 50.0,
+    "log_median_engagement": 1.6766936096248666,
+    "log_mean_engagement": 1.6570558528571038,
+    "video_share": 0.2,
+    "original_share": 0.8,
+    "n_posts": 10.0,
+    "median_engagement": 46.5,
+    "mean_engagement": 44.4,
+    "topic_customers": 0.2,
+    "topic_launches": 0.2,
+    "topic_hiring": 0.3,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 139.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-11",
+     "post_type": "original",
+     "engagement": 60.0,
+     "text": "North is going to HumanX 2026 in Amsterdam.\n\nWe’ll be alongside some of the most innovative companies in AI, showing how North brings cloud, AI, and data spend into one platform.\n\nWe're also opening u"
+    },
+    {
+     "date_posted": "2026-08-29",
+     "post_type": "original",
+     "engagement": 40.0,
+     "text": "Amilia Bon from StartupFortune recently covered the launch of North v3 and how it's bringing cloud, AI, and data into one operating system ⬇️\n\n\"AI spend used to be small enough to overlook. Now it is "
+    },
+    {
+     "date_posted": "2026-08-29",
+     "post_type": "original",
+     "engagement": 37.0,
+     "text": "SiliconANGLE & theCUBE's Duncan Riley took a closer look at North v3's biggest additions, including how Autobot automates commitment buying.\n\n\"North v3 also introduces Autobot, which automates the buy"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "North",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 6105,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 0.6989700043360189,
+    "posts_per_30d": 0.161725,
+    "days_since_last_post": 730.0,
+    "log_median_engagement": 0.0,
+    "log_mean_engagement": 0.0,
+    "video_share": 0.0,
+    "original_share": 1.0,
+    "n_posts": 4.0,
+    "median_engagement": 0.0,
+    "mean_engagement": 0.0,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.25
+   },
+   "n_posts": 4,
+   "total_count": 4.0,
+   "snippets": [
+    {
+     "date_posted": "2019-08-12",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Fabulyst Pvt. Ltd. will be showcasing at Shoptalk on 4th and 5th March at The Venetian, Las Vegas. Our team will be available at booth #SS25. To schedule an appointment please reach out to sales@fabul"
+    },
+    {
+     "date_posted": "2017-08-07",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Thanks Axilor Ventures for the very helpful 100 days. \nKomal Prajapati Vikas Jethnani Vishal Chitravanshi raj parakh  Shiny Alexander"
+    },
+    {
+     "date_posted": "2017-07-31",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Fabulyst is a part of Axilor Winter Batch 2016. \n\nhttps://lnkd.in/fBf3WbM"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "2",
+   "name": "Fabulyst AI",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 6286833,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 1.0,
+    "posts_per_30d": 0.378151,
+    "days_since_last_post": 81.0,
+    "log_median_engagement": 0.9030899869919435,
+    "log_mean_engagement": 1.066946789630613,
+    "video_share": 0.0,
+    "original_share": 0.4444444444444444,
+    "n_posts": 9.0,
+    "median_engagement": 7.0,
+    "mean_engagement": 10.666666666666666,
+    "topic_customers": 0.0,
+    "topic_launches": 0.1111111111111111,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.2222222222222222,
+    "topic_partnerships": 0.1111111111111111,
+    "topic_events": 0.0
+   },
+   "n_posts": 9,
+   "total_count": 9.0,
+   "snippets": [
+    {
+     "date_posted": "2026-08-11",
+     "post_type": "original",
+     "engagement": 2.0,
+     "text": "We are looking for a Senior Manager to help build relationships with outstanding Norwegian business owners, advisers and strategic partners, and to contribute to our long-term ambition of creating val"
+    },
+    {
+     "date_posted": "2025-08-23",
+     "post_type": "original",
+     "engagement": 1.0,
+     "text": "2030 VISION"
+    },
+    {
+     "date_posted": "2025-08-08",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "April 07, 2025 | 9:30 PM CEST\n\nThe strategies that fueled 2024’s record-breaking momentum have hit a wall in 2025, and the shift is accelerating. We’re seeing echoes of 2018—tariff pressures, growth c"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "4.5",
+   "name": "Valhalla",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 713435,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.093421685162235,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 60.0,
+    "log_median_engagement": 1.1903316981702914,
+    "log_mean_engagement": 1.294466226161593,
+    "video_share": 0.0,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 14.5,
+    "mean_engagement": 18.7,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.1,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 123.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "original",
+     "engagement": 11.0,
+     "text": "Think we’d let #NationalDogDay go by unnoticed? Pug-get about it!\n\nToday, we’re celebrating our favorite pup, WIRE! WIRE runs missions throughout Novva’s campuses to collect data, monitor equipment, a"
+    },
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "original",
+     "engagement": 54.0,
+     "text": "Novva Data Centers has been shortlisted for Data Centre Operator of the Year at the #GlobalConnectivityAwards!\n\nSince opening our first facility in 2021, Novva has grown to six facilities across the W"
+    },
+    {
+     "date_posted": "2026-08-25",
+     "post_type": "original",
+     "engagement": 13.0,
+     "text": "Power? Check.\nCooling? Check.\nScalability? Check.\n\nIf only it were that easy! Choosing the right colocation partner takes more than checking boxes. The right facility needs to support your business wh"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Novva Data Centers",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 6043,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 0.0,
+    "log_total_posts": 0.0,
+    "posts_per_30d": 0.0,
+    "days_since_last_post": 0.0,
+    "log_median_engagement": 0.0,
+    "log_mean_engagement": 0.0,
+    "video_share": 0.0,
+    "original_share": 0.0,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0,
+    "n_posts": 0.0,
+    "median_engagement": 0.0,
+    "mean_engagement": 0.0
+   },
+   "n_posts": 0,
+   "total_count": null,
+   "snippets": [],
+   "mode": "LIVE",
+   "credits_used": "0",
+   "name": "Clip",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 6168,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 0.7781512503836436,
+    "posts_per_30d": 0.364964,
+    "days_since_last_post": 730.0,
+    "log_median_engagement": 0.0,
+    "log_mean_engagement": 0.0,
+    "video_share": 0.0,
+    "original_share": 1.0,
+    "n_posts": 5.0,
+    "median_engagement": 0.0,
+    "mean_engagement": 0.0,
+    "topic_customers": 0.4,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.4,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 5,
+   "total_count": 5.0,
+   "snippets": [
+    {
+     "date_posted": "2017-09-18",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Blockchain Poised To Be A Game Changer For Food Safety \n\n#Bitcoin #Coinsecure\n\nhttp://buff.ly/2fI1Wxu"
+    },
+    {
+     "date_posted": "2017-08-13",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Coinsecure is Hiring!!\n\nWe are looking for a compliance officer to join our team with immediate effect at our Delhi office.\nYou will need to have a min of 6 months working experience, preferably at a "
+    },
+    {
+     "date_posted": "2017-08-04",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Innovating remittance @bensonsamuel CTO & Co-founder @Coinsecure at #IMTCASIA \n\n#Bitcoin #Blockchain"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "2.5",
+   "name": "Coinsecure",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 1245740,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 0.0,
+    "log_total_posts": 0.0,
+    "posts_per_30d": 0.0,
+    "days_since_last_post": 0.0,
+    "log_median_engagement": 0.0,
+    "log_mean_engagement": 0.0,
+    "video_share": 0.0,
+    "original_share": 0.0,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0,
+    "n_posts": 0.0,
+    "median_engagement": 0.0,
+    "mean_engagement": 0.0
+   },
+   "n_posts": 0,
+   "total_count": null,
+   "snippets": [],
+   "mode": "LIVE",
+   "credits_used": "0",
+   "name": "帝尔博格(深圳)智能科技有限公司",
+   "stratum": "11-50"
+  },
+  {
+   "company_id": 631893,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.835056101720116,
+    "posts_per_30d": 2.205882,
+    "days_since_last_post": 65.0,
+    "log_median_engagement": 2.4265112613645754,
+    "log_mean_engagement": 2.4992745818922173,
+    "video_share": 0.0,
+    "original_share": 0.0,
+    "n_posts": 10.0,
+    "median_engagement": 266.0,
+    "mean_engagement": 314.7,
+    "topic_customers": 0.3,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.2,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 683.0,
+   "snippets": [
+    {
+     "date_posted": "2026-08-27",
+     "post_type": "repost_without_thoughts",
+     "engagement": 474.0,
+     "text": "We are thrilled to announce that Groq will be among the first adopters of NVIDIA Groq 3 LPX, deploying it alongside NVIDIA Vera Rubin NVL72 in our purpose-built AI inference Cloud. Groq is working wit"
+    },
+    {
+     "date_posted": "2026-08-20",
+     "post_type": "repost_without_thoughts",
+     "engagement": 469.0,
+     "text": "Today we announced a $350M Series A, led by Disruptive with planned participation from NVIDIA, valuing Groq at $3.5B. Together with June's $650M, that's $1 billion raised in two months.\n\nInference is "
+    },
+    {
+     "date_posted": "2026-08-18",
+     "post_type": "repost_quote",
+     "engagement": 258.0,
+     "text": "The hits keeping coming 🎶 congrats to the team on this amazing news!"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Groq",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 780203,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.6532125137753435,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 53.0,
+    "log_median_engagement": 1.3010299956639813,
+    "log_mean_engagement": 1.4424797690644486,
+    "video_share": 0.1,
+    "original_share": 0.8,
+    "n_posts": 10.0,
+    "median_engagement": 19.0,
+    "mean_engagement": 26.7,
+    "topic_customers": 0.5,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.1,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 449.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 9.0,
+     "text": "More connectivity for #Hamburg! As we continue to expand our data centre capacity in the Hamburg region, we're also strengthening the #connectivity ecosystem available to our customers in Northern Ger"
+    },
+    {
+     "date_posted": "2026-09-02",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "As our customers grow, so do we! At our Hamburg Data Centre HAM002, we're expanding capacity with a modular approach that enables faster deployment and efficient scaling. Phase two will add 3.2 MW of "
+    },
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "original",
+     "engagement": 22.0,
+     "text": "❓Where Germany’s next digital infrastructure growth markets are taking shape\n\n#Location is becoming an increasingly critical factor in Germany’s digital infrastructure landscape. While Frankfurt remai"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "AtlasEdge",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 1128887,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.204119982655925,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 45.0,
+    "log_median_engagement": 2.4800069429571505,
+    "log_mean_engagement": 2.7191654940892134,
+    "video_share": 0.3,
+    "original_share": 0.3,
+    "n_posts": 10.0,
+    "median_engagement": 301.0,
+    "mean_engagement": 522.8,
+    "topic_customers": 0.2,
+    "topic_launches": 0.2,
+    "topic_hiring": 0.1,
+    "topic_funding": 0.1,
+    "topic_partnerships": 0.1,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 159.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-16",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Ouliana Trofimenko has joined Cognition as our Global VP of Talent Acquisition.\n\nOuliana was most recently Global VP of Talent Acquisition and Executive Search at Scale AI, where she built the recruit"
+    },
+    {
+     "date_posted": "2026-09-15",
+     "post_type": "repost_without_thoughts",
+     "engagement": 296.0,
+     "text": "Cognition and Amazon Web Services (AWS) team up to help ambitious teams ship more, faster.\n\nWe're excited to collaborate more closely with AWS to help customers modernize faster on the infrastructure "
+    },
+    {
+     "date_posted": "2026-09-15",
+     "post_type": "repost_without_thoughts",
+     "engagement": 466.0,
+     "text": "Special delivery: Devin just got a Mac. 🍎\n\nStarting today, Devin can build and test iOS and macOS apps on its own Mac VM, with the iOS Simulator running right inside the session.\n\nAsk it to build some"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Cognition",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 1214842,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.1583624920952498,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 53.0,
+    "log_median_engagement": 1.7817553746524688,
+    "log_mean_engagement": 1.7993405494535817,
+    "video_share": 0.2,
+    "original_share": 0.3,
+    "n_posts": 10.0,
+    "median_engagement": 59.5,
+    "mean_engagement": 62.0,
+    "topic_customers": 0.3,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.1,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.4,
+    "topic_events": 0.1
+   },
+   "n_posts": 10,
+   "total_count": 143.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "repost_without_thoughts",
+     "engagement": 142.0,
+     "text": "Last week, something exciting happened at City Hall in Temple, Texas.\n\nWorkers from across Rowan’s projects showed up to stand behind our company as we pursue approval for a sixth data center building"
+    },
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "repost_without_thoughts",
+     "engagement": 50.0,
+     "text": "The future workforce isn't built when someone applies for their first job.\n\nIt's built years earlier, in classrooms, after-school programs, community organizations, and through the mentors who encoura"
+    },
+    {
+     "date_posted": "2026-09-04",
+     "post_type": "original",
+     "engagement": 66.0,
+     "text": "Great projects begin with passionate people.\n\nEvery member of the Rowan team brings unique experiences, perspectives, and expertise to the work we do, and those individual stories help shape how we ap"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Rowan Digital Infrastructure",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 1253054,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 1.968482948553935,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 50.0,
+    "log_median_engagement": 1.1613680022349748,
+    "log_mean_engagement": 1.255272505103306,
+    "video_share": 0.3,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 13.5,
+    "mean_engagement": 17.0,
+    "topic_customers": 0.1,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 92.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-11",
+     "post_type": "original",
+     "engagement": 16.0,
+     "text": "The message wasn’t lost. It was exactly where it had been sent. \n\nBeside dinner plans, school updates, family photos and dozens of personal notifications. \n\nNearly half of employees have missed an imp"
+    },
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "original",
+     "engagement": 10.0,
+     "text": "You can’t build the future of work on someone’s personal phone.\n\n34% of employees had their number shared for work without consent. \nAnother 22% were added to a work group chat without being asked.\n\nP"
+    },
+    {
+     "date_posted": "2026-09-09",
+     "post_type": "original",
+     "engagement": 22.0,
+     "text": "The problem with an after-hours message is not when it arrives.\n\nIt’s what employees believe will happen if they don’t answer.\n\nWork messages outside working hours are nearly universal. But for 60% of"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Zenzap",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 5791,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 0.9030899869919435,
+    "posts_per_30d": 0.575342,
+    "days_since_last_post": 730.0,
+    "log_median_engagement": 0.0,
+    "log_mean_engagement": 0.0,
+    "video_share": 0.0,
+    "original_share": 1.0,
+    "n_posts": 7.0,
+    "median_engagement": 0.0,
+    "mean_engagement": 0.0,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.7142857142857143,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 7,
+   "total_count": 7.0,
+   "snippets": [
+    {
+     "date_posted": "2021-08-01",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Hello Connections,\n\n#Mall91 is hiring\n\n1- Odoo Developer\nExperience- 2-4 years\n\n2- Vue js Developer\nExperience- 1-2 years\n\nLocation- Noida\n\nInterested candidates can share their resume at Khyati@mall9"
+    },
+    {
+     "date_posted": "2020-09-07",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "We’re hiring HTML and Vue.JS developers for our engineering team in Noida.\n\nIf you like to develop cool web apps, are an expert in Javascript or HTML and have a firm grasp of Vue.JS , we’d like to tal"
+    },
+    {
+     "date_posted": "2020-08-01",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Hello Folks,\n\nWe are looking for Sr. Python Developers.\nTexp- 5+ years\n \n\nJob Description\n· Expert in Python, with knowledge of at least one Python web framework such as Django, Flask, etc depending o"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "3.5",
+   "name": "Mall91",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 632514,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.7573960287930244,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 53.0,
+    "log_median_engagement": 0.9030899869919435,
+    "log_mean_engagement": 1.130333768495006,
+    "video_share": 0.2,
+    "original_share": 0.6,
+    "n_posts": 10.0,
+    "median_engagement": 7.0,
+    "mean_engagement": 12.5,
+    "topic_customers": 0.2,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.1,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 571.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 1.0,
+     "text": "More control. Cleaner data. More trustworthy golden records.\n\nTamr’s August product updates make it easier to fine-tune record matching, standardize source data, enrich company records with external f"
+    },
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "original",
+     "engagement": 4.0,
+     "text": "Happy Labor Day from Tamr!\n\nToday, we celebrate the hard work and dedication of our incredible team, customers, and partners. Thank you for all that you do to make data better!"
+    },
+    {
+     "date_posted": "2026-09-04",
+     "post_type": "original",
+     "engagement": 4.0,
+     "text": "The golden record is no longer the destination. It’s the foundation.\n\nAs AI and AI agents reshape the enterprise, organizations need data that goes beyond accurate and unified. It needs to be contextu"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Tamr",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 1890837,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.53655844257153,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 45.0,
+    "log_median_engagement": 1.4771212547196624,
+    "log_mean_engagement": 1.4608978427565478,
+    "video_share": 0.2,
+    "original_share": 0.4,
+    "n_posts": 10.0,
+    "median_engagement": 29.0,
+    "mean_engagement": 27.9,
+    "topic_customers": 0.3,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 343.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-16",
+     "post_type": "repost_without_thoughts",
+     "engagement": 40.0,
+     "text": "Nearly 55,000 conversations. 21 languages. 70% more fans clicking through to checkout. One AI concierge, 60 days, one of the most iconic circuits in motorsport.\n\nHere is what happened when Spa Grand P"
+    },
+    {
+     "date_posted": "2026-09-11",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "A face, a voice, and memory.\n\nNapster CEO John Acunto spoke to New York Stock Exchange about what makes Napster's AI unique, and the through-line from the company's humble beginnings to today.\n\nhttps:"
+    },
+    {
+     "date_posted": "2026-09-11",
+     "post_type": "repost_without_thoughts",
+     "engagement": 29.0,
+     "text": "Enterprise-scale AI. Backed by Microsoft. Built by Napster.\n\nProcure directly on the Azure marketplace using your committed Microsoft spend, no new hoops to jump through. Just the AI your business nee"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Napster Corp.",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 4681,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.2174839442139063,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 76.0,
+    "log_median_engagement": 1.1903316981702914,
+    "log_mean_engagement": 1.4771212547196624,
+    "video_share": 0.1,
+    "original_share": 0.4,
+    "n_posts": 10.0,
+    "median_engagement": 14.5,
+    "mean_engagement": 29.0,
+    "topic_customers": 0.2,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 164.0,
+   "snippets": [
+    {
+     "date_posted": "2026-08-16",
+     "post_type": "repost_without_thoughts",
+     "engagement": 12.0,
+     "text": "𝗔 𝘀𝗶𝗻𝗴𝗹𝗲 𝗰𝘆𝗯𝗲𝗿𝗮𝘁𝘁𝗮𝗰𝗸 𝗰𝗼𝘂𝗹𝗱 𝗹𝗲𝗮𝘃𝗲 𝘆𝗼𝘂𝗿 𝗯𝘂𝘀𝗶𝗻𝗲𝘀𝘀 𝘀𝘁𝗿𝗮𝗻𝗱𝗲𝗱 — halting operations, disrupting critical systems, and putting customer trust at risk in an instant.\n\nSo, is your business prepared to bounce ba"
+    },
+    {
+     "date_posted": "2026-08-16",
+     "post_type": "repost_without_thoughts",
+     "engagement": 15.0,
+     "text": "𝗘𝗹𝗲𝘃𝗮𝘁𝗲 𝘆𝗼𝘂𝗿 𝗰𝘆𝗯𝗲𝗿𝘀𝗲𝗰𝘂𝗿𝗶𝘁𝘆 𝗰𝗮𝗿𝗲𝗲𝗿 𝘄𝗶𝘁𝗵 𝗴𝗹𝗼𝗯𝗮𝗹𝗹𝘆 𝗿𝗲𝗰𝗼𝗴𝗻𝗶𝘇𝗲𝗱 𝗜𝗦𝗖𝟮 𝗰𝗿𝗲𝗱𝗲𝗻𝘁𝗶𝗮𝗹𝘀!\n\nTake the next step in your cybersecurity career and sit your ISC2 exams — including CC, SSCP, CISSP, CCSP, and more — at t"
+    },
+    {
+     "date_posted": "2026-08-10",
+     "post_type": "repost_without_thoughts",
+     "engagement": 28.0,
+     "text": "Our Mobile Money Payment System helps organizations seamlessly track worker hours, calculate wages, and disburse payments straight to employees' mobile money wallets.\n\nFrom USSD functionality for simp"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Sparc Systems Limited",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 5802,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.27415784926368,
+    "posts_per_30d": 3.333333,
+    "days_since_last_post": 53.0,
+    "log_median_engagement": 1.423245873936808,
+    "log_mean_engagement": 1.4409090820652177,
+    "video_share": 0.0,
+    "original_share": 0.3,
+    "n_posts": 10.0,
+    "median_engagement": 25.5,
+    "mean_engagement": 26.6,
+    "topic_customers": 0.3,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.1,
+    "topic_funding": 0.1,
+    "topic_partnerships": 0.4,
+    "topic_events": 0.3
+   },
+   "n_posts": 10,
+   "total_count": 187.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 10.0,
+     "text": "🤝 🚗  Cox Automotive Inc. has just named Nova Credit its preferred partner for embedded cash flow intelligence, starting with Income Navigator integrated natively into Dealertrack.\n\nBuying a car is one"
+    },
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "repost_quote",
+     "engagement": 16.0,
+     "text": "A few years ago, cash flow underwriting was a promising idea. Today, cash flow data is live and powering many of the largest banks, fintechs, and property platforms in the country.\n\nThat's the story b"
+    },
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "repost_quote",
+     "engagement": 4.0,
+     "text": "Welcome Jennifer (Glaspie) Lundstrom! We are thrilled to have you aboard."
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Nova Credit",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 690154,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 1.9912260756924949,
+    "posts_per_30d": 5.454545,
+    "days_since_last_post": 58.0,
+    "log_median_engagement": 1.414973347970818,
+    "log_mean_engagement": 1.5440680443502757,
+    "video_share": 0.0,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 25.0,
+    "mean_engagement": 34.0,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.1,
+    "topic_partnerships": 0.5,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 97.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-03",
+     "post_type": "original",
+     "engagement": 21.0,
+     "text": "Our Co-Founder and CEO Ben Halliday will join industry leaders at IMN’s Manufactured Housing East to discuss the forces shaping today’s financing market, from mortgages and rates to geopolitics and ma"
+    },
+    {
+     "date_posted": "2026-09-02",
+     "post_type": "original",
+     "engagement": 27.0,
+     "text": "Welcome to Zippy, Chad!"
+    },
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "original",
+     "engagement": 23.0,
+     "text": "A fast qualification decision is a great start, but speed should not stop there. At Zippy, speed is built into every step of the lending process to keep each loan moving from application to closing.\n\n"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Zippy",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 842439,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.24551266781415,
+    "posts_per_30d": 5.0,
+    "days_since_last_post": 53.0,
+    "log_median_engagement": 1.8721562727482928,
+    "log_mean_engagement": 1.9360107957152095,
+    "video_share": 0.5,
+    "original_share": 0.6,
+    "n_posts": 10.0,
+    "median_engagement": 73.5,
+    "mean_engagement": 85.3,
+    "topic_customers": 0.0,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.3,
+    "topic_events": 0.2
+   },
+   "n_posts": 10,
+   "total_count": 175.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 23.0,
+     "text": "We’re headed to Indianapolis for CIEX Chemical Innovation Summit, where we’re looking forward to connecting with R&D, innovation, and sustainability leaders from across the chemical industry.\n\nOur CEO"
+    },
+    {
+     "date_posted": "2026-09-03",
+     "post_type": "original",
+     "engagement": 77.0,
+     "text": "Your team has decades of knowledge. The hard part is finding it.\n \nWe've worked with some of the largest R&D organizations in the chemical industry, and we hear the same examples over and over again. "
+    },
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "original",
+     "engagement": 71.0,
+     "text": "Most R&D organizations have invested in AI, but very few are seeing the value they expected.\n \nOur Head of AI/ML, Jonathan Welch, sat down with Innovation Research Interchange to talk about where comp"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Albert Invent",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 5758,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.481442628502305,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 51.0,
+    "log_median_engagement": 0.5440680443502757,
+    "log_mean_engagement": 0.6232492903979004,
+    "video_share": 0.1,
+    "original_share": 1.0,
+    "n_posts": 10.0,
+    "median_engagement": 2.5,
+    "mean_engagement": 3.2,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.4
+   },
+   "n_posts": 10,
+   "total_count": 302.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Four illnesses. Same first day. Very different weeks. 🤒\n\nColds, flu, COVID-19 and RSV are hard to tell apart when they start, which is why people either panic early or wait too long. Dr. Dulitha Perer"
+    },
+    {
+     "date_posted": "2026-09-09",
+     "post_type": "original",
+     "engagement": 2.0,
+     "text": "Here's to the people who walk the long road with you. \n\nRecovery is not a single moment. It is weeks of showing up, most of them on days you would rather not. Physiotherapists are the ones who keep pe"
+    },
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "The cheapest capacity in healthcare is capacity you don't have to build.\n\nIn a new FE Healthcare interview, Abhishek Shah, President of TruDoc Healthcare, explains why hospital-at-home is outperformin"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Wellthy Therapeutics (acquired by TruDoc)",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 633695,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.3443922736851106,
+    "posts_per_30d": 3.370787,
+    "days_since_last_post": 51.0,
+    "log_median_engagement": 1.6766936096248666,
+    "log_mean_engagement": 1.7944880466591697,
+    "video_share": 0.0,
+    "original_share": 0.5,
+    "n_posts": 10.0,
+    "median_engagement": 46.5,
+    "mean_engagement": 61.3,
+    "topic_customers": 0.0,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.1,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.4,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 220.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "repost_without_thoughts",
+     "engagement": 14.0,
+     "text": "Epsilon Health is the fastest growing practice EVER on the Sirona platform.  Rustin Rassoli & Roi Bittane MD have been quietly reimagining the practice of radiology from first principals for the AI ag"
+    },
+    {
+     "date_posted": "2026-09-04",
+     "post_type": "repost_without_thoughts",
+     "engagement": 37.0,
+     "text": "Cloud-native from day one, not retrofitted.\n\nMost PACS platforms started as on-premise software and grafted cloud features on top. The architecture still assumes the old world.\n\nSirona was built cloud"
+    },
+    {
+     "date_posted": "2026-08-25",
+     "post_type": "original",
+     "engagement": 20.0,
+     "text": "Microsoft has announced end of support for PowerScribe 360.  \n\nOver the next 12 months, 75% of radiology groups will make the most consequential architecture decision of the last decade: is the future"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Sirona Medical",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 956850,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.639486489268586,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 53.0,
+    "log_median_engagement": 1.146128035678238,
+    "log_mean_engagement": 1.1931245983544616,
+    "video_share": 0.3,
+    "original_share": 0.7,
+    "n_posts": 10.0,
+    "median_engagement": 13.0,
+    "mean_engagement": 14.6,
+    "topic_customers": 0.3,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 435.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 5.0,
+     "text": "The NFL is engineered so nobody starts the season with an unfair advantage. Same salary cap, same draft pool, same game film, and any play that works gets copied league-wide by next year.\n\nThe same ha"
+    },
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "original",
+     "engagement": 16.0,
+     "text": "The best idea wins here. Irrespective of your title.\n\nRapidCanvas co-founder and CTO Uttam Phalnikar on how the team actually works: no world where product writes requirements, engineering builds them"
+    },
+    {
+     "date_posted": "2026-09-03",
+     "post_type": "repost_without_thoughts",
+     "engagement": 15.0,
+     "text": "Your ledger has a place where cash goes to wait.\n\nA payment clears. No one can tell which invoice it belongs to, or why the amount doesn't match what was billed. So it sits, in suspense, until someone"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "RapidCanvas",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 5735,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.4183012913197452,
+    "posts_per_30d": 1.960784,
+    "days_since_last_post": 50.0,
+    "log_median_engagement": 1.7323937598229686,
+    "log_mean_engagement": 1.8488047010518038,
+    "video_share": 0.3,
+    "original_share": 0.4,
+    "n_posts": 10.0,
+    "median_engagement": 53.0,
+    "mean_engagement": 69.6,
+    "topic_customers": 0.1,
+    "topic_launches": 0.2,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.1,
+    "topic_events": 0.1
+   },
+   "n_posts": 10,
+   "total_count": 261.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-11",
+     "post_type": "repost_without_thoughts",
+     "engagement": 35.0,
+     "text": "Legacy TSPs charge you per transaction. UPI Engage monetises every one of them.\n\nUPI Engage is your switch, supercharged.\nIssuance, intelligence, engagement and credit in one chain. Transact, understa"
+    },
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "repost_without_thoughts",
+     "engagement": 47.0,
+     "text": "A gap in the data is the gap in the truth.\n\nMost systems just can't read the hidden income, missed EMIs, spending patterns, default signals. SignalIQ reads all of it. Every transaction is categorised,"
+    },
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "repost_quote",
+     "engagement": 46.0,
+     "text": "From being a founder to building financial products, Ramkumar Thirumurthi has solved complex problems across financial services and technology. Today, he brings that experience to shape the growth and"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Setu",
+   "stratum": "51-200"
+  },
+  {
+   "company_id": 5754,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 1.845098040014257,
+    "posts_per_30d": 0.831025,
+    "days_since_last_post": 452.0,
+    "log_median_engagement": 2.105510184769974,
+    "log_mean_engagement": 2.1690863574870227,
+    "video_share": 0.2,
+    "original_share": 0.1,
+    "n_posts": 10.0,
+    "median_engagement": 126.5,
+    "mean_engagement": 146.6,
+    "topic_customers": 0.1,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.1,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 69.0,
+   "snippets": [
+    {
+     "date_posted": "2025-08-05",
+     "post_type": "repost_without_thoughts",
+     "engagement": 86.0,
+     "text": "This Independence Day, we proudly celebrate the spirit of freedom and unity that binds us as one. Together, let’s plant the seeds of a prosperous future, nurturing growth, innovation, and harmony acro"
+    },
+    {
+     "date_posted": "2024-09-12",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Bijak's Diwali Party was an unforgettable day with most cherished moments 🎊\n\nWe immersed ourselves in the essence of togetherness, celebrated success, and embraced the radiant glow of festivities. Our"
+    },
+    {
+     "date_posted": "2024-09-12",
+     "post_type": "repost_without_thoughts",
+     "engagement": 120.0,
+     "text": "Meet Kumar Siddhant, the wizard of Finance at Bijak!\nHis humility is magnetic and his work is a testament to his exceptional professional prowess. Here’s to Siddhant, the silent force shaping our comp"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Bijak",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 1035762,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.526339277389844,
+    "posts_per_30d": 7.692308,
+    "days_since_last_post": 254.0,
+    "log_median_engagement": 2.4216039268698313,
+    "log_mean_engagement": 2.649821463224565,
+    "video_share": 0.3,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 263.0,
+    "mean_engagement": 445.5,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.2,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 335.0,
+   "snippets": [
+    {
+     "date_posted": "2026-02-19",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "In collaboration with the NBA, ADQ has inaugurated a newly refurbished basketball court at Khalifa University, advancing its investment in social infrastructure and community assets across Abu Dhabi.\n"
+    },
+    {
+     "date_posted": "2026-02-14",
+     "post_type": "repost_without_thoughts",
+     "engagement": 1060.0,
+     "text": "Today we bid farewell to our MD & Group CEO, Mohamed Hassan Alsuwaidi, after seven years of leadership that shaped ADQ into the strong and close-knit family it is today. \n\nHis vision, values, and dedi"
+    },
+    {
+     "date_posted": "2026-02-10",
+     "post_type": "original",
+     "engagement": 98.0,
+     "text": "During Abu Dhabi Sustainability Week - ADSW, Noora Obaid, MBA, Director of Sustainable Investing at ADQ, shared what this approach means in practice for the organization in the latest SEMAFOR newslett"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "ADQ",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 631457,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.2405492482825995,
+    "posts_per_30d": 2.34375,
+    "days_since_last_post": 45.0,
+    "log_median_engagement": 1.5440680443502757,
+    "log_mean_engagement": 1.5658478186735176,
+    "video_share": 0.0,
+    "original_share": 0.5,
+    "n_posts": 10.0,
+    "median_engagement": 34.0,
+    "mean_engagement": 35.8,
+    "topic_customers": 0.4,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.1,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 173.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-16",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Generate is proud to join leaders across the AI and energy sectors in launching the AI Energy Management Alliance (AEMA) alongside founding members Emerald AI, Google, NVIDIA, and leading industry pee"
+    },
+    {
+     "date_posted": "2026-08-09",
+     "post_type": "original",
+     "engagement": 30.0,
+     "text": "Everyone is chasing the next data center. Not enough people are asking who powers it.\n \nOur CEO David Crane was featured in CNBC's Power Insider newsletter as the Inside Line guest this week to cut th"
+    },
+    {
+     "date_posted": "2026-07-10",
+     "post_type": "original",
+     "engagement": 19.0,
+     "text": "Generate Capital Board Director Richard Kauffman, CEO of CGC and former Chairman of Energy and Finance for New York, shares his perspective in a new opinion piece in The Washington Post on one of the "
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Generate",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 5728,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.683947130751512,
+    "posts_per_30d": 9.375,
+    "days_since_last_post": 51.0,
+    "log_median_engagement": 1.866287339084195,
+    "log_mean_engagement": 2.2203696324513946,
+    "video_share": 0.0,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 72.5,
+    "mean_engagement": 165.1,
+    "topic_customers": 0.0,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.2
+   },
+   "n_posts": 10,
+   "total_count": 482.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "repost_without_thoughts",
+     "engagement": 580.0,
+     "text": "𝐃𝐀𝐘 2 𝐈𝐒 𝐀 𝐖𝐑𝐀𝐏. 𝐀𝐍𝐃 𝐖𝐇𝐀𝐓 𝐀 𝐖𝐀𝐘 𝐓𝐎 𝐆𝐎 𝐎𝐔𝐓.🔥👏 \n\nThe Grand Theatre was packed to the brim. 🎉 \nThe energy? Off the charts. ⚡ \n\nWe unveiled 𝐁𝐡𝐚𝐫𝐚𝐭𝐏𝐞 𝐅𝐥𝐞𝐱 in front of a buzzing room, with 𝐑𝐨𝐡𝐢𝐭 𝐒𝐡𝐚𝐫𝐦𝐚, 𝐕𝐚𝐫"
+    },
+    {
+     "date_posted": "2026-09-05",
+     "post_type": "original",
+     "engagement": 301.0,
+     "text": "Something BIG 😎 Something EXCITING😃Something NEW ✨ is brewing at BharatPe. 👀\nAnd we’re bringing it to Global Fintech Fest 2026 with Rohit Sharma! 😍 \n\n10th September 2026. Stay tuned!\n\n#BharatPe #HaiYa"
+    },
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "original",
+     "engagement": 79.0,
+     "text": "Mumbai, here we come!\n\nBharatPe will be at Global Fintech Fest 2026, and we’re looking forward to sharing what we’ve been working on, meeting the people shaping the ecosystem, and bringing a little Bh"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "BharatPe",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 780226,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.287801729930226,
+    "posts_per_30d": 9.677419,
+    "days_since_last_post": 52.0,
+    "log_median_engagement": 1.7634279935629373,
+    "log_mean_engagement": 1.7678976160180906,
+    "video_share": 0.6,
+    "original_share": 0.5,
+    "n_posts": 10.0,
+    "median_engagement": 57.0,
+    "mean_engagement": 57.6,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.1,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 193.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-09",
+     "post_type": "repost_without_thoughts",
+     "engagement": 54.0,
+     "text": "Our COO, Adrian Copland, is taking the stage at ITC Vegas alongside Socotra founder and CEO Dan Woods for \"Zero to Product in 10 Minutes with AI.\"\n\nIf you're at ITC Vegas, don't miss it!"
+    },
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 53.0,
+     "text": "A warm welcome to the newest faces at Ledgebrook 👋\n\nThey're stepping into a range of roles across the organization, and we're glad to have them with us.\n\nWelcome aboard!\n\nWalter Wilmshurst, CPCU, AMIM"
+    },
+    {
+     "date_posted": "2026-09-02",
+     "post_type": "repost_quote",
+     "engagement": 18.0,
+     "text": "We’re really proud to sponsor the 2nd Fore.Sure Classic as a Silver Sponsor! ⛳️💚\n\nIt’s fantastic to support an event that brings women across the insurance industry together to connect, build relation"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Ledgebrook",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 5768,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.311753861055754,
+    "posts_per_30d": 1.775148,
+    "days_since_last_post": 64.0,
+    "log_median_engagement": 2.376576957056512,
+    "log_mean_engagement": 2.436639631692661,
+    "video_share": 0.1,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 237.0,
+    "mean_engagement": 272.3,
+    "topic_customers": 0.1,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.1,
+    "topic_funding": 0.1,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 204.0,
+   "snippets": [
+    {
+     "date_posted": "2026-08-28",
+     "post_type": "repost_without_thoughts",
+     "engagement": 134.0,
+     "text": "May the vibrant festival of Onam bring growth, success, and endless joy to your homes and businesses. From the entire team Jumbotail, we wish you and your family a prosperous and Happy Onam!\n\nEllavark"
+    },
+    {
+     "date_posted": "2026-08-18",
+     "post_type": "original",
+     "engagement": 305.0,
+     "text": "As India turns 80 today, we at Jumbotail remain deeply committed to helping build a confident, capable, and technologically advanced India, powered by inclusive growth that leaves no one behind.🚀⚙️💪\n\n"
+    },
+    {
+     "date_posted": "2026-08-09",
+     "post_type": "original",
+     "engagement": 377.0,
+     "text": "To the heroes who stood their ground so a nation could move forward!\n\n27 years ago, our brave soldiers scripted a saga of valour on the icy heights of Kargil. At Jumbotail, we bow our heads in gratitu"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Jumbotail",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 5847,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.5622928644564746,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 143.0,
+    "log_median_engagement": 1.0,
+    "log_mean_engagement": 1.3031960574204888,
+    "video_share": 0.0,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 9.0,
+    "mean_engagement": 19.1,
+    "topic_customers": 0.2,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 364.0,
+   "snippets": [
+    {
+     "date_posted": "2026-06-10",
+     "post_type": "original",
+     "engagement": 8.0,
+     "text": "When family drops by unexpectedly, your schedule shouldn’t have to slow down. 🚘✨\n\nWith Droom Rides, getting a premium chauffeur-driven car is quick, reliable, and hassle-free. Whether it’s airport pic"
+    },
+    {
+     "date_posted": "2026-06-10",
+     "post_type": "original",
+     "engagement": 14.0,
+     "text": "⚡ Running low on charge? Your next EV charging station is just a tap away.\n\nWith MyDroom, finding verified EV charging stations nearby is now faster, easier, and stress-free. Whether you’re commuting "
+    },
+    {
+     "date_posted": "2026-06-10",
+     "post_type": "original",
+     "engagement": 10.0,
+     "text": "⚡ Buying a used EV? Don’t just test drive it — test its health too.\n\nWith ECO by Droom, get a comprehensive EV health report before you make your purchase decision. From battery performance to chargin"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Droom",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 2199033,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.513217600067939,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 52.0,
+    "log_median_engagement": 2.0149403497929366,
+    "log_mean_engagement": 2.0906107078284064,
+    "video_share": 0.0,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 102.5,
+    "mean_engagement": 122.2,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.1,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.2
+   },
+   "n_posts": 10,
+   "total_count": 325.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-09",
+     "post_type": "repost_without_thoughts",
+     "engagement": 390.0,
+     "text": "Nscale and Figure, a humanoid robotics company, have signed a multiyear strategic partnership with the potential to deploy up to 100,000 NVIDIA GPUs. \n\nWith an initial commitment of $3.5 billion of co"
+    },
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "original",
+     "engagement": 90.0,
+     "text": "Diagnosing a faulty GPU node has traditionally been manual work. Inside Nscale's Fleet Operations it happens on its own. \n\nIf a node fails validation or degrades in production, full testing across com"
+    },
+    {
+     "date_posted": "2026-09-02",
+     "post_type": "original",
+     "engagement": 64.0,
+     "text": "Nscale is a title sponsor of HumanX Europe. Join us September 22-24 in Amsterdam. \n\nWe will also be hosting the Startup Reception the evening of Thursday 24. \n\nIf you're training or serving models at "
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Nscale",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 673335,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.4756711883244296,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 58.0,
+    "log_median_engagement": 1.0969100130080565,
+    "log_mean_engagement": 1.2576785748691846,
+    "video_share": 0.3,
+    "original_share": 1.0,
+    "n_posts": 10.0,
+    "median_engagement": 11.5,
+    "mean_engagement": 17.1,
+    "topic_customers": 0.5,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.2
+   },
+   "n_posts": 10,
+   "total_count": 298.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-03",
+     "post_type": "original",
+     "engagement": 26.0,
+     "text": "That's a wrap on our first Visionaries Summit NYC. \n\n2 days. 8 panels. 24 speakers. \nHosted at KidSuper because the brands shaping the future of consumer and hospitality, deserve a platform as innovat"
+    },
+    {
+     "date_posted": "2026-09-03",
+     "post_type": "original",
+     "engagement": 36.0,
+     "text": "A closer look at our Visionaries. Here's a glimpse of the wisdom a few of them left us with.\n\nHilary Dubin, Co-founder & Co-CEO of Quit With Jones - \"Get out of the building.\" Hundreds of customer int"
+    },
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "original",
+     "engagement": 48.0,
+     "text": "Last night, our Wayflyer Visionaries came together for the first time: sharing stories, plans, and a whole lot of good energy before the big two days ahead.\n\nThe room was full of founders who built br"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Wayflyer",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 1045944,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.1583624920952498,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 51.0,
+    "log_median_engagement": 1.792391689498254,
+    "log_mean_engagement": 1.912753303671323,
+    "video_share": 0.6,
+    "original_share": 0.4,
+    "n_posts": 10.0,
+    "median_engagement": 61.0,
+    "mean_engagement": 80.8,
+    "topic_customers": 0.0,
+    "topic_launches": 0.3,
+    "topic_hiring": 0.1,
+    "topic_funding": 0.1,
+    "topic_partnerships": 0.1,
+    "topic_events": 0.1
+   },
+   "n_posts": 10,
+   "total_count": 143.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "repost_without_thoughts",
+     "engagement": 64.0,
+     "text": "Calling all Greater Boston comp bio builders: Modal, Anthropic, and Flagship Pioneering are teaming up for a full day hackathon on September 22. \n\nBring your ideas, we'll bring the Modal and Claude cr"
+    },
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "repost_without_thoughts",
+     "engagement": 319.0,
+     "text": "Modal is expanding in Europe with our new London office!\n\nEurope isn't new for us. Erik Bernhardsson, our co-founder and CEO, spent years at Spotify in Sweden before starting Modal, and our Stockholm "
+    },
+    {
+     "date_posted": "2026-09-03",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Botika trains proprietary foundation models and runs a 100TB data pipeline entirely on Modal, cutting error rates below 1% and taking researchers from 1-2 experiments a day to 50.\n\nWithout it, Botika'"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Modal",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 1325191,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.5440680443502757,
+    "posts_per_30d": 7.894737,
+    "days_since_last_post": 45.0,
+    "log_median_engagement": 2.0293837776852097,
+    "log_mean_engagement": 2.0472748673841794,
+    "video_share": 0.3,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 106.0,
+    "mean_engagement": 110.5,
+    "topic_customers": 0.1,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.1
+   },
+   "n_posts": 10,
+   "total_count": 349.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-16",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Khazna and Siemens have signed an MoU aimed at exploring the technologies shaping the next generation of AI data centers.\n \nThrough the MoU, the two companies will look to collaborate on AI-ready infr"
+    },
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 41.0,
+     "text": "Fabio Cattaneo, Chief Financial Officer at Khazna, will join the “Data Center Global Leadership Roundtable” at Platform Global 2026, by Platform Markets Group\n\nAlongside executive leaders from leading"
+    },
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 92.0,
+     "text": "Greg Jasmin, Chief Commercial Officer at Khazna, represented Khazna at the Global Energy Efficiency Alliance’s first Executive Technical Roundtable, held during the Middle East Energy conference under"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Khazna Data Centers",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 816155,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.6646419755561257,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 52.0,
+    "log_median_engagement": 1.1139433523068367,
+    "log_mean_engagement": 1.5526682161121932,
+    "video_share": 0.0,
+    "original_share": 0.7,
+    "n_posts": 10.0,
+    "median_engagement": 12.0,
+    "mean_engagement": 34.7,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 461.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-09",
+     "post_type": "repost_without_thoughts",
+     "engagement": 187.0,
+     "text": "Factored: AI & DATA Hackathon is now open for registration.\n\nThis September, experienced AI and data engineers from all over Latin America will take on a challenge inspired by the real-world complexit"
+    },
+    {
+     "date_posted": "2026-09-03",
+     "post_type": "original",
+     "engagement": 9.0,
+     "text": "Your next career-defining opportunity could be at Factored AI.\n\nWe bring together high-caliber professionals who take ownership, think critically, execute with precision, and turn their expertise into"
+    },
+    {
+     "date_posted": "2026-09-02",
+     "post_type": "original",
+     "engagement": 13.0,
+     "text": "Your next career-defining opportunity could be at Factored AI.\n\nWe bring together high-caliber professionals who take ownership, think critically, execute with precision, and turn their expertise into"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Factored",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 1942745,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.0681858617461617,
+    "posts_per_30d": 1.369863,
+    "days_since_last_post": 54.0,
+    "log_median_engagement": 1.146128035678238,
+    "log_mean_engagement": 1.2174839442139063,
+    "video_share": 0.2,
+    "original_share": 0.2,
+    "n_posts": 10.0,
+    "median_engagement": 13.0,
+    "mean_engagement": 15.5,
+    "topic_customers": 0.2,
+    "topic_launches": 0.3,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.1,
+    "topic_partnerships": 0.3,
+    "topic_events": 0.1
+   },
+   "n_posts": 10,
+   "total_count": 116.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "repost_without_thoughts",
+     "engagement": 50.0,
+     "text": "Today we're launching Interlay! \n\nThis new product is the result of a multi-year journey designing and building healthcare software with the support of AI. Interlay is informed by the challenges we fa"
+    },
+    {
+     "date_posted": "2026-09-06",
+     "post_type": "repost_quote",
+     "engagement": 6.0,
+     "text": "Great to see the Interlay launch featured on LSI’s weekly recap!"
+    },
+    {
+     "date_posted": "2026-08-31",
+     "post_type": "repost_without_thoughts",
+     "engagement": 36.0,
+     "text": "For the past year, we’ve been testing how AI actually changes healthcare product development across our own teams.\n\nThe biggest lesson is that context matters more than most of the conversation around"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "HTD Health",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 662356,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.7867514221455614,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 54.0,
+    "log_median_engagement": 1.5440680443502757,
+    "log_mean_engagement": 1.6739419986340878,
+    "video_share": 0.1,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 34.0,
+    "mean_engagement": 46.2,
+    "topic_customers": 0.1,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 611.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "TrueLayer has reached 30 million users across Europe, a milestone that marks Pay by Bank becoming a mainstream way for consumers to pay at checkout.\nOur user base has tripled since the end of 2024, an"
+    },
+    {
+     "date_posted": "2026-08-25",
+     "post_type": "original",
+     "engagement": 21.0,
+     "text": "Agentic commerce often gets framed as if it’s binary: either an AI agent does everything, or it doesn't count as ‘true’ agentic commerce.\n\nBut full autonomy isn't the default end goal. Most purchases "
+    },
+    {
+     "date_posted": "2026-08-18",
+     "post_type": "original",
+     "engagement": 89.0,
+     "text": "Account to account payments in the Netherlands are on the brink of a big change 🇳🇱 \n\nAfter more than 20 years on Dutch checkouts, iDEAL is transitioning to Wero. And merchants have to decide whether t"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "TrueLayer",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 5777,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.7403626894942437,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 53.0,
+    "log_median_engagement": 0.8450980400142568,
+    "log_mean_engagement": 0.7993405494535817,
+    "video_share": 1.0,
+    "original_share": 1.0,
+    "n_posts": 10.0,
+    "median_engagement": 6.0,
+    "mean_engagement": 5.3,
+    "topic_customers": 0.2,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.7
+   },
+   "n_posts": 10,
+   "total_count": 549.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 2.0,
+     "text": "Your CRM might say a prospect is “nurturing.” Their webinar questions might tell you something very different.\n\nConsider the difference:\n\n“What does this product do?” → Early research\n“Does it integra"
+    },
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "original",
+     "engagement": 9.0,
+     "text": "Your event. Your brand. Your page. ✨\n\nWhy settle for a generic event landing page?\n\nNow you can customize everything from the layout and colors to images, videos, text, CTAs and backgrounds — and see "
+    },
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "original",
+     "engagement": 5.0,
+     "text": "“Virtual events are becoming irrelevant now that in-person events are back.”\n\nThat assumes the two formats solve exactly the same problem.\n\nIn-person events can deliver powerful face-to-face experienc"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Airmeet",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 959708,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.0086001717619175,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 53.0,
+    "log_median_engagement": 2.146128035678238,
+    "log_mean_engagement": 2.1997551772534747,
+    "video_share": 0.4,
+    "original_share": 0.8,
+    "n_posts": 10.0,
+    "median_engagement": 139.0,
+    "mean_engagement": 157.4,
+    "topic_customers": 0.4,
+    "topic_launches": 0.4,
+    "topic_hiring": 0.1,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.3,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 101.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 307.0,
+     "text": "Today, we announced a multi-year strategic partnership with OpenAI, under which OpenAI will contract dedicated AI compute capacity from two of our AI Factory sites in Malaysia.\n\nWith this partnership,"
+    },
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "original",
+     "engagement": 156.0,
+     "text": "University of Tasmania alumnus Timothy Moore was back at uni last week to guest lecture on the Anatomy of an AI Factory. Tim studied engineering at UTAS before starting his career at Bell Bay. Today, "
+    },
+    {
+     "date_posted": "2026-09-05",
+     "post_type": "repost_without_thoughts",
+     "engagement": 376.0,
+     "text": "🇦🇺 Today, we're announcing a landmark agreement with SUBCO to anchor capacity on APX East, a new hypercable connecting Australia directly to the United States.\n\nWhat does it take to export AI tokens f"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Firmus Technologies",
+   "stratum": "201-500"
+  },
+  {
+   "company_id": 5826,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.680335513414563,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 57.0,
+    "log_median_engagement": 1.8836614351536176,
+    "log_mean_engagement": 2.001300933020418,
+    "video_share": 0.3,
+    "original_share": 1.0,
+    "n_posts": 10.0,
+    "median_engagement": 75.5,
+    "mean_engagement": 99.3,
+    "topic_customers": 0.2,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.1,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 478.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-04",
+     "post_type": "original",
+     "engagement": 87.0,
+     "text": "Most businesses know what they want their office to feel like.\n\nThe challenge is bringing that vision to life.\n\nThe right workspace does more than look good. It helps teams stay comfortable, collabora"
+    },
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "original",
+     "engagement": 131.0,
+     "text": "The way businesses work is changing. Their spaces should evolve with them.\n\nWith Pepperfry for Business, we bring design, furniture and execution together to help businesses create spaces that are pra"
+    },
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "original",
+     "engagement": 71.0,
+     "text": "A great office doesn't just bring people together, it gives them a reason to stay, collaborate, and do their best work.\n\nFrom thoughtfully designed collaboration zones and ergonomic seating to breakou"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Pepperfry",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 628892,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.734799829588847,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 57.0,
+    "log_median_engagement": 1.8325089127062364,
+    "log_mean_engagement": 1.7909884750888159,
+    "video_share": 0.4,
+    "original_share": 0.8,
+    "n_posts": 10.0,
+    "median_engagement": 67.0,
+    "mean_engagement": 60.8,
+    "topic_customers": 0.0,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.1,
+    "topic_partnerships": 0.1,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 542.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-04",
+     "post_type": "original",
+     "engagement": 31.0,
+     "text": "Unsupervised Episode 1 with Aurora’s Chris Urmson is now available on Spotify! Listen to the full podcast in the Spotify app: https://lnkd.in/gaHnmT2Z\n\n#unsupervisedpodcast #selfdriving #autonomousveh"
+    },
+    {
+     "date_posted": "2026-09-04",
+     "post_type": "original",
+     "engagement": 62.0,
+     "text": "“Our goal is to build the world's most scalable AI driver, not just in terms of AI capability, but also on low-cost hardware. That combination of intelligence and efficiency is where we believe we hav"
+    },
+    {
+     "date_posted": "2026-09-03",
+     "post_type": "repost_without_thoughts",
+     "engagement": 72.0,
+     "text": "How does the buzz around E2E and LLMs translate to autonomous vehicles? Nuro’s Dave Ferguson and Aurora’s Chris Urmson discuss how to apply modern AI techniques to the physical world on Unsupervised E"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Nuro",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 713796,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.4871383754771865,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 53.0,
+    "log_median_engagement": 1.9661417327390325,
+    "log_mean_engagement": 2.2960066693136723,
+    "video_share": 0.4,
+    "original_share": 0.6,
+    "n_posts": 10.0,
+    "median_engagement": 91.5,
+    "mean_engagement": 196.7,
+    "topic_customers": 0.1,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.1,
+    "topic_events": 0.7
+   },
+   "n_posts": 10,
+   "total_count": 306.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "repost_without_thoughts",
+     "engagement": 103.0,
+     "text": "We made the facts clear today. OPay is here, operating and going nowhere. 💚\n\nListen in as our COO/CTO, Adedotun Daniel, clears the air on recent rumours about OPay during our just-concluded Town Hall "
+    },
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "original",
+     "engagement": 56.0,
+     "text": "The learning journey continues... 💚\n\nUp next in the OPay National Innovation Challenge Webinar Program is “Career Placement & Pathways”, featuring Ifeoma Grace Mba, Head of Human Resources, OPay.\n\n📅 8"
+    },
+    {
+     "date_posted": "2026-09-05",
+     "post_type": "original",
+     "engagement": 41.0,
+     "text": "OPEN TO ALL. \nWondering where you fit into Nigeria’s growing tech space or how to make your ideas stand out?\n\nThen this session is for you.\n\nJoin the OPay National Innovation Challenge Webinar: Breaki"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "OPay",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 662631,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.3654879848909,
+    "posts_per_30d": 3.296703,
+    "days_since_last_post": 52.0,
+    "log_median_engagement": 1.8573324964312685,
+    "log_mean_engagement": 1.9745116927373283,
+    "video_share": 0.0,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 71.0,
+    "mean_engagement": 93.3,
+    "topic_customers": 0.1,
+    "topic_launches": 0.2,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.3,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 231.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-09",
+     "post_type": "repost_without_thoughts",
+     "engagement": 30.0,
+     "text": "🎙️ Join our engineers Aliaksei Talankou & Tomas E. at our Vilnius office for talks about AI agents, data at scale & backend problems behind them!\n📍 Flo Health office at Hero Business Center, Vilnius ·"
+    },
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "original",
+     "engagement": 307.0,
+     "text": "We are excited to welcome Rina Hahn, Flo’s new CMO. \n\nRina joins us with almost 20 years of experience growing digital organizations through customer-focused marketing functions. Most recently, she wa"
+    },
+    {
+     "date_posted": "2026-08-10",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Women may be starting to see perimenopause conversations pop up in their social media feeds or even in interviews with their favorite celebrities, but this hasn’t changed the fact that many remain hig"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Flo Health Inc.",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 689686,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.3909351071033793,
+    "posts_per_30d": 3.409091,
+    "days_since_last_post": 83.0,
+    "log_median_engagement": 2.325310371711061,
+    "log_mean_engagement": 2.4488608456074408,
+    "video_share": 0.0,
+    "original_share": 0.8,
+    "n_posts": 10.0,
+    "median_engagement": 210.5,
+    "mean_engagement": 280.1,
+    "topic_customers": 0.3,
+    "topic_launches": 0.2,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.1,
+    "topic_partnerships": 0.4,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 245.0,
+   "snippets": [
+    {
+     "date_posted": "2026-08-09",
+     "post_type": "original",
+     "engagement": 102.0,
+     "text": "The Sandbox Meetup for July is Here! 🚀\n\nJoin Ibrahim Qabeel - Senior Product Engineer at Tamara, for a conversation on a lesson every builder learns the hard way: a working app doesn't mean much if th"
+    },
+    {
+     "date_posted": "2026-08-04",
+     "post_type": "repost_without_thoughts",
+     "engagement": 375.0,
+     "text": "Today, we're sharing that Tamara has received its first independent credit rating an \"A-\" (Stable Outlook) from Simah Rating Agency (Tassnief). \n\nThis rating enables us to access local capital markets"
+    },
+    {
+     "date_posted": "2026-07-10",
+     "post_type": "original",
+     "engagement": 159.0,
+     "text": "The Sandbox Meetup for June is Here!\n\nWe're excited to host Mohamed Samir Elgengehy, Senior Engineering Manager at Tamara, for a conversation about why the best engineering teams don't try to prevent "
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Tamara",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 706053,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 1.6532125137753437,
+    "posts_per_30d": 8.108108,
+    "days_since_last_post": 46.0,
+    "log_median_engagement": 2.3453737305590883,
+    "log_mean_engagement": 2.3581252852766488,
+    "video_share": 0.0,
+    "original_share": 0.5,
+    "n_posts": 10.0,
+    "median_engagement": 220.5,
+    "mean_engagement": 227.1,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.7,
+    "topic_funding": 0.2,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 44.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-15",
+     "post_type": "repost_without_thoughts",
+     "engagement": 218.0,
+     "text": "Together with Cipher Digital and Anthropic, Fluidstack is committing $10 million to improve Colorado City’s water infrastructure and help residents count on a more reliable water supply.\n\nWe’re proud "
+    },
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "original",
+     "engagement": 223.0,
+     "text": "Steel & Silicon is coming to Los Angeles.\n\nFluidstack builds supercomputers for the world's leading AI labs. We engineer the skeleton of artificial intelligence: the steel, the electrons, and the sili"
+    },
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "repost_without_thoughts",
+     "engagement": 275.0,
+     "text": "Two days out. Steel & Silicon: Los Angeles, this Wednesday, aboard the USS Iowa.\n\nWe're building modular data centers the way this town built aircraft: on a line, at rate, engineered down to the last "
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Fluidstack",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 1070148,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.983175072037813,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 51.0,
+    "log_median_engagement": 1.9003671286564703,
+    "log_mean_engagement": 1.9159272116971158,
+    "video_share": 0.5,
+    "original_share": 0.7,
+    "n_posts": 10.0,
+    "median_engagement": 78.5,
+    "mean_engagement": 81.4,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 961.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "repost_without_thoughts",
+     "engagement": 86.0,
+     "text": "Baixe já o Radar de agosto!\n\nAgosto foi o mês mais fraco de 2026 para o varejo alimentar. Em mesmas lojas:\n• Faturamento: +0,9%\n• Unidades vendidas: -3,1%\n• Preço por unidade: +4,2%\n• Fluxo em loja: -"
+    },
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "repost_without_thoughts",
+     "engagement": 182.0,
+     "text": "É possível se antecipar aos efeitos do El Niño? Nossos dados mostram que sim!\n\nO jornalista Fernando Nakagawa, da GloboNews, usou nosso estudo que indica como o clima impacta diretamente o consumo e p"
+    },
+    {
+     "date_posted": "2026-09-04",
+     "post_type": "original",
+     "engagement": 51.0,
+     "text": "Estamos mais um ano na Beauty Fair!\n\nNosso CEO, Thomaz Machado , participou do Fórum de Varejo de Beleza para compartilhar o que os dados revelam sobre os movimentos que estão transformando o mercado "
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Scanntech Brasil",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 1093125,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 1.6989700043360187,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 55.0,
+    "log_median_engagement": 2.359835482339888,
+    "log_mean_engagement": 2.5595475555804343,
+    "video_share": 0.0,
+    "original_share": 0.5,
+    "n_posts": 10.0,
+    "median_engagement": 228.0,
+    "mean_engagement": 361.7,
+    "topic_customers": 0.0,
+    "topic_launches": 0.3,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.1,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 49.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-06",
+     "post_type": "repost_without_thoughts",
+     "engagement": 173.0,
+     "text": "Get more GLM-5.3-Flash with GLM Coding Plan\n\n⏲️ 8 AM–6 PM PT every day, Sep 3–20\n\n- In ZCode: Unlimited GLM-5.3-Flash\n- In other supported agents: 2× Flash quota\n\nView GLM-5.3-Flash campaign details: "
+    },
+    {
+     "date_posted": "2026-09-06",
+     "post_type": "repost_without_thoughts",
+     "engagement": 393.0,
+     "text": "GLM-5.3-Flash was designed for extreme efficiency from day one.\n\nNot built for capability first and optimized for cost later. Efficiency was the design goal, and every architectural decision followed "
+    },
+    {
+     "date_posted": "2026-09-06",
+     "post_type": "repost_without_thoughts",
+     "engagement": 176.0,
+     "text": "GLM Coding Plan turns one year old today.\n\nTo celebrate, we're giving every current subscriber a Reset Card. Use it to refill both your weekly and 5-hour quotas.\n\nThanks for using GLM, helping shape i"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Z.ai",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 5707,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.9159272116971158,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 54.0,
+    "log_median_engagement": 1.6766936096248666,
+    "log_mean_engagement": 1.7466341989375787,
+    "video_share": 0.0,
+    "original_share": 0.8,
+    "n_posts": 10.0,
+    "median_engagement": 46.5,
+    "mean_engagement": 54.8,
+    "topic_customers": 0.2,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 823.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "original",
+     "engagement": 48.0,
+     "text": "We're delighted to see Dr Vinaya Prakash Singh reappointed as Secretary-General of the Asian-Pacific Postal Union (APPU) for a second term!\n\nAs postal networks evolve into critical digital infrastruct"
+    },
+    {
+     "date_posted": "2026-09-03",
+     "post_type": "original",
+     "engagement": 37.0,
+     "text": "What makes someone stay at a company for five years?\n\nMaybe it's the work. Maybe it's the people. Maybe it's the little moments that quietly stack up into big memories.\n\nWhatever the reason, five year"
+    },
+    {
+     "date_posted": "2026-09-02",
+     "post_type": "original",
+     "engagement": 29.0,
+     "text": "Chicago, we came, we connected, we conquered the last mile. 📦\n\nThree days, one unforgettable cruise, and a whole lot of brainpower packed into every session. Last Mile Leaders America 2026 brought the"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "FarEye",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 5797,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 1.806179973983887,
+    "posts_per_30d": 0.42735,
+    "days_since_last_post": 113.0,
+    "log_median_engagement": 1.3710678622717363,
+    "log_mean_engagement": 1.4183012913197455,
+    "video_share": 0.5,
+    "original_share": 0.7,
+    "n_posts": 10.0,
+    "median_engagement": 22.5,
+    "mean_engagement": 25.2,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 63.0,
+   "snippets": [
+    {
+     "date_posted": "2026-07-10",
+     "post_type": "original",
+     "engagement": 15.0,
+     "text": "512 बोरी मक्का एक स्टैंडर्ड ट्रैक्टर पर… 🚜🌽(सामान्य तौर पर ये छमता से तीन गुना अधिक)\nइसे सिर्फ ओवरलोड मत कहिए… 😄\nये एक साथ कई चीज़ों की लाइव टेस्टिंग है:\n🚜 ट्रैक्टर के इंजन की क्षमता 💪\n🛞 चेसिस और टायर"
+    },
+    {
+     "date_posted": "2026-07-10",
+     "post_type": "original",
+     "engagement": 10.0,
+     "text": "कृषि क्षेत्र आज श्रमिकों की कमी और धीमी मशीनीकरण की वजह से हर वर्ष अरबों रुपये का नुकसान झेल रहा है।\n\nलेकिन सबसे बड़ा सवाल है, काम की तलाश में लोग कहाँ हैं?\n\nक्या वे बेहतर अवसरों के लिए पलायन कर चुके "
+    },
+    {
+     "date_posted": "2026-06-10",
+     "post_type": "original",
+     "engagement": 26.0,
+     "text": "कागजों में बदल गया किसानों का कल \nपर खेतों में आज भी हाथो का ही है हल ।"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "ERGOS",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 5761,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 1.0,
+    "posts_per_30d": 0.737705,
+    "days_since_last_post": 730.0,
+    "log_median_engagement": 0.0,
+    "log_mean_engagement": 0.0,
+    "video_share": 0.1111111111111111,
+    "original_share": 1.0,
+    "n_posts": 9.0,
+    "median_engagement": 0.0,
+    "mean_engagement": 0.0,
+    "topic_customers": 0.1111111111111111,
+    "topic_launches": 0.2222222222222222,
+    "topic_hiring": 0.4444444444444444,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.1111111111111111,
+    "topic_events": 0.0
+   },
+   "n_posts": 9,
+   "total_count": 9.0,
+   "snippets": [
+    {
+     "date_posted": "2022-08-04",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Throughout the past year, our teams have been relentlessly working to bring over 1500+ brands, 1 mn+ products across categories to our customers against all the odds. \n\nWith features like Easy returns"
+    },
+    {
+     "date_posted": "2021-09-15",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "YOU are essential. \n\nSo mask up and get vaccinated as soon as you can. \n\nNow track & get real-time alerts about COVID vaccination slots in your city on the Paytm App.\n\nTry here👉 https://lnkd.in/dVRtrh"
+    },
+    {
+     "date_posted": "2021-09-12",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Paytm Mall is hiring for the roles of Growth Managers with 3-5 years of work experience to join its team in Bengaluru. \n\nThink you fit the role? Drop your resumes at talent@paytmmall.com.\n\n#IndiaKaApn"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "4.5",
+   "name": "Paytm Mall",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 3674630,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.537819095073274,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 50.0,
+    "log_median_engagement": 2.5024271199844326,
+    "log_mean_engagement": 3.064907027159636,
+    "video_share": 0.0,
+    "original_share": 0.8,
+    "n_posts": 10.0,
+    "median_engagement": 317.0,
+    "mean_engagement": 1160.2,
+    "topic_customers": 0.1,
+    "topic_launches": 0.3,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.1,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 344.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-11",
+     "post_type": "repost_without_thoughts",
+     "engagement": 7160.0,
+     "text": "We’ve signed an agreement to acquire Miro, the visual collaboration platform used by more than 250,000 organizations to brainstorm, plan, and build together. The transaction is subject to customary cl"
+    },
+    {
+     "date_posted": "2026-09-05",
+     "post_type": "original",
+     "engagement": 1212.0,
+     "text": "It’s official—today we completed the acquisition of Airtable. Welcome to Bending Spoons! 🎉"
+    },
+    {
+     "date_posted": "2026-09-03",
+     "post_type": "original",
+     "engagement": 266.0,
+     "text": "50,000 lines of code. Gone. 💥\n\nDeleting all this legacy code didn't break komoot. In fact, it cut build time so devs can ship updates faster. And the codebase is staying lean—a new AI tool flags redun"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Bending Spoons",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 1139644,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 1.9138138523837167,
+    "posts_per_30d": 0.862069,
+    "days_since_last_post": 74.0,
+    "log_median_engagement": 1.6020599913279625,
+    "log_mean_engagement": 1.6095944092252201,
+    "video_share": 0.0,
+    "original_share": 0.6,
+    "n_posts": 10.0,
+    "median_engagement": 39.0,
+    "mean_engagement": 39.7,
+    "topic_customers": 0.2,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 81.0,
+   "snippets": [
+    {
+     "date_posted": "2026-08-18",
+     "post_type": "original",
+     "engagement": 104.0,
+     "text": "This Independence Day, we’re bringing the spirit of Vande Mataram to life.\n\nAs part of the Har Ghar Tiranga campaign, we honour the many hands that have shaped our nation’s journey and celebrate the p"
+    },
+    {
+     "date_posted": "2026-07-10",
+     "post_type": "repost_quote",
+     "engagement": 39.0,
+     "text": "We are happy to announce that we have partnered with HDFC Life to bring life insurance and investments solutions directly through Tata Neu - so our customers can plan, protect and invest, all in one p"
+    },
+    {
+     "date_posted": "2025-12-12",
+     "post_type": "original",
+     "engagement": 39.0,
+     "text": "Tata Employees: It’s Time to Unlock Your Exclusive Perks!\n \nUnlock unparalleled value with exclusive offers* designed just for the Tata Family! We’ve curated special discounts and deals across 30+ Tat"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Tata Digital",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 691577,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.574031267727719,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 56.0,
+    "log_median_engagement": 1.6989700043360187,
+    "log_mean_engagement": 1.8215135284047732,
+    "video_share": 0.0,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 49.0,
+    "mean_engagement": 65.3,
+    "topic_customers": 0.4,
+    "topic_launches": 0.5,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.5,
+    "topic_events": 0.1
+   },
+   "n_posts": 10,
+   "total_count": 374.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-05",
+     "post_type": "original",
+     "engagement": 14.0,
+     "text": "This Labor Day, we celebrate the hard work, passion, and expertise of our team. Their dedication and drive for innovation move us forward each day. Wishing everyone a happy and safe Labor Day weekend!"
+    },
+    {
+     "date_posted": "2026-09-03",
+     "post_type": "original",
+     "engagement": 109.0,
+     "text": "Jason Guss, our CEO and Co-Founder, spoke with Johnnie Martinez II at Auto Finance News about our expanded relationship with BRP and the launch of BRP Financial Services. Learn more about how our Capt"
+    },
+    {
+     "date_posted": "2026-09-02",
+     "post_type": "original",
+     "engagement": 36.0,
+     "text": "Mike Bagull, our Vice President of Sales and Partnerships, RV and Marine, will be a panelist at the Powersports Finance Summit this month! He will discuss RV buyers’ preferences, risk management, and "
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Octane®",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 629012,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.784617292632875,
+    "posts_per_30d": 5.660377,
+    "days_since_last_post": 50.0,
+    "log_median_engagement": 2.3521825181113627,
+    "log_mean_engagement": 2.5658478186735176,
+    "video_share": 0.5,
+    "original_share": 0.4,
+    "n_posts": 10.0,
+    "median_engagement": 224.0,
+    "mean_engagement": 367.0,
+    "topic_customers": 0.2,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 608.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-11",
+     "post_type": "original",
+     "engagement": 129.0,
+     "text": "We’ve added results for GPT-6 Astra, Fable 5.1, and Gemini 3.8 Flash across our leaderboards and the results show just how competitive the frontier remains.\n\nA few takeaways:\n\n💡 Four different models "
+    },
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "repost_without_thoughts",
+     "engagement": 73.0,
+     "text": "Scale AI has built AI systems for 10 years with humans at the center. As AI proliferates across enterprises and governments, it’s critical that individuals inside these organizations learn to use AI i"
+    },
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "repost_without_thoughts",
+     "engagement": 358.0,
+     "text": "\"In a multi-model world, you'll constantly be choosing the best model for your application.\" \n\nFrancis deSouza with Andrew Ross Sorkin and Becky Quick on why evaluations matter, even in an AGI future."
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Scale AI",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 5726,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.110589710299249,
+    "posts_per_30d": 2.439024,
+    "days_since_last_post": 78.0,
+    "log_median_engagement": 2.6009728956867484,
+    "log_mean_engagement": 2.7715874808812555,
+    "video_share": 0.8,
+    "original_share": 0.3,
+    "n_posts": 10.0,
+    "median_engagement": 398.0,
+    "mean_engagement": 590.0,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 128.0,
+   "snippets": [
+    {
+     "date_posted": "2026-08-14",
+     "post_type": "repost_without_thoughts",
+     "engagement": 382.0,
+     "text": "good taste is a habit our members already had. \nwe just made it more rewarding.\n\n1 million CRED members saved almost ₹60 crore with gift cards last year.\n\ngift cards from Tanishq, Taj, Coach, TUMI, Ha"
+    },
+    {
+     "date_posted": "2026-07-18",
+     "post_type": "repost_without_thoughts",
+     "engagement": 1138.0,
+     "text": "you are, therefore you pay."
+    },
+    {
+     "date_posted": "2026-07-14",
+     "post_type": "repost_without_thoughts",
+     "engagement": 527.0,
+     "text": "quit remembering."
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "CRED",
+   "stratum": "501-1000"
+  },
+  {
+   "company_id": 635434,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.7528164311882715,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 54.0,
+    "log_median_engagement": 2.187520720836463,
+    "log_mean_engagement": 2.156851901070011,
+    "video_share": 0.2,
+    "original_share": 0.6,
+    "n_posts": 10.0,
+    "median_engagement": 153.0,
+    "mean_engagement": 142.5,
+    "topic_customers": 0.2,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.1,
+    "topic_funding": 0.2,
+    "topic_partnerships": 0.3,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 565.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "original",
+     "engagement": 88.0,
+     "text": "STACK is proud to be part of the conversation at Platform Global on the 9 September in Antibes, France.\n\nJoin Richard Bienfait, CFO, STACK EMEA, at 12:30 CEST for the panel discussion, \"Long-Term Valu"
+    },
+    {
+     "date_posted": "2026-09-04",
+     "post_type": "repost_without_thoughts",
+     "engagement": 151.0,
+     "text": "STACK is hiring data center Critical Operations professionals in the Chicago area.\n\nCome meet the STACK team on September 16 in Elk Grove Village. Connect directly with recruiters and hiring managers,"
+    },
+    {
+     "date_posted": "2026-09-03",
+     "post_type": "original",
+     "engagement": 155.0,
+     "text": "STACK is expanding in New Albany with 51MW of high-density capacity, backed by committed power and favorable utility terms, delivering in Q1 2028.\n\nIts hybrid design supports both air- and liquid-cool"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "STACK Infrastructure",
+   "stratum": "1001-5000"
+  },
+  {
+   "company_id": 1034405,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 3.0064660422492318,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 53.0,
+    "log_median_engagement": 1.6720978579357175,
+    "log_mean_engagement": 1.7543483357110188,
+    "video_share": 0.2,
+    "original_share": 0.6,
+    "n_posts": 10.0,
+    "median_engagement": 46.0,
+    "mean_engagement": 55.8,
+    "topic_customers": 0.3,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.2,
+    "topic_funding": 0.1,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 1014.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 8.0,
+     "text": "Different markets. Different traders. Different reasons for choosing OKX.\n\nFrom the first day to every trade after.\n\nNotes from our VIP clients, in their own words.\n\nLearn more: https://www.okx.com/vi"
+    },
+    {
+     "date_posted": "2026-09-03",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "The next generation of markets and companies will be built on programmable infrastructure.\n\nOKX Dev Day 2026 invites teams to build production-ready applications with X Layer and OKX AI. From 17–25 Se"
+    },
+    {
+     "date_posted": "2026-09-02",
+     "post_type": "repost_quote",
+     "engagement": 14.0,
+     "text": "The latest McLaren Racing x OKX livery has landed.\n\nOur special commemorative design will take to the track on the MCL40 at Monza, before returning for Madrid.\n\nSince 2022, our partnership with McLare"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "OKX",
+   "stratum": "1001-5000"
+  },
+  {
+   "company_id": 631829,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 3.204662511748219,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 52.0,
+    "log_median_engagement": 1.8027737252919755,
+    "log_mean_engagement": 1.8438554226231612,
+    "video_share": 0.5,
+    "original_share": 0.8,
+    "n_posts": 10.0,
+    "median_engagement": 62.5,
+    "mean_engagement": 68.8,
+    "topic_customers": 0.0,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.1,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 1601.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-09",
+     "post_type": "repost_without_thoughts",
+     "engagement": 177.0,
+     "text": "Agentic AI is pushing enterprise infrastructure past traditional storage limits. To deliver market-leading performance per dollar across 33 data center regions on six continents, Vultr needed a data a"
+    },
+    {
+     "date_posted": "2026-09-05",
+     "post_type": "original",
+     "engagement": 47.0,
+     "text": "AI and HPC veteran Glenn K. Lockwood looks back at three technologies he encountered across his career in supercomputing, national labs and hyperscale AI on this week’s Shared Everything podcast 🚀"
+    },
+    {
+     "date_posted": "2026-09-04",
+     "post_type": "original",
+     "engagement": 55.0,
+     "text": "Local NVMe gets a single pod started but it can't handle where enterprise AI platforms are heading.\n\nBeyond basic node resilience, platform teams face complex architectural hurdles: managing millions "
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "VAST Data",
+   "stratum": "1001-5000"
+  },
+  {
+   "company_id": 812301,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.2430380486862944,
+    "posts_per_30d": 8.333333,
+    "days_since_last_post": 45.0,
+    "log_median_engagement": 2.4734869700645685,
+    "log_mean_engagement": 2.832253370197008,
+    "video_share": 0.0,
+    "original_share": 0.5,
+    "n_posts": 10.0,
+    "median_engagement": 296.5,
+    "mean_engagement": 678.6,
+    "topic_customers": 0.2,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.1,
+    "topic_partnerships": 0.5,
+    "topic_events": 0.1
+   },
+   "n_posts": 10,
+   "total_count": 174.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-16",
+     "post_type": "repost_without_thoughts",
+     "engagement": 3188.0,
+     "text": "Today, we are announcing our partnership with Mozilla to bring privacy, control and choice to AI-powered web browsing. This represents two open source advocates working together to bring Mistral’s sci"
+    },
+    {
+     "date_posted": "2026-09-11",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Today marks a major step forward for Mistral.\n\nWe are announcing a €3 billion Series D, the largest equity fundraising round ever completed by a European technology company, just three years after our"
+    },
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "repost_without_thoughts",
+     "engagement": 593.0,
+     "text": "Our partnership announced today with Cloudera underscores a need for enterprises in regulated industries: having full control over their AI deployment. We believe that open, sovereign AI provides this"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Mistral",
+   "stratum": "1001-5000"
+  },
+  {
+   "company_id": 654053,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.88024177589548,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 51.0,
+    "log_median_engagement": 2.1687920203141817,
+    "log_mean_engagement": 2.2219355998280053,
+    "video_share": 0.2,
+    "original_share": 0.5,
+    "n_posts": 10.0,
+    "median_engagement": 146.5,
+    "mean_engagement": 165.7,
+    "topic_customers": 0.0,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.1,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 758.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "repost_without_thoughts",
+     "engagement": 146.0,
+     "text": "Every AI leader is stuck between two mandates: put AI in every employee's hands, and own the risk if it goes wrong.\n\ndatasecAI 2026 is where the security leaders, identity leads, and architects rewrit"
+    },
+    {
+     "date_posted": "2026-09-04",
+     "post_type": "original",
+     "engagement": 147.0,
+     "text": "Yesterday, our New York office spent the afternoon packing backpacks with New York Cares for a school here in the city. 300 of them, filled with the supplies a new school year calls for.\n\nNew York Car"
+    },
+    {
+     "date_posted": "2026-09-03",
+     "post_type": "original",
+     "engagement": 36.0,
+     "text": "Most security controls are built for systems used by humans. That's an incomplete picture once AI systems act autonomously.\n\nCertified Agentic Security Practitioner, the new course from Cyera's AI Sec"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Cyera",
+   "stratum": "1001-5000"
+  },
+  {
+   "company_id": 5751,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.0863598306747484,
+    "posts_per_30d": 0.892857,
+    "days_since_last_post": 730.0,
+    "log_median_engagement": 0.0,
+    "log_mean_engagement": 0.0,
+    "video_share": 0.2,
+    "original_share": 1.0,
+    "n_posts": 10.0,
+    "median_engagement": 0.0,
+    "mean_engagement": 0.0,
+    "topic_customers": 0.0,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 121.0,
+   "snippets": [
+    {
+     "date_posted": "2021-08-14",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Take the first step to unlock the lockdown! Get Covid Antibody IgG/Covid Total Antibody/Covid Rt-PCR/Covid Antigen testing done. Available in all major cities. Book now https://bit.ly/2PQSmID or call "
+    },
+    {
+     "date_posted": "2021-08-06",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "#Eyestrain or eye fatigue is common and affects 73% of adults and occurs when one spend too much time reading, driving or using #digitaldevices like mobile, laptop, desktop, & tablets. Some common #sy"
+    },
+    {
+     "date_posted": "2021-08-04",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "The last quarter has been overwhelming and exciting for us at Medlife. We decided to recognize the ones who took outstanding responsibility and stood out due to their devoted dedication. Here’s a glim"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Medlife.com",
+   "stratum": "1001-5000"
+  },
+  {
+   "company_id": 5771,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.3404441148401185,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 53.0,
+    "log_median_engagement": 1.505149978319906,
+    "log_mean_engagement": 1.5877109650189114,
+    "video_share": 0.6,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 31.0,
+    "mean_engagement": 37.7,
+    "topic_customers": 0.2,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 218.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 1.0,
+     "text": "Coverfox is on a mission to insure 100 million lives by 2030.\n\nJoin us in our mission through integrated, effortless, embedded insurance journeys.\n\n#DESHKABIMA #insurance #insuretech #mission #effort "
+    },
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "original",
+     "engagement": 52.0,
+     "text": "ImpacTable Delhi Chapter was a success! ✨\n\nThe room came alive with perspectives, ideas and conversations around one big question: *What Will Build Customer Trust in the Next Decade?*\n\nIndustry voices"
+    },
+    {
+     "date_posted": "2026-09-06",
+     "post_type": "original",
+     "engagement": 25.0,
+     "text": "IRDAI's proposed Public Insurance Registry\n(PIR) could change how insurers understand consumer needs.\n\nCoverfox Founder & MD Sanjib Jha shares how better insights could help insurers create products m"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Coverfox Insurance",
+   "stratum": "1001-5000"
+  },
+  {
+   "company_id": 5774,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.437750562820388,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 51.0,
+    "log_median_engagement": 2.08278537031645,
+    "log_mean_engagement": 2.1992064791616577,
+    "video_share": 0.6,
+    "original_share": 0.5,
+    "n_posts": 10.0,
+    "median_engagement": 120.0,
+    "mean_engagement": 157.2,
+    "topic_customers": 0.2,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 273.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "repost_without_thoughts",
+     "engagement": 201.0,
+     "text": "Global Fintech Fest is always a moment to look ahead at what’s next in payments. This year, we’re excited to announce our partnership with DBS Bank.\n\nBringing together DBS Bank’s financial expertise a"
+    },
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "repost_without_thoughts",
+     "engagement": 46.0,
+     "text": "What does UPI still need to solve? Vimal Kumar shares his perspective in this conversation at Global Fintech Fest 2026. 🎥"
+    },
+    {
+     "date_posted": "2026-09-09",
+     "post_type": "repost_without_thoughts",
+     "engagement": 444.0,
+     "text": "Here’s what happened when AI, systems, and mathematics came together.\n\nAt Global Fintech Fest 2026, Vimal Kumar, CEO and Founder, JUSPAY, took the audience through fault-tolerant architecture, domain "
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "JUSPAY",
+   "stratum": "1001-5000"
+  },
+  {
+   "company_id": 6034759,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.7715874808812555,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 46.0,
+    "log_median_engagement": 1.7363965022766423,
+    "log_mean_engagement": 1.8597385661971468,
+    "video_share": 0.2,
+    "original_share": 1.0,
+    "n_posts": 10.0,
+    "median_engagement": 53.5,
+    "mean_engagement": 71.4,
+    "topic_customers": 0.1,
+    "topic_launches": 0.2,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.3,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 590.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-15",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Today we're announcing a multi-year partnership with Perplexity AI to power its AI workloads on Crusoe Cloud.\n\nTraining and inference are no longer separate problems. The fastest-moving AI companies n"
+    },
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 1.0,
+     "text": "At Crusoe, we believe the way AI infrastructure interacts with the grid should be a design decision, not an afterthought. \n\nThat’s why we're partnering with ON.energy to deploy 5 gigawatts of AI UPS™ "
+    },
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 28.0,
+     "text": "GLM 5.3 and GLM 5.3 Flash are now in Crusoe Intelligence Foundry.\n\n➡️  GLM-5.3: Same base as GLM-5.2, with every gain coming from scaled post-training. Terminal-Bench 3.0 moved from 4.6 to 28.3. \n\nOn "
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Crusoe",
+   "stratum": "1001-5000"
+  },
+  {
+   "company_id": 5786395,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.220108088040055,
+    "posts_per_30d": 5.660377,
+    "days_since_last_post": 51.0,
+    "log_median_engagement": 2.397070549959409,
+    "log_mean_engagement": 2.4761067168401913,
+    "video_share": 0.1,
+    "original_share": 0.3,
+    "n_posts": 10.0,
+    "median_engagement": 248.5,
+    "mean_engagement": 298.3,
+    "topic_customers": 0.2,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.1,
+    "topic_partnerships": 0.3,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 165.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "repost_without_thoughts",
+     "engagement": 551.0,
+     "text": "Today, we broke ground on Phase One of the DayOne Kodaira Data Center in Tokyo, marking an important step in expanding our Greater Tokyo footprint and strengthening our long-term presence in Japan. \n\n"
+    },
+    {
+     "date_posted": "2026-09-03",
+     "post_type": "repost_without_thoughts",
+     "engagement": 805.0,
+     "text": "Today, DayOne announced a collaboration with Tenaga Nasional Berhad (TNB) to explore a dedicated on-site power generation solution with capacity up to 1.5 GW for our new data center campus in Selangor"
+    },
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "repost_without_thoughts",
+     "engagement": 133.0,
+     "text": "Malaysia is one of DayOne’s most important growth markets. Through developments such as Nusajaya Tech Park and the Kempas Tech Park data center campus in Johor, we are building the digital infrastruct"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "DayOne",
+   "stratum": "1001-5000"
+  },
+  {
+   "company_id": 712788,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.6857417386022635,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 57.0,
+    "log_median_engagement": 1.4983105537896004,
+    "log_mean_engagement": 1.6830470382388496,
+    "video_share": 0.5,
+    "original_share": 0.6,
+    "n_posts": 10.0,
+    "median_engagement": 30.5,
+    "mean_engagement": 47.2,
+    "topic_customers": 0.2,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.2,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 484.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-04",
+     "post_type": "original",
+     "engagement": 27.0,
+     "text": "Meet Maria Cuzzocrea, founder of Zahgara Coffee. ☕ \n\nInspired by memories of authentic Italian flavors, Maria set out to create more than a coffee shop, a place where people could slow down and savor "
+    },
+    {
+     "date_posted": "2026-09-02",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "Delighted to announce our partnership with MIT Arab World Program!\n\nOver the past few months, students from MIT Arab World worked alongside our teams in Egypt, getting real exposure to how payments wo"
+    },
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "original",
+     "engagement": 30.0,
+     "text": "Don’t stop at unlocking your phone. Use biometric authentication every step of the way: for banking apps, payments, and sensitive logins. Every checkpoint is one more defense against cyberattackers.\n\n"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Paymob",
+   "stratum": "1001-5000"
+  },
+  {
+   "company_id": 2141254,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.2355284469075487,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 51.0,
+    "log_median_engagement": 0.9294189257142927,
+    "log_mean_engagement": 1.1335389083702174,
+    "video_share": 0.0,
+    "original_share": 0.9,
+    "n_posts": 10.0,
+    "median_engagement": 7.5,
+    "mean_engagement": 12.6,
+    "topic_customers": 0.2,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.1,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 171.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "original",
+     "engagement": 7.0,
+     "text": "#Propertyinsurance may be stabilizing, but liability and professional lines remain challenging. \n\n➡️ Explore what today's two-speed insurance market means for #commercialrealestate developers and how "
+    },
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "original",
+     "engagement": 6.0,
+     "text": "Ambient listening tools and #AIscribes are making their way into the exam room, but the benefits come with real considerations around #patientsafety, privacy, compliance and liability.\n\nOur latest blo"
+    },
+    {
+     "date_posted": "2026-09-07",
+     "post_type": "original",
+     "engagement": 6.0,
+     "text": "#Paidleave is becoming one of the most important factors in attracting and retaining talent. As employee expectations shift and leave regulations grow more complex, organizations need a proactive stra"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Unison Risk Advisors",
+   "stratum": "1001-5000"
+  },
+  {
+   "company_id": 5717,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.220108088040055,
+    "posts_per_30d": 2.654867,
+    "days_since_last_post": 60.0,
+    "log_median_engagement": 2.0232524596337114,
+    "log_mean_engagement": 2.16761267272753,
+    "video_share": 0.0,
+    "original_share": 0.8,
+    "n_posts": 10.0,
+    "median_engagement": 104.5,
+    "mean_engagement": 146.1,
+    "topic_customers": 0.1,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.4,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 165.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "original",
+     "engagement": 92.0,
+     "text": "India's largest Make-in-India multi-sectoral trade expo, Bharatiya Vyapar Mahotsav 2026, just wrapped up at Bharat Mandapam. We were proud to be there as the official transport partner; listening, lea"
+    },
+    {
+     "date_posted": "2026-08-25",
+     "post_type": "original",
+     "engagement": 105.0,
+     "text": "With the flag-off of our 10,000th electric truck in Delhi, a major milestone in Porter’s journey towards cleaner goods movement, we had the opportunity to lead critical discussions on the road ahead.\n"
+    },
+    {
+     "date_posted": "2026-08-18",
+     "post_type": "original",
+     "engagement": 429.0,
+     "text": "Today in Delhi, Porter reached a defining milestone: flagging off our 10,000th electric vehicle, marking one of the largest EV fleet integrations in India's logistics sector.\n\nThis moment was made eve"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Porter",
+   "stratum": "1001-5000"
+  },
+  {
+   "company_id": 3427544,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 3.17868923977559,
+    "posts_per_30d": 8.108108,
+    "days_since_last_post": 60.0,
+    "log_median_engagement": 1.9708116108725178,
+    "log_mean_engagement": 2.1280760126687155,
+    "video_share": 0.2,
+    "original_share": 0.3,
+    "n_posts": 10.0,
+    "median_engagement": 92.5,
+    "mean_engagement": 133.3,
+    "topic_customers": 0.1,
+    "topic_launches": 0.0,
+    "topic_hiring": 0.1,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.1,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 1508.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-01",
+     "post_type": "repost_without_thoughts",
+     "engagement": 74.0,
+     "text": "🎬 Film ab! Heute ist es soweit  – unsere neue Kampagne startet.\n\nNach den ersten Einblicken vom Set können wir heute voller Freude unseren neuen Film zur Kampagne zeigen.\n\nWenn wir über Praxissoftware"
+    },
+    {
+     "date_posted": "2026-08-18",
+     "post_type": "repost_without_thoughts",
+     "engagement": 261.0,
+     "text": "Unser neues Zuhause in Berlin: Willkommen im Tacheles! 👋\n\nDas neue HQ ist für uns mehr als nur ein Arbeitsplatz. Es ist der Ort, an dem wir passend zu unserem 10-jährigen Jubiläum das nächste Kapitel "
+    },
+    {
+     "date_posted": "2026-08-17",
+     "post_type": "repost_without_thoughts",
+     "engagement": 202.0,
+     "text": "🎉 Premiere für die Doctolib Academy in unserem brandneuen Headquarter am Berliner Tacheles!\n\nFür das gemeinsame Onboarding kommen alle neuen Kolleg:innen aus ganz Deutschland zu uns in die Hauptstadt."
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Doctolib",
+   "stratum": "1001-5000"
+  },
+  {
+   "company_id": 632117,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 2.4216039268698313,
+    "posts_per_30d": 5.769231,
+    "days_since_last_post": 53.0,
+    "log_median_engagement": 2.2844307338445193,
+    "log_mean_engagement": 2.3654879848909,
+    "video_share": 0.1,
+    "original_share": 0.7,
+    "n_posts": 10.0,
+    "median_engagement": 191.5,
+    "mean_engagement": 231.0,
+    "topic_customers": 0.0,
+    "topic_launches": 0.2,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.6,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 263.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "repost_without_thoughts",
+     "engagement": 631.0,
+     "text": "Big news from the world of live entertainment and motorsport! \n\nFever is officially partnering with VR46 Agency, and we’re thrilled to welcome the legend himself, Valentino Rossi, as our new global Br"
+    },
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 387.0,
+     "text": "A new score! ⚽️\n\nWe’re teaming up with F.C. Como Women for the next three seasons to bring sport, entertainment and live experiences closer together.\n\nAnd get ready, because this partnership has a lot"
+    },
+    {
+     "date_posted": "2026-09-08",
+     "post_type": "original",
+     "engagement": 295.0,
+     "text": "We have a Ticketing Star among us!\n\nOur Regional General Manager for Northern Europe, Sana Ali Aamir, has just been named as one of IQ Magazine’s 10 Ticketing Stars 2026. This list celebrates people i"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "Fever",
+   "stratum": "1001-5000"
+  },
+  {
+   "company_id": 6036351,
+   "as_of": "2026-10-31",
+   "source": "POST /social_post/search limit 10",
+   "error": "",
+   "features": {
+    "has_posts": 1.0,
+    "log_total_posts": 1.806179973983887,
+    "posts_per_30d": 10.0,
+    "days_since_last_post": 50.0,
+    "log_median_engagement": 2.6897526961391565,
+    "log_mean_engagement": 2.759214431234244,
+    "video_share": 0.3,
+    "original_share": 0.1,
+    "n_posts": 10.0,
+    "median_engagement": 488.5,
+    "mean_engagement": 573.4,
+    "topic_customers": 0.2,
+    "topic_launches": 0.1,
+    "topic_hiring": 0.0,
+    "topic_funding": 0.0,
+    "topic_partnerships": 0.0,
+    "topic_events": 0.0
+   },
+   "n_posts": 10,
+   "total_count": 63.0,
+   "snippets": [
+    {
+     "date_posted": "2026-09-11",
+     "post_type": "repost_without_thoughts",
+     "engagement": 586.0,
+     "text": "Grok Bot is now more powerful for sales teams.\n\nConnect your Bots to Salesforce, HubSpot, Gong, Clay, Granola, and other GTM tools. Stay on top of accounts, complete follow-ups, and do deep research.\n"
+    },
+    {
+     "date_posted": "2026-09-10",
+     "post_type": "original",
+     "engagement": 0.0,
+     "text": "You can now add Bot templates from our marketplace.\n\nWe’re sharing Haggle Bot, our in-house procurement specialist. It negotiates vendor contracts, finds unused SaaS seats, and price-checks recurring "
+    },
+    {
+     "date_posted": "2026-09-06",
+     "post_type": "repost_without_thoughts",
+     "engagement": 474.0,
+     "text": "Grok Bot is now available on Android.\n\nDownload here: https://lnkd.in/gRu7MGST"
+    }
+   ],
+   "mode": "LIVE",
+   "credits_used": "5",
+   "name": "SpaceX Super Intelligence",
+   "stratum": "1001-5000"
+  }
+ ]
+}

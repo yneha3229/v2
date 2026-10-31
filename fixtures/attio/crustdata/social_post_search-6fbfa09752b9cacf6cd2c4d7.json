@@ -1,0 +1,336 @@
+{
+ "endpoint": "/social_post/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "actor.crustdata_entity_id",
+     "type": "=",
+     "value": 664000
+    },
+    {
+     "field": "actor.actor_type",
+     "type": "=",
+     "value": "company"
+    }
+   ]
+  },
+  "sorts": [
+   {
+    "field": "date_posted",
+    "order": "desc"
+   }
+  ],
+  "fields": [
+   "share_url",
+   "text",
+   "date_posted",
+   "post_type",
+   "has_video",
+   "hashtags",
+   "engagement",
+   "content_types",
+   "actor.name",
+   "actor.crustdata_entity_id",
+   "actor.actor_type"
+  ],
+  "limit": 10
+ },
+ "status": 200,
+ "credits_used": "5",
+ "body": {
+  "posts": [
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 664000,
+     "name": "Attio"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-09-14T14:40:21Z",
+    "engagement": {
+     "num_shares": 4,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 4,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 2,
+      "LIKE": 42,
+      "PRAISE": 5
+     },
+     "total_comments": 2,
+     "total_reactions": 53
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_without_thoughts",
+    "share_url": "https://www.linkedin.com/posts/attio_its-no-surprise-our-own-team-runs-on-attio-activity-7505273041283850241-WuNx",
+    "text": "It’s no surprise our own team runs on Attio.\n\nPeople keep asking what that looks like, so we're sharing the playbook our team works from.\n\nHow Attio uses Attio is a series of workshops and blog posts on how we use the product to orchestrate our entire GTM motion.\n\nFirst up is Victor Palanco Arbulu, Account Executive, on the views and reports he runs his pipeline from and the Ask Attio prompts he leans on.\n\nTomorrow at 14:30 UTC, live on Attio Community.\n\nRegister to watch now: attio.xyz/ae-workshop"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 664000,
+     "name": "Attio"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-09-07T10:26:39Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 0,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 0
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/attio_an-evening-on-design-with-attio-and-hatch-activity-7500922676073541632-Ljom",
+    "text": "An evening on design with Attio and Hatch Conference.\n\nJoin London’s most innovative designers and product people to chat all things craft. Featuring lightning talks from the Attio team, going behind the scenes on what we’re building, and where we're going next.\n\nSeptember 16, London HQ.\n\nRegister here: attio.ai/design-night"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 664000,
+     "name": "Attio"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-08-31T00:54:59Z",
+    "engagement": {
+     "num_shares": 6,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 18,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 1,
+      "LIKE": 81,
+      "PRAISE": 6
+     },
+     "total_comments": 5,
+     "total_reactions": 106
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_without_thoughts",
+    "share_url": "https://www.linkedin.com/posts/attio_sales-is-changing-this-feeling-isnt-our-ugcPost-7498775303083773953-zVT0",
+    "text": "Sales is changing. This feeling isn’t.\n\nOur London team went on a field trip to see our latest billboards in the wild. Every team's ritual for a win looks different. This is ours.\n\nLive now across London and San Francisco, New York coming soon.\n\nLearn more: https://lnkd.in/efHGJQ7M"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 664000,
+     "name": "Attio"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-08-28T19:27:41Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 0,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 0
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/attio_what-does-it-take-to-scale-a-crm-in-the-agentic-activity-7498361969658470401-SzUa",
+    "text": "What does it take to scale a CRM in the agentic era?\n\nAlexander Christie, our co-founder and CTO, in conversation with Richard Muirhead from Fabric Ventures. The first [O]pen House Fireside on the record.\n\nSeptember 8, London HQ.\n\nRegister for a spot now: attio.xyz/openhouse"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 664000,
+     "name": "Attio"
+    },
+    "content_types": [],
+    "date_posted": "2026-08-25T18:13:47Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 8,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 28,
+      "PRAISE": 2
+     },
+     "total_comments": 1,
+     "total_reactions": 38
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_quote",
+    "share_url": "https://www.linkedin.com/posts/attio_weve-raised-700m-at-a-21b-valuation-from-activity-7495858955303186432-vvyC",
+    "text": "A huge moment for our friends at Etched, who have raised $700M at a $21B valuation.\n\nCongratulations to Gavin Uberti and the team. We're proud to be part of the stack accelerating their growth."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 664000,
+     "name": "Attio"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-08-18T18:13:47Z",
+    "engagement": {
+     "num_shares": 4,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 24,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 91,
+      "PRAISE": 6
+     },
+     "total_comments": 8,
+     "total_reactions": 121
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/attio_gtm-runs-on-attio-our-london-team-ran-jumpstarts-activity-7493971934255386624-hWmO",
+    "text": "GTM runs on Attio.\n\nOur London team ran Jumpstart's Big Startup 5K, under a solar eclipse. Proud to have sponsored the event and joined 2,000+ runners from across 400+ startups and VCs."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 664000,
+     "name": "Attio"
+    },
+    "content_types": [
+     "article"
+    ],
+    "date_posted": "2026-08-16T08:40:21Z",
+    "engagement": {
+     "num_shares": 4,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 4,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 2,
+      "LIKE": 37,
+      "PRAISE": 4
+     },
+     "total_comments": 3,
+     "total_reactions": 47
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_without_thoughts",
+    "share_url": "https://www.linkedin.com/posts/attio_there-are-plenty-of-formula-libraries-we-ugcPost-7488644096476106752-2GHi",
+    "text": "There are plenty of formula libraries we could have picked up. We wrote our own language instead.\n\nDaniel Zvara, one of our Senior Product Engineers, explains the reasoning, how the type system works, and how we run formulas in a multi-tenant environment across millions of records."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 664000,
+     "name": "Attio"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-08-10T16:49:01Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 0,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 0
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/attio_a-high-five-a-handshake-a-fist-bump-across-activity-7492608914740547584-GWQZ",
+    "text": "A high five. A handshake. A fist bump across the desk.\n\nEvery ritual is different, but what they represent is the same.\n\nLive now across London and San Francisco, New York coming soon: Sales is changing. This feeling isn't.\n\nLearn more: https://lnkd.in/efHGJQ7M"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 664000,
+     "name": "Attio"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-08-09T18:13:47Z",
+    "engagement": {
+     "num_shares": 10,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 12,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 1,
+      "LIKE": 52,
+      "PRAISE": 4
+     },
+     "total_comments": 3,
+     "total_reactions": 69
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/attio_people-whove-never-written-a-line-of-code-activity-7483518243245215745-1Y-e",
+    "text": "People who've never written a line of code can build software now.\n\nWith the App SDK, anyone can extend Attio to fit exactly how they work. Automations that used to need a consultant, or weren't possible at all before, can now be built by whoever needs them.\n\nStudio Sessions Ep. 2 Alexander Christie"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 664000,
+     "name": "Attio"
+    },
+    "content_types": [
+     "document"
+    ],
+    "date_posted": "2026-08-07T15:11:52Z",
+    "engagement": {
+     "num_shares": 1,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 2,
+      "PRAISE": 1
+     },
+     "total_comments": 0,
+     "total_reactions": 3
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_without_thoughts",
+    "share_url": "https://www.linkedin.com/posts/attio_the-state-of-agentic-sales-2026-ugcPost-7489071239198859264-jbsG",
+    "text": "Agentic software is changing how sales teams operate. We wrote a report on what that shift means in practice: which foundations matter, and where agents actually fit a sales motion today."
+   }
+  ],
+  "next_cursor": "H4sIAPqc5WoC_xWMQQrCMBAAvyI5e-hus9ndvMK7SEnSaIXSYJscRPy78TjDMB_zanl_T0s4FuNPRtwdM7qQkRkpBZ4ZgrDNnGUMQBpt5MFapThziqAImV3q7KICRnM-maPstb-uwOIAiACFtfu2b359-vZIl3JUz1Z0YMBRQUVI0Vlz61ktNaxTKm37X5DG7w-yEq19pQAAAA==",
+  "total_count": 253
+ }
+}

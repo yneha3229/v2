@@ -1,0 +1,356 @@
+{
+ "version": "rev-2",
+ "trained_on": "2026-10-31",
+ "n_rows": 80,
+ "target": "log10(Crustdata revenue band midpoint) (rev-1 target)",
+ "method": "interval_em",
+ "lambda": 10.0,
+ "features": [
+  "log_headcount",
+  "hc_growth_log",
+  "log_funding",
+  "funded",
+  "log_last_round",
+  "years_since_round",
+  "age_years",
+  "largest_country_us",
+  "largest_country_high_cost",
+  "hq_tier1_metro",
+  "cat_ai",
+  "cat_devtools",
+  "cat_fintech",
+  "cat_consumer",
+  "cat_b2b",
+  "log_size_bucket",
+  "has_posts",
+  "log_total_posts",
+  "posts_per_30d",
+  "days_since_last_post",
+  "log_median_engagement",
+  "log_mean_engagement",
+  "video_share",
+  "original_share",
+  "topic_customers",
+  "topic_launches",
+  "topic_hiring",
+  "topic_funding",
+  "topic_partnerships",
+  "topic_events"
+ ],
+ "v1_features": [
+  "log_headcount",
+  "hc_growth_log",
+  "log_funding",
+  "funded",
+  "log_last_round",
+  "years_since_round",
+  "age_years",
+  "largest_country_us",
+  "largest_country_high_cost",
+  "hq_tier1_metro",
+  "cat_ai",
+  "cat_devtools",
+  "cat_fintech",
+  "cat_consumer",
+  "cat_b2b",
+  "log_size_bucket"
+ ],
+ "social_features": [
+  "has_posts",
+  "log_total_posts",
+  "posts_per_30d",
+  "days_since_last_post",
+  "log_median_engagement",
+  "log_mean_engagement",
+  "video_share",
+  "original_share",
+  "topic_customers",
+  "topic_launches",
+  "topic_hiring",
+  "topic_funding",
+  "topic_partnerships",
+  "topic_events"
+ ],
+ "coef_standardized": [
+  0.268412,
+  -0.178026,
+  0.075432,
+  -0.015353,
+  -0.012433,
+  0.02878,
+  0.160164,
+  -0.048249,
+  -0.063066,
+  0.032303,
+  -0.102068,
+  0.050737,
+  -0.026124,
+  0.018886,
+  0.023919,
+  0.437427,
+  -0.029037,
+  0.154003,
+  -0.074361,
+  -0.038395,
+  -0.037076,
+  -0.09386,
+  0.107181,
+  0.118159,
+  0.053537,
+  0.009536,
+  -0.002986,
+  -0.076268,
+  0.072454,
+  -0.087055
+ ],
+ "intercept": 7.51832,
+ "feature_means": [
+  2.454483,
+  0.205149,
+  8.098378,
+  0.9375,
+  7.551399,
+  1.847604,
+  8.7125,
+  0.3375,
+  0.125,
+  0.2125,
+  0.325,
+  0.3375,
+  0.275,
+  0.1125,
+  0.475,
+  2.494056,
+  0.95,
+  2.102674,
+  6.362629,
+  124.9875,
+  1.481175,
+  1.610894,
+  0.186389,
+  0.650556,
+  0.125139,
+  0.084167,
+  0.048234,
+  0.034028,
+  0.145278,
+  0.048125
+ ],
+ "feature_stds": [
+  0.845556,
+  0.34923,
+  2.358781,
+  0.242061,
+  2.28818,
+  2.889286,
+  3.336142,
+  0.472857,
+  0.330719,
+  0.409077,
+  0.468375,
+  0.472857,
+  0.446514,
+  0.315981,
+  0.499375,
+  0.679112,
+  0.217945,
+  0.766449,
+  4.081016,
+  198.600132,
+  0.77273,
+  0.790957,
+  0.219462,
+  0.294952,
+  0.134609,
+  0.110397,
+  0.132835,
+  0.061922,
+  0.149007,
+  0.129287
+ ],
+ "cv": {
+  "folds": 5,
+  "seed": 7,
+  "model": {
+   "band_hit_rate": 0.2125,
+   "median_abs_log10_error": 0.3568,
+   "mean_abs_log10_error": 0.4924,
+   "q80_abs_log10_error": 0.7883,
+   "within_2x_rate": 0.45
+  },
+  "v1_same_subset": {
+   "band_hit_rate": 0.275,
+   "median_abs_log10_error": 0.3759,
+   "mean_abs_log10_error": 0.4968,
+   "q80_abs_log10_error": 0.7385,
+   "within_2x_rate": 0.3625
+  },
+  "baseline": {
+   "band_hit_rate": 0.2,
+   "median_abs_log10_error": 0.4942,
+   "mean_abs_log10_error": 0.5955,
+   "q80_abs_log10_error": 0.9642,
+   "within_2x_rate": 0.3375
+  }
+ },
+ "training_set": {
+  "rows_path": "proofroom/data/training_set.json",
+  "social_path": "proofroom/data/social_posts_training.json",
+  "n_selected": 80,
+  "n_used": 80,
+  "n_with_posts": 76,
+  "selection": "(deterministic): from proofroom/data/training_set.json, rows with a usable rev-1\nfeature vector, grouped by their size stratum (employee_count_range); inside each stratum\nrows are ordered by sha256(\"rev2:<crustdata_company_id>\") and the first PER_STRATUM are\ntaken (5 strata x 16 = 80). The hash order is unrelated to size, funding or revenue."
+ },
+ "cv_same_subset": {
+  "v1": {
+   "method": "interval_em",
+   "lambda": 10.0,
+   "band_hit_rate": 0.275,
+   "median_abs_log10_error": 0.3759,
+   "mean_abs_log10_error": 0.4968,
+   "q80_abs_log10_error": 0.7385,
+   "within_2x_rate": 0.3625
+  },
+  "v2": {
+   "method": "interval_em",
+   "lambda": 10.0,
+   "band_hit_rate": 0.2125,
+   "median_abs_log10_error": 0.3568,
+   "mean_abs_log10_error": 0.4924,
+   "q80_abs_log10_error": 0.7883,
+   "within_2x_rate": 0.45
+  },
+  "v1+volume": {
+   "method": "interval_em",
+   "lambda": 10.0,
+   "band_hit_rate": 0.2375,
+   "median_abs_log10_error": 0.394,
+   "mean_abs_log10_error": 0.5057,
+   "q80_abs_log10_error": 0.7426,
+   "within_2x_rate": 0.35
+  },
+  "v1+volume+activity": {
+   "method": "midpoint",
+   "lambda": 30.0,
+   "band_hit_rate": 0.2,
+   "median_abs_log10_error": 0.4239,
+   "mean_abs_log10_error": 0.5007,
+   "q80_abs_log10_error": 0.7859,
+   "within_2x_rate": 0.3875
+  },
+  "v1+topics": {
+   "method": "interval_em",
+   "lambda": 30.0,
+   "band_hit_rate": 0.2375,
+   "median_abs_log10_error": 0.397,
+   "mean_abs_log10_error": 0.512,
+   "q80_abs_log10_error": 0.8186,
+   "within_2x_rate": 0.3625
+  },
+  "baseline": {
+   "method": "headcount x median revenue/employee",
+   "lambda": null,
+   "band_hit_rate": 0.2,
+   "median_abs_log10_error": 0.4942,
+   "mean_abs_log10_error": 0.5955,
+   "q80_abs_log10_error": 0.9642,
+   "within_2x_rate": 0.3375
+  }
+ },
+ "cv_definition": "5-fold CV (rev-1 folds, seed 7) on the same rows for every model; each model's method and lambda tuned by that CV (rev-1 rule, mildly optimistic); held-out rows scored with the headcount-implied size bucket, as at inference",
+ "paired_v2_vs_v1": {
+  "n": 80,
+  "b_closer": 34,
+  "a_closer": 46,
+  "ties": 0,
+  "mean_abs_err_diff_a_minus_b": 0.0044,
+  "median_abs_err_diff_a_minus_b": -0.0251
+ },
+ "paired_v2_vs_baseline": {
+  "n": 80,
+  "b_closer": 42,
+  "a_closer": 38,
+  "ties": 0,
+  "mean_abs_err_diff_a_minus_b": 0.1031,
+  "median_abs_err_diff_a_minus_b": 0.0275
+ },
+ "top_social_coefficients": [
+  {
+   "feature": "log_total_posts",
+   "coef_standardized": 0.154003
+  },
+  {
+   "feature": "original_share",
+   "coef_standardized": 0.118159
+  },
+  {
+   "feature": "video_share",
+   "coef_standardized": 0.107181
+  },
+  {
+   "feature": "log_mean_engagement",
+   "coef_standardized": -0.09386
+  },
+  {
+   "feature": "topic_events",
+   "coef_standardized": -0.087055
+  },
+  {
+   "feature": "topic_funding",
+   "coef_standardized": -0.076268
+  },
+  {
+   "feature": "posts_per_30d",
+   "coef_standardized": -0.074361
+  },
+  {
+   "feature": "topic_partnerships",
+   "coef_standardized": 0.072454
+  },
+  {
+   "feature": "topic_customers",
+   "coef_standardized": 0.053537
+  },
+  {
+   "feature": "days_since_last_post",
+   "coef_standardized": -0.038395
+  },
+  {
+   "feature": "log_median_engagement",
+   "coef_standardized": -0.037076
+  },
+  {
+   "feature": "has_posts",
+   "coef_standardized": -0.029037
+  },
+  {
+   "feature": "topic_launches",
+   "coef_standardized": 0.009536
+  },
+  {
+   "feature": "topic_hiring",
+   "coef_standardized": -0.002986
+  }
+ ],
+ "social_feature_means_with_posts": {
+  "has_posts": 1.0,
+  "log_total_posts": 2.2133,
+  "posts_per_30d": 6.6975,
+  "days_since_last_post": 131.5658,
+  "log_median_engagement": 1.5591,
+  "log_mean_engagement": 1.6957,
+  "video_share": 0.1962,
+  "original_share": 0.6848,
+  "topic_customers": 0.1317,
+  "topic_launches": 0.0886,
+  "topic_hiring": 0.0508,
+  "topic_funding": 0.0358,
+  "topic_partnerships": 0.1529,
+  "topic_events": 0.0507
+ },
+ "notes": [
+  "ESTIMATE model; the target is Crustdata's third-party revenue band, not reported revenue.",
+  "Social features come from at most the 10 most recent company posts (Social Post Search); Company Enrich social_posts was 403 on this key.",
+  "Topic shares are keyword rules over post text; posts are what a company chooses to publish."
+ ]
+}

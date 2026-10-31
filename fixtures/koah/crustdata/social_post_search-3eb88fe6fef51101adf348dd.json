@@ -1,0 +1,243 @@
+{
+ "endpoint": "/social_post/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "actor.crustdata_entity_id",
+     "type": "=",
+     "value": 3718859
+    },
+    {
+     "field": "actor.actor_type",
+     "type": "=",
+     "value": "company"
+    }
+   ]
+  },
+  "sorts": [
+   {
+    "field": "date_posted",
+    "order": "desc"
+   }
+  ],
+  "fields": [
+   "share_url",
+   "text",
+   "date_posted",
+   "post_type",
+   "has_video",
+   "hashtags",
+   "engagement",
+   "content_types",
+   "actor.name",
+   "actor.crustdata_entity_id",
+   "actor.actor_type"
+  ],
+  "limit": 10
+ },
+ "status": 200,
+ "credits_used": "3.5",
+ "body": {
+  "posts": [
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 3718859,
+     "name": "Koah"
+    },
+    "content_types": [],
+    "date_posted": "2026-03-18T02:59:43Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 2,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 15,
+      "PRAISE": 3
+     },
+     "total_comments": 2,
+     "total_reactions": 20
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_quote",
+    "share_url": "https://www.linkedin.com/posts/koahlabs_koah-just-raised-a-205m-series-a-led-by-activity-7432092375839232001-GDJq",
+    "text": "Big news 👀"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 3718859,
+     "name": "Koah"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2025-11-18T11:18:10Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 0,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 0
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/koahlabs_at-koah-were-continuously-learning-and-activity-7384699786014408704-6hMf",
+    "text": "At Koah, we’re continuously learning and experimenting to understand what works and what doesn’t. What’s becoming clear is this: advertising in GenAI is fundamentally different than other channels.\n\nSpecifically, here are three key insights from our latest experiments:\n\n1. GenAI Expands the Funnel — Users explore, compare, and decide within chat\n2. Context Beats Placement — Organic first, then paid\n3. Optimizing the Post-Click Experience Matters — Especially on mobile\n\n🧠 Read the full report: https://lnkd.in/eDchKczU"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 3718859,
+     "name": "Koah"
+    },
+    "content_types": [],
+    "date_posted": "2025-10-11T08:42:43Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 11,
+      "PRAISE": 6
+     },
+     "total_comments": 1,
+     "total_reactions": 17
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_quote",
+    "share_url": "https://www.linkedin.com/posts/koahlabs_proud-to-announce-that-koah-has-raised-a-activity-7371203599906787328-6a4P",
+    "text": "Big news"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 3718859,
+     "name": "Koah"
+    },
+    "content_types": [],
+    "date_posted": "2025-10-11T08:42:43Z",
+    "engagement": {
+     "num_shares": 1,
+     "reactions_by_type": {
+      "APPRECIATION": 1,
+      "EMPATHY": 1,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 5,
+      "PRAISE": 0
+     },
+     "total_comments": 1,
+     "total_reactions": 7
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_quote",
+    "share_url": "https://www.linkedin.com/posts/koahlabs_koah-raises-5m-to-bring-ads-into-ai-apps-activity-7371941090096173056-X9xw",
+    "text": "Luzia is building one of the most loved AI assistants in the world, and we’re proud to be a partner on their journey. Always a pleasure working with the Luzia team."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 3718859,
+     "name": "Koah"
+    },
+    "content_types": [],
+    "date_posted": "2025-09-11T08:42:43Z",
+    "engagement": {
+     "num_shares": 1,
+     "reactions_by_type": {
+      "APPRECIATION": 1,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 3,
+      "PRAISE": 1
+     },
+     "total_comments": 0,
+     "total_reactions": 5
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_quote",
+    "share_url": "https://www.linkedin.com/posts/koahlabs_the-future-50-is-here-five-months-ago-activity-7359341858541498369-mDHq",
+    "text": "Flattered to be named to The Generalist Future 50 by Mario Gabriele. Future 50 is a list of the world’s most promising early-stage startups.\n\nKoah was built on the idea that AI apps shouldn’t have to choose between great user experiences and generating revenue. We’re creating a GenAI native ad network that actually works for AI-native products by providing contextual, high-performing, and not the UX equivalent of a pop-up from 2005.\n\nBig thanks to The Generalist for recognizing what we’ve known all along: the future of AI monetization is here, and it’s definitely not boring."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 3718859,
+     "name": "Koah"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2025-08-27T16:14:34Z",
+    "engagement": {
+     "num_shares": 3,
+     "reactions_by_type": {
+      "APPRECIATION": 1,
+      "EMPATHY": 1,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 19,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 21
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_without_thoughts",
+    "share_url": "https://www.linkedin.com/posts/koahlabs_liner-teamed-up-with-koah-labs-to-weave-ai-driven-activity-7308923984849342464-0JoK",
+    "text": "Liner teamed up with Koah Labs to weave AI-driven ads into its platform—keeping trust intact and sparking serious engagement. The result? A better user experience and a fresh revenue boost. \n\nRead more: https://lnkd.in/gHFuADiU"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 3718859,
+     "name": "Koah"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2025-08-27T16:14:34Z",
+    "engagement": {
+     "num_shares": 3,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 1,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 10,
+      "PRAISE": 1
+     },
+     "total_comments": 0,
+     "total_reactions": 12
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_without_thoughts",
+    "share_url": "https://www.linkedin.com/posts/koahlabs_heal-ai-uses-koah-to-provide-free-ai-pediatrician-activity-7310320337311698944-wkzA",
+    "text": "Heal AI uses Koah to provide free AI pediatrician advice to parents, sustainably monetized via GenAI ads. Read how: https://lnkd.in/gy6-ftVU"
+   }
+  ],
+  "next_cursor": null,
+  "total_count": 7
+ }
+}

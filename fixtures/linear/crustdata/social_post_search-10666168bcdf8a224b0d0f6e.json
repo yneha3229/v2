@@ -1,0 +1,338 @@
+{
+ "endpoint": "/social_post/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "actor.crustdata_entity_id",
+     "type": "=",
+     "value": 633791
+    },
+    {
+     "field": "actor.actor_type",
+     "type": "=",
+     "value": "company"
+    }
+   ]
+  },
+  "sorts": [
+   {
+    "field": "date_posted",
+    "order": "desc"
+   }
+  ],
+  "fields": [
+   "share_url",
+   "text",
+   "date_posted",
+   "post_type",
+   "has_video",
+   "hashtags",
+   "engagement",
+   "content_types",
+   "actor.name",
+   "actor.crustdata_entity_id",
+   "actor.actor_type"
+  ],
+  "limit": 10
+ },
+ "status": 200,
+ "credits_used": "5",
+ "body": {
+  "posts": [
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 633791,
+     "name": "Linear"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-09-15T20:56:34Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 0,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 0
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/linearapp_orbit-by-linear-09-dec-2026-sfca-activity-7505656359842054144-Wrke",
+    "text": "ORBIT (BY LINEAR) -- 09 DEC 2026 -- SF/CA\nhttps://orbit.linear.app"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 633791,
+     "name": "Linear"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-09-04T17:22:18Z",
+    "engagement": {
+     "num_shares": 1,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 6,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 63,
+      "PRAISE": 2
+     },
+     "total_comments": 2,
+     "total_reactions": 71
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/linearapp_quality-of-life-update-loops-can-now-run-activity-7501644907040931840-qhMu",
+    "text": "Quality-of-life update: \nLoops can now run on specific days of the week."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 633791,
+     "name": "Linear"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-09-03T17:22:18Z",
+    "engagement": {
+     "num_shares": 1,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 6,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 1,
+      "LIKE": 79,
+      "PRAISE": 2
+     },
+     "total_comments": 3,
+     "total_reactions": 88
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/linearapp_new-priority-inbox-not-all-notifications-activity-7501309308387897344-hQWw",
+    "text": "New: Priority inbox\n\nNot all notifications are created equal. Linear now surfaces your most important updates in a dedicated priority inbox. Quickly unblock your team and keep work progressing."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 633791,
+     "name": "Linear"
+    },
+    "content_types": [
+     "article"
+    ],
+    "date_posted": "2026-09-01T21:58:50Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 0,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 0
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/linearapp_sharing-linears-growth-with-the-people-building-activity-7498348763757854720-trT-",
+    "text": "Today we're announcing our second employee tender offer.\n\nWe passed $100m ARR earlier this year and now have more than 40,000 paying customers.\n\nThe tender lets our teammates participate in that success at a $2.5B valuation:\nhttps://lnkd.in/e5EDdmcr"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 633791,
+     "name": "Linear"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-09-01T17:22:18Z",
+    "engagement": {
+     "num_shares": 1,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 1,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 62,
+      "PRAISE": 0
+     },
+     "total_comments": 1,
+     "total_reactions": 63
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/linearapp_as-more-apps-and-agents-connect-to-your-tools-activity-7500595474211659776-jUPG",
+    "text": "As more apps and agents connect to your tools, controlling access to company data matters more than ever.\n\nThird-party app approvals are now available on every paid Linear plan, giving workspace admins the final say before an app gains access.\n\nhttps://lnkd.in/gjtNvMZS"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 633791,
+     "name": "Linear"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-09-01T17:22:18Z",
+    "engagement": {
+     "num_shares": 22,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 23,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 2,
+      "LIKE": 150,
+      "PRAISE": 15
+     },
+     "total_comments": 6,
+     "total_reactions": 190
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/linearapp_inspect-2026-a-short-film-about-ramps-activity-7500222319563403264-EN3u",
+    "text": "INSPECT (2026)\nA short film about Ramp's own coding agent, now writing three out of every four PRs."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 633791,
+     "name": "Linear"
+    },
+    "content_types": [
+     "article"
+    ],
+    "date_posted": "2026-09-01T17:22:18Z",
+    "engagement": {
+     "num_shares": 2,
+     "reactions_by_type": {
+      "APPRECIATION": 1,
+      "EMPATHY": 11,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 14,
+      "LIKE": 196,
+      "PRAISE": 12
+     },
+     "total_comments": 3,
+     "total_reactions": 234
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/linearapp_styling-linear-for-the-future-with-stylex-activity-7498732301195862018-uSGF",
+    "text": "Over 1000 PRs later, Linear migrated from styled-components to StyleX.\n\nWhat began as performance optimization gave us better defaults for humans and agents alike.\n\nOur engineer Kenneth Skovhus on what we learned:\nhttps://lnkd.in/gFhEGz9F"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 633791,
+     "name": "Linear"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-08-30T13:17:24Z",
+    "engagement": {
+     "num_shares": 9,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 9,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 6,
+      "LIKE": 90,
+      "PRAISE": 0
+     },
+     "total_comments": 5,
+     "total_reactions": 105
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "repost_without_thoughts",
+    "share_url": "https://www.linkedin.com/posts/linearapp_the-best-product-feedback-is-often-buried-ugcPost-7499134108082520064-0agl",
+    "text": "The best product feedback is often buried in sales calls.\n\nOur product team uses Loops to automatically capture, synthesize, and review those conversations to surface the ones they care about most."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 633791,
+     "name": "Linear"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-08-25T17:22:18Z",
+    "engagement": {
+     "num_shares": 2,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 9,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 2,
+      "LIKE": 66,
+      "PRAISE": 4
+     },
+     "total_comments": 2,
+     "total_reactions": 81
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/linearapp_linears-coding-sessions-now-supports-custom-activity-7496251754620014592-dRxv",
+    "text": "Linear's coding sessions now supports custom environments and browser use for testing and screenshots.\n\nConfigure runtimes automatically with agent, and setup necessary scripts and env vars."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 633791,
+     "name": "Linear"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-08-23T13:17:24Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 0,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 0
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/linearapp_how-eitan-m-on-our-sales-team-uses-loops-activity-7495907323907829760-U62t",
+    "text": "How Eitan M. on our Sales team uses Loops to get fast, reliable answers to product questions at scale."
+   }
+  ],
+  "next_cursor": "H4sIAPmc5WoC_xXMyw7CIBCF4VdpWLuYoVNgeAr3xjRcrUlTYoGFMb67uD3_yfcRr57O97q5ugk7iTAr5zkos3gwkYlYzQkwZZJaQ0bWChL5HB3LKBmkym4hF72ElNCguEyilrMN64baaGKEgaAaez8Puz9tf4Rrqc2OtjAonNEQDBzIiPu4tdLcvobSj78iQX9_JgKOcqUAAAA=",
+  "total_count": 207
+ }
+}

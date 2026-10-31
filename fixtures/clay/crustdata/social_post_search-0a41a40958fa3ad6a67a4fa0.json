@@ -1,0 +1,334 @@
+{
+ "endpoint": "/social_post/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "actor.crustdata_entity_id",
+     "type": "=",
+     "value": 1010356
+    },
+    {
+     "field": "actor.actor_type",
+     "type": "=",
+     "value": "company"
+    }
+   ]
+  },
+  "sorts": [
+   {
+    "field": "date_posted",
+    "order": "desc"
+   }
+  ],
+  "fields": [
+   "share_url",
+   "text",
+   "date_posted",
+   "post_type",
+   "has_video",
+   "hashtags",
+   "engagement",
+   "content_types",
+   "actor.name",
+   "actor.crustdata_entity_id",
+   "actor.actor_type"
+  ],
+  "limit": 10
+ },
+ "status": 200,
+ "credits_used": "5",
+ "body": {
+  "posts": [
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 1010356,
+     "name": "Clay"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-09-10T02:19:03Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 0,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 0
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/grow-with-clay_clay-just-raised-a-115m-series-d-at-a-71b-activity-7503434296624533506-40jk",
+    "text": "Clay just raised a $115M Series D at a $7.1B valuation.\n\nMore than 17,000 teams build on Clay, including Anthropic, SpaceXAI, Google, OpenAI, Stripe, Visa, UPS — and 80% of the Forbes AI50.\n\nThe New York Times just broke the news, but the story goes far beyond the raise. AI is unleashing the biggest wave of company creation in history. Clay’s goal is to be the engine they use to grow.\n\n𝗪𝗲'𝗿𝗲 𝗯𝘂𝗶𝗹𝗱𝗶𝗻𝗴 𝗮 𝘀𝗲𝗹𝗳-𝗹𝗲𝗮𝗿𝗻𝗶𝗻𝗴 𝗿𝗲𝘃𝗲𝗻𝘂𝗲 𝗲𝗻𝗴𝗶𝗻𝗲 𝘁𝗵𝗮𝘁 𝗳𝗶𝗴𝘂𝗿𝗲𝘀 𝗼𝘂𝘁 𝘁𝗵𝗲 𝗯𝗲𝘀𝘁 𝗚𝗧𝗠 𝗽𝗹𝗮𝘆 𝗳𝗼𝗿 𝘆𝗼𝘂𝗿 𝗰𝗼𝗺𝗽𝗮𝗻𝘆, 𝘁𝗵𝗲𝗻 𝗿𝘂𝗻𝘀 𝗶𝘁.\n\nWe started as the company with the best data about other companies. Then we built the infrastructure to run campaigns across email, ads, and landing pages. \n\nNow we’re building agents that learn from every campaign, predict the next best action, and get better each time they run.\n\n𝗦𝗼𝗳𝘁𝘄𝗮𝗿𝗲 𝗲𝗻𝗴𝗶𝗻𝗲𝗲𝗿𝘀 𝘂𝘀𝗲 𝗰𝗼𝗱𝗶𝗻𝗴 𝗮𝗴𝗲𝗻𝘁𝘀 𝘁𝗼 𝘄𝗿𝗶𝘁𝗲 𝗰𝗼𝗱𝗲. 𝗚𝗧𝗠 𝗲𝗻𝗴𝗶𝗻𝗲𝗲𝗿𝘀 𝘂𝘀𝗲 𝗴𝗿𝗼𝘄𝘁𝗵 𝗮𝗴𝗲𝗻𝘁𝘀 𝘁𝗼 𝗮𝘂𝘁𝗼𝗻𝗼𝗺𝗼𝘂𝘀𝗹𝘆 𝗴𝗿𝗼𝘄 𝘁𝗵𝗲𝗶𝗿 𝗰𝗼𝗺𝗽𝗮𝗻𝗶𝗲𝘀.\n\nIn 2023, we introduced GTME as a new role for people creating revenue systems with data, automation, and AI. Two years later, thousands of GTMEs are growing the world's best companies. They are gathering in nearly 100 Clay Clubs around the world, from Bangalore to Boston and Lahore to Lisbon. \n\n𝗧𝗵𝗮𝘁’𝘀 𝘄𝗵𝘆 𝘄𝗲’𝗿𝗲 𝗽𝗿𝗼𝘂𝗱 𝘁𝗼 𝗹𝗮𝘂𝗻𝗰𝗵 𝗮 $𝟭𝗠 𝗚𝗧𝗠𝗘 𝘀𝗰𝗵𝗼𝗹𝗮𝗿𝘀𝗵𝗶𝗽 𝗳𝘂𝗻𝗱, 𝗵𝗲𝗹𝗽𝗶𝗻𝗴 𝗺𝗼𝗿𝗲 𝗽𝗲𝗼𝗽𝗹𝗲 𝗲𝗻𝘁𝗲𝗿 𝘁𝗵𝗲 𝗽𝗿𝗼𝗳𝗲𝘀𝘀𝗶𝗼𝗻. (clay.link/XgN7kri)\n\nWellington Management led our Series D, with participation from Sequoia Capital, StepStone Group, Andreessen Horowitz Perennial, Meritech, DST GLOBAL PRIVATE LIMITED, CapitalG, BoxGroup, boldstart ventures, Bloomberg Beta, and Evolution Equity Partners.\n\nA gracious thank you goes out to our customers, community, partners, team, and every GTM engineer shaping this with us.\n\n𝗪𝗲 𝗮𝗿𝗲 𝗴𝗼𝗶𝗻𝗴 𝘁𝗼 𝘂𝗻𝘃𝗲𝗶𝗹 𝘁𝗵𝗲 𝗳𝘂𝘁𝘂𝗿𝗲 𝗼𝗳 𝗔𝗴𝗲𝗻𝘁𝗶𝗰 𝗚𝗧𝗠 𝗮𝘁 𝗦𝗖𝗨𝗟𝗣𝗧 𝗼𝗻 𝗢𝗰𝘁𝗼𝗯𝗲𝗿 𝟴.\n(clay.link/8N5uqFR)\n\nStay tuned to see how to use AI to grow every company.\n\n🖤🩵❤️💛\n\nCheck out the NYT write up here → clay.link/ozn1wMY"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 1010356,
+     "name": "Clay"
+    },
+    "content_types": [],
+    "date_posted": "2026-09-07T15:08:43Z",
+    "engagement": {
+     "num_shares": 1,
+     "reactions_by_type": {
+      "APPRECIATION": 5,
+      "EMPATHY": 6,
+      "ENTERTAINMENT": 8,
+      "INTEREST": 0,
+      "LIKE": 60,
+      "PRAISE": 1
+     },
+     "total_comments": 10,
+     "total_reactions": 80
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/grow-with-clay_no-need-to-unify-your-first-and-third-party-activity-7502729917927940096-Nwb9",
+    "text": "no need to unify your first and third party data today. \n\nenjoy your Labor Day. \n\n🫶"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 1010356,
+     "name": "Clay"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-09-06T10:08:43Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 1,
+      "EMPATHY": 16,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 2,
+      "LIKE": 49,
+      "PRAISE": 11
+     },
+     "total_comments": 7,
+     "total_reactions": 79
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/grow-with-clay_%F0%9D%97%9C%F0%9D%97%A1%F0%9D%97%A6%F0%9D%97%9C%F0%9D%97%97%F0%9D%97%98-%F0%9D%97%9F%F0%9D%97%A2%F0%9D%97%A2%F0%9D%97%9E-osman-is-clays-head-activity-7502005147959554049-MC7v",
+    "text": "𝗜𝗡𝗦𝗜𝗗𝗘 𝗟𝗢𝗢𝗞: Osman is Clay’s Head of GTM Engineering, which means he leads the function inside the company that helped turn it into a real job. \n\nBefore Clay, he tested growth ideas at Shelf and Rippling, including a review-mining outbound play at Shelf and campaign experiments on top of Rippling’s 200,000-email-a-week outbound system.\n\nOs gets into how all that turned into his work here, where his team now sits ahead of the product, builds internal tools for reps, tests account agents, closes feedback loops, and turns messy GTM problems into systems the rest of the company can run → (clay.link/4IIuFAH)\n\n🤙"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 1010356,
+     "name": "Clay"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-09-06T00:47:30Z",
+    "engagement": {
+     "num_shares": 17,
+     "reactions_by_type": {
+      "APPRECIATION": 2,
+      "EMPATHY": 48,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 245,
+      "PRAISE": 33
+     },
+     "total_comments": 133,
+     "total_reactions": 328
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_without_thoughts",
+    "share_url": "https://www.linkedin.com/posts/grow-with-clay_we-coined-the-role-gtme-to-describe-operators-activity-7500951601826914304-ZNFA",
+    "text": "We coined the role “GTME” to describe operators who think like top 1% growth leads, build systems, and know what converts. These are 12 you should follow rn:\n\nAaron Jones - Founder at Jones Knows Data, brings 10+ years of RevOps into AI-powered GTM systems, from rebuilding customer data foundations to turning ICP scoring and enrichment into work revenue teams can actually use.\n\nAmy Elrington - Senior Marketing Operations Manager at GWI, is building the kind of marketing ops system every inbound team wants: engagement data turning into tailored outreach, scaled personalization, and cleaner handoffs for reps.\n\nBrandon Lennon - FDGTME at Clay, went from building in the 30,000+ member Clay community to literally joining (us). Everyone's happy to have you here. <3\n\nChristopher Silva - GTM Engineer at 825 Media, comes at GTM from the data engineering POV, building the data and AI systems growth teams run on, with the pipelines, models, and plumbing underneath.\n\nChristian Levan - Growth Lead at NationGraph, is turning public-sector buying signals into repeatable growth systems, from outbound workflows to the internal tooling that keeps a small team moving fast.\n\nErik Parry - GTM Engineer at Zip, is the Master Oogway of pipeline impact. He just rebuilt a departed-champion workflow w/ multi-table signals, verification, and rep alerts. \n\nJoseph Bykov - Head of Growth at GrailPay. We call him Joey. He's growing the company while solving for fintech's least forgiving problems: making faster bank payments smarter, safer, and easier to trust.\n\nPolly Morphew - RevOps Lead at CybSafe, is doing the RevOps version of seeing around corners, combining first-party data with fit and intent signals so GTM teams know where to spend their next hour.\n\nSabrina Carver - GTM Engineer at demandDrive, is currently in the Clay Cup semifinals, and for good reason. She's already bringing AlphaForge knowledge, like scoring-model work, into client systems, making lead scoring easier to explain, cheaper to change, and more useful in the field. 🥳\n\nStephen Kim - GTM Engineering Lead at Dealops, went from Wedge grad to full-blown leader, helping build the commercial systems around a company changing how modern teams price and sell usage.\n\nTheo Peters - GTM Operations Manager at Arkose Labs, is building a system that matches outreach to buyer seniority, so the right contact gets the right motion without someone babysitting every branch.\n\nTyler Spence - GTM Lead for Startups at Miro, works with venture-backed startups, helping early teams turn messy sales motion into repeatable plays.\n\nWho's next? If you want to up-skill to the moon like these people, enroll in a cohort at cohorts.clay[.]com 💛🩵🧡\n\nBIG LOVE to Izzy, Natalie, Jenny, and Natalie for helping create this BOOMING talent pipeline."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 1010356,
+     "name": "Clay"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-09-05T12:19:37Z",
+    "engagement": {
+     "num_shares": 3,
+     "reactions_by_type": {
+      "APPRECIATION": 1,
+      "EMPATHY": 10,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 1,
+      "LIKE": 37,
+      "PRAISE": 2
+     },
+     "total_comments": 11,
+     "total_reactions": 51
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "repost_without_thoughts",
+    "share_url": "https://www.linkedin.com/posts/grow-with-clay_openai-published-a-piece-on-how-ai-native-ugcPost-7501674278896128001-OXdd",
+    "text": "OpenAI published a piece on how AI-native companies turn workflows into operating capability, and Clay shows up through something Solange Levy built for her own agentic-sales motion 👇\n\nShe pulled deal context from CRM, email, presentations, internal Slack channels, and champion updates into a persistent workspace with a subagent for every account.\n\nEvery morning, those agents help her surface the big priority moves that push deals forward:\n\n> answer the open customer question\n> find the missing person in the buying committee\n> re-engage the quiet account\n> check the source before acting\n\n“The result is a shared evidence-based workspace for each account that helps me maintain momentum across every deal without reconstructing the story or the context over time,\" Solange says. \n\nRead more → clay.link/ABwQHEW"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 1010356,
+     "name": "Clay"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-09-04T10:08:43Z",
+    "engagement": {
+     "num_shares": 5,
+     "reactions_by_type": {
+      "APPRECIATION": 1,
+      "EMPATHY": 30,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 161,
+      "PRAISE": 20
+     },
+     "total_comments": 7,
+     "total_reactions": 212
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/grow-with-clay_hello-nyse-my-old-friend-the-ia40-recognizes-activity-7501309334484779008-4r6z",
+    "text": "Hello NYSE, my old friend. \n\nThe IA40 recognizes the 40 most important private companies in applied AI -- and we're in it. \n\nThanks again Madrona, AWS Startups, Microsoft, Google for Startups, NYSE, Delta Air Lines, and McKinsey & Company  :)"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 1010356,
+     "name": "Clay"
+    },
+    "content_types": [],
+    "date_posted": "2026-09-04T10:08:43Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 10,
+      "PRAISE": 0
+     },
+     "total_comments": 1,
+     "total_reactions": 10
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_quote",
+    "share_url": "https://www.linkedin.com/posts/grow-with-clay_we-coined-the-role-gtme-to-describe-operators-activity-7501288748773720066-i2cP",
+    "text": "btw, we have a wholeeeeee job board for top GTM roles for Clay maestros OUTSIDE of Clay -> clay.com/job-board <3"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 1010356,
+     "name": "Clay"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-09-03T10:08:43Z",
+    "engagement": {
+     "num_shares": 2,
+     "reactions_by_type": {
+      "APPRECIATION": 1,
+      "EMPATHY": 11,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 49,
+      "PRAISE": 3
+     },
+     "total_comments": 9,
+     "total_reactions": 64
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/grow-with-clay_clays-gtme-mvp-sabrina-glaser-went-from-activity-7501043413874556929-zu1o",
+    "text": "Clay's GTME MVP Sabrina Glaser went from \"allergic to outbound\" to closing $1M+ in outbound sales pipeline last quarter. Her flow is worth copying. \n\nThis is LAST CALLLLLLLLLLL for How Clay Uses Clay: Cold Outbound to Enterprise Accounts: clay.link/5lUvXb3\n\nGood reps already have the judgment about who to target, which signals matter, and what a real email should sound like.\n\nSabrina's problem was the slog before she could use that judgment (Salesforce for account history, Gong for past calls, social profiles for people, and Crunchbase/news/job posts/earnings calls for timing). All of it devoured her calendar.\n\nSo she built a 4-agent workflow that starts with one company domain:\n\n1. pulls first-party account history\n2. finds fresh third-party signals\n3. maps 3-8 people in the buying center\n4. drafts three sequences in her voice\n\nThe flow went internally-viral. Ashley Artrip saw the team-wide version, and Luca Prando helped turn it into a callable Clay CLI workflow with deliverability, dedupe, CRM mapping, and data governance wired in.\n\nNow reps can run it from ChatGPT or Claude, review the work, and move.\n\nWe're walking through it live tomorrow. \n\nBe there or be square. \n\n((no seriously. she literally brought in more that $1 million. you're losing money by not attending 👀))"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 1010356,
+     "name": "Clay"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-09-02T10:08:43Z",
+    "engagement": {
+     "num_shares": 4,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 16,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 95,
+      "PRAISE": 13
+     },
+     "total_comments": 9,
+     "total_reactions": 124
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/grow-with-clay_were-proud-to-be-featured-on-madronas-2026-activity-7500628579936878592-toBZ",
+    "text": "We're proud to be featured on Madrona's 2026 Intelligent Applications 40 list—and absolutely mind-blown that 65% of this year's cohort builds on Clay. 🤯🎉\n\nThe IA40 recognizes “the top private companies building with and enabling the AI applications shaping our future,” and this list is about AI teams proving real ROI in production.\n\nWe wouldn’t be here without so many of the customers we’re lucky to build alongside, who also earned top spots:\n\nOpenAI, Anthropic, ElevenLabs, Legora, Fireworks AI, Ramp, Linear, Baseten, Cognition, Gamma, ClickHouse, Vercel, Browserbase, Sierra, Together AI, Serval, Cartesia, fal, Profound, CodeRabbit, HeyGen, Granola, Fable Security, Lovable, Resend, turbopuffer, Gradial, Mastra, Listen Labs, Town, and OpenRouter <3\n\nAnd thank you Madrona, AWS Startups, Microsoft, Google for Startups, NYSE, Delta Air Lines, and McKinsey & Company for the recognition :) \n\nRead more here: clay.link/TZvOp8Y"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 1010356,
+     "name": "Clay"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-09-02T10:08:43Z",
+    "engagement": {
+     "num_shares": 12,
+     "reactions_by_type": {
+      "APPRECIATION": 1,
+      "EMPATHY": 28,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 3,
+      "LIKE": 115,
+      "PRAISE": 11
+     },
+     "total_comments": 39,
+     "total_reactions": 158
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/grow-with-clay_landed-we-overhauled-clay-sequencer-to-bring-activity-7500585186317860864-X7Cx",
+    "text": "LANDED: We overhauled Clay Sequencer to bring your whole outbound motion into one place. Here's the 5 things we added:\n\n1️⃣ 𝗔𝗹𝘄𝗮𝘆𝘀-𝗼𝗻 𝗹𝗲𝗮𝗱 𝘀𝗼𝘂𝗿𝗰𝗶𝗻𝗴: Find the fresh leads from your CRM, signal data, or Clay’s people database, then build dynamic lead and exclusion lists around them.\n\n2️⃣ 𝗦𝗲𝗹𝗳-𝗾𝘂𝗮𝗹𝗶𝗳𝘆𝗶𝗻𝗴 𝗹𝗲𝗮𝗱𝘀: Refresh your GTM data continuously, so accounts enter campaigns when they fit and leave when they don’t.\n\n3️⃣ 𝗖𝗼𝗻𝘁𝗲𝘅𝘁-𝗱𝗿𝗶𝘃𝗲𝗻 𝗰𝗼𝗽𝘆: Templates with AI snippets let you decide what gets personalized, using context from Clay’s 200+ data providers.\n\n4️⃣ 𝗖𝗲𝗻𝘁𝗿𝗮𝗹𝗶𝘇𝗲𝗱 𝘀𝗲𝗻𝗱 𝗮𝗻𝗱 𝗱𝗲𝗹𝗶𝘃𝗲𝗿𝗮𝗯𝗶𝗹𝗶𝘁𝘆 𝗺𝗮𝗻𝗮𝗴𝗲𝗺𝗲𝗻𝘁: Buy inboxes and domains without leaving Clay, with warmup built in.\n\n5️⃣ 𝗥𝗲𝗽𝗹𝗶𝗲𝘀 𝗿𝗲𝗮𝗱𝘆 𝗯𝗲𝗳𝗼𝗿𝗲 𝗿𝗲𝗽𝘀 𝗼𝗽𝗲𝗻 𝗦𝗹𝗮𝗰𝗸: Auto-draft and share responses so your team can approve before sending.\n\nTake this to your next meeting: the right pitch at the wrong time is the wrong pitch. Your context should be fresh, accurate, folded in from the start, and perfectly timed.\n\nSequencer is avail on Launch, Growth, and Enterprise plans.\n\nLearn more → clay.link/3jVog5b\n\nJewel and Larry talk through it below 🫶"
+   }
+  ],
+  "next_cursor": "H4sIAPuc5WoC_xXMQQ7CIBBA0as0rF0MDAMznMK9MQ3Q1po0JRZYGOPdrdufn_dRrz4f73GNdVVhUDplmMgniZKcs5nB6YguT7SARfHJRBKjDQgZaw2hi56F_Sw6Ly4ndRlULUc7rZv2zGjRGxQnZ-_HHrZn6I98LbUFTwDEpNmyEDOhNup-bq20uI259P2vWIHvD7x3Sn6lAAAA",
+  "total_count": 490
+ }
+}

@@ -1,0 +1,336 @@
+{
+ "endpoint": "/social_post/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "actor.crustdata_entity_id",
+     "type": "=",
+     "value": 631347
+    },
+    {
+     "field": "actor.actor_type",
+     "type": "=",
+     "value": "company"
+    }
+   ]
+  },
+  "sorts": [
+   {
+    "field": "date_posted",
+    "order": "desc"
+   }
+  ],
+  "fields": [
+   "share_url",
+   "text",
+   "date_posted",
+   "post_type",
+   "has_video",
+   "hashtags",
+   "engagement",
+   "content_types",
+   "actor.name",
+   "actor.crustdata_entity_id",
+   "actor.actor_type"
+  ],
+  "limit": 10
+ },
+ "status": 200,
+ "credits_used": "5",
+ "body": {
+  "posts": [
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631347,
+     "name": "Vercel"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-09-11T19:53:46Z",
+    "engagement": {
+     "num_shares": 20,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 16,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 107,
+      "PRAISE": 4
+     },
+     "total_comments": 6,
+     "total_reactions": 127
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_without_thoughts",
+    "share_url": "https://www.linkedin.com/posts/vercel_ship-26-is-coming-to-san-francisco-on-october-activity-7503916245612826624-yevb",
+    "text": "Ship '26 is coming to San Francisco on October 15.\n\nOn stage:\nTobias Lütke, CEO Shopify\nKatelyn Lesse, Head of Platform Engineering Anthropic\nOlawale Oladehin, Managing Director AWS\nAaron Katz, Co-Founder & CEO ClickHouse\nRichard Rizk, Co-Founder & CTO Blackbox AI\n\nMore speakers dropping soon.\n\nShip what's next → https://vercel.fyi/ship-sf"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631347,
+     "name": "Vercel"
+    },
+    "content_types": [],
+    "date_posted": "2026-09-08T04:35:20Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 0,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 0
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/vercel_vercel-tanstack-vercel-like-the-web-activity-7500660632371945473-emeS",
+    "text": "Vercel + TanStack\n\nVercel, like the web, is built on open standards and open source. That's why we're excited to partner with TanStack to power the next generation of apps and agents on Vercel."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631347,
+     "name": "Vercel"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-09-05T16:16:40Z",
+    "engagement": {
+     "num_shares": 9,
+     "reactions_by_type": {
+      "APPRECIATION": 2,
+      "EMPATHY": 24,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 169,
+      "PRAISE": 8
+     },
+     "total_comments": 4,
+     "total_reactions": 203
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/vercel_august-in-design-at-vercel-want-to-join-activity-7501752887530766336-RQkq",
+    "text": "August in Design at Vercel.\n\nWant to join the team? Check out our open roles: https://lnkd.in/dx4iXnVv"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631347,
+     "name": "Vercel"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-09-03T16:16:40Z",
+    "engagement": {
+     "num_shares": 22,
+     "reactions_by_type": {
+      "APPRECIATION": 2,
+      "EMPATHY": 8,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 103,
+      "PRAISE": 3
+     },
+     "total_comments": 12,
+     "total_reactions": 116
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/vercel_ship-26-is-coming-to-san-francisco-on-october-activity-7501013620550709248-WA1f",
+    "text": "Ship 26 is coming to San Francisco on October 15th. \n\nLearn how teams are shipping AI agents to production, then build alongside them.\n\nSee the full lineup: https://vercel.fyi/ship-sf"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631347,
+     "name": "Vercel"
+    },
+    "content_types": [
+     "article"
+    ],
+    "date_posted": "2026-09-01T16:16:40Z",
+    "engagement": {
+     "num_shares": 3,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 2,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 35,
+      "PRAISE": 3
+     },
+     "total_comments": 5,
+     "total_reactions": 40
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/vercel_set-per-user-budgets-on-ai-gateway-vercel-activity-7500376662711242752-73JI",
+    "text": "Set per-user budgets on AI Gateway.\n\n▲ ~/ 𝚟𝚌 𝚊𝚒-𝚐𝚊𝚝𝚎𝚠𝚊𝚢 𝚋𝚞𝚍𝚐𝚎𝚝𝚜 𝚍𝚎𝚏𝚊𝚞𝚕𝚝𝚜 \\\n    𝚜𝚎𝚝 𝚞𝚜𝚎𝚛 --𝚕𝚒𝚖𝚒𝚝 𝟻𝟶𝟶 \\\n    --𝚛𝚎𝚏𝚛𝚎𝚜𝚑-𝚙𝚎𝚛𝚒𝚘𝚍 𝚖𝚘𝚗𝚝𝚑𝚕𝚢\n\nThis works with existing team, project, and API key budgets.\n\nhttps://lnkd.in/gvH5EFxB"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631347,
+     "name": "Vercel"
+    },
+    "content_types": [
+     "article"
+    ],
+    "date_posted": "2026-09-01T16:16:40Z",
+    "engagement": {
+     "num_shares": 7,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 2,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 5,
+      "LIKE": 147,
+      "PRAISE": 8
+     },
+     "total_comments": 10,
+     "total_reactions": 162
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/vercel_introducing-run-sdk-secure-eval-for-your-activity-7498097790753918976-3LwB",
+    "text": "Coding agents want 𝚎𝚟𝚊𝚕. Today they get 𝚛𝚞𝚗:\n\n• Hardened QuickJS sandbox\n• Expose only approved host functions\n• Pause for human approval, then resume\n• Runs anywhere Node.js runs\n\nhttps://lnkd.in/gDmJpcx8"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631347,
+     "name": "Vercel"
+    },
+    "content_types": [
+     "article"
+    ],
+    "date_posted": "2026-09-01T16:16:40Z",
+    "engagement": {
+     "num_shares": 11,
+     "reactions_by_type": {
+      "APPRECIATION": 1,
+      "EMPATHY": 2,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 52,
+      "PRAISE": 4
+     },
+     "total_comments": 3,
+     "total_reactions": 59
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/vercel_eve-eves-activity-7498139323129585664-Xtp4",
+    "text": "The eve team is coming to San Francisco, New York, and London for \"eve eves.\" \n\nJoin us to: \n• Learn what's new with eve\n• Participate in a hands-on workshop with the team\n• Hang out with the community\n\nhttps://eve.dev/nights"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631347,
+     "name": "Vercel"
+    },
+    "content_types": [
+     "article"
+    ],
+    "date_posted": "2026-09-01T12:16:32Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 0,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 0
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/vercel_how-our-agents-build-on-brand-pages-with-activity-7500305420444389376-rGZk",
+    "text": "Our agents use 𝚟𝚎𝚛𝚌𝚎𝚕​.𝚌𝚘𝚖/𝚍𝚎𝚜𝚒𝚐𝚗​.𝚖𝚍 to build on-brand pages.\n\n▪︎ One file encodes decisions and guidance\n▪︎ Output is shaped through our eval harness\n▪︎ Production feedback is fed back into the loop\nhttps://lnkd.in/gbscigeS"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631347,
+     "name": "Vercel"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-08-28T16:25:55Z",
+    "engagement": {
+     "num_shares": 142,
+     "reactions_by_type": {
+      "APPRECIATION": 12,
+      "EMPATHY": 161,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 28,
+      "LIKE": 1671,
+      "PRAISE": 95
+     },
+     "total_comments": 67,
+     "total_reactions": 1967
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "repost_without_thoughts",
+    "share_url": "https://www.linkedin.com/posts/vercel_we-built-vgpush-to-ship-shaders-on-vercelcom-ugcPost-7498764913587290112-OfG4",
+    "text": "We built vgpu.sh to ship shaders on vercel.com. Now it's open source. \n\n▪︎ Minimal agent-first WebGPU library\n▪︎ Run in the browser or headless Node.js\n▪︎ Render in CPU sandboxes and CI tests\n▪︎ Create reusable .wgsl modules"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631347,
+     "name": "Vercel"
+    },
+    "content_types": [
+     "article"
+    ],
+    "date_posted": "2026-08-28T14:24:59Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 0,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 0
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/vercel_the-end-of-credential-sprawl-for-agents-activity-7498398319623311360-SXL2",
+    "text": "Vercel Connect is now generally available.\n\nGive your apps and agents secure access to Slack, Linear, GitHub & 100+ other services. \n\n• Short-lived, scoped access tokens\n• Token and trigger observability\n• RBAC and audit trails\n\nhttps://lnkd.in/e3wqH3VU"
+   }
+  ],
+  "next_cursor": "H4sIAPyc5WoC_xWMWwqDMBQFtyL57keueZ2brRSRaxKxIEqjfpTSvTfCgYHDMF_1vkr9jIsci4qdcpRmh5nJZGSXrelZxCQq4nUgiwkiYC2YG1Ekc0kTjJHkg7W9V49OHXs9W-tJAYH7oJnJo_1X3eL6iscitcRgGaaNcCtEsFoNTTr3U9Yx7dd2Nxzr3x9om5CNowAAAA==",
+  "total_count": 590
+ }
+}
