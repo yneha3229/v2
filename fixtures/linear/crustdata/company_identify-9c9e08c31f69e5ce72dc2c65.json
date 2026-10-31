@@ -1,0 +1,360 @@
+{
+ "endpoint": "/company/identify",
+ "request": {
+  "names": [
+   "Accel"
+  ]
+ },
+ "status": 200,
+ "credits_used": "0",
+ "body": [
+  {
+   "matched_on": "Accel",
+   "match_type": "name",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 908174,
+      "basic_info": {
+       "name": "Accel",
+       "crustdata_company_id": 908174,
+       "primary_domain": "accel.com",
+       "all_domains": [
+        "accel.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 1895365,
+      "basic_info": {
+       "name": "ACCEL",
+       "crustdata_company_id": 1895365,
+       "primary_domain": "accel.org",
+       "all_domains": [
+        "accel.org"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 14695277,
+      "basic_info": {
+       "name": "ACCEL",
+       "crustdata_company_id": 14695277,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 14894147,
+      "basic_info": {
+       "name": "Accel",
+       "crustdata_company_id": 14894147,
+       "primary_domain": "acceldigital.com.br",
+       "all_domains": [
+        "acceldigital.com.br"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 22256605,
+      "basic_info": {
+       "name": "Accel",
+       "crustdata_company_id": 22256605,
+       "primary_domain": "accelonline.in",
+       "all_domains": [
+        "accelonline.in"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 22365928,
+      "basic_info": {
+       "name": "Accel",
+       "crustdata_company_id": 22365928,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 70247614,
+      "basic_info": {
+       "name": "ACCEL",
+       "crustdata_company_id": 70247614,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 71999723,
+      "basic_info": {
+       "name": "Accel",
+       "crustdata_company_id": 71999723,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.95,
+     "company_data": {
+      "crustdata_company_id": 18457212,
+      "basic_info": {
+       "name": "ACCELS",
+       "crustdata_company_id": 18457212,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.95,
+     "company_data": {
+      "crustdata_company_id": 64206194,
+      "basic_info": {
+       "name": "Accels",
+       "crustdata_company_id": 64206194,
+       "primary_domain": "accels.com",
+       "all_domains": [
+        "accels.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 1228212,
+      "basic_info": {
+       "name": "ACCEL Schools",
+       "crustdata_company_id": 1228212,
+       "primary_domain": "accelschools.com",
+       "all_domains": [
+        "accelschools.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 1376169,
+      "basic_info": {
+       "name": "Accel Logística",
+       "crustdata_company_id": 1376169,
+       "primary_domain": "accellogistica.com.mx",
+       "all_domains": [
+        "accellogistica.com.mx"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 782844,
+      "basic_info": {
+       "name": "Accel Entertainment",
+       "crustdata_company_id": 782844,
+       "primary_domain": "accelentertainment.com",
+       "all_domains": [
+        "bulldoggaming.com",
+        "accelentertainment.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 1133495,
+      "basic_info": {
+       "name": "Accel Limited",
+       "crustdata_company_id": 1133495,
+       "primary_domain": "accel-india.com",
+       "all_domains": [
+        "accel-india.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 2092885,
+      "basic_info": {
+       "name": "Accel Therapies",
+       "crustdata_company_id": 2092885,
+       "primary_domain": "acceltherapies.com",
+       "all_domains": [
+        "acceltherapies.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 780787,
+      "basic_info": {
+       "name": "Accel Club",
+       "crustdata_company_id": 780787,
+       "primary_domain": "accelclub.com",
+       "all_domains": [
+        "accelclub.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 1095332,
+      "basic_info": {
+       "name": "Accel-KKR",
+       "crustdata_company_id": 1095332,
+       "primary_domain": "accel-kkr.com",
+       "all_domains": [
+        "accel-kkr.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 1072113,
+      "basic_info": {
+       "name": "Accel IT Services - A Division of Accel Limited",
+       "crustdata_company_id": 1072113,
+       "primary_domain": "accelits.com",
+       "all_domains": [
+        "accelits.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 6435216,
+      "basic_info": {
+       "name": "ABX Accel",
+       "crustdata_company_id": 6435216,
+       "primary_domain": "abxaccel.com",
+       "all_domains": [
+        "abxaccel.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 1153039,
+      "basic_info": {
+       "name": "Pro-Accel",
+       "crustdata_company_id": 1153039,
+       "primary_domain": "pro-accel.com",
+       "all_domains": [
+        "pro-accel.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 4146084,
+      "basic_info": {
+       "name": "ACCEL TECH",
+       "crustdata_company_id": 4146084,
+       "primary_domain": "accel-tech.net",
+       "all_domains": [
+        "accel-tech.net"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 6489461,
+      "basic_info": {
+       "name": "V-Accel",
+       "crustdata_company_id": 6489461,
+       "primary_domain": "v-accel.ai",
+       "all_domains": [
+        "v-accel.ai"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 4072380,
+      "basic_info": {
+       "name": "ReBoot Accel",
+       "crustdata_company_id": 4072380,
+       "primary_domain": "rebootaccel.com",
+       "all_domains": [
+        "rebootaccel.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 629147,
+      "basic_info": {
+       "name": "Accel Robotics",
+       "crustdata_company_id": 629147,
+       "primary_domain": "accelrobotics.com",
+       "all_domains": [
+        "valetmarket.com",
+        "accelrobotics.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 2333772,
+      "basic_info": {
+       "name": "Accel DNA",
+       "crustdata_company_id": 2333772,
+       "primary_domain": "accel-dna.com",
+       "all_domains": [
+        "accel-dna.com"
+       ]
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

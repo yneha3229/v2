@@ -222,7 +222,7 @@ def test_s1_fallback_when_no_founders(tmp_path):
 
     res = asyncio.run(graph.resolve(Fake(), "example-startup.test"))
     assert [r.name for r in res.team] == ["Synthetic Founder"]
-    assert res.team[0].role_join and res.team[0].source == "person_enrich"
+    assert res.team[0].role_join and res.team[0].source == "person_search"
     assert isinstance(res.team[0], TeamRow)
 
 
@@ -239,7 +239,47 @@ def test_enrich_failure_narrows_but_401_propagates():
         async def company_enrich(self, cid, fields=None):
             raise CrustError(self.status, "x", "y")
 
+        async def founder_search(self, cid):
+            return {"profiles": []}
+
     res = asyncio.run(graph.resolve(Fake(402), "example-startup.test"))
     assert res.team == [] and "narrowed" in res.limitations[0]
     with pytest.raises(CrustError):
         asyncio.run(graph.resolve(Fake(401), "example-startup.test"))
+
+
+def test_pc3_search_is_unioned_with_record_founders():
+    """Linear-shaped SYNTHETIC case: the record lists 2 founders; the search also finds a
+    CEO titled "CEO, Cofounder", who must be enriched and added (PC-3)."""
+    def person(pid, name, title, url):
+        return {"crustdata_person_id": pid, "basic_profile": {"name": name},
+                "social_handles": {"professional_network_identifier": {"profile_url": url}},
+                "experience": {"employment_details": {"current": [
+                    {"employer_name": "Ex", "employer_company_id": ["9"], "employee_title": title}]}}}
+
+    class Fake:
+        enriched: list = []
+
+        async def identify_domain(self, d):
+            return _ident((9, 1.0, "example-startup.test", []))
+
+        async def company_enrich(self, cid, fields=None):
+            return [{"matches": [{"company_data": {"crustdata_company_id": 9, "people": {
+                "founders": [person(1, "A", "Co-Founder", "u1"), person(2, "B", "Co-Founder", "u2")]}}}]}]
+
+        async def founder_search(self, cid):
+            return {"profiles": [{"crustdata_person_id": i, "social_handles": {
+                "professional_network_identifier": {"profile_url": f"u{i}"}}} for i in (1, 2, 3)]}
+
+        async def person_enrich(self, urls):
+            Fake.enriched = urls
+            return [{"match_status": "matched", "matches": [{"person_data": {
+                "crustdata_person_id": 3, "basic_profile": {"name": "C"},
+                "experience": {"employment_details": {"current": [
+                    {"name": "Ex", "crustdata_company_id": 9, "title": "CEO, Cofounder"}]}}}}]}]
+
+    res = asyncio.run(graph.resolve(Fake(), "example-startup.test"))
+    assert [r.name for r in res.team] == ["A", "B", "C"] and Fake.enriched == ["u3"]
+    assert res.team[2].source == "person_search" and res.team[2].role_join
+    ev = graph.graph_evidence(res.g1, res.team, {"milestones": [], "total_investment_usd": None})
+    assert ev[-1].value.startswith("C (person 3)")  # search-only people are numbered last

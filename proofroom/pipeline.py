@@ -126,6 +126,7 @@ class _Run:
         self.injection_notes: list[str] = []
         self.model_attempts: list[AttemptRecord] = []
         self.log_lines: list[str] = []
+        self.client: cd.Crustdata | None = None
 
     # ---- helpers -----------------------------------------------------------
     def elapsed(self) -> float:
@@ -147,12 +148,19 @@ class _Run:
 
     async def call_model(self, provider: Any, name: str, system: str, user: str,
                          schema: type, effort: str) -> Any:
+        t_call = time.monotonic()
         try:
             out = await provider.call(name, system, user, schema, effort,
                                       self.model_timeout(provider))
         except ModelError as e:
             self.model_attempts += list(getattr(e, "attempts", None) or [])
             raise
+        finally:
+            # An agent answering request files is not retrieval time (D15): give the
+            # retrieval deadline back what the wait took.
+            if isinstance(provider, llm.SessionProvider) and self.client is not None \
+                    and self.client.deadline is not None:
+                self.client.deadline += time.monotonic() - t_call
         self.model_attempts += list(getattr(out, "attempts", None) or [out.attempt])
         if out.parsed is None:
             raise ModelError(f"{name}: {out.stop_reason or 'no parsed output'}")
@@ -196,6 +204,7 @@ async def _execute(r: _Run, rd: store.RunDir) -> RunOutcome:
     deadline = r.t0 + prof.retrieval_deadline_s
     client = cd.Crustdata(req.run_mode, fixture=req.fixture, deadline=deadline,
                           use_cache=req.run_mode != cd.LIVE)
+    r.client = client
     async with client:
         await r.progress("start", domain=req.domain, profile=prof.name, mode=req.run_mode,
                          run_dir=str(rd.path), run=rd.run, model_source=model_source)
@@ -239,8 +248,9 @@ async def _execute(r: _Run, rd: store.RunDir) -> RunOutcome:
         else:
             r.limitations.append("No source documents: the brief reports Crustdata's record only")
         selected = [c for c in claims if c.selected]
-        r.not_checked += [f"{c.id}: \"{c.quote}\" ({c.exclusion_reason or 'not selected'})"
-                          for c in claims if not c.selected]
+        r.not_checked += _dedupe([f"{c.id}: \"{' '.join(c.quote.split())}\" "
+                                  f"({c.exclusion_reason or 'not selected'})"
+                                  for c in claims if not c.selected])
         await r.progress("claims", claims=[c.model_dump() for c in claims])
 
         # Stage 4 gap resolution (free Identify by names) || evidence table.
@@ -298,7 +308,7 @@ async def _execute(r: _Run, rd: store.RunDir) -> RunOutcome:
         case_id=rd.case_id, run=rd.run, status=status, run_mode=req.run_mode,  # type: ignore
         input=req.as_input(), reviewed=_today(), g1=g.g1.as_dict(), documents=docs,
         evidence=evidence, claims=claims, findings=kept, checks=checks, team=g.team,
-        financing=financing_lines, questions=_dedupe(r.questions), not_checked=r.not_checked,
+        financing=financing_lines, questions=_dedupe(r.questions), not_checked=_dedupe(r.not_checked),
         limitations=_dedupe(r.limitations),
         attempts=[_crust_attempt(a) for a in client.attempts] + r.model_attempts,
         stats={"profile": prof.name, "model_source": model_source, "seconds": r.elapsed(),
@@ -342,7 +352,8 @@ async def _names_lookup(client: cd.Crustdata, names: list[str],
     except CrustError as e:
         if e.fatal:
             raise
-        limitations.append(f"Prior-employer lookup failed ({e.status} {e.type}); joins unchecked")
+        limitations.append(f"Name lookup for prior employers and leads failed "
+                           f"({e.status} {e.type}); those joins are unchecked")
         return {}
 
 
@@ -357,9 +368,21 @@ def _prior_employer_names(claims: list[Claim]) -> list[str]:
     return _dedupe(names)[:20]
 
 
+_ROUNDISH = re.compile(r"\b(round|series|seed|funding|financing|tender)\b", re.I)
+
+
+def _lead_of(c: Claim) -> str:
+    """The investor in a led_round claim: `object` by contract, but tolerate a swap."""
+    for cand in (c.object, c.subject):
+        cand = (cand or "").strip()
+        if cand and not _ROUNDISH.search(cand):
+            return cand
+    return ""
+
+
 def _lead_names(claims: list[Claim]) -> list[str]:
-    return _dedupe([c.object.strip() for c in claims
-                    if c.predicate == "led_round" and c.object.strip()])[:5]
+    return _dedupe([n for n in (_lead_of(c) for c in claims if c.predicate == "led_round")
+                    if n])[:5]
 
 
 def _passage_evidence(docs: list[Document], claims: list[Claim], domain: str) -> list[Evidence]:
@@ -389,7 +412,7 @@ def _passage_evidence(docs: list[Document], claims: list[Claim], domain: str) ->
 _SENTENCE_END = re.compile(r"[.!?][\"”’)]?\s+(?=[A-Z\"“])|\n")
 
 
-def _context(text: str, span: tuple[int, int], width: int = 220) -> str:
+def _context(text: str, span: tuple[int, int], width: int = 420) -> str:
     """The quoted span with its sentence: start after the previous sentence end (or a
     word boundary within `width`), end at the next full stop (or `width` past the span)."""
     a, b = span
@@ -442,7 +465,7 @@ def _financing_lines(g: graph.GraphResult, claims: list[Claim], evidence: list[E
         if not rtype:
             continue
         amounts = [a for a in gate.parse_amounts(c.amount_text or c.quote) if a.currency == "USD"]
-        lead = c.object if c.predicate == "led_round" else ""
+        lead = _lead_of(c) if c.predicate == "led_round" else ""
         m = graph.match_round(fin, rtype, amounts[0].value if amounts else None,
                               _iso_from_text(c.date_text), lead)
         if m["status"] == "not_in_record":
@@ -488,13 +511,18 @@ def _financing_lines(g: graph.GraphResult, claims: list[Claim], evidence: list[E
                           "line": f"Total raised per Crustdata's record: ${total:,.0f}{how} "
                                   f"(indexed record, Crunchbase-derived). [{tid}]"})
         else:
-            prim = fin["primary_sum_usd"]
             lines.append({"kind": "total", "claim_id": "", "evidence_ids": [tid] if tid else [],
                           "line": f"Crustdata's indexed total ${total:,.0f} includes secondary "
-                                  "sales, so it is not capital raised"
-                                  + (f"; the recorded primary rounds sum to ${prim:,.0f} "
-                                     "(calculation from the indexed record)" if prim else "")
-                                  + f". [{tid}]"})
+                                  f"sales, so it is not capital raised. [{tid}]"})
+            rounds = [m for m in fin["milestones"] if not m["secondary"] and m["amount_usd"]]
+            ids = [by_loc[m["path"]] for m in rounds if m["path"] in by_loc]
+            if rounds and len(ids) == len(rounds):
+                calc = sum(m["amount_usd"] for m in rounds)
+                lines.append({"kind": "calculation", "claim_id": "", "evidence_ids": ids,
+                              "line": f"The recorded rounds not marked as secondary sales sum to "
+                                      f"${calc:,.0f} (calculation from the indexed record; a round "
+                                      "can still include some secondary shares). "
+                                      + "".join(f"[{i}]" for i in ids)})
     del checked
     return lines
 

@@ -2,6 +2,7 @@
 unwrap Crustdata's `[].matches[].company_data` responses. G2–G4 build on these."""
 from __future__ import annotations
 
+import asyncio
 import logging
 import re
 from dataclasses import dataclass, field
@@ -444,45 +445,52 @@ def _same_at_precision(a: str, b: str) -> bool:
 # ---- Graph evidence rows (cited by JSON path) ---------------------------------------
 
 def graph_evidence(g1: G1Result, team: list[TeamRow], fin: dict) -> list[Evidence]:
+    """Graph rows cited by JSON path. Order: identity, record founders, funding, then
+    people found only by the founder search, so adding a person never renumbers
+    earlier evidence IDs."""
     rows: list[Evidence] = []
+    basis = f"Crustdata company ID {g1.company_id}"
 
-    def add(source: str, locator: str, value: str, refreshed: str) -> None:
+    def add(source: str, locator: str, value: str, refreshed: str,
+            origin: str = "Crustdata identity graph") -> None:
         rows.append(Evidence(id=f"G{len(rows) + 1}", kind="graph", source=source,
-                             locator=locator, value=value,
-                             subject_basis=f"Crustdata company ID {g1.company_id}",
-                             origin="Crustdata identity graph", refreshed=refreshed))
+                             locator=locator, value=value, subject_basis=basis,
+                             origin=origin, refreshed=refreshed))
+
+    def person_rows(r: TeamRow) -> None:
+        src = "/company/enrich" if r.source == "people.founders" else "/person/enrich"
+        for e in r.current_at_subject:
+            add(src, f"{r.source}[{r.name}].experience.employment_details.current",
+                f"{r.name} (person {r.person_id}): {e.title} at {e.employer_name} "
+                f"{e.employer_id}, since {e.start or 'unknown'}", r.updated_at or "unknown")
+        for j in r.prior_joins:
+            if j.basis in ("id", "name_match") and j.entry:
+                how = "" if j.basis == "id" else " (name match, not an ID join)"
+                add(src, f"{r.source}[{r.name}].experience.employment_details.past",
+                    f"{r.name}: {j.entry.title} at {j.entry.employer_name} {j.employer_id}{how}, "
+                    f"{j.entry.start or '?'} to {j.entry.end or '?'}", r.updated_at or "unknown")
 
     if g1.company_id:
         add("/company/identify", "matches[0].company_data.crustdata_company_id",
             f"{g1.name} = {g1.company_id} ({g1.basis})", "unknown")
     for r in team:
-        for e in r.current_at_subject:
-            add("/company/enrich" if r.source == "people.founders" else "/person/enrich",
-                f"{r.source}[{r.name}].experience.employment_details.current",
-                f"{r.name} (person {r.person_id}): {e.title} at {e.employer_name} "
-                f"{e.employer_id}, since {e.start or 'unknown'}", r.updated_at or "unknown")
-        for j in r.prior_joins:
-            if j.joined and j.entry:
-                add("/company/enrich" if r.source == "people.founders" else "/person/enrich",
-                    f"{r.source}[{r.name}].experience.employment_details.past",
-                    f"{r.name}: {j.entry.title} at {j.entry.employer_name} {j.employer_id}, "
-                    f"{j.entry.start or '?'} to {j.entry.end or '?'}", r.updated_at or "unknown")
-    for m in fin["milestones"]:
+        if r.source == "people.founders":
+            person_rows(r)
+    indexed = "indexed record (Crunchbase-derived)"
+    for m in fin.get("milestones") or []:
         amt = f"${m['amount_usd']:,.0f}" if m["amount_usd"] is not None else "amount not recorded"
-        rows.append(Evidence(
-            id=f"G{len(rows) + 1}", kind="graph", source="/company/enrich", locator=m["path"],
-            value=f"{m['round_type']}, {m['date'] or 'date unknown'} ({m['date_precision']}), "
-                  f"{amt}, lead {', '.join(m['lead_investors']) or 'not recorded'}",
-            subject_basis=f"Crustdata company ID {g1.company_id}",
-            origin="indexed record (Crunchbase-derived)", refreshed=fin["record_refresh"]))
-    if fin["total_investment_usd"] is not None:
-        rows.append(Evidence(
-            id=f"G{len(rows) + 1}", kind="graph", source="/company/enrich",
-            locator="funding.total_investment_usd",
-            value=f"${fin['total_investment_usd']:,.0f}"
-                  + ("" if fin["total_is_capital"] else " (includes secondary sales)"),
-            subject_basis=f"Crustdata company ID {g1.company_id}",
-            origin="indexed record (Crunchbase-derived)", refreshed=fin["record_refresh"]))
+        add("/company/enrich", m["path"],
+            f"{m['round_type']}, {m['date'] or 'date unknown'} ({m['date_precision']}), "
+            f"{amt}, lead {', '.join(m['lead_investors']) or 'not recorded'}",
+            fin.get("record_refresh", "unknown"), indexed)
+    if fin.get("total_investment_usd") is not None:
+        add("/company/enrich", "funding.total_investment_usd",
+            f"${fin['total_investment_usd']:,.0f}"
+            + ("" if fin.get("total_is_capital") else " (includes secondary sales)"),
+            fin.get("record_refresh", "unknown"), indexed)
+    for r in team:
+        if r.source != "people.founders":
+            person_rows(r)
     return rows
 
 
@@ -499,46 +507,68 @@ class GraphResult:
 
 
 async def resolve(client: Any, domain: str) -> GraphResult:
-    """G1 -> Company Enrich -> team (founders, else S1 search + enrich). Recoverable
-    failures narrow the result and add a limitation; a 401 propagates (run FAILED)."""
+    """G1 -> (Company Enrich || founder search) -> team.
+
+    PC-3: the founder search (title `founder` OR `cofounder`) always runs, in parallel
+    with Company Enrich, and is unioned with `people.founders`; people it finds that the
+    record does not list are enriched (<=3) for their employment. Recoverable failures
+    narrow the result and add a limitation; a 401 propagates (run FAILED)."""
     g1 = resolve_g1(domain, await _soft(client.identify_domain(domain), [], 404))
     res = GraphResult(g1)
     if g1.status != MATCHED or g1.company_id is None:
         res.limitations.append(f"Company identity not resolved: {g1.basis}")
         return res
-    try:
-        res.record = company_record(await client.company_enrich(g1.company_id))
-    except CrustError as e:
-        if e.status == 403 and "news" in e.denied_fields:
-            res.limitations.append("Crustdata denied the optional `news` field; retried without it")
-            res.record = company_record(await client.company_enrich(
-                g1.company_id, ("basic_info", "funding", "people")))
-        elif e.fatal:
-            raise
-        else:
-            res.limitations.append(f"Company Enrich failed ({e.status} {e.type}); graph narrowed")
-            return res
-    res.financing = financing_summary(res.record)
-    res.news = [n for n in res.record.get("news") or [] if isinstance(n, dict)]
-    res.team = team_from_record(res.record, g1.company_id)
+    record, profiles = await asyncio.gather(_enrich(client, g1.company_id, res.limitations),
+                                            _founder_search(client, g1.company_id, res.limitations))
+    if record is None:
+        return res
+    res.record = record
+    res.financing = financing_summary(record)
+    res.news = [n for n in record.get("news") or [] if isinstance(n, dict)]
+    res.team = team_from_record(record, g1.company_id)
+    known = {t.person_id for t in res.team if t.person_id is not None}
+    known_urls = {t.profile_url for t in res.team if t.profile_url}
+    extra = [p for p in profiles if _to_int(p.get("crustdata_person_id")) not in known
+             and _profile_url(p) not in known_urls]
+    urls = [u for u in (_profile_url(p) for p in extra) if u][:3]
+    if urls:
+        try:
+            persons = persons_from_enrich(await client.person_enrich(urls))
+        except CrustError as e:
+            if e.fatal:
+                raise
+            res.limitations.append(f"Founder enrichment failed ({e.status} {e.type}); "
+                                   f"{len(urls)} people found by search are not in the team table")
+            persons = []
+        res.team += [team_row(p, g1.company_id, "person_search") for p in persons]
     if not res.team:
-        res.team = await _s1_fallback(client, g1.company_id, res.limitations)
+        res.limitations.append("No founders found in Crustdata's graph; roles stay attributed "
+                               "to sources")
     return res
 
 
-async def _s1_fallback(client: Any, company_id: int, limitations: list[str]) -> list[TeamRow]:
+async def _enrich(client: Any, company_id: int, limitations: list[str]) -> dict | None:
     try:
-        profiles = search_profiles(await client.founder_search(company_id))
-        urls = [u for u in (_profile_url(p) for p in profiles) if u][:3]
-        persons = persons_from_enrich(await client.person_enrich(urls)) if urls else []
+        return company_record(await client.company_enrich(company_id))
+    except CrustError as e:
+        if e.status == 403 and "news" in e.denied_fields:
+            limitations.append("Crustdata denied the optional `news` field; retried without it")
+            return company_record(await client.company_enrich(
+                company_id, ("basic_info", "funding", "people")))
+        if e.fatal:
+            raise
+        limitations.append(f"Company Enrich failed ({e.status} {e.type}); graph narrowed")
+        return None
+
+
+async def _founder_search(client: Any, company_id: int, limitations: list[str]) -> list[dict]:
+    try:
+        return search_profiles(await client.founder_search(company_id))
     except CrustError as e:
         if e.fatal:
             raise
         limitations.append(f"Founder discovery failed ({e.status} {e.type})")
         return []
-    if not persons:
-        limitations.append("No founders found in Crustdata's graph; roles stay attributed to sources")
-    return [team_row(p, company_id, "person_enrich") for p in persons]
 
 
 async def _soft(coro: Any, default: Any, *ok_statuses: int) -> Any:

@@ -1,0 +1,79 @@
+{
+ "endpoint": "/person/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "experience.employment_details.current.company_id",
+     "type": "=",
+     "value": 633791
+    },
+    {
+     "op": "or",
+     "conditions": [
+      {
+       "field": "experience.employment_details.current.title",
+       "type": "(.)",
+       "value": "founder"
+      },
+      {
+       "field": "experience.employment_details.current.title",
+       "type": "(.)",
+       "value": "cofounder"
+      }
+     ]
+    }
+   ]
+  },
+  "fields": [
+   "crustdata_person_id",
+   "basic_profile",
+   "social_handles"
+  ],
+  "limit": 10
+ },
+ "status": 200,
+ "credits_used": "0.39",
+ "body": {
+  "profiles": [
+   {
+    "crustdata_person_id": 53006,
+    "basic_profile": {
+     "current_title": "Co-Founder",
+     "name": "Tuomas Artman"
+    },
+    "social_handles": {
+     "professional_network_identifier": {
+      "profile_url": "https://www.linkedin.com/in/tuomasartman"
+     }
+    }
+   },
+   {
+    "crustdata_person_id": 53007,
+    "basic_profile": {
+     "current_title": "CEO, Cofounder",
+     "name": "Karri Saarinen"
+    },
+    "social_handles": {
+     "professional_network_identifier": {
+      "profile_url": "https://www.linkedin.com/in/karrisaarinen"
+     }
+    }
+   },
+   {
+    "crustdata_person_id": 53008,
+    "basic_profile": {
+     "current_title": "Co-Founder, CPO",
+     "name": "Jori Lallo"
+    },
+    "social_handles": {
+     "professional_network_identifier": {
+      "profile_url": "https://www.linkedin.com/in/jorilallo"
+     }
+    }
+   }
+  ],
+  "total_count": 3
+ }
+}

@@ -392,7 +392,7 @@ def _questions(case: CaseRecord) -> list[tuple[str, list[str], int]]:
         rank = _RANK.get(f.disposition, 3)
         if f.question.strip():
             items.append((f.question.strip(), list(f.evidence_ids), rank))
-        elif f.disposition in _RANK or f.qualified:
+        elif f.disposition in _RANK:  # a qualification alone is an open point, not a question
             items.append((_generated_question(case, f), list(f.evidence_ids), rank))
     for d in case.financing:
         if d.get("kind") == "question" and str(d.get("line") or "").strip():

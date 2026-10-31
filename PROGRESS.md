@@ -100,8 +100,8 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 | S5 Packet intake | DONE | agent (verified by Claude) | 11:15 | 11:22 | S5 | `22 passed`. Koah picks: PR Newswire Series A 2026-02-24, TechCrunch $5M seed 2025-09-07, FinSMEs; 17 excluded with reasons. Attio published 2025-08-26 / updated 2026-08-04; "two months ago" → 2025-09. U2 injection meter in. 6 credits |
 | S6 Model calls | DONE | agent (verified by Claude) | 11:15 | 11:32 | S6 | `19 passed`. Session/API/fixture providers; strict local validation. PC-7: refusal = failed attempt (kept). Warmup N/A for session provider |
 | S7 Vertical slice (CLI) | DONE | Claude + agents | 11:20 | 11:29 | S7 | Koah Mode A run-1 DELIVERED (99 s incl. agent answering; pipeline ≈1 s on cache). `verify` → RECEIPT OK, 17/17 citations. FIXTURE demo `run --fixture koah` DELIVERED in 0.31 s with no keys |
-| S8 Mode A end to end | IN PROGRESS | Claude | 11:29 | | | Koah domain-only works. K1/K2 ✔; K3/K4 absent (Theory post not in news[], as Prep_02 predicts). Next: Linear + Attio, LIVE timing |
-| S9 T2 usefulness | TODO | B + D | | | | Decision by 12:50; score against Prep_02 keys |
+| S8 Mode A end to end | DONE | Claude + agent | 11:35 | 11:53 | S8 | Koah, Linear, Attio domain-only all DELIVERED + RECEIPT OK (fixture replays, no keys). Linear: tender = liquidity, total not capital, Karri ✔ (PC-3 union). Attio: GV matched only via source-stated alias |
+| S9 T2 usefulness | DONE | Claude + agent | 11:45 | 11:53 | S9 | Metrics below. P1 K1/K2 ✔; P2 L1 core ✔ (L1 qualifier sentence withheld by strict check), L2 no source in news[]; P3 A1/A2/A3 ✔. 0 false conflicts / false sums / wrong subjects / alias errors. T2 pass (≥3 reusable sentences, ≥1 ID join each) |
 | S10 Web UI | DONE | agent (verified by Claude) | 11:40 | 11:32 | S10 | `23 passed` (199 total). Playwright: index + demo run DELIVERED, drawer opens, 0 JS errors, mobile scrollWidth 390. U3/U4/U5/U7/U8 panels in. TODO polish: collapse long panels |
 | S11 T3 tests and fixtures | TODO | C | | | | By 13:20; case tables in Prep_02 |
 | S12 README and should-ship | TODO | D | | | | Outline in Prep_03 |
@@ -169,11 +169,13 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 
 | Run | Mode | Company | LIVE/CACHED/FIXTURE | Seconds | Crustdata credits | Model tokens (in/out) | Sentences emitted/supported/suppressed | Team rows / ID joins | Issues |
 |---|---|---|---|---|---|---|---|---|---|
+| linear run-1 | A FULL | Linear | CACHED miss→LIVE, model=session agent | 200 (agent answering) | 5 | n/a | 5 sel / 3 supported / 2 withheld (excerpt cut 'blog post'; fixed) | 2 rows → 3 after PC-3 fix / 3 joins | Bugs found & fixed: calc line citation (receipt), excerpt width, deadline counted model wait, lead field, PC-3 union |
+| attio run-1 | A FULL | Attio | LIVE, model=session agent | 81 (agent answering) | 5 | n/a | 5 / 5 supported / 0 withheld | 2 / 2 joins | GV = Google Ventures via source-stated alias only |
 | koah run-1 | A FULL | Koah | CACHED, model=session | 99.5 (≈1 s pipeline + agent answering) | 0 (cached) | n/a (session) | 5 / 4 supported / 1 withheld (C4, call 3) | 3 / 3 role joins | Fixed after run: desk placement, excerpt boundary, PR Newswire = company statement, withheld-finding question kept if gated |
 
 **Spend so far:**
 
-- **Crustdata (event key, this session):** 3.39 credits: Koah Company Enrich 2, Linear founder search 0.39 (PC-3 confirmed: Karri found), Karri Person Enrich 1, packet agent fetch/search 6 (Koah 3, Attio 3). Total ≈ 9.4. Identify is free.
+- **Crustdata (event key, this session):** 3.39 credits: Koah Company Enrich 2, Linear founder search 0.39 (PC-3 confirmed: Karri found), Karri Person Enrich 1, packet agent fetch/search 6 (Koah 3, Attio 3). Linear+Attio agent runs 10, founder searches 0.65. Total ≈ 20. Identify is free.
 - **Crustdata (earlier):** about 7.45 credits, all on the personal MCP account: about 2.4 at 00:10 plus 5.05 at 01:20 (balance 192.56). Nothing on the event key yet.
 - **Anthropic:** $0.
 
