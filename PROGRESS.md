@@ -160,6 +160,7 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 | D20 | 11:30 | Session provider only for the event; no API key will be added (user) | User decision | §8.3 |
 | D21 | 11:30 | **U7 exception desk** approved: brief top section + UI badge "Needs a person: N" listing identity ties, conflicting claims, suppressed sentences and failed checks | Deck: "a person only for the exceptions" | §4.3 |
 | D22 | 11:30 | **U8 founder email draft** approved as OPTIONAL, off by default: `PROOFROOM_FOUNDER_EMAIL=1` or `run --email` writes `founder_email.md` (draft only, never sent) | User decision; deck rule: agents contact only the team | §4.5 |
+| D23 | 11:50 | **U9 diligence report** (user go: flags + considerations, NO verdict): fixed 3-page `report.md`/`report.html` per run — p1 snapshot + red/amber/green flags from 16 fixed rules citing evidence, p2 team/financing + considerations, p3 methodology + rule table | User idea; §4.5 keeps investment advice out of scope | §4.3 |
 | D7 | — | **PC-7 (open, S6 owner):** refusal fallback. The recommendation is to keep "refusal = failed attempt". | Fallback only re-runs cyber/frontier_llm declines on Sonnet 5.5 | §8.3 |
 
 ---
