@@ -292,3 +292,5 @@ def test_timeline_positions():
     assert [p["clock"] for p in pts] == ["event", "published", "retrieved"]
     assert pts[0]["left"] == 4.0 and pts[-1]["left"] == 96.0
     assert web.timeline([]) == []
+    undated = web.timeline([{"claim_id": "C2", "event": {"value": "unknown", "precision": "unknown"}}])
+    assert undated[0]["rows"][0]["points"][0]["day"] is None

@@ -129,12 +129,12 @@
 <section class="panel" id="clocks">
   <h2>Four clocks <small class="muted">event · published · updated · provider refresh · retrieved</small></h2>
   {% set tl = timeline[0] %}
-  <p class="muted small">Span {{ tl.span[0] }} to {{ tl.span[1] }}. Year-level dates (YYYY-01-01) are placed at the start of the year and labelled “year”.</p>
+  <p class="muted small">Span {{ tl.span[0] }} to {{ tl.span[1] }}. Year-level dates (YYYY-01-01) are placed at the start of the year and labelled “year”; undated clocks are listed but not plotted.</p>
   <div class="legend">{% for c in ['event','published','updated','refreshed','retrieved'] %}<span class="dot c-{{ c }}"></span>{{ c }} {% endfor %}</div>
   {% for row in tl.rows %}
   <div class="tl-row">
     <div class="tl-label">{{ row.claim_id }}</div>
-    <div class="tl-track">{% for p in row.points %}<span class="dot c-{{ p.clock }}" style="left: {{ p.left }}%" title="{{ p.clock }}: {{ p.value }} ({{ p.precision }}){% if p.evidence_id %} [{{ p.evidence_id }}]{% endif %}"></span>{% endfor %}</div>
+    <div class="tl-track">{% for p in row.points if p.day is not none %}<span class="dot c-{{ p.clock }}" style="left: {{ p.left }}%" title="{{ p.clock }}: {{ p.value }} ({{ p.precision }}){% if p.evidence_id %} [{{ p.evidence_id }}]{% endif %}"></span>{% endfor %}</div>
     <div class="tl-text small">{% for p in row.points %}{{ p.clock }}{% if p.evidence_id %} [{{ p.evidence_id }}]{% endif %}: {{ p.value }} ({{ p.precision }}){% if not loop.last %} · {% endif %}{% else %}<span class="muted">no dated clocks</span>{% endfor %}</div>
   </div>
   {% endfor %}

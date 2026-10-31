@@ -102,7 +102,7 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 | S7 Vertical slice (CLI) | DONE | Claude + agents | 11:20 | 11:29 | S7 | Koah Mode A run-1 DELIVERED (99 s incl. agent answering; pipeline ≈1 s on cache). `verify` → RECEIPT OK, 17/17 citations. FIXTURE demo `run --fixture koah` DELIVERED in 0.31 s with no keys |
 | S8 Mode A end to end | IN PROGRESS | Claude | 11:29 | | | Koah domain-only works. K1/K2 ✔; K3/K4 absent (Theory post not in news[], as Prep_02 predicts). Next: Linear + Attio, LIVE timing |
 | S9 T2 usefulness | TODO | B + D | | | | Decision by 12:50; score against Prep_02 keys |
-| S10 Web UI | TODO | D | | | | |
+| S10 Web UI | DONE | agent (verified by Claude) | 11:40 | 11:32 | S10 | `23 passed` (199 total). Playwright: index + demo run DELIVERED, drawer opens, 0 JS errors, mobile scrollWidth 390. U3/U4/U5/U7/U8 panels in. TODO polish: collapse long panels |
 | S11 T3 tests and fixtures | TODO | C | | | | By 13:20; case tables in Prep_02 |
 | S12 README and should-ship | TODO | D | | | | Outline in Prep_03 |
 | S13 Freeze checks | TODO | All | | | | Freeze 14:00; selection query in Prep_03 |
