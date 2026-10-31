@@ -248,10 +248,20 @@ def test_koah_mode_a_from_fixture_no_network():
     assert "prnewswire.com" in d1.source and d1.published == "2026-02-24"
     assert "$20.5 million Series A" in d1.text and len(d1.sha256) == 64
     assert any("$5 million in seed funding" in d.text for d in res.documents)
-    assert all(d.origin == "unknown" and d.retrieved for d in res.documents)
+    assert all(d.retrieved for d in res.documents)
+    # PR Newswire's "News provided by Koah" makes D1 the company's own statement
+    assert [d.origin for d in res.documents] == ["company (press release)", "unknown", "unknown"]
     assert sum(len(d.text.split()) for d in res.documents) <= packet.MAX_WORDS
     assert [a.endpoint for a in client.attempts] == ["/web/enrich/live"]
     assert all(a.mode == cd.FIXTURE for a in client.attempts)
+
+
+def test_press_release_detection_needs_wire_host_and_provider_line():
+    text = "Koah Raises $20.5M\nNews provided by\nKoah\nFeb 24, 2026"
+    assert packet.press_release_by(text, "https://www.prnewswire.com/x", "Koah", "koahlabs.com")
+    assert not packet.press_release_by(text, "https://techcrunch.com/x", "Koah", "koahlabs.com")
+    assert not packet.press_release_by("News provided by Other Co", "https://www.prnewswire.com/x",
+                                       "Koah", "koahlabs.com")
 
 
 class FakeClient:
