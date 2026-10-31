@@ -143,7 +143,12 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 | D11 | 10:48 | One Claude session holds all four roles (A–D) and works steps sequentially in plan order | Single-session build | §14 |
 | D12 | 11:05 | No `Co-Authored-By` trailers on commits; checkpoint commit + push at every step and every 15 min | User instruction | CLAUDE.md §2 |
 | D13 | 11:05 | Plan improvements are proposed to the user first and applied only after a go | User instruction | §15 |
-| D14 | open | **Finding:** Identify("Qualified") returns 25 candidates, none is 632707 ("Qualified (Acquired by Salesforce)"), so the strict §7 prior-employer rule leaves Herrick→Qualified as `?`. Proposal to user: a labelled name-prefix fallback against the person's own past entries | Live probe 10:58 | §7 G2 |
+| D14 | 11:12 | **APPROVED (user): labelled name-match fallback.** **Finding:** Identify("Qualified") returns 25 candidates, none is 632707 ("Qualified (Acquired by Salesforce)"), so the strict §7 prior-employer rule leaves Herrick→Qualified as `?`. Proposal to user: a labelled name-prefix fallback against the person's own past entries | Live probe 10:58 | §7 G2 |
+| D15 | 11:12 | **Model provider = this Claude Code session (user).** No ANTHROPIC_API_KEY. A `session` provider writes each call's request (system, user, JSON schema) to the run's `model/` folder and waits for a response file written by an agent; code validates it with the same strict Pydantic schemas. Brief labels model source `session`. The SDK provider stays for when a key exists. | User decision; matches Day_Check_Report user correction | §8.3 |
+| D16 | 11:12 | Build with parallel subagents on disjoint files; this session orchestrates, verifies (tests + review) and is the only committer | User instruction | CLAUDE.md §6 |
+| D17 | 11:12 | Upgrades approved: U1 proof receipt (`verify` cmd), U2 injection meter, U3 origin map, U4 four-clocks timeline, U5 one-sentence check, U6 founder-meeting ask sheet (`questions.md`) | User go | §4.3, §15 |
+| D18 | 11:12 | Pipeline runs independent stages concurrently (asyncio). New **FAST** profile: every stage runs, code gate kept in full, but effort low on all calls, ≤2 pages, ≤3 claims, no stage-4 extra retrieval; every output labelled FAST | User request | §8.2, §8.3 |
+| D19 | 11:12 | Clock triggers relaxed for now at the user's request; freeze/submit times still noted | User instruction | CLAUDE.md §4 |
 | D7 | — | **PC-7 (open, S6 owner):** refusal fallback. The recommendation is to keep "refusal = failed attempt". | Fallback only re-runs cyber/frontier_llm declines on Sonnet 5.5 | §8.3 |
 
 ---
@@ -185,3 +190,4 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
   - Repo folder created.
   - Ended at: the morning checklist.
 - Session 1 started 10:44 IST (Linux cloud container), resuming at step S0. No ANTHROPIC_API_KEY in env; CRUSTDATA_API_KEY put in `.env`.
+- 11:12 user answers: session-as-model (D15), parallel agents (D16), D14 fallback, U1–U6 (D17), FAST (D18).
