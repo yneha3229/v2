@@ -94,7 +94,7 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 |---|---|---|---|---|---|---|
 | S0 Setup | DONE | Claude (A–D merged) | 10:44 | 10:50 | S0 | `ok 2.3.0 0.28.1 2.14.2` (anthropic, httpx, pydantic); pins from PyPI in `requirements.txt` |
 | S1 T1 day-check Phase 2 | TODO | A + B | | | | Phase 0 done early (GO-WITH-CHANGES); Phase 1 at 10:00 |
-| S2 Crustdata adapter | TODO | A | | | | Apply PC-1 (httpx stays separate from the Anthropic client) and PC-3 |
+| S2 Crustdata adapter | DONE | Claude | 10:52 | 11:12 | S2 | `33 passed`; `probe koahlabs.com` → `MATCHED id=3718859`. Error hierarchy, redacting logger, corrupt-cache = miss, PC-3 filter |
 | S3 Models and run store | TODO | C | | | | |
 | S4 Graph resolve | TODO | A | | | | Apply PC-2, PC-3, PC-6; answer keys in Prep_02 |
 | S5 Packet intake | TODO | C | | | | Apply PC-4 (±7-day rule mandatory; 1970-01-01 = unknown) |
@@ -141,6 +141,8 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 | D9 | 10:48 | Add `python-dotenv` (read `.env`) and `python-multipart` (FastAPI forms) | Optional deps listed in PROGRESS S0 recipe | §8.1 |
 | D10 | 10:48 | Build runs in a Linux cloud container (Python 3.12.3, repo `/home/user/v2`), installing the lock's exact pins from PyPI instead of the Windows wheelhouse | Session is remote; PyPI reachable | §8.1 |
 | D11 | 10:48 | One Claude session holds all four roles (A–D) and works steps sequentially in plan order | Single-session build | §14 |
+| D12 | 11:05 | No `Co-Authored-By` trailers on commits; checkpoint commit + push at every step and every 15 min | User instruction | CLAUDE.md §2 |
+| D13 | 11:05 | Plan improvements are proposed to the user first and applied only after a go | User instruction | §15 |
 | D7 | — | **PC-7 (open, S6 owner):** refusal fallback. The recommendation is to keep "refusal = failed attempt". | Fallback only re-runs cyber/frontier_llm declines on Sonnet 5.5 | §8.3 |
 
 ---
@@ -152,7 +154,8 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 
 **Spend so far:**
 
-- **Crustdata:** about 7.45 credits, all on the personal MCP account: about 2.4 at 00:10 plus 5.05 at 01:20 (balance 192.56). Nothing on the event key yet.
+- **Crustdata (event key, this session):** 2 credits (Koah Company Enrich, cached; Identify is free).
+- **Crustdata (earlier):** about 7.45 credits, all on the personal MCP account: about 2.4 at 00:10 plus 5.05 at 01:20 (balance 192.56). Nothing on the event key yet.
 - **Anthropic:** $0.
 
 ---
