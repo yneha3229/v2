@@ -1,0 +1,228 @@
+[
+  {
+    "company": "Koah",
+    "domain": "koahlabs.com",
+    "reported": [],
+    "best_estimate_usd": null,
+    "best_as_of": null,
+    "notes": "No public revenue/ARR figure found. Seed $5M (Sep 2025, https://techcrunch.com/2025/09/07/koah-raises-5m-to-bring-ads-into-ai-apps/) and Series A $20.5M led by Theory Ventures (https://siliconangle.com/2026/02/24/koah-raises-20-5m-scale-adsense-ai-across-apps, 2026-02-24); neither article nor Adweek's discloses revenue. Sacra's Koah page (https://sacra.com/c/koah/) has no revenue estimate. Expected for a company this young."
+  },
+  {
+    "company": "Linear",
+    "domain": "linear.app",
+    "reported": [
+      {
+        "metric": "ARR",
+        "value_usd": 100000000,
+        "as_of": "2026",
+        "source": "https://linear.app/now/sharing-growth-with-the-people-building-linear",
+        "publisher": "Linear (company blog, 2026-08-26)",
+        "quote": "Earlier this year, we passed $100 million in annual recurring revenue.",
+        "reliability": "company statement"
+      },
+      {
+        "metric": "ARR",
+        "value_usd": 100000000,
+        "as_of": "2026-07",
+        "source": "https://sacra.com/c/linear/",
+        "publisher": "Sacra",
+        "quote": "Sacra estimates that Linear hit $100M in annual recurring revenue in July 2026.",
+        "reliability": "estimate (e.g. Sacra/Getlatka)"
+      }
+    ],
+    "best_estimate_usd": 100000000,
+    "best_as_of": "2026-08",
+    "notes": "Lower bound ('passed $100M'). Same post: >40,000 paying companies, 177% net revenue retention, cash-flow positive, $99M employee tender at $2.5B valuation (prior: $1.25B at Series C, June 2025). No earlier company-disclosed ARR found; a valueaddvc.com blog '$75M+' estimate is low quality and was excluded."
+  },
+  {
+    "company": "Attio",
+    "domain": "attio.com",
+    "reported": [],
+    "best_estimate_usd": null,
+    "best_as_of": null,
+    "notes": "No credible absolute revenue/ARR figure found. Company said at its $52M Series B led by GV (Aug 2025) that it was 'on track to 4x ARR' in 2025 with ~5,000 customers (repeated by Built In profiles, e.g. https://www.builtinnyc.com/company/attio/faq/stability-growth); no base figure given. Sacra's Attio page (https://sacra.com/c/attio/) has no revenue estimate. Lead-gen sites (e.g. prospeo.io '$15.5M') are unsourced and excluded."
+  },
+  {
+    "company": "Clay",
+    "domain": "clay.com",
+    "reported": [
+      {
+        "metric": "ARR",
+        "value_usd": 100000000,
+        "as_of": "2025-12",
+        "source": "https://www.businesswire.com/news/home/20260128514638/en",
+        "publisher": "Clay press release via Business Wire (2026-01-28)",
+        "quote": "Clay's revenue grew more than 3.5x, reaching $100M in ARR in December.",
+        "reliability": "company statement",
+        "verification_note": "Quote read from search-indexed text of the release; businesswire.com returned HTTP 403 to direct fetch."
+      },
+      {
+        "metric": "ARR",
+        "value_usd": 150000000,
+        "as_of": "2026-05",
+        "source": "https://sacra.com/research/clay-crosses-150m-year/",
+        "publisher": "Sacra",
+        "quote": "Sacra estimates $150M ARR in May 2026, up from $108M at the end of 2025.",
+        "reliability": "estimate (e.g. Sacra/Getlatka)",
+        "verification_note": "From search snippet; page not fetched."
+      },
+      {
+        "metric": "ARR",
+        "value_usd": 200000000,
+        "as_of": "2026-09",
+        "source": "https://sacra.com/c/clay/",
+        "publisher": "Sacra",
+        "quote": "Sacra estimates that Clay hit $200M ARR in September 2026.",
+        "reliability": "estimate (e.g. Sacra/Getlatka)"
+      }
+    ],
+    "best_estimate_usd": 200000000,
+    "best_as_of": "2026-09",
+    "notes": "Best estimate is a Sacra estimate; the last company-confirmed figure is $100M ARR (Dec 2025). A secondary summary says the NYT reported annualized revenue 'on course for about $200 million' in Q3 2026 based on figures from CEO Kareem Amin (not verified against the NYT). Series D $115M at $7.1B (Sep 2026). Some revenue may be pass-through data-provider credits."
+  },
+  {
+    "company": "Vercel",
+    "domain": "vercel.com",
+    "reported": [
+      {
+        "metric": "ARR",
+        "value_usd": 100000000,
+        "as_of": "2024-01",
+        "source": "https://techcrunch.com/2026/04/13/vercel-ceo-guillermo-rauch-signals-ipo-readiness-as-ai-agents-fuel-revenue-surge/",
+        "publisher": "TechCrunch (citing The Information)",
+        "quote": "from $100 million at the beginning of 2024",
+        "reliability": "press report citing sources"
+      },
+      {
+        "metric": "annualized revenue run-rate",
+        "value_usd": 340000000,
+        "as_of": "2026-02",
+        "source": "https://techcrunch.com/2026/04/13/vercel-ceo-guillermo-rauch-signals-ipo-readiness-as-ai-agents-fuel-revenue-surge/",
+        "publisher": "TechCrunch (citing Forbes)",
+        "quote": "a run rate of $340 million by the end of February 2026",
+        "reliability": "press report citing sources"
+      },
+      {
+        "metric": "annualized revenue run-rate",
+        "value_usd": 600000000,
+        "as_of": "2026-10",
+        "source": "https://dealroom.co/news/info-hyu6e4-why-coding-agents-are-choosing-vercel-as-often-as-humans-do/",
+        "publisher": "Dealroom (summarising The Information, 2026-10-01)",
+        "quote": "Vercel is generating $600M annualized revenue ($50M/month)",
+        "reliability": "press report citing sources"
+      }
+    ],
+    "best_estimate_usd": 600000000,
+    "best_as_of": "2026-10",
+    "notes": "The $600M figure is attributed to 'a person close to the company'. Sacra independently estimates $600M annualized in Sep 2026 (https://sacra.com/c/vercel/). ARR.Club also lists $500M annualized in Jul 2026 (Dealroom, no URL). Vercel's revenue is largely usage-based, so 'run-rate' is not contracted ARR."
+  },
+  {
+    "company": "Retool",
+    "domain": "retool.com",
+    "reported": [
+      {
+        "metric": "ARR",
+        "value_usd": 90000000,
+        "as_of": "2024-12",
+        "source": "https://sacra.com/c/retool/",
+        "publisher": "Sacra",
+        "quote": "up from $90M at the end of 2024",
+        "reliability": "estimate (e.g. Sacra/Getlatka)"
+      },
+      {
+        "metric": "ARR",
+        "value_usd": 120000000,
+        "as_of": "2025-10",
+        "source": "https://sacra.com/c/retool/",
+        "publisher": "Sacra",
+        "quote": "Retool hit $120M in annual recurring revenue (ARR) in October 2025.",
+        "reliability": "estimate (e.g. Sacra/Getlatka)"
+      },
+      {
+        "metric": "revenue",
+        "value_usd": 138600000,
+        "as_of": "2024",
+        "source": "https://getlatka.com/companies/retool",
+        "publisher": "GetLatka",
+        "quote": "in 2024, Retool's revenue reached $138.6M",
+        "reliability": "estimate (e.g. Sacra/Getlatka)",
+        "verification_note": "From search snippet; inconsistent with Sacra's $90M end-2024 ARR. Low confidence."
+      }
+    ],
+    "best_estimate_usd": 120000000,
+    "best_as_of": "2025-10",
+    "notes": "No company-disclosed or major-press revenue figure found for 2025-2026; all figures are third-party estimates. Sacra's valuation page shows modeled projections (hundreds of $M), not actuals; excluded."
+  },
+  {
+    "company": "Ramp",
+    "domain": "ramp.com",
+    "reported": [
+      {
+        "metric": "annualized revenue run-rate",
+        "value_usd": 1000000000,
+        "as_of": "2025-08",
+        "source": "https://ffnews.com/news/ramp-reaches-1-billion-in-annualized-revenue",
+        "publisher": "FF News reporting Ramp announcement (2025-09-08)",
+        "quote": "Surpassed $1 billion in annualized revenue and generating operating cash flow.",
+        "reliability": "company statement"
+      },
+      {
+        "metric": "annualized revenue run-rate",
+        "value_usd": 1500000000,
+        "as_of": "2026-06",
+        "source": "https://techcrunch.com/2026/10/15/ramp-reaches-60b-valuation-as-it-pushes-deeper-into-ai/",
+        "publisher": "TechCrunch (citing a Bloomberg report of 2026-06-04)",
+        "quote": "up from a reported $1.5 billion in June",
+        "reliability": "press report citing sources"
+      },
+      {
+        "metric": "annualized revenue run-rate",
+        "value_usd": 2000000000,
+        "as_of": "2026-10",
+        "source": "https://techcrunch.com/2026/10/15/ramp-reaches-60b-valuation-as-it-pushes-deeper-into-ai/",
+        "publisher": "TechCrunch (2026-10-15)",
+        "quote": "Ramp said its annualized revenue has crossed $2 billion",
+        "reliability": "company statement"
+      }
+    ],
+    "best_estimate_usd": 2000000000,
+    "best_as_of": "2026-10",
+    "notes": "Lower bound ('crossed $2 billion'), announced with a $1.85B raise at a $60B valuation. Earlier: $700M annualized in Mar 2025 (CEO to TechCrunch). Ramp's revenue is mostly card interchange plus software; 'annualized revenue' is not SaaS ARR."
+  },
+  {
+    "company": "Mercury",
+    "domain": "mercury.com",
+    "reported": [
+      {
+        "metric": "revenue",
+        "value_usd": 500000000,
+        "as_of": "2024",
+        "source": "https://techcrunch.com/2025/03/26/fintech-mercury-lands-300m-in-sequoia-led-series-c-doubles-valuation-to-3-5b/",
+        "publisher": "TechCrunch (CEO Immad Akhund)",
+        "quote": "the startup notched $500 million in revenue in 2024",
+        "reliability": "company statement"
+      },
+      {
+        "metric": "annualized revenue run-rate",
+        "value_usd": 650000000,
+        "as_of": "2025-09",
+        "source": "https://mercury.com/blog/annual-letter-2025",
+        "publisher": "Mercury annual letter (2026-02-05)",
+        "quote": "as of September 2025, we hit $650M in annualized revenue.",
+        "reliability": "company statement"
+      },
+      {
+        "metric": "annualized revenue run-rate",
+        "value_usd": 650000000,
+        "as_of": "2025-09",
+        "source": "https://www.cnbc.com/2026/05/20/fintech-mercury-valuation-fundraise-bank-charter.html",
+        "publisher": "CNBC (2026-05-20)",
+        "quote": "has been profitable for the past four years and hit $650 million in annualized revenue in the third quarter",
+        "reliability": "press report citing sources"
+      }
+    ],
+    "best_estimate_usd": 650000000,
+    "best_as_of": "2025-09",
+    "notes": "Annualized = monthly revenue x 12 (per CEO to Fortune, https://fortune.com/2025/11/07/exclusive-mercury-fintech-valuation-650-million-2025-annualized-revenue-immad-akhund-interview/), not SaaS ARR; much of it is interest income on deposits. No newer figure found despite the May 2026 Series D ($200M at $5.2B); Mercury's Series D post (https://mercury.com/blog/series-d-announcement) still cites ~$650M as of Q3 2025. The third entry repeats the same data point (a confirmation, not growth)."
+  }
+]

@@ -1,0 +1,48 @@
+{
+ "endpoint": "/company/identify",
+ "request": {
+  "domains": [
+   "ramp.com"
+  ]
+ },
+ "status": 200,
+ "credits_used": "0",
+ "body": [
+  {
+   "matched_on": "ramp.com",
+   "match_type": "domain",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 689494,
+      "basic_info": {
+       "name": "Ramp",
+       "crustdata_company_id": 689494,
+       "primary_domain": "ramp.com",
+       "all_domains": [
+        "ramp.com"
+       ],
+       "website": "http://ramp.com",
+       "professional_network_url": "https://www.linkedin.com/company/ramp",
+       "professional_network_id": "1406226",
+       "profile_name": "Ramp",
+       "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/902f40b9769d972f97dcdeb9fbca2e36a6bea5d2bf7f4047cfe307bbeb383229.jpg",
+       "description": "Ramp is an all-in-one financial operations platform designed to save businesses time and money. Combining corporate cards, expense management, bill payments, accounting automation, procurement, travel, treasury, and more, Ramp empowers finance teams to do their best work. More than 70,000 companies, from family-owned farms to space startups, have saved $10B and 27.5M hours with Ramp since its founding in 2019.Investors include Founders Fund, Thrive Capital, Khosla Ventures, Sequoia, Greylock, Stripe, Goldman Sachs, Coatue, and Redpoint, as well as over 100 angel investors who were founders or executives of leading companies. The Ramp team comprises talented leaders from leading financial services and fintech companies—Stripe, Affirm, Goldman Sachs, American Express, Mastercard, Visa, Capital One—as well as technology companies such as Meta, Uber, Netflix, Twitter, Dropbox, and Instacart.Ramp has been named to Fast Company's Most Innovative Companies list and LinkedIn's Top U.S. Startups for over 3 years, as well as the Forbes Cloud 100, CNBC Disruptor 50, and TIME Magazine's 100 Most Influential Companies.Visit our website for a full list of US state licenses & disclosures: https://ramp.com/legal/state-disclosures",
+       "company_type": "Privately Held",
+       "year_founded": 2019,
+       "employee_count_range": "1001-5000",
+       "markets": [
+        "PRIVATE"
+       ],
+       "industries": [
+        "Financial Services"
+       ]
+      },
+      "social_profiles": null
+     }
+    }
+   ]
+  }
+ ]
+}

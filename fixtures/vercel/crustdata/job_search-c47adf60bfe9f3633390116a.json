@@ -1,0 +1,92 @@
+{
+ "endpoint": "/job/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "company.basic_info.company_id",
+     "type": "=",
+     "value": 631347
+    },
+    {
+     "field": "metadata.date_added",
+     "type": "=>",
+     "value": "2026-07-01"
+    }
+   ]
+  },
+  "limit": 0,
+  "aggregations": [
+   {
+    "type": "count"
+   },
+   {
+    "type": "group_by",
+    "field": "job_details.category",
+    "agg": "count",
+    "size": 10
+   }
+  ]
+ },
+ "status": 200,
+ "credits_used": "0",
+ "body": {
+  "job_listings": [],
+  "next_cursor": null,
+  "total_count": 111,
+  "aggregations": [
+   {
+    "type": "count",
+    "field": null,
+    "value": 111
+   },
+   {
+    "type": "group_by",
+    "field": "job_details.category",
+    "buckets": [
+     {
+      "key": "Engineering",
+      "count": 47
+     },
+     {
+      "key": "Others",
+      "count": 37
+     },
+     {
+      "key": "Design",
+      "count": 6
+     },
+     {
+      "key": "Product",
+      "count": 6
+     },
+     {
+      "key": "Marketing",
+      "count": 5
+     },
+     {
+      "key": "Security",
+      "count": 4
+     },
+     {
+      "key": "Operations",
+      "count": 2
+     },
+     {
+      "key": "Professional Services",
+      "count": 2
+     },
+     {
+      "key": "Account Executive",
+      "count": 1
+     },
+     {
+      "key": "Solutions Architects",
+      "count": 1
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,479 @@
+{
+ "version": "rev-1",
+ "trained_on": "2026-10-31",
+ "n_rows": 126,
+ "target": "log10(Crustdata revenue band midpoint), interval-censored in [log10 lower, log10 upper]",
+ "method": "midpoint",
+ "lambda": 30.0,
+ "features": [
+  "log_headcount",
+  "hc_growth_log",
+  "log_funding",
+  "funded",
+  "log_last_round",
+  "years_since_round",
+  "age_years",
+  "largest_country_us",
+  "largest_country_high_cost",
+  "hq_tier1_metro",
+  "cat_ai",
+  "cat_devtools",
+  "cat_fintech",
+  "cat_consumer",
+  "cat_b2b",
+  "log_size_bucket"
+ ],
+ "coef_standardized": [
+  0.243329,
+  -0.168279,
+  0.052552,
+  0.043476,
+  -0.040277,
+  -0.015027,
+  0.153064,
+  -0.008627,
+  -0.081392,
+  -0.021523,
+  -0.076454,
+  -0.011011,
+  0.005324,
+  -0.012169,
+  -0.004182,
+  0.443298
+ ],
+ "intercept": 7.552751,
+ "feature_means": [
+  2.436193,
+  0.184787,
+  8.051583,
+  0.936508,
+  7.502405,
+  1.974273,
+  8.888889,
+  0.325397,
+  0.134921,
+  0.222222,
+  0.285714,
+  0.277778,
+  0.301587,
+  0.119048,
+  0.412698,
+  2.477183
+ ],
+ "feature_stds": [
+  0.809175,
+  0.323145,
+  2.353929,
+  0.243846,
+  2.255908,
+  2.963198,
+  3.350485,
+  0.468523,
+  0.341639,
+  0.41574,
+  0.451754,
+  0.447903,
+  0.458947,
+  0.323845,
+  0.492319,
+  0.681486
+ ],
+ "cv": {
+  "folds": 5,
+  "seed": 7,
+  "model": {
+   "band_hit_rate": 0.2381,
+   "median_abs_log10_error": 0.3451,
+   "mean_abs_log10_error": 0.4753,
+   "q80_abs_log10_error": 0.7827,
+   "within_2x_rate": 0.4444
+  },
+  "model_definition": "held-out rows scored with the headcount-implied size bucket, as at inference",
+  "model_listed_bucket": {
+   "band_hit_rate": 0.254,
+   "median_abs_log10_error": 0.3292,
+   "mean_abs_log10_error": 0.4136,
+   "q80_abs_log10_error": 0.661,
+   "within_2x_rate": 0.4524
+  },
+  "baseline": {
+   "band_hit_rate": 0.1746,
+   "median_abs_log10_error": 0.4408,
+   "mean_abs_log10_error": 0.5616,
+   "q80_abs_log10_error": 0.8865,
+   "within_2x_rate": 0.3571
+  },
+  "baseline_definition": "revenue = headcount x median revenue-per-employee (band midpoint) of the training fold"
+ },
+ "cv_trials": [
+  {
+   "method": "midpoint",
+   "lambda": 0.1,
+   "model": {
+    "band_hit_rate": 0.254,
+    "median_abs_log10_error": 0.3728,
+    "mean_abs_log10_error": 0.4913,
+    "q80_abs_log10_error": 0.8371,
+    "within_2x_rate": 0.4365
+   },
+   "baseline": {
+    "band_hit_rate": 0.1746,
+    "median_abs_log10_error": 0.4408,
+    "mean_abs_log10_error": 0.5616,
+    "q80_abs_log10_error": 0.8865,
+    "within_2x_rate": 0.3571
+   },
+   "model_listed_bucket": {
+    "band_hit_rate": 0.3254,
+    "median_abs_log10_error": 0.2625,
+    "mean_abs_log10_error": 0.3884,
+    "q80_abs_log10_error": 0.6539,
+    "within_2x_rate": 0.5238
+   }
+  },
+  {
+   "method": "midpoint",
+   "lambda": 1.0,
+   "model": {
+    "band_hit_rate": 0.254,
+    "median_abs_log10_error": 0.3616,
+    "mean_abs_log10_error": 0.4867,
+    "q80_abs_log10_error": 0.8285,
+    "within_2x_rate": 0.4524
+   },
+   "baseline": {
+    "band_hit_rate": 0.1746,
+    "median_abs_log10_error": 0.4408,
+    "mean_abs_log10_error": 0.5616,
+    "q80_abs_log10_error": 0.8865,
+    "within_2x_rate": 0.3571
+   },
+   "model_listed_bucket": {
+    "band_hit_rate": 0.3254,
+    "median_abs_log10_error": 0.2751,
+    "mean_abs_log10_error": 0.3861,
+    "q80_abs_log10_error": 0.6378,
+    "within_2x_rate": 0.5397
+   }
+  },
+  {
+   "method": "midpoint",
+   "lambda": 3.0,
+   "model": {
+    "band_hit_rate": 0.2698,
+    "median_abs_log10_error": 0.3597,
+    "mean_abs_log10_error": 0.4826,
+    "q80_abs_log10_error": 0.8267,
+    "within_2x_rate": 0.4603
+   },
+   "baseline": {
+    "band_hit_rate": 0.1746,
+    "median_abs_log10_error": 0.4408,
+    "mean_abs_log10_error": 0.5616,
+    "q80_abs_log10_error": 0.8865,
+    "within_2x_rate": 0.3571
+   },
+   "model_listed_bucket": {
+    "band_hit_rate": 0.3254,
+    "median_abs_log10_error": 0.2757,
+    "mean_abs_log10_error": 0.3857,
+    "q80_abs_log10_error": 0.6298,
+    "within_2x_rate": 0.5397
+   }
+  },
+  {
+   "method": "midpoint",
+   "lambda": 10.0,
+   "model": {
+    "band_hit_rate": 0.2619,
+    "median_abs_log10_error": 0.3497,
+    "mean_abs_log10_error": 0.4766,
+    "q80_abs_log10_error": 0.8006,
+    "within_2x_rate": 0.4444
+   },
+   "baseline": {
+    "band_hit_rate": 0.1746,
+    "median_abs_log10_error": 0.4408,
+    "mean_abs_log10_error": 0.5616,
+    "q80_abs_log10_error": 0.8865,
+    "within_2x_rate": 0.3571
+   },
+   "model_listed_bucket": {
+    "band_hit_rate": 0.3016,
+    "median_abs_log10_error": 0.2832,
+    "mean_abs_log10_error": 0.3925,
+    "q80_abs_log10_error": 0.6198,
+    "within_2x_rate": 0.5238
+   }
+  },
+  {
+   "method": "midpoint",
+   "lambda": 30.0,
+   "model": {
+    "band_hit_rate": 0.2381,
+    "median_abs_log10_error": 0.3451,
+    "mean_abs_log10_error": 0.4753,
+    "q80_abs_log10_error": 0.7827,
+    "within_2x_rate": 0.4444
+   },
+   "baseline": {
+    "band_hit_rate": 0.1746,
+    "median_abs_log10_error": 0.4408,
+    "mean_abs_log10_error": 0.5616,
+    "q80_abs_log10_error": 0.8865,
+    "within_2x_rate": 0.3571
+   },
+   "model_listed_bucket": {
+    "band_hit_rate": 0.254,
+    "median_abs_log10_error": 0.3292,
+    "mean_abs_log10_error": 0.4136,
+    "q80_abs_log10_error": 0.661,
+    "within_2x_rate": 0.4524
+   }
+  },
+  {
+   "method": "midpoint",
+   "lambda": 100.0,
+   "model": {
+    "band_hit_rate": 0.254,
+    "median_abs_log10_error": 0.4697,
+    "mean_abs_log10_error": 0.5133,
+    "q80_abs_log10_error": 0.826,
+    "within_2x_rate": 0.3571
+   },
+   "baseline": {
+    "band_hit_rate": 0.1746,
+    "median_abs_log10_error": 0.4408,
+    "mean_abs_log10_error": 0.5616,
+    "q80_abs_log10_error": 0.8865,
+    "within_2x_rate": 0.3571
+   },
+   "model_listed_bucket": {
+    "band_hit_rate": 0.2222,
+    "median_abs_log10_error": 0.4177,
+    "mean_abs_log10_error": 0.4843,
+    "q80_abs_log10_error": 0.7885,
+    "within_2x_rate": 0.3651
+   }
+  },
+  {
+   "method": "midpoint",
+   "lambda": 300.0,
+   "model": {
+    "band_hit_rate": 0.2222,
+    "median_abs_log10_error": 0.6247,
+    "mean_abs_log10_error": 0.6189,
+    "q80_abs_log10_error": 1.012,
+    "within_2x_rate": 0.3254
+   },
+   "baseline": {
+    "band_hit_rate": 0.1746,
+    "median_abs_log10_error": 0.4408,
+    "mean_abs_log10_error": 0.5616,
+    "q80_abs_log10_error": 0.8865,
+    "within_2x_rate": 0.3571
+   },
+   "model_listed_bucket": {
+    "band_hit_rate": 0.2381,
+    "median_abs_log10_error": 0.6185,
+    "mean_abs_log10_error": 0.6062,
+    "q80_abs_log10_error": 1.0076,
+    "within_2x_rate": 0.3492
+   }
+  },
+  {
+   "method": "interval_em",
+   "lambda": 0.1,
+   "model": {
+    "band_hit_rate": 0.2381,
+    "median_abs_log10_error": 0.3625,
+    "mean_abs_log10_error": 0.4986,
+    "q80_abs_log10_error": 0.8441,
+    "within_2x_rate": 0.4286
+   },
+   "baseline": {
+    "band_hit_rate": 0.1746,
+    "median_abs_log10_error": 0.4408,
+    "mean_abs_log10_error": 0.5616,
+    "q80_abs_log10_error": 0.8865,
+    "within_2x_rate": 0.3571
+   },
+   "model_listed_bucket": {
+    "band_hit_rate": 0.2778,
+    "median_abs_log10_error": 0.307,
+    "mean_abs_log10_error": 0.4038,
+    "q80_abs_log10_error": 0.6552,
+    "within_2x_rate": 0.4921
+   }
+  },
+  {
+   "method": "interval_em",
+   "lambda": 1.0,
+   "model": {
+    "band_hit_rate": 0.254,
+    "median_abs_log10_error": 0.3531,
+    "mean_abs_log10_error": 0.4938,
+    "q80_abs_log10_error": 0.844,
+    "within_2x_rate": 0.4365
+   },
+   "baseline": {
+    "band_hit_rate": 0.1746,
+    "median_abs_log10_error": 0.4408,
+    "mean_abs_log10_error": 0.5616,
+    "q80_abs_log10_error": 0.8865,
+    "within_2x_rate": 0.3571
+   },
+   "model_listed_bucket": {
+    "band_hit_rate": 0.2778,
+    "median_abs_log10_error": 0.2947,
+    "mean_abs_log10_error": 0.4021,
+    "q80_abs_log10_error": 0.6405,
+    "within_2x_rate": 0.5079
+   }
+  },
+  {
+   "method": "interval_em",
+   "lambda": 3.0,
+   "model": {
+    "band_hit_rate": 0.2619,
+    "median_abs_log10_error": 0.3618,
+    "mean_abs_log10_error": 0.4869,
+    "q80_abs_log10_error": 0.8166,
+    "within_2x_rate": 0.4603
+   },
+   "baseline": {
+    "band_hit_rate": 0.1746,
+    "median_abs_log10_error": 0.4408,
+    "mean_abs_log10_error": 0.5616,
+    "q80_abs_log10_error": 0.8865,
+    "within_2x_rate": 0.3571
+   },
+   "model_listed_bucket": {
+    "band_hit_rate": 0.2778,
+    "median_abs_log10_error": 0.2906,
+    "mean_abs_log10_error": 0.4014,
+    "q80_abs_log10_error": 0.6553,
+    "within_2x_rate": 0.5159
+   }
+  },
+  {
+   "method": "interval_em",
+   "lambda": 10.0,
+   "model": {
+    "band_hit_rate": 0.2143,
+    "median_abs_log10_error": 0.3601,
+    "mean_abs_log10_error": 0.4797,
+    "q80_abs_log10_error": 0.7772,
+    "within_2x_rate": 0.4762
+   },
+   "baseline": {
+    "band_hit_rate": 0.1746,
+    "median_abs_log10_error": 0.4408,
+    "mean_abs_log10_error": 0.5616,
+    "q80_abs_log10_error": 0.8865,
+    "within_2x_rate": 0.3571
+   },
+   "model_listed_bucket": {
+    "band_hit_rate": 0.2381,
+    "median_abs_log10_error": 0.2944,
+    "mean_abs_log10_error": 0.41,
+    "q80_abs_log10_error": 0.6663,
+    "within_2x_rate": 0.5159
+   }
+  },
+  {
+   "method": "interval_em",
+   "lambda": 30.0,
+   "model": {
+    "band_hit_rate": 0.246,
+    "median_abs_log10_error": 0.3797,
+    "mean_abs_log10_error": 0.482,
+    "q80_abs_log10_error": 0.7914,
+    "within_2x_rate": 0.4206
+   },
+   "baseline": {
+    "band_hit_rate": 0.1746,
+    "median_abs_log10_error": 0.4408,
+    "mean_abs_log10_error": 0.5616,
+    "q80_abs_log10_error": 0.8865,
+    "within_2x_rate": 0.3571
+   },
+   "model_listed_bucket": {
+    "band_hit_rate": 0.246,
+    "median_abs_log10_error": 0.3524,
+    "mean_abs_log10_error": 0.4366,
+    "q80_abs_log10_error": 0.6924,
+    "within_2x_rate": 0.4365
+   }
+  },
+  {
+   "method": "interval_em",
+   "lambda": 100.0,
+   "model": {
+    "band_hit_rate": 0.2302,
+    "median_abs_log10_error": 0.5026,
+    "mean_abs_log10_error": 0.5373,
+    "q80_abs_log10_error": 0.867,
+    "within_2x_rate": 0.3492
+   },
+   "baseline": {
+    "band_hit_rate": 0.1746,
+    "median_abs_log10_error": 0.4408,
+    "mean_abs_log10_error": 0.5616,
+    "q80_abs_log10_error": 0.8865,
+    "within_2x_rate": 0.3571
+   },
+   "model_listed_bucket": {
+    "band_hit_rate": 0.2143,
+    "median_abs_log10_error": 0.4761,
+    "mean_abs_log10_error": 0.5164,
+    "q80_abs_log10_error": 0.8305,
+    "within_2x_rate": 0.3492
+   }
+  },
+  {
+   "method": "interval_em",
+   "lambda": 300.0,
+   "model": {
+    "band_hit_rate": 0.1905,
+    "median_abs_log10_error": 0.7008,
+    "mean_abs_log10_error": 0.6439,
+    "q80_abs_log10_error": 1.0575,
+    "within_2x_rate": 0.3175
+   },
+   "baseline": {
+    "band_hit_rate": 0.1746,
+    "median_abs_log10_error": 0.4408,
+    "mean_abs_log10_error": 0.5616,
+    "q80_abs_log10_error": 0.8865,
+    "within_2x_rate": 0.3571
+   },
+   "model_listed_bucket": {
+    "band_hit_rate": 0.2063,
+    "median_abs_log10_error": 0.7056,
+    "mean_abs_log10_error": 0.6331,
+    "q80_abs_log10_error": 1.0542,
+    "within_2x_rate": 0.3492
+   }
+  }
+ ],
+ "train_fit": {
+  "band_hit_rate": 0.254,
+  "median_abs_log10_error": 0.2922,
+  "mean_abs_log10_error": 0.358,
+  "q80_abs_log10_error": 0.5883,
+  "within_2x_rate": 0.5317
+ },
+ "median_revenue_per_employee_usd": 121887.38,
+ "notes": [
+  "Target is Crustdata's own third-party revenue band, not reported revenue.",
+  "Search rows carry no web traffic, followers or role/region breakdown (not returned, or premium-billed), so those are not model features.",
+  "Lambda and fit method were chosen by the same 5-fold CV that is reported (mildly optimistic).",
+  "Crustdata's band tracks the listed employee_count_range bucket; 49 of 126 rows list a bucket other than the one their indexed headcount implies."
+ ],
+ "training_set": {
+  "path": "proofroom/data/training_set.json",
+  "rows": 126,
+  "credits_used": 55.9
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "endpoint": "/company/identify",
+ "request": {
+  "domains": [
+   "vercel.com"
+  ]
+ },
+ "status": 200,
+ "credits_used": "0",
+ "body": [
+  {
+   "matched_on": "vercel.com",
+   "match_type": "domain",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 631347,
+      "basic_info": {
+       "name": "Vercel",
+       "crustdata_company_id": 631347,
+       "primary_domain": "vercel.com",
+       "all_domains": [
+        "nextjs.org",
+        "vercel.ai",
+        "v0.build",
+        "ai-sdk.dev",
+        "vercel.com",
+        "turborepo.dev",
+        "v0.app"
+       ],
+       "website": "https://vercel.com",
+       "professional_network_url": "https://www.linkedin.com/company/vercel",
+       "professional_network_id": "16181286",
+       "profile_name": "Vercel",
+       "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/5c12cb2a09d14b6290a97b69141cd7944011777c5e18481f27b6271394829fc6.jpg",
+       "description": "Vercel is the platform where humans and AI agents build, ship, and scale software together. Trusted by OpenAI, Meta, Ramp, and Supreme, we free the world to ship what's next.",
+       "company_type": "Privately Held",
+       "year_founded": 2015,
+       "employee_count_range": "501-1000",
+       "markets": [
+        "PRIVATE"
+       ],
+       "industries": [
+        "Software Development",
+        "Technology, Information and Internet",
+        "Technology, Information and Media"
+       ]
+      },
+      "social_profiles": null
+     }
+    }
+   ]
+  }
+ ]
+}

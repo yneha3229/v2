@@ -121,6 +121,8 @@ METROS: dict[str, tuple[str, str, tuple[str, ...]]] = {
     "Sydney": ("AUS", "Asia Pacific", ("sydney",)),
     "Melbourne": ("AUS", "Asia Pacific", ("melbourne",)),
     "Tel Aviv": ("ISR", "Israel", ("tel aviv",)),
+    "Portland": (US, "US Other", ("portland",)),
+    "Brighton": (GB, "UK Other", ("brighton",)),
 }
 # country ISO3 -> rest-of-country tier
 COUNTRY_TIER: dict[str, str] = {
@@ -521,6 +523,46 @@ def role_people(by_role_absolute: dict[str, Any], headcount: float | None
 
 # ---- payroll --------------------------------------------------------------------------
 
+# Functions a software / fintech startup rarely staffs: a visible share of them suggests
+# profiles of namesake employers ("Clay", "Ramp", "Mercury" are common words).
+OFF_PROFILE_FUNCTIONS = frozenset({"education", "community and social services",
+                                   "military and protective services", "healthcare services",
+                                   "real estate"})
+OFF_PROFILE_SHARE = 0.02
+REGION_EXCESS = 1.25
+
+
+def data_quality_flags(regions: dict[str, Any] | None, roles: dict[str, Any] | None,
+                       headcount: float | None, largest_country: str, hq: str) -> list[str]:
+    """Warnings that indexed staff may include namesake profiles. Estimates are not changed;
+    the flags travel as limitations."""
+    flags = []
+    if regions and headcount:
+        located = sum(_num(v) or 0 for k, v in regions.items()
+                      if classify_region(str(k))[0] == "country")
+        if located > REGION_EXCESS * headcount:
+            flags.append(f"Country-level region counts sum to {located:,.0f}, more than "
+                         f"headcount {headcount:,.0f}: the index likely mixes in profiles of "
+                         "namesake companies; location mix and payroll are unreliable.")
+    if roles:
+        total = sum(_num(v) or 0 for v in roles.values()) or 1
+        off = {k: v for k, v in roles.items() if str(k).casefold() in OFF_PROFILE_FUNCTIONS}
+        share = sum(_num(v) or 0 for v in off.values()) / total
+        if share >= OFF_PROFILE_SHARE:
+            flags.append(f"{share:.0%} of indexed staff are in functions unusual for this kind of "
+                         f"company ({', '.join(off)}): possible namesake profiles; headcount may "
+                         "be overstated.")
+    hq_iso = ""
+    for part in reversed([x.strip() for x in (hq or "").split(",") if x.strip()]):
+        hq_iso = revenue_model.COUNTRY_ISO3.get(part.casefold(), "")
+        if hq_iso:
+            break
+    if largest_country and hq_iso and largest_country != hq_iso:
+        flags.append(f"Largest staff country {largest_country} differs from the HQ country "
+                     f"{hq_iso}: check for namesake profiles before trusting the location mix.")
+    return flags
+
+
 def _primary_capital(sig: Signals) -> float | None:
     for k in ("total_funding_primary_usd", "total_funding_usd"):
         m = sig.metrics.get(k)
@@ -884,6 +926,8 @@ async def build_economics(client: Crustdata, signals: Signals, company_id: int, 
     if not rec:
         eco.limitations.append("Full Company Enrich record not on disk: regions limited to the "
                                "top-10 Signals mix.")
+    eco.limitations += data_quality_flags(regions, roles, signals.headcount_total, largest,
+                                          signals.hq)
     samples: list[EmployeeSample] = []
     if n_samples > 0:
         try:

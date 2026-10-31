@@ -1,0 +1,84 @@
+{
+ "endpoint": "/job/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "company.basic_info.company_id",
+     "type": "=",
+     "value": 689494
+    },
+    {
+     "field": "metadata.date_added",
+     "type": "=>",
+     "value": "2026-07-01"
+    }
+   ]
+  },
+  "limit": 0,
+  "aggregations": [
+   {
+    "type": "count"
+   },
+   {
+    "type": "group_by",
+    "field": "job_details.category",
+    "agg": "count",
+    "size": 10
+   }
+  ]
+ },
+ "status": 200,
+ "credits_used": "0",
+ "body": {
+  "job_listings": [],
+  "next_cursor": null,
+  "total_count": 113,
+  "aggregations": [
+   {
+    "type": "count",
+    "field": null,
+    "value": 113
+   },
+   {
+    "type": "group_by",
+    "field": "job_details.category",
+    "buckets": [
+     {
+      "key": "Others",
+      "count": 43
+     },
+     {
+      "key": "Engineering",
+      "count": 27
+     },
+     {
+      "key": "Sales",
+      "count": 15
+     },
+     {
+      "key": "Product",
+      "count": 14
+     },
+     {
+      "key": "Consultancy",
+      "count": 8
+     },
+     {
+      "key": "Operations",
+      "count": 4
+     },
+     {
+      "key": "Design",
+      "count": 1
+     },
+     {
+      "key": "Marketing",
+      "count": 1
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,48 @@
+{
+ "endpoint": "/company/identify",
+ "request": {
+  "domains": [
+   "mercury.com"
+  ]
+ },
+ "status": 200,
+ "credits_used": "0",
+ "body": [
+  {
+   "matched_on": "mercury.com",
+   "match_type": "domain",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 631990,
+      "basic_info": {
+       "name": "Mercury",
+       "crustdata_company_id": 631990,
+       "primary_domain": "mercury.com",
+       "all_domains": [
+        "mercury.com"
+       ],
+       "website": "http://mercury.com",
+       "professional_network_url": "https://www.linkedin.com/company/mercuryhq",
+       "professional_network_id": "19107985",
+       "profile_name": "Mercury",
+       "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/4214e761066ccd589beb30e87e50ed17df6b7365b0ae6e2741c7d4b42d8e82ca.jpg",
+       "description": "Mercury is the fintech ambitious companies use for banking* and all their financial workflows. With a powerful account at the center of their operations, companies can make better financial decisions and ensure that every dollar spent aligns with company priorities. That's why over 300K startups choose Mercury to confidently run all their financial operations with the precision, control, and focus they need to operate at their best. To learn more, visit Mercury.com.*Mercury is a fintech company, not an FDIC-insured bank. Banking services provided through Choice Financial Group and Column N.A., Members FDIC.",
+       "company_type": "Privately Held",
+       "year_founded": 2017,
+       "employee_count_range": "1001-5000",
+       "markets": [
+        "PRIVATE"
+       ],
+       "industries": [
+        "Financial Services"
+       ]
+      },
+      "social_profiles": null
+     }
+    }
+   ]
+  }
+ ]
+}

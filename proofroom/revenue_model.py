@@ -24,8 +24,11 @@ Training (scripts/train_revenue_model.py):
 - The ridge penalty is picked from `LAMBDAS` by the same CV (mildly optimistic; noted).
 
 Inference (`estimate_revenue`): features from Signals -> model raw -> clamp into the
-company's Crustdata band (the narrowing step) -> point; range = point x/÷ 10^q80 where q80
-is the CV 80th-percentile |log10 error|, intersected with the band.
+company's Crustdata band (the narrowing step) -> point; range = point x/÷ 10^q50 where q50
+is the CV median |log10 error| (about a 50% interval), intersected with the band.
+Stale-band rule (`effective_band`): the band follows the LISTED employee_count_range
+bucket, so when the indexed headcount implies a bigger bucket the band's lower bound is a
+floor only (and a smaller bucket keeps only the upper bound as a cap).
 """
 from __future__ import annotations
 
@@ -50,7 +53,7 @@ LAMBDAS = (0.1, 1.0, 3.0, 10.0, 30.0, 100.0, 300.0)
 EM_ITERS = 50
 CV_FOLDS = 5
 CV_SEED = 7
-RANGE_QUANTILE = 0.8           # range = point x/÷ 10^(q80 of held-out |log10 error|)
+RANGE_QUANTILE = 0.8           # q80 of held-out |log10 error| (reported; not the range)
 
 FEATURES: tuple[str, ...] = (
     "log_headcount", "hc_growth_log", "log_funding", "funded", "log_last_round",
@@ -404,6 +407,7 @@ class RevenueModel:
         self.sd[self.sd == 0] = 1.0
         cv = doc.get("cv", {}).get("model", {})
         self.q80 = float(cv.get("q80_abs_log10_error", 0.5))
+        self.q50 = float(cv.get("median_abs_log10_error", 0.35))
         self.cv = cv
 
     @classmethod
@@ -495,7 +499,7 @@ def estimate_revenue(signals: Signals, payroll: PayrollEstimate | None = None, *
     clamp_band, stale = effective_band(band, listed_bucket, signals.headcount_total)
     point, clamped = clamp_to_band(raw, clamp_band)
     est.point_usd = round(point, 0)
-    spread = 10 ** model.q80
+    spread = 10 ** model.q50
     low, high = point / spread, point * spread
     if clamp_band:
         low, high = max(low, clamp_band[0]), min(high, clamp_band[1])
@@ -514,8 +518,9 @@ def estimate_revenue(signals: Signals, payroll: PayrollEstimate | None = None, *
         )
     else:
         est.method.append("No Crustdata band: the point is the unclamped model output.")
-    est.method.append(f"Range = point x/÷ {spread:.2f} (CV 80th-percentile |log10 error| "
-                      f"{model.q80:.2f})" + (", intersected with the band." if band else "."))
+    est.method.append(f"Range = point x/÷ {spread:.2f} (CV median |log10 error| {model.q50:.2f}: "
+                      f"about a 50% interval; an 80% interval would be x/÷ "
+                      f"{10 ** model.q80:.1f})" + (", intersected with the band." if band else "."))
     return _finish(est, signals, payroll)
 
 
