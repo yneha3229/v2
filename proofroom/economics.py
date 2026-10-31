@@ -921,3 +921,174 @@ def load_ground_truth(path: Path | None = None) -> dict[str, dict]:
             if isinstance(v, dict) and (v.get("domain") or v.get("company")):
                 out[str(v.get("domain") or v.get("company")).casefold()] = v
     return out
+
+
+# ---- 8-company validation run (python -m proofroom.economics record|results) ----------
+
+COMPANIES: tuple[tuple[str, int, str], ...] = (
+    ("koah", 3718859, "koahlabs.com"), ("linear", 633791, "linear.app"),
+    ("attio", 664000, "attio.com"), ("clay", 1010356, "clay.com"),
+    ("vercel", 631347, "vercel.com"), ("retool", 633593, "retool.com"),
+    ("ramp", 689494, "ramp.com"), ("mercury", 631990, "mercury.com"))
+NEW_FIXTURES = frozenset({"clay", "vercel", "retool", "ramp", "mercury"})
+
+
+async def _signals(client: Crustdata, cid: int, domain: str, today: date | None = None
+                   ) -> Signals:
+    from proofroom.signals import fetch_signals
+    # search=False: economics needs no peer set (saves ~6.5 credits per new company).
+    return await fetch_signals(client, cid, domain, today=today, search=False, jobs=True,
+                               logo=False)
+
+
+async def record(name: str, cid: int, domain: str) -> float:
+    """CACHED run (live on a miss) of what economics needs, captured as FIXTURE files.
+    Existing signals fixtures are reused; only missing requests go live."""
+    from proofroom.crustdata import CACHED, sum_credits
+    from proofroom.signals import cache_files_for, capture_signals
+    today = date.today()
+    async with Crustdata(CACHED) as client:
+        if name in NEW_FIXTURES:
+            await client.identify_domain(domain)
+            await _signals(client, cid, domain, today)
+        await sample_employees(client, cid, SAMPLE_N)
+        files = cache_files_for(client)
+        spent, _ = sum_credits(client.attempts)
+    capture_signals(name, files, as_of=today if name in NEW_FIXTURES else None)
+    return spent
+
+
+async def replay(name: str, cid: int, domain: str) -> tuple[Signals, Economics]:
+    async with Crustdata(FIXTURE, fixture=name) as client:
+        sig = await _signals(client, cid, domain)
+        eco = await build_economics(client, sig, cid)
+    return sig, eco
+
+
+def _top_locations(p: PayrollEstimate, k: int = 3) -> str:
+    hc = p.headcount or sum(p.by_location.values()) or 1
+    return ", ".join(f"{t} {v / hc:.0%}" for t, v in list(p.by_location.items())[:k])
+
+
+def _pct_err(est: float | None, truth: float | None) -> float | None:
+    if not est or not truth:
+        return None
+    return (est - truth) / truth * 100
+
+
+def results_markdown(rows: list[tuple[str, Signals, Economics]],
+                     truth: dict[str, dict]) -> str:
+    model = revenue_model.RevenueModel.load()
+    doc = model.doc if model else {}
+    cv = doc.get("cv", {})
+    m, b, ml = cv.get("model", {}), cv.get("baseline", {}), cv.get("model_listed_bucket", {})
+    out = ["# Economics model results (D26)", "",
+           "All figures are ESTIMATES from Crustdata indexed data (FIXTURE replay of captured "
+           "responses), not company-reported numbers. Reported ARR comes from "
+           "`proofroom/data/revenue_ground_truth.json` (press / company statements).", "",
+           "## Revenue model cross-validation", "",
+           f"Model: {model.describe() if model else 'n/a'}. Features: "
+           + ", ".join(f"`{f}`" for f in doc.get("features", [])) + ".", "",
+           "| 5-fold CV (held-out) | Band hit rate | Median abs log10 err | Mean abs log10 err "
+           "| Within 2x of midpoint |", "|---|---|---|---|---|"]
+    for label, x in (("Model (headcount-implied size bucket, as at inference)", m),
+                     ("Model (listed size bucket: reproduces Crustdata's band)", ml),
+                     ("Naive baseline: headcount x median revenue/employee", b)):
+        if x:
+            out.append(f"| {label} | {x['band_hit_rate']:.0%} | {x['median_abs_log10_error']:.3f} "
+                       f"(x{10 ** x['median_abs_log10_error']:.2f}) | "
+                       f"{x['mean_abs_log10_error']:.3f} | {x['within_2x_rate']:.0%} |")
+    out += ["", "Target = Crustdata's own revenue band midpoint (interval-censored); the "
+            "training set is " + str(doc.get("n_rows", "?")) + " private companies from "
+            "Company Search. " + " ".join(doc.get("notes", [])), "",
+            "## Eight companies", "",
+            "| Company | Headcount | Top locations | Avg salary (range) | Loaded payroll | "
+            "Runway bound | Crustdata band | Model raw | Our estimate (range) | Reported ARR "
+            "(source) | Error | In our range | In band |",
+            "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+    errs = []
+    for name, sig, eco in rows:
+        p, r = eco.payroll, eco.revenue
+        t = truth.get(sig.domain.casefold()) or {}
+        tv = _num(t.get("best_estimate_usd"))
+        err = _pct_err(r.point_usd, tv)
+        raw_err = _pct_err(r.model_raw_usd, tv)
+        if err is not None:
+            errs.append((name, err, raw_err, tv, r, sig))
+        band = (f"{_usd(r.crustdata_band_usd[0])}–{_usd(r.crustdata_band_usd[1])}"
+                if r.crustdata_band_usd else "none")
+        rng = p.avg_salary_range_usd
+        in_range = (tv is not None and r.low_usd is not None
+                    and r.low_usd <= tv <= r.high_usd)
+        in_band = (tv is not None and r.crustdata_band_usd is not None
+                   and r.crustdata_band_usd[0] <= tv <= r.crustdata_band_usd[1])
+        src = str(t.get("source_name") or t.get("source") or t.get("source_url") or "")[:60]
+        out.append(
+            f"| {sig.company} | {p.headcount or 0:,.0f} | {_top_locations(p)} | "
+            f"{_usd(p.avg_salary_usd)} ({_usd(rng[0]) if rng else '?'}–"
+            f"{_usd(rng[1]) if rng else '?'}) | {_usd(p.loaded_cost_usd)} | "
+            f"{(str(round(p.est_runway_months)) + ' mo') if p.est_runway_months else 'n/a'} | "
+            f"{band} | {_usd(r.model_raw_usd)} | {_usd(r.point_usd)} ({_usd(r.low_usd)}–"
+            f"{_usd(r.high_usd)}) | {(_usd(tv) + ' (' + src + ')') if tv else 'n/a'} | "
+            f"{(f'{err:+.0f}%') if err is not None else 'n/a'} | "
+            f"{('yes' if in_range else 'no') if tv else 'n/a'} | "
+            f"{('yes' if in_band else 'no') if tv else 'n/a'} |")
+    if errs:
+        abs_e = sorted(abs(e[1]) for e in errs)
+        raw_e = sorted(abs(e[2]) for e in errs if e[2] is not None)
+        mid = [abs(_pct_err((x[4].crustdata_band_usd[0] + x[4].crustdata_band_usd[1]) / 2, x[3]))
+               for x in errs if x[4].crustdata_band_usd]
+        med = lambda v: sorted(v)[len(v) // 2] if len(v) % 2 else (sorted(v)[len(v) // 2 - 1] + sorted(v)[len(v) // 2]) / 2  # noqa: E731
+        out += ["", f"Median absolute error vs reported ARR over {len(errs)} companies: "
+                f"our point {med(abs_e):.0f}%, model raw {med(raw_e):.0f}%"
+                + (f", Crustdata band midpoint {med(mid):.0f}%" if mid else "") + ". "
+                f"Reported ARR inside our range: {sum(1 for e in errs if e[4].low_usd and e[4].low_usd <= e[3] <= e[4].high_usd)}"
+                f"/{len(errs)}; inside Crustdata's band: "
+                f"{sum(1 for e in errs if e[4].crustdata_band_usd and e[4].crustdata_band_usd[0] <= e[3] <= e[4].crustdata_band_usd[1])}"
+                f"/{len(errs)}."]
+    out += ["", "## Customer profiles", "",
+            "| Company | Model | Target customers | Use cases | Talent sources (sampled staff) |",
+            "|---|---|---|---|---|"]
+    for name, sig, eco in rows:
+        c = eco.customers
+        out.append(f"| {sig.company} | {c.business_model} | {'; '.join(c.target_customers[:4])} | "
+                   f"{'; '.join(c.use_cases[:3])} | {', '.join(c.talent_sources[:4])} |")
+    out += ["", "## Method notes per company", ""]
+    for name, sig, eco in rows:
+        out.append(f"**{sig.company}** — payroll: " + " ".join(eco.payroll.method[2:6])
+                   + " Revenue: " + " ".join(eco.revenue.method[1:4]))
+        out.append("")
+    return "\n".join(out)
+
+
+if __name__ == "__main__":  # python -m proofroom.economics record [name] | results
+    import asyncio
+    import sys
+    logging.basicConfig(level=logging.WARNING)
+    cmd = sys.argv[1] if len(sys.argv) > 1 else ""
+    if cmd == "record":
+        names = set(sys.argv[2:])
+        total = 0.0
+        for n, cid, dom in COMPANIES:
+            if names and n not in names:
+                continue
+            spent = asyncio.run(record(n, cid, dom))
+            total += spent
+            print(f"{n}: LIVE credits {spent}")
+        print(f"total LIVE credits {round(total, 2)}")
+    elif cmd == "results":
+        rows = []
+        for n, cid, dom in COMPANIES:
+            sig, eco = asyncio.run(replay(n, cid, dom))
+            rows.append((n, sig, eco))
+            r, p = eco.revenue, eco.payroll
+            print(f"{sig.company:<8} hc={p.headcount} avg={_usd(p.avg_salary_usd)} "
+                  f"loaded={_usd(p.loaded_cost_usd)} band={r.crustdata_band_usd} "
+                  f"raw={_usd(r.model_raw_usd)} point={_usd(r.point_usd)} "
+                  f"[{_usd(r.low_usd)}-{_usd(r.high_usd)}] {eco.customers.business_model}")
+        md = results_markdown(rows, load_ground_truth())
+        outp = Path(__file__).resolve().parent.parent / "docs" / "economics_results.md"
+        outp.write_text(md, encoding="utf-8")
+        print(f"wrote {outp}")
+    else:
+        print("usage: python -m proofroom.economics record [name ...] | results")
