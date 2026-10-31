@@ -95,7 +95,7 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 | S0 Setup | DONE | Claude (A–D merged) | 10:44 | 10:50 | S0 | `ok 2.3.0 0.28.1 2.14.2` (anthropic, httpx, pydantic); pins from PyPI in `requirements.txt` |
 | S1 T1 day-check Phase 2 | TODO | A + B | | | | Phase 0 done early (GO-WITH-CHANGES); Phase 1 at 10:00 |
 | S2 Crustdata adapter | DONE | Claude | 10:52 | 11:12 | S2 | `33 passed`; `probe koahlabs.com` → `MATCHED id=3718859`. Error hierarchy, redacting logger, corrupt-cache = miss, PC-3 filter |
-| S3 Models and run store | TODO | C | | | | |
+| S3 Models and run store | DONE | Claude | 11:12 | 10:51 | S3 | `9 passed`: write-once (`xb`), read-back hash, manifest only after verify; saf-4/saf-5; strict flat schemas |
 | S4 Graph resolve | TODO | A | | | | Apply PC-2, PC-3, PC-6; answer keys in Prep_02 |
 | S5 Packet intake | TODO | C | | | | Apply PC-4 (±7-day rule mandatory; 1970-01-01 = unknown) |
 | S6 Model calls | TODO | B | | | | Type in Prep_01; decide PC-7 |
