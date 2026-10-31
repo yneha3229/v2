@@ -1,0 +1,1386 @@
+{
+ "endpoint": "/company/enrich",
+ "request": {
+  "crustdata_company_ids": [
+   6421460
+  ],
+  "fields": [
+   "basic_info",
+   "funding",
+   "people",
+   "news",
+   "headcount",
+   "revenue",
+   "hiring",
+   "followers",
+   "web_traffic",
+   "competitors",
+   "taxonomy",
+   "employee_reviews",
+   "seo",
+   "locations",
+   "software_reviews",
+   "public_launches",
+   "market_intel",
+   "metadata"
+  ]
+ },
+ "status": 200,
+ "credits_used": "2",
+ "body": [
+  {
+   "matched_on": "6421460",
+   "match_type": "crustdata_company_id",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 6421460,
+      "funding": {
+       "acquired_by": [],
+       "acquisitions": [],
+       "investors_detailed": [
+        {
+         "name": "Google DeepMind",
+         "type": "organization",
+         "categories": [
+          ""
+         ]
+        }
+       ],
+       "milestones": [
+        {
+         "round_type": "non_equity_assistance",
+         "is_fund": false,
+         "investors_detailed": [
+          {
+           "categories": [
+            ""
+           ],
+           "name": "Google DeepMind",
+           "type": "organization"
+          }
+         ],
+         "date": "2026-09-15",
+         "funding_date": "2026-09-15",
+         "amount_usd": null,
+         "investors": "Google DeepMind",
+         "lead_investors": "Google DeepMind"
+        }
+       ],
+       "contact_email": null,
+       "is_investor": false,
+       "phone_number": null,
+       "funds_total_usd": null,
+       "last_fund_date": null,
+       "num_funding_rounds": 1,
+       "num_funds": 0,
+       "total_investment_usd": 0.0,
+       "last_round_amount_usd": null,
+       "last_round_type": "non_equity_assistance",
+       "investors": [
+        "Google DeepMind"
+       ],
+       "last_fundraise_date": "2026-09-15"
+      },
+      "headcount": {
+       "by_function_timeseries": {
+        "CURRENT_FUNCTION": {
+         "Engineering": [
+          {
+           "date": "2024-11-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 7
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 6
+          }
+         ],
+         "Business Development": [
+          {
+           "date": "2024-11-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 2
+          }
+         ]
+        }
+       },
+       "largest_headcount_country": "IND",
+       "total": 7,
+       "growth_percent": {
+        "mom": -12.5,
+        "qoq": -22.22222222222222,
+        "six_months": -22.22222222222222,
+        "yoy": 0.0,
+        "two_years": 133.33333333333331
+       },
+       "growth_absolute": {
+        "mom": -1,
+        "qoq": -2,
+        "six_months": -2,
+        "yoy": 0,
+        "two_years": 4
+       },
+       "by_role_absolute": {
+        "Business Development": 2,
+        "Education": 2,
+        "Research": 1,
+        "Information Technology": 1,
+        "Engineering": 6
+       },
+       "by_role_percent": {
+        "Business Development": 28.57142857142857,
+        "Education": 28.57142857142857,
+        "Research": 14.285714285714285,
+        "Information Technology": 14.285714285714285,
+        "Engineering": 85.71428571428571
+       },
+       "by_role_growth_6m_pct": {
+        "Education": 0.0,
+        "Engineering": 50.0,
+        "Information Technology": 0.0,
+        "Research": 0.0,
+        "Business Development": 100.0
+       },
+       "by_role_growth_yoy_pct": {
+        "Engineering": 0.0,
+        "Business Development": 100.0
+       },
+       "by_region_absolute": {
+        "India": 7,
+        "Mumbai Metropolitan Region": 6,
+        "Maharashtra, India": 7,
+        "Greater Nashik Area": 1,
+        "Mumbai": 6,
+        "Nashik": 1
+       },
+       "by_region_percent": {
+        "India": 100.0,
+        "Mumbai Metropolitan Region": 85.71428571428571,
+        "Maharashtra, India": 100.0,
+        "Greater Nashik Area": 14.285714285714285,
+        "Mumbai": 85.71428571428571,
+        "Nashik": 14.285714285714285
+       },
+       "timeseries": [
+        {
+         "date": "2023-11-06",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-11-13",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-11-20",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-11-27",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-12-04",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-12-11",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-12-18",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-12-25",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-01-01",
+         "employee_count": 2
+        },
+        {
+         "date": "2024-01-08",
+         "employee_count": 2
+        },
+        {
+         "date": "2024-01-15",
+         "employee_count": 2
+        },
+        {
+         "date": "2024-01-22",
+         "employee_count": 2
+        },
+        {
+         "date": "2024-01-29",
+         "employee_count": 2
+        },
+        {
+         "date": "2024-02-05",
+         "employee_count": 2
+        },
+        {
+         "date": "2024-02-12",
+         "employee_count": 2
+        },
+        {
+         "date": "2024-02-19",
+         "employee_count": 2
+        },
+        {
+         "date": "2024-02-26",
+         "employee_count": 2
+        },
+        {
+         "date": "2024-03-04",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-03-11",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-03-18",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-03-25",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-04-01",
+         "employee_count": 5
+        },
+        {
+         "date": "2024-04-08",
+         "employee_count": 5
+        },
+        {
+         "date": "2024-04-15",
+         "employee_count": 5
+        },
+        {
+         "date": "2024-04-22",
+         "employee_count": 5
+        },
+        {
+         "date": "2024-04-29",
+         "employee_count": 5
+        },
+        {
+         "date": "2024-05-06",
+         "employee_count": 7
+        },
+        {
+         "date": "2024-05-13",
+         "employee_count": 7
+        },
+        {
+         "date": "2024-05-20",
+         "employee_count": 7
+        },
+        {
+         "date": "2024-05-27",
+         "employee_count": 7
+        },
+        {
+         "date": "2024-06-03",
+         "employee_count": 7
+        },
+        {
+         "date": "2024-06-10",
+         "employee_count": 7
+        },
+        {
+         "date": "2024-06-17",
+         "employee_count": 7
+        },
+        {
+         "date": "2024-06-24",
+         "employee_count": 7
+        },
+        {
+         "date": "2024-07-01",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-07-08",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-07-15",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-07-22",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-07-29",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-08-05",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-08-12",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-08-19",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-08-26",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-09-02",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-09-09",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-09-16",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-09-23",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-09-30",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-10-07",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-10-14",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-10-21",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-10-28",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-11-04",
+         "employee_count": 5
+        },
+        {
+         "date": "2024-11-11",
+         "employee_count": 5
+        },
+        {
+         "date": "2024-11-18",
+         "employee_count": 5
+        },
+        {
+         "date": "2024-11-25",
+         "employee_count": 5
+        },
+        {
+         "date": "2024-12-02",
+         "employee_count": 7
+        },
+        {
+         "date": "2024-12-09",
+         "employee_count": 7
+        },
+        {
+         "date": "2024-12-16",
+         "employee_count": 7
+        },
+        {
+         "date": "2024-12-23",
+         "employee_count": 7
+        },
+        {
+         "date": "2024-12-30",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-01-06",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-01-13",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-01-20",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-01-27",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-02-03",
+         "employee_count": 6
+        },
+        {
+         "date": "2025-02-10",
+         "employee_count": 6
+        },
+        {
+         "date": "2025-02-17",
+         "employee_count": 6
+        },
+        {
+         "date": "2025-02-24",
+         "employee_count": 6
+        },
+        {
+         "date": "2025-03-03",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-03-10",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-03-17",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-03-24",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-03-31",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-04-07",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-04-14",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-04-21",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-04-28",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-05-05",
+         "employee_count": 11
+        },
+        {
+         "date": "2025-05-12",
+         "employee_count": 11
+        },
+        {
+         "date": "2025-05-19",
+         "employee_count": 11
+        },
+        {
+         "date": "2025-05-26",
+         "employee_count": 11
+        },
+        {
+         "date": "2025-06-02",
+         "employee_count": 9
+        },
+        {
+         "date": "2025-06-09",
+         "employee_count": 9
+        },
+        {
+         "date": "2025-06-16",
+         "employee_count": 9
+        },
+        {
+         "date": "2025-06-23",
+         "employee_count": 9
+        },
+        {
+         "date": "2025-06-30",
+         "employee_count": 9
+        },
+        {
+         "date": "2025-07-07",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-07-14",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-07-21",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-07-28",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-08-04",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-08-11",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-08-18",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-08-25",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-09-01",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-09-08",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-09-15",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-09-22",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-09-29",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-10-06",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-10-13",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-10-20",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-10-27",
+         "employee_count": 7
+        },
+        {
+         "date": "2025-11-03",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-11-10",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-11-17",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-11-24",
+         "employee_count": 8
+        },
+        {
+         "date": "2025-12-01",
+         "employee_count": 9
+        },
+        {
+         "date": "2025-12-08",
+         "employee_count": 9
+        },
+        {
+         "date": "2025-12-15",
+         "employee_count": 9
+        },
+        {
+         "date": "2025-12-22",
+         "employee_count": 9
+        },
+        {
+         "date": "2025-12-29",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-01-05",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-01-12",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-01-19",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-01-26",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-02-02",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-02-09",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-02-16",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-02-23",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-03-02",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-03-09",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-03-16",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-03-23",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-03-30",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-04-06",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-04-13",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-04-20",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-04-27",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-05-04",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-05-11",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-05-18",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-05-25",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-06-01",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-06-08",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-06-15",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-06-22",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-06-29",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-07-06",
+         "employee_count": 9
+        },
+        {
+         "date": "2026-07-13",
+         "employee_count": 7
+        },
+        {
+         "date": "2026-09-14",
+         "employee_count": 7
+        }
+       ]
+      },
+      "locations": {
+       "city": "Powai Iit",
+       "country": "IND",
+       "state": "Mahārāshtra",
+       "street_address": "IIT Bombay, Powai, Powai Iit, Mahārāshtra",
+       "headquarters": "Powai Iit, Mahārāshtra, India",
+       "all_office_addresses": []
+      },
+      "market_intel": {
+       "company_name": null,
+       "company_website_url": null,
+       "description": null,
+       "head_office_city": null,
+       "head_office_country": null,
+       "num_employees_max": null,
+       "num_employees_min": null,
+       "slug": null,
+       "year_founded": null
+      },
+      "people": {
+       "founders": [
+        {
+         "crustdata_person_id": 173545901,
+         "basic_profile": {
+          "name": "Aaryan Dangi",
+          "headline": "Co-founder, CEO at Terrastack | IIT Bombay CSE ’25",
+          "current_title": "Co-Founder & CEO",
+          "languages": [
+           "English (Native or bilingual proficiency)",
+           "Hindi (Native or bilingual proficiency)",
+           "Spanish (Elementary proficiency)"
+          ],
+          "last_updated": "2026-10-20T11:40:56.355Z",
+          "location": {}
+         },
+         "social_handles": {
+          "professional_network_identifier": {
+           "profile_url": "https://www.linkedin.com/in/aaryandangi"
+          },
+          "twitter_identifier": {
+           "slug": null
+          }
+         },
+         "experience": {
+          "employment_details": {
+           "current": [
+            {
+             "employer_name": "Terrastack",
+             "employer_linkedin_id": "103190402",
+             "employer_company_id": [
+              "6421460"
+             ],
+             "employer_website": [
+              "terrastack.in"
+             ],
+             "employee_title": "Co-Founder & CEO",
+             "employee_start_date": "2024-01-01T00:00:00.000Z",
+             "employee_end_date": null
+            }
+           ],
+           "past": [
+            {
+             "employer_name": "AUV-IITB",
+             "employer_linkedin_id": "11448542",
+             "employer_company_id": [
+              "3999605"
+             ],
+             "employer_website": [
+              "auv-iitb.org"
+             ],
+             "employee_title": "Software Developer",
+             "employee_start_date": "2022-02-01T00:00:00.000Z",
+             "employee_end_date": "2023-04-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Poetry and Blogging",
+             "employer_linkedin_id": null,
+             "employer_company_id": [
+              null
+             ],
+             "employer_website": [
+              null
+             ],
+             "employee_title": "Writing",
+             "employee_start_date": "2019-10-01T00:00:00.000Z",
+             "employee_end_date": "2025-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "AUV-IITB",
+             "employer_linkedin_id": "11448542",
+             "employer_company_id": [
+              "3999605"
+             ],
+             "employer_website": [
+              "auv-iitb.org"
+             ],
+             "employee_title": "Co-head of Software",
+             "employee_start_date": "2023-05-01T00:00:00.000Z",
+             "employee_end_date": "2025-05-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Project DoLR: associated with IIT Bombay, Department of Land Records",
+             "employer_linkedin_id": null,
+             "employer_company_id": [
+              null
+             ],
+             "employer_website": [
+              null
+             ],
+             "employee_title": "Chief Technology Officer",
+             "employee_start_date": "2023-07-01T00:00:00.000Z",
+             "employee_end_date": "2024-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Project DoLR: associated with IIT Bombay, Department of Land Records",
+             "employer_linkedin_id": null,
+             "employer_company_id": [
+              null
+             ],
+             "employer_website": [
+              null
+             ],
+             "employee_title": "Research Intern",
+             "employee_start_date": "2022-11-01T00:00:00.000Z",
+             "employee_end_date": "2023-06-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "ProSpace",
+             "employer_linkedin_id": "92803603",
+             "employer_company_id": [
+              "5064415"
+             ],
+             "employer_website": [
+              "pro-space.in"
+             ],
+             "employee_title": "Co-Founder",
+             "employee_start_date": "2022-10-01T00:00:00.000Z",
+             "employee_end_date": "2024-10-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Quadeye",
+             "employer_linkedin_id": "10167707",
+             "employer_company_id": [
+              "710311"
+             ],
+             "employer_website": [
+              "quadeye.com"
+             ],
+             "employee_title": "Quantitative Strategist",
+             "employee_start_date": "2024-05-01T00:00:00.000Z",
+             "employee_end_date": "2024-07-01T00:00:00.000Z"
+            }
+           ]
+          }
+         },
+         "education": {
+          "schools": [
+           {
+            "school": "Indian Institute of Technology, Bombay",
+            "degree": "Bachelor of Technology - BTech",
+            "field_of_study": "Computer Science"
+           },
+           {
+            "school": "Aditya Birla World Academy",
+            "degree": "IGCSE, A Levels",
+            "field_of_study": null
+           }
+          ]
+         },
+         "updated_at": "2026-10-20T11:40:56.355Z"
+        }
+       ]
+      },
+      "public_launches": {
+       "angel_list_url": null,
+       "categories": null,
+       "company_name": null,
+       "company_website_url": null,
+       "description": null,
+       "facebook_url": null,
+       "github_url": null,
+       "instagram_url": null,
+       "last_updated": null,
+       "linkedin_url": null,
+       "num_followers": null,
+       "num_reviews": null,
+       "num_upvotes": null,
+       "producthunt_url": null,
+       "rating": null,
+       "slug": null,
+       "threads_url": null,
+       "twitter_url": null
+      },
+      "metadata": {
+       "indexed_at": null,
+       "updated_at": null,
+       "growth_calculation_date": null
+      },
+      "basic_info": {
+       "status": "active",
+       "name": "Terrastack",
+       "primary_domain": "terrastack.in",
+       "all_domains": [
+        "terrastack.in"
+       ],
+       "website": "https://terrastack.in/",
+       "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/9963c532481d659dd98668aa6334fec8ed04483cb9b96bb08c53bfe2899bc448.jpg",
+       "description": "Terrastack builds geospatial intelligence for India's BFSI sector - across use cases in underwriting, branch catchment analytics, and portfolio management. We help banks, NBFCs, and insurance companies make better decisions about land, property, and people - using 200+ data layers, satellite imagery, and proprietary intelligence models.",
+       "company_type": "Privately Held",
+       "year_founded": 2024,
+       "employee_count_range": "11-50",
+       "markets": [
+        "PRIVATE"
+       ],
+       "crustdata_company_id": 6421460,
+       "professional_network_id": "103190402",
+       "professional_network_url": "https://www.linkedin.com/company/terrastack",
+       "profile_name": "Terrastack"
+      },
+      "revenue": {
+       "estimated": {
+        "lower_bound_usd": 0,
+        "upper_bound_usd": 500000,
+        "timeseries": [
+         {
+          "date": "2025-01-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-02-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-03-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-04-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-05-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-06-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-07-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-08-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-09-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-10-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-11-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-12-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2026-01-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2026-03-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2026-07-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2026-09-19",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         }
+        ]
+       },
+       "public_markets": {
+        "ipo_date": null,
+        "stock_symbols": [
+         "TERRASTACK"
+        ],
+        "fiscal_year_end": null
+       },
+       "acquisition_status": null
+      },
+      "hiring": {
+       "recent_titles_csv": null,
+       "openings_count": null,
+       "openings_growth_percent": null,
+       "by_function_qoq_pct": null,
+       "by_function_6m_pct": null
+      },
+      "web_traffic": {
+       "domain_traffic": {
+        "terrastack.in": {
+         "domain": "terrastack.in",
+         "monthly_visitors": 7657.0,
+         "mom_pct": 1392.59,
+         "qoq_pct": 338.29,
+         "source_search_pct": 37.712191635401226,
+         "source_direct_pct": 38.508308438290214,
+         "source_social_pct": 6.0442172558285,
+         "source_paid_referral_pct": 2.3625431471499567,
+         "source_referral_pct": 9.026723104873845,
+         "monthly_visitors_timeseries": [
+          {
+           "date": "2026-04-01T00:00:00+00:00",
+           "monthly_visitors": 938
+          },
+          {
+           "date": "2026-05-01T00:00:00+00:00",
+           "monthly_visitors": 1392
+          },
+          {
+           "date": "2026-06-01T00:00:00+00:00",
+           "monthly_visitors": 1747
+          },
+          {
+           "date": "2026-07-01T00:00:00+00:00",
+           "monthly_visitors": 1394
+          },
+          {
+           "date": "2026-08-01T00:00:00+00:00",
+           "monthly_visitors": 513
+          },
+          {
+           "date": "2026-09-01T00:00:00+00:00",
+           "monthly_visitors": 7657
+          }
+         ]
+        }
+       }
+      },
+      "seo": {
+       "total_organic_results": 1,
+       "average_seo_organic_rank": 21.0,
+       "monthly_google_ads_budget": 0.0,
+       "monthly_paid_clicks": 0,
+       "monthly_organic_clicks": 0,
+       "monthly_organic_value": 0.0,
+       "average_ad_rank": 0.0,
+       "total_ads_purchased": 0,
+       "lost_ranked_seo_keywords": 0,
+       "gained_ranked_seo_keywords": 0,
+       "newly_ranked_seo_keywords": 1
+      },
+      "competitors": {
+       "all_domains": [],
+       "paid_seo": [],
+       "organic_seo": []
+      },
+      "taxonomy": {
+       "primary_naics_detail": null,
+       "sic_detail_list": [],
+       "categories": [
+        "Analytics",
+        "Artificial Intelligence (AI)",
+        "Data Management",
+        "Geospatial",
+        "Infrastructure"
+       ],
+       "professional_network_industries": [
+        "Data Infrastructure and Analytics",
+        "Technology, Information and Internet",
+        "Technology, Information and Media"
+       ],
+       "professional_network_industry": "Data Infrastructure and Analytics",
+       "professional_network_specialities": []
+      },
+      "news": [],
+      "employee_reviews": {
+       "career_opportunities_rating": null,
+       "overall_rating": {
+        "rating": null,
+        "rating_1_count": null,
+        "rating_2_count": null,
+        "rating_3_count": null,
+        "rating_4_count": null,
+        "rating_5_count": null,
+        "total_count": null
+       },
+       "senior_management_rating": null,
+       "work_life_balance_rating": null,
+       "business_outlook_rating": null,
+       "company_ceo": {
+        "ceo_rating": null
+       },
+       "compensation_and_benefits_rating": null,
+       "culture_and_values_rating": null,
+       "diversity_and_inclusion_rating": null,
+       "recommend_to_friend_rating": null
+      },
+      "followers": {
+       "count": 766,
+       "mom_percent": 15.36144578313253,
+       "qoq_percent": 24.149108589951375,
+       "six_months_growth_percent": 24.149108589951375,
+       "timeseries": [
+        {
+         "date": "2025-04-21",
+         "follower_count": 62
+        },
+        {
+         "date": "2025-04-28",
+         "follower_count": 67
+        },
+        {
+         "date": "2025-05-05",
+         "follower_count": 67
+        },
+        {
+         "date": "2025-05-12",
+         "follower_count": 67
+        },
+        {
+         "date": "2025-05-19",
+         "follower_count": 67
+        },
+        {
+         "date": "2025-05-26",
+         "follower_count": 67
+        },
+        {
+         "date": "2025-06-02",
+         "follower_count": 67
+        },
+        {
+         "date": "2025-06-09",
+         "follower_count": 67
+        },
+        {
+         "date": "2025-06-16",
+         "follower_count": 67
+        },
+        {
+         "date": "2025-06-23",
+         "follower_count": 67
+        },
+        {
+         "date": "2025-06-30",
+         "follower_count": 459
+        },
+        {
+         "date": "2025-07-07",
+         "follower_count": 459
+        },
+        {
+         "date": "2025-07-14",
+         "follower_count": 468
+        },
+        {
+         "date": "2025-07-21",
+         "follower_count": 468
+        },
+        {
+         "date": "2025-07-28",
+         "follower_count": 468
+        },
+        {
+         "date": "2025-08-04",
+         "follower_count": 468
+        },
+        {
+         "date": "2025-08-11",
+         "follower_count": 468
+        },
+        {
+         "date": "2025-08-18",
+         "follower_count": 468
+        },
+        {
+         "date": "2025-08-25",
+         "follower_count": 468
+        },
+        {
+         "date": "2025-09-01",
+         "follower_count": 468
+        },
+        {
+         "date": "2025-09-08",
+         "follower_count": 468
+        },
+        {
+         "date": "2025-09-15",
+         "follower_count": 468
+        },
+        {
+         "date": "2025-09-22",
+         "follower_count": 476
+        },
+        {
+         "date": "2025-11-10",
+         "follower_count": 528
+        },
+        {
+         "date": "2026-03-16",
+         "follower_count": 617
+        },
+        {
+         "date": "2026-07-13",
+         "follower_count": 664
+        },
+        {
+         "date": "2026-09-14",
+         "follower_count": 766
+        }
+       ],
+       "yoy_percent": 63.67521367521367
+      },
+      "software_reviews": {
+       "average_rating": null,
+       "review_count": null,
+       "review_count_mom_pct": null,
+       "review_count_qoq_pct": null,
+       "review_count_yoy_pct": null
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

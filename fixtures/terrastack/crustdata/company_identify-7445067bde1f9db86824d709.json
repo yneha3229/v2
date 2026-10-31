@@ -1,0 +1,50 @@
+{
+ "endpoint": "/company/identify",
+ "request": {
+  "domains": [
+   "terrastack.in"
+  ]
+ },
+ "status": 200,
+ "credits_used": "0",
+ "body": [
+  {
+   "matched_on": "terrastack.in",
+   "match_type": "domain",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 6421460,
+      "basic_info": {
+       "name": "Terrastack",
+       "crustdata_company_id": 6421460,
+       "primary_domain": "terrastack.in",
+       "all_domains": [
+        "terrastack.in"
+       ],
+       "website": "https://terrastack.in/",
+       "professional_network_url": "https://www.linkedin.com/company/terrastack",
+       "professional_network_id": "103190402",
+       "profile_name": "Terrastack",
+       "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/9963c532481d659dd98668aa6334fec8ed04483cb9b96bb08c53bfe2899bc448.jpg",
+       "description": "Terrastack builds geospatial intelligence for India's BFSI sector - across use cases in underwriting, branch catchment analytics, and portfolio management. We help banks, NBFCs, and insurance companies make better decisions about land, property, and people - using 200+ data layers, satellite imagery, and proprietary intelligence models.",
+       "company_type": "Privately Held",
+       "year_founded": 2024,
+       "employee_count_range": "11-50",
+       "markets": [
+        "PRIVATE"
+       ],
+       "industries": [
+        "Data Infrastructure and Analytics",
+        "Technology, Information and Internet",
+        "Technology, Information and Media"
+       ]
+      },
+      "social_profiles": null
+     }
+    }
+   ]
+  }
+ ]
+}

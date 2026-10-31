@@ -32,8 +32,12 @@ ignores revenue.
 
 Switch-premium samples (`sample_employees`): Person Search for current employees (small n,
 experience returned: 0.23 credits/result). Each sampled person's salary = benchmark(role,
-location) x employer-tier multiplier of their most recent PAST employer x switch premium
-(1.20-1.25, midpoint used); without a past employer, the role x location benchmark.
+location) x employer-tier multiplier of their most recent PAST employer x a LOCATION-SPECIFIC
+switch premium from salary_benchmarks.json (midpoint used): US x1.048-1.073 (ADP job-changer
+base/gross raise), Canada x1.056 (ADP Canada), India x1.21-1.30 (survey EXPECTATION); other
+markets have no figure in the file and use the US one, which each sample's `method` states.
+The 1.20-1.25 hypothesis is kept only as the built-in fallback. Without a past employer, the
+role x location benchmark.
 The blended average is then adjusted: ratio = sum(sample estimates) / sum(their role x
 location benchmarks); adjusted = blended x (1 + w (ratio - 1)), w = n / (n + 30), so 15
 samples move the average at most a third of the way toward what they imply.
@@ -94,7 +98,7 @@ METROS: dict[str, tuple[str, str, tuple[str, ...]]] = {
     "Atlanta": (US, "US Other", ("atlanta",)),
     "London": (GB, "London", ("london",)),
     "Manchester": (GB, "UK Other", ("manchester",)),
-    "Bangalore": (IN, "India", ("bangalore", "bengaluru")),
+    "Bangalore": (IN, "Bangalore", ("bangalore", "bengaluru")),
     "Mumbai": (IN, "India", ("mumbai", "thane", "navi mumbai")),
     "Delhi NCR": (IN, "India", ("delhi", "gurgaon", "gurugram", "noida")),
     "Hyderabad": (IN, "India", ("hyderabad",)),
@@ -137,8 +141,8 @@ COUNTRY_TIER: dict[str, str] = {
 DEFAULT_TIER = "Rest of World"
 LOCATION_TIERS = ("San Francisco Bay Area", "New York City", "Seattle", "Boston", "Los Angeles",
                   "US Other", "London", "UK Other", "Canada", "Western Europe", "Israel",
-                  "Southern Europe", "Eastern Europe", "Latin America", "India", "Asia Pacific",
-                  DEFAULT_TIER)
+                  "Southern Europe", "Eastern Europe", "Latin America", "Bangalore", "India",
+                  "Asia Pacific", DEFAULT_TIER)
 _US_STATES = frozenset(s.casefold() for s in (
     "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut",
     "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
@@ -150,21 +154,26 @@ _US_STATES = frozenset(s.casefold() for s in (
     "Wisconsin", "Wyoming", "District of Columbia"))
 
 # ---- role families --------------------------------------------------------------------
+# Families follow Crustdata's function names (and salary_benchmarks.json roles).
 
-ROLE_FAMILIES = ("Engineering", "Product", "Design", "Data & Research", "Sales", "Marketing",
-                 "Customer Success & Support", "Operations", "G&A", "Executive")
+ROLE_FAMILIES = ("Engineering", "Product", "Design", "Data & Research", "Sales",
+                 "Business Development", "Marketing", "Customer Success & Support",
+                 "Operations", "Finance", "Human Resources", "Legal", "Administrative",
+                 "Executive")
 ROLE_FAMILY: dict[str, str] = {
     "engineering": "Engineering", "information technology": "Engineering",
     "quality assurance": "Engineering", "product management": "Product",
     "arts and design": "Design", "design": "Design", "research": "Data & Research",
-    "data science": "Data & Research", "sales": "Sales", "business development": "Sales",
+    "data science": "Data & Research", "sales": "Sales",
+    "business development": "Business Development",
     "marketing": "Marketing", "media and communication": "Marketing",
     "support": "Customer Success & Support", "customer success and support":
     "Customer Success & Support", "customer success": "Customer Success & Support",
     "operations": "Operations", "program and project management": "Operations",
     "purchasing": "Operations", "consulting": "Operations", "real estate": "Operations",
-    "administrative": "G&A", "human resources": "G&A", "finance": "G&A", "accounting": "G&A",
-    "legal": "G&A", "entrepreneurship": "Executive",
+    "administrative": "Administrative", "human resources": "Human Resources",
+    "finance": "Finance", "accounting": "Finance", "legal": "Legal",
+    "entrepreneurship": "Executive",
 }
 # Title keywords for sampled people (first match wins).
 TITLE_ROLE: tuple[tuple[str, str], ...] = (
@@ -175,49 +184,83 @@ TITLE_ROLE: tuple[tuple[str, str], ...] = (
      "Data & Research"),
     (r"\b(engineer|developer|engineering|sre|devops|architect|programmer|technical staff)",
      "Engineering"),
-    (r"\b(account executive|sales|sdr|bdr|business development|account manager|partnerships)",
-     "Sales"),
+    (r"\b(business development|partnerships|\bbd\b|alliances)", "Business Development"),
+    (r"\b(account executive|sales|sdr|bdr|account manager|gtm|go-to-market)", "Sales"),
     (r"\b(marketing|growth|content|brand|communications|community|seo)\b", "Marketing"),
     (r"\b(support|customer success|solutions|implementation|onboarding|customer experience)",
      "Customer Success & Support"),
-    (r"\b(recruit|talent|people|hr|finance|accountant|legal|counsel|controller|payroll)",
-     "G&A"),
+    (r"\b(recruit|talent|people|hr)\b", "Human Resources"),
+    (r"\b(finance|accountant|accounting|controller|payroll|fp&a|treasury)", "Finance"),
+    (r"\b(legal|counsel|attorney|lawyer|compliance)", "Legal"),
+    (r"\b(assistant|administrative|office manager|receptionist)", "Administrative"),
     (r"\b(operations|ops|program manager|project manager|strategy|chief of staff)", "Operations"),
 )
 
 # ---- built-in fallback benchmark table ------------------------------------------------
-# BUILT-IN FALLBACK (approximate, uncited): median annual BASE salary in USD for a
-# mid-level hire at a venture-backed company. Used only when salary_benchmarks.json is
-# absent or lacks a (role, location) pair. Engineering anchor by tier x role factor.
+# BUILT-IN FALLBACK (approximate, uncited): median annual BASE salary in USD. Used when
+# salary_benchmarks.json is absent, and for (role, tier) cells the file cannot fill
+# (Israel, Southern/Eastern Europe, Latin America, Rest of World). Engineering anchor by
+# tier x role factor.
 _FALLBACK_ENG = {"San Francisco Bay Area": 185_000, "New York City": 175_000, "Seattle": 175_000,
                  "Boston": 160_000, "Los Angeles": 160_000, "US Other": 145_000,
                  "London": 95_000, "UK Other": 75_000, "Canada": 115_000,
                  "Western Europe": 85_000, "Israel": 110_000, "Southern Europe": 60_000,
-                 "Eastern Europe": 55_000, "Latin America": 50_000, "India": 30_000,
-                 "Asia Pacific": 100_000, DEFAULT_TIER: 45_000}
+                 "Eastern Europe": 55_000, "Latin America": 50_000, "Bangalore": 32_000,
+                 "India": 25_000, "Asia Pacific": 100_000, DEFAULT_TIER: 45_000}
 _FALLBACK_ROLE = {"Engineering": 1.0, "Product": 1.0, "Design": 0.85, "Data & Research": 0.95,
-                  "Sales": 0.80, "Marketing": 0.80, "Customer Success & Support": 0.55,
-                  "Operations": 0.70, "G&A": 0.70, "Executive": 1.15}
-FALLBACK_SOURCE = "BUILT-IN FALLBACK (approximate, uncited; replace with salary_benchmarks.json)"
+                  "Sales": 0.80, "Business Development": 0.75, "Marketing": 0.80,
+                  "Customer Success & Support": 0.55, "Operations": 0.70, "Finance": 0.75,
+                  "Human Resources": 0.65, "Legal": 1.0, "Administrative": 0.45,
+                  "Executive": 1.15}
+FALLBACK_SOURCE = "BUILT-IN FALLBACK (approximate, uncited)"
 
-# Employer tiers for the prior employer (multiplier on the role x location benchmark).
-_FALLBACK_TIERS: dict[str, tuple[float, tuple[str, ...]]] = {
-    "big_tech": (1.30, ("google", "alphabet", "meta", "facebook", "apple", "microsoft", "amazon",
-                        "aws", "netflix", "nvidia", "linkedin", "youtube", "deepmind",
-                        "google deepmind", "instagram")),
-    "top_scaleup": (1.15, ("stripe", "airbnb", "uber", "coinbase", "databricks", "snowflake",
-                           "openai", "anthropic", "figma", "notion", "datadog", "plaid",
-                           "ramp", "brex", "rippling", "doordash", "lyft", "pinterest",
-                           "dropbox", "shopify", "atlassian", "palantir", "robinhood",
-                           "square", "block", "affirm", "twilio", "slack", "github",
-                           "vercel", "linear", "retool", "mercury", "scale ai", "canva")),
-    "enterprise_finance": (1.05, ("salesforce", "oracle", "ibm", "sap", "adobe", "cisco",
-                                  "intel", "accenture", "deloitte", "mckinsey", "bain",
-                                  "boston consulting group", "goldman sachs", "jpmorgan",
-                                  "jp morgan", "morgan stanley", "citi", "bank of america",
-                                  "pwc", "ey", "kpmg")),
+# Employer tiers for the prior employer: name lists here; multipliers from the file's
+# employer_tiers when present (big_tech, scaleup, fintech_incumbent, services/IT), else
+# these fallbacks. India uses the file's india_multiplier when given.
+_TIER_EMPLOYERS: dict[str, tuple[str, ...]] = {
+    "big_tech": ("google", "alphabet", "meta", "facebook", "apple", "microsoft", "amazon",
+                 "aws", "amazon web services", "netflix", "nvidia", "linkedin", "youtube",
+                 "deepmind", "google deepmind", "instagram"),
+    "scaleup": ("stripe", "airbnb", "uber", "coinbase", "databricks", "snowflake", "openai",
+                "anthropic", "figma", "notion", "datadog", "plaid", "ramp", "brex", "rippling",
+                "doordash", "lyft", "pinterest", "dropbox", "shopify", "atlassian", "palantir",
+                "robinhood", "square", "block", "affirm", "twilio", "slack", "github", "vercel",
+                "linear", "retool", "mercury", "scale ai", "canva", "airtable", "hashicorp",
+                "salesforce", "adobe", "oracle", "sap", "servicenow", "workday", "intuit"),
+    "fintech_incumbent": ("jpmorgan", "jp morgan", "jpmorgan chase", "goldman sachs", "hsbc",
+                          "visa", "mastercard", "citi", "citibank", "bank of america",
+                          "morgan stanley", "capital one", "american express", "barclays",
+                          "wells fargo"),
+    "services/IT": ("tcs", "tata consultancy services", "infosys", "wipro", "cognizant", "hcl",
+                    "hcltech", "accenture", "capgemini", "tech mahindra", "deloitte", "pwc",
+                    "ey", "kpmg", "ibm"),
 }
+_FALLBACK_TIER_MULT = {"big_tech": 1.30, "scaleup": 1.15, "fintech_incumbent": 1.05,
+                       "services/IT": 0.95}
 DEFAULT_TIER_MULT = 1.0
+# Switch premium: the file stores the realised raise for job changers as a FRACTION
+# (0.048-0.073 US); a value below 1 is read as 1 + fraction. India uses the file's
+# expected-hike range (21-30%, a survey EXPECTATION, flagged).
+INDIA_TIERS = frozenset({"Bangalore", "India"})
+
+# Our tier -> the file's location label (proxy noted where not exact).
+FILE_LOCATION = {
+    "San Francisco Bay Area": "San Francisco Bay Area", "New York City": "New York",
+    "Seattle": "Seattle", "Boston": "Los Angeles", "Los Angeles": "Los Angeles",
+    "US Other": "Other US", "London": "London",
+    "UK Other": "Other UK/EU (Berlin/Paris/Amsterdam)",
+    "Western Europe": "Other UK/EU (Berlin/Paris/Amsterdam)", "Canada": "Toronto/Canada",
+    "Bangalore": "Bangalore/India", "India": "Other India", "Asia Pacific": "Singapore",
+}
+FILE_ROLE = {"Engineering": "Engineering", "Product": "Product Management",
+             "Design": "Arts and Design", "Data & Research": "Data Science", "Sales": "Sales",
+             "Business Development": "Business Development", "Marketing": "Marketing",
+             "Customer Success & Support": "Support", "Operations": "Operations",
+             "Finance": "Finance", "Human Resources": "Human Resources", "Legal": "Legal",
+             "Administrative": "Other", "Executive": "Entrepreneurship"}
+_TECH_ROLES = frozenset({"Engineering", "Product", "Data & Research", "Design"})
+_US_TIERS = frozenset({"San Francisco Bay Area", "New York City", "Seattle", "Boston",
+                       "Los Angeles", "US Other"})
 
 
 def _norm(s: str) -> str:
@@ -246,104 +289,89 @@ def _usd(v: float | None) -> str:
 # ---- benchmark table ------------------------------------------------------------------
 
 def fallback_table() -> dict:
-    """The built-in table in the salary_benchmarks.json schema."""
-    rows = [{"role": r, "location": loc, "annual_usd": round(_FALLBACK_ENG[loc] * f, -3),
-             "source": FALLBACK_SOURCE}
-            for loc in LOCATION_TIERS for r, f in _FALLBACK_ROLE.items()]
-    return {"version": "builtin-fallback-1", "currency": "USD",
-            "basis": "median annual base salary, mid-level, venture-backed employers",
-            "benchmarks": rows,
-            "switch_premium": {"low": SWITCH_PREMIUM[0], "high": SWITCH_PREMIUM[1],
+    """The built-in table in the salary_benchmarks.json schema (file labels)."""
+    inv = {}
+    for tier, label in FILE_LOCATION.items():
+        inv.setdefault(label, tier)
+    rows = []
+    for tier in LOCATION_TIERS:
+        label = FILE_LOCATION.get(tier, tier)
+        if inv.get(label, tier) != tier:
+            continue
+        for fam, f in _FALLBACK_ROLE.items():
+            rows.append({"role": FILE_ROLE[fam], "location": label,
+                         "annual_usd": round(_FALLBACK_ENG[tier] * f, -3),
+                         "source": FALLBACK_SOURCE})
+    return {"as_of": "builtin", "version": "builtin-fallback-2", "benchmarks": rows,
+            "switch_premium": {"low": SWITCH_PREMIUM[0] - 1, "high": SWITCH_PREMIUM[1] - 1,
                                "source": FALLBACK_SOURCE},
-            "employer_tiers": {k: {"multiplier": m, "employers": list(e)}
-                               for k, (m, e) in _FALLBACK_TIERS.items()},
-            "overhead_multiplier": {"default": OVERHEAD_MULTIPLIER, "low": OVERHEAD_RANGE[0],
-                                    "high": OVERHEAD_RANGE[1]}}
+            "employer_tiers": [{"tier": t, "multiplier_vs_market": m}
+                               for t, m in _FALLBACK_TIER_MULT.items()]}
 
 
-_ROLE_ALIASES = {
-    "engineering": "Engineering", "software engineering": "Engineering",
-    "software engineer": "Engineering", "engineer": "Engineering", "it": "Engineering",
-    "product": "Product", "product management": "Product", "product manager": "Product",
-    "design": "Design", "arts and design": "Design", "designer": "Design",
-    "data": "Data & Research", "data & research": "Data & Research", "research": "Data & Research",
-    "data science": "Data & Research", "data and research": "Data & Research",
-    "sales": "Sales", "business development": "Sales", "sales & bd": "Sales",
-    "marketing": "Marketing", "support": "Customer Success & Support",
-    "customer support": "Customer Success & Support",
-    "customer success": "Customer Success & Support",
-    "customer success & support": "Customer Success & Support",
-    "customer success and support": "Customer Success & Support",
-    "operations": "Operations", "ops": "Operations", "g&a": "G&A", "g a": "G&A",
-    "general and administrative": "G&A", "general & administrative": "G&A",
-    "admin": "G&A", "administrative": "G&A", "hr": "G&A", "people": "G&A",
-    "executive": "Executive", "executives": "Executive", "leadership": "Executive",
-    "founder": "Executive", "founders": "Executive", "entrepreneurship": "Executive",
-}
-_LOC_ALIASES = {
-    "san francisco bay area": "San Francisco Bay Area", "sf bay area": "San Francisco Bay Area",
-    "san francisco": "San Francisco Bay Area", "bay area": "San Francisco Bay Area",
-    "new york city": "New York City", "new york": "New York City", "nyc": "New York City",
-    "seattle": "Seattle", "boston": "Boston", "los angeles": "Los Angeles",
-    "us other": "US Other", "united states other": "US Other", "united states": "US Other",
-    "us": "US Other", "usa": "US Other", "rest of us": "US Other", "us average": "US Other",
-    "london": "London", "uk other": "UK Other", "united kingdom": "UK Other",
-    "rest of uk": "UK Other", "uk": "UK Other", "canada": "Canada",
-    "western europe": "Western Europe", "europe": "Western Europe", "israel": "Israel",
-    "southern europe": "Southern Europe", "eastern europe": "Eastern Europe",
-    "latin america": "Latin America", "latam": "Latin America", "brazil": "Latin America",
-    "india": "India", "bangalore": "India", "bengaluru": "India", "india bangalore": "India",
-    "asia pacific": "Asia Pacific", "apac": "Asia Pacific", "rest of world": DEFAULT_TIER,
-    "row": DEFAULT_TIER, "global": DEFAULT_TIER, "other": DEFAULT_TIER,
-}
-
-
-def _canon(value: str, aliases: dict[str, str], canon: tuple[str, ...]) -> str:
-    n = _norm(value)
-    for c in canon:
-        if _norm(c) == n:
-            return c
-    if n in aliases:
-        return aliases[n]
-    for k in sorted(aliases, key=len, reverse=True):
-        if re.search(rf"\b{re.escape(k)}\b", n):
-            return aliases[k]
-    return ""
+def _premium(lo: Any, hi: Any) -> tuple[float, float] | None:
+    a, b = _num(lo), _num(hi)
+    if a is None or b is None:
+        return None
+    return (1 + a if a < 1 else a, 1 + b if b < 1 else b)
 
 
 class Benchmarks:
-    """Salary benchmark lookup: the JSON file when present, else the built-in fallback.
-    A (role, location) pair missing from the file falls back to the built-in value."""
+    """Salary lookup over (role family, location tier). Cells come from the file when it
+    has them; otherwise the file's fill rule (SF cell x location index; the BLS
+    all-occupation index for non-tech roles in US tiers); otherwise the built-in fallback.
+    Every SalaryBenchmark carries its source."""
 
     def __init__(self, doc: dict, source: str):
         self.source = source
-        self.version = str(doc.get("version", "")) if isinstance(doc, dict) else ""
-        rows = doc.get("benchmarks", doc.get("rows", [])) if isinstance(doc, dict) else doc
-        self.table: dict[tuple[str, str], SalaryBenchmark] = {}
-        for r in rows or []:
-            if not isinstance(r, dict):
+        self.version = str(doc.get("version") or doc.get("as_of") or "")
+        self.cells: dict[tuple[str, str], tuple[float, str]] = {}
+        for r in doc.get("benchmarks") or []:
+            if isinstance(r, dict) and _num(r.get("annual_usd")):
+                self.cells[(_norm(str(r.get("role"))), _norm(str(r.get("location"))))] = (
+                    float(r["annual_usd"]), str(r.get("source") or ""))
+        self.loc_index = {_norm(str(x.get("location"))): _num(x.get("multiplier_vs_sf"))
+                          for x in doc.get("location_index") or [] if isinstance(x, dict)}
+        occ = (doc.get("us_all_occupations_index_vs_sf") or {}).get("values") or {}
+        self.occ_index = {_norm(k): _num(v) for k, v in occ.items()}
+        sp = doc.get("switch_premium") or {}
+        self.switch_premium = _premium(sp.get("low"), sp.get("high")) or SWITCH_PREMIUM
+        self.switch_source = str(sp.get("source") or "")
+        # market -> (low, high, source); US = the file's top-level low/high (ADP base/gross).
+        self.premium_by_market: dict[str, tuple[float, float, str]] = {
+            "US": (*self.switch_premium, self.switch_source or source)}
+        for m in sp.get("by_market") or []:
+            if not isinstance(m, dict):
                 continue
-            role = _canon(str(r.get("role", "")), _ROLE_ALIASES, ROLE_FAMILIES)
-            loc = _canon(str(r.get("location", "")), _LOC_ALIASES, LOCATION_TIERS)
-            usd = _num(r.get("annual_usd", r.get("median_usd", r.get("base_usd"))))
-            if role and loc and usd and (role, loc) not in self.table:
-                self.table[(role, loc)] = SalaryBenchmark(
-                    role=role, location=loc, annual_usd=usd, source=str(r.get("source", "")))
-        self.switch_premium = _pair(doc.get("switch_premium") if isinstance(doc, dict) else None,
-                                    SWITCH_PREMIUM)
-        self.tiers = _tiers(doc.get("employer_tiers") if isinstance(doc, dict) else None)
-        self.missing: set[tuple[str, str]] = set()
-        self._fallback: dict[tuple[str, str], SalaryBenchmark] | None = None
+            mk, src = str(m.get("market") or ""), str(m.get("source") or "")
+            if mk == "India":
+                pr = _premium(m.get("job_changer_raise_expected_low"),
+                              m.get("job_changer_raise_expected_high"))
+                if pr:
+                    self.premium_by_market["India"] = (*pr, src + " (survey EXPECTATION)")
+            elif mk and mk != "US" and mk not in self.premium_by_market:
+                r = _num(m.get("job_changer_raise"))
+                if r is not None:
+                    self.premium_by_market[mk] = (1 + r, 1 + r, src)
+        self.tier_mult: dict[str, tuple[float, float]] = {}
+        tiers = doc.get("employer_tiers") or []
+        for t in tiers if isinstance(tiers, list) else []:
+            m = _num(t.get("multiplier_vs_market")) if isinstance(t, dict) else None
+            if m:
+                self.tier_mult[str(t.get("tier"))] = (m, _num(t.get("india_multiplier")) or m)
+        for k, m in _FALLBACK_TIER_MULT.items():
+            self.tier_mult.setdefault(k, (m, m))
+        self.sourced: Counter = Counter()
+        self._cache: dict[tuple[str, str], SalaryBenchmark] = {}
 
     @classmethod
     def load(cls, path: Path | None = None) -> "Benchmarks":
         p = path or BENCHMARK_PATH
         try:
             doc = json.loads(p.read_text(encoding="utf-8"))
-            b = cls(doc, f"file:{p.name}")
-            if b.table:
-                return b
-            log.warning("salary benchmark file %s has no usable rows; using fallback", p.name)
+            if isinstance(doc, dict) and doc.get("benchmarks"):
+                return cls(doc, f"file:{p.name}")
+            log.warning("salary benchmark file %s has no benchmarks; using fallback", p.name)
         except FileNotFoundError:
             pass
         except (OSError, ValueError) as e:
@@ -354,51 +382,65 @@ class Benchmarks:
     def is_fallback(self) -> bool:
         return self.source == "BUILT-IN FALLBACK"
 
+    def _cell(self, role: str, label: str) -> tuple[float, str] | None:
+        return self.cells.get((_norm(FILE_ROLE[role]), _norm(label)))
+
     def get(self, role: str, location: str) -> SalaryBenchmark:
         role = role if role in ROLE_FAMILIES else "Operations"
         location = location if location in LOCATION_TIERS else DEFAULT_TIER
-        hit = self.table.get((role, location))
-        if hit:
-            return hit
-        self.missing.add((role, location))
-        if self._fallback is None:
-            self._fallback = Benchmarks(fallback_table(), "BUILT-IN FALLBACK").table
-        return self._fallback[(role, location)]
+        key = (role, location)
+        if key in self._cache:
+            return self._cache[key]
+        label = FILE_LOCATION.get(location, "")
+        value, src, how = None, "", ""
+        if label:
+            hit = self._cell(role, label)
+            if hit:
+                value, src, how = hit[0], hit[1], "file cell"
+            else:
+                sf = self._cell(role, "San Francisco Bay Area")
+                idx = None
+                if location in _US_TIERS and role not in _TECH_ROLES:
+                    idx = self.occ_index.get(_norm(label))
+                idx = idx or self.loc_index.get(_norm(label))
+                if sf and idx:
+                    value, src = sf[0] * idx, f"{sf[1]} x location index {idx:.3f}"
+                    how = "file fill rule"
+        if value is None:
+            value = round(_FALLBACK_ENG[location] * _FALLBACK_ROLE[role], -3)
+            src, how = FALLBACK_SOURCE, "built-in fallback"
+        if location == "Boston" and how != "built-in fallback":
+            src += " (Boston priced at the Los Angeles cell as a proxy)"
+        self.sourced[how] += 1
+        b = SalaryBenchmark(role=role, location=location, annual_usd=round(value, 0),
+                            source=f"{how}: {src}")
+        self._cache[key] = b
+        return b
 
-    def employer_multiplier(self, employer: str) -> tuple[float, str]:
-        n = _norm(employer)
+    def premium_for(self, location: str) -> tuple[float, float, str]:
+        """(low, high, note) switch premium for a location tier, per the file's markets:
+        India and Canada have their own figures; the US figure is used for the US and,
+        stated in the note, for every other market (the file has none for them)."""
+        market = ("India" if location in INDIA_TIERS else "Canada" if location == "Canada"
+                  else "US" if location in _US_TIERS else "")
+        if market and market in self.premium_by_market:
+            lo, hi, src = self.premium_by_market[market]
+            return lo, hi, f"{market} x{lo:.3f}-{hi:.3f} ({src})"
+        lo, hi, src = self.premium_by_market["US"]
+        return lo, hi, (f"no {location or 'location'} figure in the file: US x{lo:.3f}-{hi:.3f} "
+                        f"used ({src})")
+
+    def employer_multiplier(self, employer: str, location: str = "") -> tuple[float, str]:
+        n = _norm(re.sub(r"\(.*?\)", "", employer or ""))
         if not n:
             return DEFAULT_TIER_MULT, "unknown"
-        for tier, (mult, names) in self.tiers.items():
+        for tier, names in _TIER_EMPLOYERS.items():
             for name in names:
                 nn = _norm(name)
                 if n == nn or (len(nn) > 4 and n.startswith(nn + " ")):
-                    return mult, tier
+                    us, india = self.tier_mult.get(tier, (DEFAULT_TIER_MULT, DEFAULT_TIER_MULT))
+                    return (india if location in INDIA_TIERS else us), tier
         return DEFAULT_TIER_MULT, "other"
-
-
-def _pair(v: Any, default: tuple[float, float]) -> tuple[float, float]:
-    if isinstance(v, dict):
-        lo, hi = _num(v.get("low", v.get("min"))), _num(v.get("high", v.get("max")))
-        if lo and hi:
-            return (lo, hi)
-        mid = _num(v.get("value", v.get("default")))
-        return (mid, mid) if mid else default
-    if isinstance(v, (list, tuple)) and len(v) == 2 and all(_num(x) for x in v):
-        return (float(v[0]), float(v[1]))
-    if _num(v):
-        return (float(v), float(v))
-    return default
-
-
-def _tiers(v: Any) -> dict[str, tuple[float, tuple[str, ...]]]:
-    out: dict[str, tuple[float, tuple[str, ...]]] = {}
-    if isinstance(v, dict):
-        for k, t in v.items():
-            if isinstance(t, dict) and _num(t.get("multiplier")):
-                names = tuple(str(x) for x in t.get("employers") or t.get("companies") or [])
-                out[str(k)] = (float(t["multiplier"]), names)
-    return out or dict(_FALLBACK_TIERS)
 
 
 # ---- regions --------------------------------------------------------------------------
@@ -529,6 +571,7 @@ OFF_PROFILE_FUNCTIONS = frozenset({"education", "community and social services",
                                    "military and protective services", "healthcare services",
                                    "real estate"})
 OFF_PROFILE_SHARE = 0.02
+OFF_PROFILE_MIN = 10          # people; tiny teams are not flagged on one odd profile
 REGION_EXCESS = 1.25
 
 
@@ -547,8 +590,9 @@ def data_quality_flags(regions: dict[str, Any] | None, roles: dict[str, Any] | N
     if roles:
         total = sum(_num(v) or 0 for v in roles.values()) or 1
         off = {k: v for k, v in roles.items() if str(k).casefold() in OFF_PROFILE_FUNCTIONS}
-        share = sum(_num(v) or 0 for v in off.values()) / total
-        if share >= OFF_PROFILE_SHARE:
+        n_off = sum(_num(v) or 0 for v in off.values())
+        share = n_off / total
+        if share >= OFF_PROFILE_SHARE and n_off >= OFF_PROFILE_MIN:
             flags.append(f"{share:.0%} of indexed staff are in functions unusual for this kind of "
                          f"company ({', '.join(off)}): possible namesake profiles; headcount may "
                          "be overstated.")
@@ -619,9 +663,9 @@ def estimate_payroll(signals: Signals, samples: list[EmployeeSample] | None = No
         ratio = sum(s.est_salary_usd for s in est) / bench_sum if bench_sum else 1.0
         w = len(est) / (len(est) + SAMPLE_SHRINK_K)
         adjusted = blended * (1 + w * (ratio - 1))
-        n_sw = sum(1 for s in est if s.method == "switch-premium")
+        n_sw = sum(1 for s in est if s.method.startswith("switch-premium"))
         p.method.append(f"Switch-premium samples: {len(est)} people ({n_sw} priced from a prior "
-                        f"employer x {bm.switch_premium[0]:.2f}-{bm.switch_premium[1]:.2f}); they "
+                        "employer x employer tier x location-specific switch premium); they "
                         f"imply {ratio:.2f}x benchmark; blended moved by weight "
                         f"{w:.2f} -> {_usd(adjusted)}.")
     p.avg_salary_usd = round(adjusted, 0)
@@ -639,9 +683,9 @@ def estimate_payroll(signals: Signals, samples: list[EmployeeSample] | None = No
         p.method.append(f"Runway upper bound {p.est_runway_months:.0f} months = primary capital "
                         f"{_usd(cap)} (indexed record, Crunchbase-derived) / monthly loaded "
                         "payroll; ignores capital already spent, non-payroll costs and revenue.")
-    if bm.missing:
-        p.method.append(f"{len(bm.missing)} (role, location) pairs not in the benchmark file "
-                        "used the built-in fallback.")
+    if bm.sourced:
+        p.method.append("Benchmark cells used: " + ", ".join(f"{k} {v}" for k, v in
+                                                             bm.sourced.most_common()) + ".")
     return p
 
 
@@ -711,11 +755,14 @@ def sample_from_profile(person: dict, company_id: int, bm: Benchmarks) -> Employ
     bench = bm.get(role, loc or DEFAULT_TIER).annual_usd
     prior = _most_recent_past(emp.get("past") or [], company_id)
     if prior:
-        mult, _tier = bm.employer_multiplier(str(prior.get("name")))
+        tier_loc = loc or DEFAULT_TIER
+        mult, tier = bm.employer_multiplier(str(prior.get("name")), tier_loc)
+        lo, hi, note = bm.premium_for(tier_loc)
         s.prior_employer = str(prior.get("name"))
         s.prior_salary_usd = round(bench * mult, 0)
-        s.est_salary_usd = round(s.prior_salary_usd * sum(bm.switch_premium) / 2, 0)
-        s.method = "switch-premium"
+        s.est_salary_usd = round(s.prior_salary_usd * (lo + hi) / 2, 0)
+        s.method = (f"switch-premium: benchmark x {tier} tier {mult:.2f} x premium "
+                    f"{(lo + hi) / 2:.3f}; {note}")
     else:
         s.est_salary_usd = round(bench, 0)
         s.method = "role-location benchmark"
@@ -740,7 +787,7 @@ _CUSTOMER_RULES: tuple[tuple[str, str], ...] = (
     (r"\bstartups?\b|founders|venture-backed", "Startups and venture-backed companies"),
     (r"developers?|engineering teams|engineers\b|frontend|\bAPIs?\b|\bSDK", "Software developers and engineering teams"),
     (r"product teams|product development|software teams|issue track", "Product and software teams"),
-    (r"sales teams|go-to-market|\bGTM\b|revenue teams|sales reps|outbound|prospect", "Sales and go-to-market teams"),
+    (r"sales teams|go-to-market|\bGTM\b|revenue teams|sales reps|outbound|prospect|pipeline", "Sales and go-to-market teams"),
     (r"finance teams|\bCFOs?\b|controllers|accounts payable|expense|spend management|bookkeep", "Finance teams (CFOs, controllers)"),
     (r"enterprises?\b|fortune 500|large companies", "Enterprises"),
     (r"small business|\bSMBs?\b|small and medium|small to medium", "Small and medium businesses"),
@@ -874,8 +921,9 @@ def infer_customers(signals: Signals, samples: list[EmployeeSample] | None = Non
                 if any(re.search(rf"\b{re.escape(k)}\b", nn) for k in keys):
                     sectors[sector] += c
                     break
+        n_priors = sum(priors.values())
         for sector, c in sectors.most_common(2):
-            if c >= 3 or (c >= 2 and c / max(len(samples), 1) >= 0.25):
+            if c >= max(4, 0.3 * n_priors):
                 cp.evidence.append(f"{c} sampled staff came from {sector} employers: domain "
                                    f"expertise suggests {sector} customers or integrations")
                 hint = {"fintech / financial services": "Finance teams (CFOs, controllers)",
@@ -975,8 +1023,9 @@ COMPANIES: tuple[tuple[str, int, str], ...] = (
     ("koah", 3718859, "koahlabs.com"), ("linear", 633791, "linear.app"),
     ("attio", 664000, "attio.com"), ("clay", 1010356, "clay.com"),
     ("vercel", 631347, "vercel.com"), ("retool", 633593, "retool.com"),
-    ("ramp", 689494, "ramp.com"), ("mercury", 631990, "mercury.com"))
-NEW_FIXTURES = frozenset({"clay", "vercel", "retool", "ramp", "mercury"})
+    ("ramp", 689494, "ramp.com"), ("mercury", 631990, "mercury.com"),
+    ("terrastack", 6421460, "terrastack.in"))
+NEW_FIXTURES = frozenset({"clay", "vercel", "retool", "ramp", "mercury", "terrastack"})
 
 
 async def _signals(client: Crustdata, cid: int, domain: str, today: date | None = None
@@ -1016,6 +1065,20 @@ def _top_locations(p: PayrollEstimate, k: int = 3) -> str:
     return ", ".join(f"{t} {v / hc:.0%}" for t, v in list(p.by_location.items())[:k])
 
 
+def _truth_source(t: dict) -> str:
+    """Short source label for a ground-truth entry: host of the reported figure matching
+    best_estimate_usd (else the latest reported entry), plus its as-of date."""
+    from urllib.parse import urlparse
+    rep = [r for r in t.get("reported") or [] if isinstance(r, dict)]
+    best = _num(t.get("best_estimate_usd"))
+    pick = next((r for r in rep if _num(r.get("value_usd")) == best), rep[-1] if rep else {})
+    url = str(pick.get("source") or t.get("source") or "")
+    host = urlparse(url).netloc.replace("www.", "") if url.startswith("http") else url[:40]
+    exact = _num(pick.get("value_usd")) == best
+    return (f"{host}, {t.get('best_as_of') or pick.get('as_of') or ''}"
+            + ("" if exact else "; best estimate differs from the cited figure")).strip(", ")
+
+
 def _pct_err(est: float | None, truth: float | None) -> float | None:
     if not est or not truth:
         return None
@@ -1047,7 +1110,7 @@ def results_markdown(rows: list[tuple[str, Signals, Economics]],
     out += ["", "Target = Crustdata's own revenue band midpoint (interval-censored); the "
             "training set is " + str(doc.get("n_rows", "?")) + " private companies from "
             "Company Search. " + " ".join(doc.get("notes", [])), "",
-            "## Eight companies", "",
+            f"## {len(rows)} companies", "",
             "| Company | Headcount | Top locations | Avg salary (range) | Loaded payroll | "
             "Runway bound | Crustdata band | Model raw | Our estimate (range) | Reported ARR "
             "(source) | Error | In our range | In band |",
@@ -1068,7 +1131,7 @@ def results_markdown(rows: list[tuple[str, Signals, Economics]],
                     and r.low_usd <= tv <= r.high_usd)
         in_band = (tv is not None and r.crustdata_band_usd is not None
                    and r.crustdata_band_usd[0] <= tv <= r.crustdata_band_usd[1])
-        src = str(t.get("source_name") or t.get("source") or t.get("source_url") or "")[:60]
+        src = _truth_source(t)
         out.append(
             f"| {sig.company} | {p.headcount or 0:,.0f} | {_top_locations(p)} | "
             f"{_usd(p.avg_salary_usd)} ({_usd(rng[0]) if rng else '?'}–"
@@ -1092,6 +1155,27 @@ def results_markdown(rows: list[tuple[str, Signals, Economics]],
                 f"/{len(errs)}; inside Crustdata's band: "
                 f"{sum(1 for e in errs if e[4].crustdata_band_usd and e[4].crustdata_band_usd[0] <= e[3] <= e[4].crustdata_band_usd[1])}"
                 f"/{len(errs)}."]
+    flagged = [(sig.company, [x for x in eco.limitations if "namesake" in x]) for _, sig, eco in rows]
+    flagged = [(c, f) for c, f in flagged if f]
+    if flagged:
+        out += ["", "### Data-quality flags (possible namesake profiles in the index)", ""]
+        out += [f"- **{c}**: " + " ".join(f) for c, f in flagged]
+    if errs:
+        under = [e for e in errs if e[1] < 0]
+        out += ["", "### Findings", "",
+                f"- {len(under)} of {len(errs)} point estimates are BELOW the reported figure. The "
+                "model learns Crustdata's own band (the only revenue label available at scale), and "
+                "those bands sit far below reported ARR for fast-growing venture-backed companies "
+                "(see the 'In band' column), so the model inherits that downward bias. It is "
+                "validated against bands, not against reported revenue.",
+                "- Crustdata's band follows the LISTED employee_count_range bucket, which is often "
+                "stale; the stale-band rule (band = floor only when the indexed headcount implies a "
+                "bigger bucket) is what lets the estimate leave a band that is too low.",
+                "- Clay and Ramp headcounts are inflated by namesake profiles (common-word names), so "
+                "their payroll and model inputs are unreliable; Clay's 'hit' is partly luck from an "
+                "overstated headcount.",
+                "- Reported figures are themselves mixed (run-rate, ARR, 'passed $X' lower bounds, "
+                "third-party estimates); see revenue_ground_truth.json notes."]
     out += ["", "## Customer profiles", "",
             "| Company | Model | Target customers | Use cases | Talent sources (sampled staff) |",
             "|---|---|---|---|---|"]
