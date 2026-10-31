@@ -1,0 +1,104 @@
+{
+ "endpoint": "/social_post/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "actor.crustdata_entity_id",
+     "type": "=",
+     "value": 6421460
+    },
+    {
+     "field": "actor.actor_type",
+     "type": "=",
+     "value": "company"
+    }
+   ]
+  },
+  "sorts": [
+   {
+    "field": "date_posted",
+    "order": "desc"
+   }
+  ],
+  "fields": [
+   "share_url",
+   "text",
+   "date_posted",
+   "post_type",
+   "has_video",
+   "hashtags",
+   "engagement",
+   "content_types",
+   "actor.name",
+   "actor.crustdata_entity_id",
+   "actor.actor_type"
+  ],
+  "limit": 10
+ },
+ "status": 200,
+ "credits_used": "1",
+ "body": {
+  "posts": [
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 6421460,
+     "name": "Terrastack"
+    },
+    "content_types": [],
+    "date_posted": "2025-12-05T15:47:07Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 5,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 5
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/terrastack_were-presenting-at-the-geosmart-conference-activity-7401416655131672576-h4VH",
+    "text": "We're presenting at the Geosmart Conference on December 4th at Bharat Mandapam, Delhi, as an Operation Dronagiri startup. Do reach out if attending the conference!"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 6421460,
+     "name": "Terrastack"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2025-10-06T15:47:07Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 15,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 15
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/terrastack_glad-to-share-that-terrastack-has-been-selected-activity-7378811444886228992-OLUJ",
+    "text": "Glad to share that Terrastack has been selected for the MeitY Grant, a program supporting startups driving innovation in technology for India! Along with the funding, we had the chance to present our work, which can help accelerate rural lending and insurance coverage across the country, to Shri Jitin Prasada sir and the MeitY Startup Hub team at Indian Institute of Technology, Bombay. Exciting collaborations and pilots ahead - onwards and upwards!"
+   }
+  ],
+  "next_cursor": null,
+  "total_count": 2
+ }
+}

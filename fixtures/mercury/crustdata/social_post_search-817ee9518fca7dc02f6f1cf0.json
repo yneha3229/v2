@@ -1,0 +1,338 @@
+{
+ "endpoint": "/social_post/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "actor.crustdata_entity_id",
+     "type": "=",
+     "value": 631990
+    },
+    {
+     "field": "actor.actor_type",
+     "type": "=",
+     "value": "company"
+    }
+   ]
+  },
+  "sorts": [
+   {
+    "field": "date_posted",
+    "order": "desc"
+   }
+  ],
+  "fields": [
+   "share_url",
+   "text",
+   "date_posted",
+   "post_type",
+   "has_video",
+   "hashtags",
+   "engagement",
+   "content_types",
+   "actor.name",
+   "actor.crustdata_entity_id",
+   "actor.actor_type"
+  ],
+  "limit": 10
+ },
+ "status": 200,
+ "credits_used": "5",
+ "body": {
+  "posts": [
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631990,
+     "name": "Mercury"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-09-08T02:02:13Z",
+    "engagement": {
+     "num_shares": 105,
+     "reactions_by_type": {
+      "APPRECIATION": 3,
+      "EMPATHY": 75,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 2,
+      "LIKE": 192,
+      "PRAISE": 31
+     },
+     "total_comments": 16,
+     "total_reactions": 303
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "repost_without_thoughts",
+    "share_url": "https://www.linkedin.com/posts/mercuryhq_money-is-your-material-give-it-shape-ugcPost-7501308012486332416-zMKZ",
+    "text": "Money is your material. \nGive it shape."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631990,
+     "name": "Mercury"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-09-01T09:35:17Z",
+    "engagement": {
+     "num_shares": 1,
+     "reactions_by_type": {
+      "APPRECIATION": 1,
+      "EMPATHY": 6,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 76,
+      "PRAISE": 6
+     },
+     "total_comments": 5,
+     "total_reactions": 89
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/mercuryhq_this-week-mercury-launched-real-time-payments-activity-7498123646318702592-q8c8",
+    "text": "This week, Mercury launched real-time payments: money that lands in seconds, any hour, any day, for free. Product Manager David Hill, and Product Designer Jen Pearce on what it took to make that real ↓\n\nThe hardest part wasn't just building the rail. It was competing with muscle memory. ACH and wires have had decades to become the default. Your recipient's details are already saved. You've paid them this way before. Real-time payments had to earn that same familiarity from scratch.\n\nMercury's job was to make the fastest option the easiest one, too. Before you even choose, we pre-check whether your recipient's bank accepts instant payments and prefill their payment details where we can. When the best option is available, it's already in front of you.\n\n\"Most banks haven't made instant payments free or easy for businesses,\" says David.\n\nReal-time payments are live this week for eligible Mercury Business and Personal accounts. Free, instant, and yours to use today."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631990,
+     "name": "Mercury"
+    },
+    "content_types": [
+     "article"
+    ],
+    "date_posted": "2026-09-01T09:35:17Z",
+    "engagement": {
+     "num_shares": 3,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 3,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 43,
+      "PRAISE": 7
+     },
+     "total_comments": 0,
+     "total_reactions": 53
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/mercuryhq_introducing-mercury-treasurys-exclusive-activity-7498832585972666368-Y4NH",
+    "text": "Our Treasury customers moved into two new mutual fund products, each over a single weekend, and it was so seamless almost nobody noticed. \n\nFund migrations can take months and cause disruption along the way. For cash that businesses use to run payroll and pay vendors, that wasn't an option — so before Trevor J. Walters and the Investments team could launch the new offerings, they spent most of a year rebuilding what sits underneath them.\n\nReference data for every investment asset Treasury supports lived across 13 tables and 32 files. The team replaced it with a Security Master Service, creating a shared source of truth for market data, trading systems, and the Treasury ledger. Adding or changing an asset went from about a month of engineering work to one Ops instruction. \"It's one of those critical pieces where nobody notices when it's working but everyone feels it when it's missing,\" Trevor said.\n\nThey also moved Mercury Treasury and Mercury Personal Invest onto Ascend, Apex's new real-time custodian infrastructure. Trading, account management and money movement now run on modern, real-time APIs instead of a legacy overnight batch system. This unlocked faster account opening and faster wire settlements into Treasury, so we can move as quickly as our customers do.\n \nThen came the migrations themselves. Holdings moved from the old funds to the new ones over one weekend each, and customers logged in Monday to new, Mercury-exclusive funds that were already invested.\n\nThe unglamorous work is usually the real work. More on how this came together and what it unlocks for your business: https://lnkd.in/gmBm3Q7V\n\n* Mercury Treasury and Mercury Invest are offered by Mercury Advisory, LLC, an SEC-registered investment adviser and wholly-owned subsidiary of Mercury Technologies, Inc. Investment accounts are not FDIC insured, are not bank deposits, and may lose value. See full disclosures here: https://lnkd.in/gRHHXaXs"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631990,
+     "name": "Mercury"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-08-26T20:39:41Z",
+    "engagement": {
+     "num_shares": 19,
+     "reactions_by_type": {
+      "APPRECIATION": 1,
+      "EMPATHY": 18,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 1,
+      "LIKE": 103,
+      "PRAISE": 30
+     },
+     "total_comments": 5,
+     "total_reactions": 153
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "repost_without_thoughts",
+    "share_url": "https://www.linkedin.com/posts/mercuryhq_real-life-doesnt-run-on-banking-hours-your-ugcPost-7498063185321545728-Mtlw",
+    "text": "Real life doesn't run on banking hours. Your payments shouldn't either.\n\nThat's why we've launched real-time payments on Mercury Business and Mercury Personal.\n\nNow you can move money in seconds, day or night, weekend or holiday, and it's free on both.\n\nSo, whether you're paying someone at 9pm on a Friday or settling an invoice the moment it's due, whatever day that happens to be, you'll get confirmation right away.\n\nIf you didn't know instant, always-on payments were even possible, now they are. Free and 24/7 for eligible Mercury Business and Personal accounts."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631990,
+     "name": "Mercury"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-08-25T09:35:17Z",
+    "engagement": {
+     "num_shares": 0,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 0,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 0
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/mercuryhq_a-lot-of-headlines-this-year-insist-ai-is-activity-7495880682267815936-jqgl",
+    "text": "A lot of headlines this year insist AI is coming for entry-level jobs. Reality: hiring isn't going anywhere.\n\n82% of early-stage companies are hiring the same or more junior talent than they would have without AI. And the heaviest AI adopters are the ones most likely to be hiring more entry-level talent.\n\nThat's one finding from The New Economics of Starting Up in 2026 — 1,500 US founders and builders on what they spend, what they raise, what they pay themselves, and what AI actually changed.\n\nLive now → https://lnkd.in/egFmsUAG"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631990,
+     "name": "Mercury"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-08-25T09:35:17Z",
+    "engagement": {
+     "num_shares": 2,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 0,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 15,
+      "PRAISE": 0
+     },
+     "total_comments": 0,
+     "total_reactions": 15
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/mercuryhq_the-new-economics-of-starting-up-in-60-seconds-activity-7495933440123428864-UtVi",
+    "text": "The New Economics of Starting Up in 60 seconds:\n\n→ 95% of companies deployed AI agents \n→ 83% are leaning further into stablecoins \n→ 77% saw AI spend jump (some by 200%+) \n→ 80% changed something because of the economy\n→ 84% feel more confident in their business this year\n\nFounders got more confident in a year they spent restructuring around costs they didn't plan for. See where your company falls → https://lnkd.in/egFmsUAG"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631990,
+     "name": "Mercury"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-08-25T09:35:17Z",
+    "engagement": {
+     "num_shares": 1,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 8,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 30,
+      "PRAISE": 4
+     },
+     "total_comments": 2,
+     "total_reactions": 42
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/mercuryhq_casa-bosques-crafts-chocolate-with-the-same-activity-7496259066944536576-1YVb",
+    "text": "Casa Bosques crafts chocolate with the same care that you put into building your business, right down to the cards your team carries and the system behind them.\n\nIf you believe every part of running your business — including how you spend — should be designed with intention, we’d love to send you some of these exquisite chocolates to share with your team.\n\nQuantities limited. Get yours here → https://lnkd.in/eMmWMFAU"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631990,
+     "name": "Mercury"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-08-25T09:35:17Z",
+    "engagement": {
+     "num_shares": 3,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 13,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 2,
+      "LIKE": 69,
+      "PRAISE": 14
+     },
+     "total_comments": 8,
+     "total_reactions": 98
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/mercuryhq_some-things-are-just-built-to-move-fast-activity-7497693484729016320-YBmL",
+    "text": "Some things are just built to move fast. Rockets. Cheetahs. F1 pit crews. Tomorrow, Mercury adds something that belongs on this list."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631990,
+     "name": "Mercury"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-08-25T09:35:17Z",
+    "engagement": {
+     "num_shares": 21,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 9,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 130,
+      "PRAISE": 17
+     },
+     "total_comments": 4,
+     "total_reactions": 156
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/mercuryhq_startups-have-never-held-this-much-cash-activity-7495555569316016128-bd7u",
+    "text": "Startups have never held this much cash. Global venture funding topped $500 billion in the first half of this year alone, and most of it sits parked in an account.\n\nFounders are usually left choosing between two options to put the cash to work / to invest it: take on more risk for a better rate, or play it safe and leave return on the table. We wanted a better option for our customers. \n\nSo we spent the past year working with Morgan Stanley Investment Management and State Street Investment Management to build new mutual fund products designed for higher net yields than our previous Treasury offerings without adding credit risk or extending duration. \n\nMCRYX, built with Morgan Stanley Investment Management, is live today and yields up to 3.88% through Mercury Treasury. MRGXX, built with State Street Investment Management, will go live in the coming weeks.\n\nAvailable only inside Mercury Treasury.\n\nFund details, in full: https://lnkd.in/g4mByZeK"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 631990,
+     "name": "Mercury"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-08-25T09:35:17Z",
+    "engagement": {
+     "num_shares": 1,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 16,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 65,
+      "PRAISE": 5
+     },
+     "total_comments": 6,
+     "total_reactions": 86
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/mercuryhq_brand-designers-sarah-mohammadi-and-serena-activity-7496622666964041728-AmnH",
+    "text": "Brand Designers Sarah Mohammadi and Serena E. spent weeks on one texture. Not the color, not the shape. Just how it would feel against your thumb.\n\nMercury's IO card, designed by artist Simone Bodmer-Turner, shipped last week. A sculpture is a three dimensional object, layered, catching light from a dozen angles. A card is a flat rectangle that has to survive a wallet. Translating from sculpture to product is where the two designers spent most of their time.\n\nBodmer-Turner leaves her materials in whatever natural state they settle into, a patina, a rough edge, a surface that was never smoothed over. \"It feels natural, as if it has always existed,\" Serena said. Getting that same quality onto something flat meant treating the card's surface itself as the material. \"We wanted to go beyond adding an image of something special. We wanted to make people feel like they're holding a piece of art.\"\n\nIt started with how the sculpture was photographed. Sarah and the team studied every shadow and highlight in the reference shots, since a flat, evenly lit photo would have erased exactly the depth they were trying to preserve. Then came the detail almost nobody would guess took the longest: the crop, worked through what Sarah called \"countless iterations to get the right balance of detail and abstraction.\"\n\nGet yours at the link in the comments 🔗"
+   }
+  ],
+  "next_cursor": "H4sIAACd5WoC_xWMywrCMBAAf6Xk7CGv3c3mK7yLlHSTWqG02CYHEf_deB1m5qNerRzvcUnnouKgxObE5CxPfp59NqGAnciBJRQWwInFcEHxJGA8lJwyO10waCYTmNRlUOd-1P66GQqEoMEQQei8HVtcn7E95LqfNZJnRGsRgXroWGtW967VvaZ1lL1t_4t38P0BpnGr46UAAAA=",
+  "total_count": 435
+ }
+}

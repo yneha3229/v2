@@ -1,0 +1,334 @@
+{
+ "endpoint": "/social_post/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "actor.crustdata_entity_id",
+     "type": "=",
+     "value": 689494
+    },
+    {
+     "field": "actor.actor_type",
+     "type": "=",
+     "value": "company"
+    }
+   ]
+  },
+  "sorts": [
+   {
+    "field": "date_posted",
+    "order": "desc"
+   }
+  ],
+  "fields": [
+   "share_url",
+   "text",
+   "date_posted",
+   "post_type",
+   "has_video",
+   "hashtags",
+   "engagement",
+   "content_types",
+   "actor.name",
+   "actor.crustdata_entity_id",
+   "actor.actor_type"
+  ],
+  "limit": 10
+ },
+ "status": 200,
+ "credits_used": "5",
+ "body": {
+  "posts": [
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 689494,
+     "name": "Ramp"
+    },
+    "content_types": [
+     "image"
+    ],
+    "date_posted": "2026-09-11T03:44:14Z",
+    "engagement": {
+     "num_shares": 10,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 5,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 95,
+      "PRAISE": 13
+     },
+     "total_comments": 9,
+     "total_reactions": 113
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_without_thoughts",
+    "share_url": "https://www.linkedin.com/posts/ramp_aws-marketplace-is-great-but-ya-know-what-activity-7501640219822227456-9-l8",
+    "text": "AWS Marketplace is great, but ya know what it was missing??\n\nThat's right. \n\nNow AWS customers can use committed cloud spend to bring Ramp's AI-powered controls, invoice processing, expense coding, and more into their finance operations.\n\nEnjoy the time back.\n\nramp.com/aws"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 689494,
+     "name": "Ramp"
+    },
+    "content_types": [],
+    "date_posted": "2026-09-11T00:42:48Z",
+    "engagement": {
+     "num_shares": 1,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 7,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 1,
+      "LIKE": 42,
+      "PRAISE": 8
+     },
+     "total_comments": 6,
+     "total_reactions": 58
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "repost_quote",
+    "share_url": "https://www.linkedin.com/posts/ramp_ramp-made-a-real-broadway-musical-starring-activity-7503818381918244865-mQp0",
+    "text": "September 25. There will be Bills to pay."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 689494,
+     "name": "Ramp"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-09-02T00:42:48Z",
+    "engagement": {
+     "num_shares": 14,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 7,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 60,
+      "PRAISE": 7
+     },
+     "total_comments": 4,
+     "total_reactions": 74
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/ramp_daxko-had-1000-ai-licenses-but-all-that-activity-7498756268820467712-Ov3m",
+    "text": "Daxko had 1,000+ AI licenses, but all that data lived in a separate admin console. Ramp gave them a unified view of spend, broken down by model, user, team, and API key.\n\nAfter just one weekly briefing, 20% of Claude spend shifted to a lower-cost model. Turns out not every task needs the most expensive model in the room. \n\nNow finance understands what was driving costs and can make informed decisions with full visibility.\n\nHere’s how they did it: https://lnkd.in/eXzBZ3Bi\n\nDaxko | Cody Nutt"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 689494,
+     "name": "Ramp"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-09-02T00:42:48Z",
+    "engagement": {
+     "num_shares": 1,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 3,
+      "ENTERTAINMENT": 11,
+      "INTEREST": 0,
+      "LIKE": 43,
+      "PRAISE": 1
+     },
+     "total_comments": 8,
+     "total_reactions": 58
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/ramp_6-months-ago-derek-threw-his-back-out-at-activity-7499134957622251520-evmk",
+    "text": "6 months ago Derek threw his back out at the paddle ball summit and despite auto-Ubing an XL on the company card... he's never quite recovered."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 689494,
+     "name": "Ramp"
+    },
+    "content_types": [
+     "document"
+    ],
+    "date_posted": "2026-08-26T00:42:48Z",
+    "engagement": {
+     "num_shares": 3,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 14,
+      "ENTERTAINMENT": 28,
+      "INTEREST": 2,
+      "LIKE": 122,
+      "PRAISE": 3
+     },
+     "total_comments": 9,
+     "total_reactions": 169
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/ramp_ramp-drops-volume-3-activity-7498041304627503104-RhXX",
+    "text": "Ramp Drops Volume 3 is out now. Enjoy the memes. And some crab rangoon."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 689494,
+     "name": "Ramp"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-08-26T00:42:48Z",
+    "engagement": {
+     "num_shares": 21,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 3,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 0,
+      "LIKE": 154,
+      "PRAISE": 8
+     },
+     "total_comments": 6,
+     "total_reactions": 165
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/ramp_ai-spending-is-up-21x-on-ramp-but-are-companies-activity-7496243118707589120-YZdh",
+    "text": "AI spending is up 21x on Ramp. But are companies getting a return on that spend?\n\nRamp CEO Eric Glyman gets into it on Bloomberg: https://lnkd.in/dN255s5X"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 689494,
+     "name": "Ramp"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-08-26T00:42:48Z",
+    "engagement": {
+     "num_shares": 7,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 6,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 2,
+      "LIKE": 102,
+      "PRAISE": 9
+     },
+     "total_comments": 1,
+     "total_reactions": 119
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/ramp_we-teamed-up-with-openai-gpt-56-sol-is-activity-7496301031639851008-MJl_",
+    "text": "We teamed up with OpenAI: GPT-5.6 Sol is now 50% off on Router through September 18th.\n\nRoute every request through whatever model is best fit for the task. \n\nStart saving at router.com"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 689494,
+     "name": "Ramp"
+    },
+    "content_types": [],
+    "date_posted": "2026-08-26T00:42:48Z",
+    "engagement": {
+     "num_shares": 6,
+     "reactions_by_type": {
+      "APPRECIATION": 1,
+      "EMPATHY": 15,
+      "ENTERTAINMENT": 142,
+      "INTEREST": 2,
+      "LIKE": 309,
+      "PRAISE": 6
+     },
+     "total_comments": 19,
+     "total_reactions": 475
+    },
+    "hashtags": [],
+    "has_video": false,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/ramp_heavy-is-the-company-card-that-swipes-the-activity-7495683502496174080-pPM3",
+    "text": "Heavy is the company card that swipes the team offsite dinner"
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 689494,
+     "name": "Ramp"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-08-26T00:42:48Z",
+    "engagement": {
+     "num_shares": 57,
+     "reactions_by_type": {
+      "APPRECIATION": 3,
+      "EMPATHY": 29,
+      "ENTERTAINMENT": 0,
+      "INTEREST": 2,
+      "LIKE": 448,
+      "PRAISE": 44
+     },
+     "total_comments": 15,
+     "total_reactions": 526
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/ramp_introducing-routercom-built-for-ctos-loved-activity-7495913735715426304-9cb6",
+    "text": "Introducing Router.com. Built for CTOs. Loved by CFOs.\n\nPeople in those two roles rarely want the same thing. \n\nEngineering wants the best model for every workload, and the best model changes almost every week. \n\nFinance wants the AI bill to stop endlessly climbing. \n\nUsually you’re forced to pick a side. Ramp Router is built so you don't have to. \n\nOne endpoint sends every request to the model that's genuinely best for the job - frontier when the work needs it, leaner when it doesn't. Engineering gets the right model for every workload. Finance gets lower inference spend and higher ROI. \n\nEverybody wins.\n\nWe've run Ramp's own AI on it for 3 years and cut our costs ~30% for the same output. Today it's open to everyone: router.com - two lines of code, free through 2026 for everyone to get started."
+   },
+   {
+    "actor": {
+     "actor_type": "company",
+     "crustdata_entity_id": 689494,
+     "name": "Ramp"
+    },
+    "content_types": [
+     "video"
+    ],
+    "date_posted": "2026-08-26T00:42:48Z",
+    "engagement": {
+     "num_shares": 2,
+     "reactions_by_type": {
+      "APPRECIATION": 0,
+      "EMPATHY": 10,
+      "ENTERTAINMENT": 8,
+      "INTEREST": 1,
+      "LIKE": 57,
+      "PRAISE": 1
+     },
+     "total_comments": 7,
+     "total_reactions": 77
+    },
+    "hashtags": [],
+    "has_video": true,
+    "post_type": "original",
+    "share_url": "https://www.linkedin.com/posts/ramp_next-5-chapters-of-the-kumar-method-are-out-activity-7496208173318672384-4as1",
+    "text": "Next 5 chapters of The Kumar Method are out now. Peace and love to our opps.\n\nramp.com/thekumarmethod"
+   }
+  ],
+  "next_cursor": "H4sIAP-c5WoC_xWMyw7CIBAAf6Xh7GFheX-Fd2OahbLWpCmxhYMx_rt4nZnMR7x6Od7zSucq4iTQFXTG5AwcfJI5Uc5UlkSLLxhIJdBsFAMTSTaYQFn2rEtgJFhQi8skznq08bpJ550DHaw34Abvxx63Z-yPfK1ni24Y8BYQjNVSao1K3EfWaqNtzrXv_4uUyn9_2MryuKYAAAA=",
+  "total_count": 1128
+ }
+}
