@@ -84,6 +84,7 @@ class Talent:
     indexed_staff: int | None = None
     alumni: dict[str, int] = field(default_factory=dict)      # group -> staff count
     ex_big_tech: int | None = None
+    staff: list["PersonHistory"] = field(default_factory=list)   # sampled staff work history
     notes: list[str] = field(default_factory=list)
 
     def as_dict(self) -> dict:
@@ -239,3 +240,79 @@ def credible_founders(founders: list, founded_year: int | None, slack_years: int
         if k not in best or len(f.prior_employers) > len(best[k].prior_employers):
             best[k] = f
     return list(best.values())
+
+
+# ---- staff work history (D31b) -------------------------------------------------------
+# Prestige employers beyond signals.NOTABLE_EMPLOYERS (big tech/scaleups): quant trading,
+# banks/payments, consulting, and large R&D labs. Highlighted in the report only; the Team
+# pillar keeps its own notable-employer rule.
+PRESTIGE = {
+    "quant": r"quadeye|tower research|jane street|citadel|two sigma|d\.? ?e\.? shaw|optiver|"
+             r"hudson river|jump trading|graviton|alphagrep|squarepoint|millennium|worldquant|imc trading",
+    "finance": r"goldman sachs|j\.?p\.? ?morgan|morgan stanley|visa\b|mastercard|american express|"
+               r"blackrock|bank of america|barclays|deutsche bank",
+    "consulting": r"mckinsey|boston consulting|\bbcg\b|bain & company|\bbain\b",
+    "big tech / R&D": r"google|microsoft|amazon|meta\b|facebook|apple\b|samsung r&d|nvidia|adobe|"
+                      r"qualcomm|intel\b|oracle|uber|flipkart|stripe|openai|deepmind",
+}
+_INTERN = re.compile(r"\bintern(ship)?\b|trainee|summer analyst", re.I)
+
+
+@dataclass
+class Role:
+    title: str
+    company: str
+    start: str = ""
+    end: str = ""
+    intern: bool = False
+    prestige: str = ""        # category from PRESTIGE, else ""
+
+
+@dataclass
+class PersonHistory:
+    name: str
+    current_title: str
+    past: list[Role] = field(default_factory=list)
+
+    @property
+    def highlights(self) -> list[Role]:
+        return [r for r in self.past if r.prestige]
+
+
+def prestige_of(company: str) -> str:
+    for cat, pat in PRESTIGE.items():
+        if re.search(pat, company or "", re.I):
+            return cat
+    return ""
+
+
+def _ym(s: Any) -> str:
+    return str(s or "")[:7]
+
+
+def staff_history(resp: Any, company_id: int, limit: int = 15) -> list[PersonHistory]:
+    """Work history of sampled staff from a Person Search response that requested
+    `experience.employment_details.past` (economics.sample_body). Internships are kept and
+    labelled: they show where people were selected, which matters for early teams."""
+    profiles = resp.get("profiles") if isinstance(resp, dict) else resp
+    out = []
+    for p in (profiles or [])[:limit]:
+        if not isinstance(p, dict):
+            continue
+        det = ((p.get("experience") or {}).get("employment_details")) or {}
+        cur = [e for e in det.get("current") or [] if isinstance(e, dict)]
+        here = next((e for e in cur if e.get("company_id") == company_id), cur[0] if cur else {})
+        roles = []
+        for e in det.get("past") or []:
+            if not isinstance(e, dict):
+                continue
+            co = str(e.get("company_name") or e.get("name") or "").strip()
+            title = str(e.get("title") or "").strip()
+            if not co:
+                continue
+            roles.append(Role(title, co, _ym(e.get("start_date")), _ym(e.get("end_date")),
+                              bool(_INTERN.search(title)), prestige_of(co)))
+        roles.sort(key=lambda r: r.start, reverse=True)
+        out.append(PersonHistory(str((p.get("basic_profile") or {}).get("name") or ""),
+                                 str(here.get("title") or ""), roles))
+    return out

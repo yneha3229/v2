@@ -18,9 +18,10 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import signal_dashboard as sd  # noqa: E402
-from proofroom import economics, equity_report, scoring, talent  # noqa: E402
+from proofroom import config, economics, equity_report, scoring, talent  # noqa: E402
 from proofroom import revenue_models_alt as alt  # noqa: E402
-from proofroom.crustdata import FIXTURE, Crustdata  # noqa: E402
+from proofroom.crustdata import CACHED, Crustdata  # noqa: E402
+from proofroom.signals import fetch_signals  # noqa: E402
 from proofroom.research_models import Metric  # noqa: E402
 
 AS_OF = date(2026, 10, 31)
@@ -29,8 +30,12 @@ DEFAULT = ["linear.app", "terrastack.in", "ramp.com", "retool.com"]
 
 
 async def report(name: str, cid: int, domain: str) -> dict:
-    sig, eco = await economics.replay(name, cid, domain)
-    async with Crustdata(FIXTURE, fixture=name) as c:
+    # CACHED against the fixture folder: recorded requests replay, anything new (peer search
+    # for the market page) goes live once and is saved next to the other fixtures.
+    fx = config.FIXTURES_DIR / name / "crustdata"
+    async with Crustdata(CACHED, cache_dir=fx) as c:
+        sig = await fetch_signals(c, cid, domain, today=AS_OF, search=True, jobs=True, logo=False)
+        eco = await economics.build_economics(c, sig, cid)
         rec = economics._enrich_record(c, cid) or {}
         hc = rec.get("headcount") or {}
         rev = alt.predict_alt(sig, eco, as_of=AS_OF,
@@ -40,6 +45,8 @@ async def report(name: str, cid: int, domain: str) -> dict:
         sig.founders = talent.credible_founders(sig.founders, int(founded) if founded else None) or sig.founders
         country = str((rec.get("locations") or {}).get("country") or "")
         tal = await talent.build_talent(c, cid, rec, country, {f.name.lower() for f in sig.founders})
+        staff = await c.request("POST", economics.PERSON_SEARCH, economics.sample_body(cid, economics.SAMPLE_N))
+        tal.staff = talent.staff_history(staff, cid)
     if rev.get("low_usd") and rev.get("high_usd"):
         sig.revenue_band_usd = (rev["low_usd"], rev["high_usd"])
     if rev.get("point_usd"):

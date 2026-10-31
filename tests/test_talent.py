@@ -76,3 +76,18 @@ def test_team_bonus_and_apply_talent():
     scoring.apply_talent(fl, pl, t)
     assert pl[0].score == 100 and fl[0].rule == "G9 elite-founder"
     assert "G9 elite-founder" in scoring.RULES
+
+
+def test_staff_history_flags_interns_and_prestige():
+    resp = {"profiles": [{"basic_profile": {"name": "A"}, "experience": {"employment_details": {
+        "current": [{"company_id": 7, "title": "CEO"}],
+        "past": [{"title": "Quantitative Strategist", "company_name": "Quadeye", "start_date": "2024-05-01T00:00:00"},
+                 {"title": "Software Intern", "company_name": "Samsung R&D Institute India - Bangalore",
+                  "start_date": "2023-05-01"},
+                 {"title": "Analyst", "company_name": "Local Co", "start_date": "2025-01-01"},
+                 {"title": "x", "company_name": ""}]}}}]}
+    [p] = talent.staff_history(resp, 7)
+    assert p.current_title == "CEO" and [r.company for r in p.past][0] == "Local Co"
+    assert {r.company: (r.prestige, r.intern) for r in p.past}["Quadeye"] == ("quant", False)
+    assert {r.company: r.intern for r in p.past}["Samsung R&D Institute India - Bangalore"] is True
+    assert len(p.highlights) == 2 and talent.prestige_of("Visa Inc.") == "finance"

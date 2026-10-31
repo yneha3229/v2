@@ -777,7 +777,8 @@ def _kpis(case: CaseRecord, s: Signals, flags: list[Flag]) -> str:
     lr = _metric(s, "last_round")
     lsub = (f'Last: {_e(last["type"])} · {_e(_date_label(last["date"]))}'
             + (f' · {_e(fmt_usd(last["amount"]))}' if last.get("amount") else "")) if last else \
-        (f"Last: {_e(lr.display)}" if lr else "no indexed rounds")
+        (f"Last: {_e(lr.display)}" if lr else "round indexed, amount undisclosed"
+         if _metric(s, "months_since_last_round") else "no indexed rounds")
     prim = _metric(s, "total_funding_primary_usd")
     if prim:
         lsub += f'<br><span class="muted">Primary only (excl. secondary): {_e(fmt_usd(prim.value))}</span>'
@@ -807,11 +808,14 @@ def _kpis(case: CaseRecord, s: Signals, flags: list[Flag]) -> str:
                        f'<span class="muted">{_e(last["type"] + " · " + _date_label(last["date"])) if last else "no dated round"}</span>',
                        mtone, "", msrc))
     cnt = Counter(f.level for f in flags)
+    risk = cnt.get("critical", 0) + cnt.get("red", 0)
     chips = "".join(f'<span class="fc fc-{lv}">{_icon(lv)}<b>{cnt.get(lv, 0)}</b> {LEVEL_META[lv][2]}</span>'
-                    for lv in ("critical", "red", "amber", "green"))
-    ftone = "bad" if cnt.get("critical") or cnt.get("red") else "warn" if cnt.get("amber") else "good"
-    tiles.append(f'<div class="tile t-{ftone}"><div class="t-label">Flags raised by the rules</div>'
-                 f'<div class="t-value">{len(flags)}</div><div class="fcs">{chips}</div>'
+                    for lv in ("critical", "red"))
+    chips += (f'<div class="muted small">Also: {cnt.get("amber", 0)} watch item(s) · '
+              f'{cnt.get("green", 0)} strength(s)</div>')
+    ftone = "bad" if risk else "warn" if cnt.get("amber") else "good"
+    tiles.append(f'<div class="tile t-{ftone}"><div class="t-label">Risk flags (critical + red)</div>'
+                 f'<div class="t-value">{risk}</div><div class="fcs">{chips}</div>'
                  f'<div class="t-src">fixed rules, identical for every company (methodology page)</div></div>')
     return '<div class="tiles">' + "".join(tiles) + "</div>"
 
@@ -863,7 +867,6 @@ def _page1(case: CaseRecord, s: Signals, flags: list[Flag], rec: Recommendation,
   <div class="band-main"><div class="kick">Investment snapshot · Team &amp; Financing verified</div>
     <h1>{_e(company)}</h1><div class="facts">{" · ".join(_e(f) for f in facts)}</div>
     <p class="desc">{_e(_clip(s.description, 230)) if s.description else ''}</p></div>
-  <div class="band-side"><div class="kick">Run labels</div><div class="labs">{labels}</div></div>
 </header>
 {sample_banner}
 <div class="hero">
@@ -1062,12 +1065,25 @@ def _page4(company: str, case: CaseRecord, s: Signals) -> str:
                  "Who runs the company, and whether the graph confirms they are where the sources say.")
 
 
+GENERIC_CATEGORIES = {"analytics", "artificial intelligence (ai)", "artificial intelligence", "software",
+                      "saas", "information technology", "data management", "infrastructure",
+                      "internet", "enterprise software", "b2b", "technology", "machine learning"}
+
+
+def _primary_category(cats: list[str]) -> str:
+    """Most specific taxonomy category: the first one that is not a generic umbrella tag."""
+    return next((c for c in cats if c.lower() not in GENERIC_CATEGORIES), cats[0] if cats else "")
+
+
 def _page5(company: str, s: Signals, n: int = 5) -> str:
     mk = s.market
     crowd_tone = {"low": "good", "medium": "warn", "high": "bad"}.get(mk.crowding, "neutral")
+    primary = (mk.category.split(" + ")[0] if mk.category else _primary_category(mk.categories))
     tiles = ('<div class="tiles t4">'
-             + _tile("Category", mk.category or "n/a", " ".join(f'<span class="pill">{_e(c)}</span>'
-                                                               for c in mk.categories[:5]))
+             + _tile("Primary category", primary or "n/a",
+                     (f'<span class="muted">peers searched in: {_e(mk.category)}</span><br>' if " + " in mk.category else "")
+                     + '<span class="muted">also tagged:</span> ' + " ".join(
+                         f'<span class="pill">{_e(c)}</span>' for c in mk.categories[:5] if c != primary))
              + _tile("NAICS", mk.naics or "n/a")
              + _tile("Crowding", mk.crowding.upper(), f'<span class="muted">{_e(str(mk.peer_count)) if mk.peer_count is not None else "n/a"} '
                      "companies in category</span>", crowd_tone)
@@ -1097,7 +1113,8 @@ def _page5(company: str, s: Signals, n: int = 5) -> str:
             + _chart_card("Headcount growth YoY: company vs peers", chart, mk.source)
             + seo)
     return _page(n, "Market and competition", company, body,
-                 "How crowded the category is, and how the company's growth compares with funded peers.")
+                 "How crowded the category is, and how the company's growth compares with funded peers.",
+                 pid="pm")
 
 
 def _page6(company: str, case: CaseRecord, s: Signals, n: int = 6) -> str:
@@ -1133,7 +1150,7 @@ def _page6(company: str, case: CaseRecord, s: Signals, n: int = 6) -> str:
             + f"<ul class='plain small fin'>{lines}</ul>"
             + f"<h3>Verified claims</h3><ul class='findings'>{''.join(frows) or '<li class=muted>No findings</li>'}</ul>"
             + f'<div class="callout"><h3>Questions for the founders</h3><ul class="bul">{qs}</ul></div>' + newsh)
-    return _page(n, "Financing and verified claims", company, body,
+    return _page(n, "Financing and verified claims", company, body, pid="pf", kicker=
                  "Each sentence below passed the code check (every number against its cited evidence) and the "
                  "entailment check.")
 
@@ -1223,7 +1240,8 @@ Crustdata credits {_e(str(st.get('crustdata_credits', 0)))} + signals {_e(_trim(
 <tbody>{docs or "<tr><td colspan=6 class='muted'>No source documents</td></tr>"}</tbody></table>
 <h3>Evidence</h3><table class="data small ev"><thead><tr><th>ID</th><th>Source · locator</th><th>Value</th></tr></thead>
 <tbody>{ev or "<tr><td colspan=3 class='muted'>No evidence</td></tr>"}</tbody></table>
-<h3>Limitations</h3><ul class="tight small">{lims or "<li class='muted'>None recorded</li>"}</ul>"""
+<h3>Limitations</h3><ul class="tight small">{lims or "<li class='muted'>None recorded</li>"}</ul>
+<p class="foot-note">Run: {_e(" · ".join(run_labels(case)))}</p>"""
     return _page(n, "Methodology", company, body, "How every number and status in this report was produced.",
                  pid="p7")
 
@@ -1342,6 +1360,7 @@ td.url { word-break:break-all; max-width:220px; }
   background:#e7eef9; border-radius:3px; padding:0 3px; margin-left:2px; font-variant-numeric:tabular-nums; }
 .callout { margin-top:10px; padding:8px 12px; border-radius:8px; background:var(--plane); border:1px solid var(--line); break-inside:avoid; }
 .callout h3 { margin-top:0; }
+table.data.compact td, table.data.compact th { padding-top:2px; padding-bottom:2px; font-size:7.6pt; }
 .insights { background:#eef3fb; border-color:#d6e2f4; }
 .grid2 { display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:8px 14px; margin-top:8px; }
 figure.cc { margin:8px 0 0; break-inside:avoid; }
@@ -1407,24 +1426,33 @@ def _page_talent(n: int, company: str, talent: Any, eco: Any) -> str:
              + "</div>")
     items = [(g, float(v)) for g, v in talent.alumni.items()] + ([("Ex-big-tech", float(bt))] if bt is not None else [])
     chart = svg_bar_chart(items, width=688, title="Staff by school group and big-tech background", unit="",
-                          label_width=200)
-    samples = (eco.payroll.samples if eco else [])[:8]
+                          label_width=200) if any(v for _, v in items) else ""
+    staff_rows = sorted(talent.staff, key=lambda p: -len(p.highlights))[:6]
+
+    def _role(r: Any) -> str:
+        tag = ' <span class="muted small">(intern)</span>' if r.intern else ""
+        co = f'<span class="pill">{_e(r.company)}</span>' if r.prestige else f"<b>{_e(r.company)}</b>"
+        yrs = f' <span class="muted small">{_e(r.start[:4])}</span>' if r.start else ""
+        return f"{_e(r.title)} @ {co}{tag}{yrs}"
     srows = "".join(
-        f"<tr><td>{_e(x.title)}</td><td>{_e(x.location)}</td><td><b>{_e(x.prior_employer or '—')}</b></td>"
-        f"<td class='num'>{_e(fmt_usd(x.est_salary_usd)) if x.est_salary_usd else '—'}</td></tr>" for x in samples)
-    sources = ", ".join((eco.customers.talent_sources if eco else [])[:8])
+        f"<tr><td><b>{_e(p.name)}</b><div class='muted small'>{_e(p.current_title)}</div></td>"
+        f"<td class='small'>{'<br>'.join(_role(r) for r in p.past[:3]) or '<span class=muted>none listed</span>'}</td></tr>"
+        for p in staff_rows)
+    hl = [(p.name, r) for p in talent.staff for r in p.highlights]
+    sources = "; ".join(f"{r.company} ({r.prestige}{', intern' if r.intern else ''}): {n}" for n, r in hl[:8])
     body = (tiles + "<h3>Founders' education</h3>" + founders
-            + _chart_card("Where the team comes from (counts of indexed staff)", chart,
-                          "Crustdata Person Search total_count: company ID plus a school or past-employer filter. "
-                          "Profiles without education listed are not counted, so these are lower bounds.")
-            + ("<h3>Sampled employees and where they worked before</h3><table class='data'><thead><tr><th>Title</th>"
-               "<th>Location</th><th>Previous employer</th><th class='num'>Est. salary</th></tr></thead><tbody>"
+            + (_chart_card("Where the team comes from (counts of indexed staff)", chart,
+                           "Person Search total_count with a school or past-employer filter; profiles without "
+                           "education listed are not counted (lower bounds).") if chart else "")
+            + (f"<h3>Team work history ({len(staff_rows)} of {len(talent.staff)} sampled profiles, "
+               "internships included)</h3><table class='data'><thead><tr><th>Person</th>"
+               "<th>Most recent previous roles (prestige employers highlighted)</th></tr></thead><tbody>"
                + srows + "</tbody></table>" if srows else "")
-            + (f"<p class='foot-note'>Most common previous employers across sampled staff: {_e(sources)}</p>" if sources else "")
-            + "<p class='foot-note'>Tiering is a stated prior used by many early-stage investors, not a judgement "
-              "on any individual: a top-tier degree in the company's home market (IIT for India, Ivy/Stanford/MIT for "
-              "the US) adds up to 10 points to the Team pillar, another market's top tier 6, and an elite-alumni share "
-              "of at least 20% another 4 (cap 14).</p>")
+            + (f"<p class='foot-note'><b>Prestige employers on the team:</b> {_e(sources)}</p>" if sources else
+               "<p class='foot-note'>No quant, top-bank/payments, consulting or big-tech employers in the sampled "
+               "profiles.</p>")
+            + "<p class='foot-note'>Tiering is a stated prior, not a judgement on any individual: home-market top "
+              "tier +10 Team points, other top tier +6, elite-alumni share ≥ 20% +4 (cap 14).</p>")
     return _page(n, "Talent and pedigree", company, body,
                  "Which schools and employers the founders and staff come from.", pid="pt")
 
@@ -1506,6 +1534,94 @@ def _page_economics(n: int, company: str, s: Signals, eco: Any, rev: dict | None
                  "What the team costs, how that compares locally, and what the company likely earns.", pid="pe")
 
 
+# Sections of the VC report template (docs/VC_Final_Report_Contents.md) and where this report
+# answers them. Status: full | partial | data room (needs the company's own documents).
+COVERAGE = [
+    ("0 Header", "full", "Page 1: name, domain, Crustdata ID; run mode and review date in the footer and methodology"),
+    ("1 Executive summary", "full", "Page 1: rating, headline, top reasons, risk flags"),
+    ("2 Company snapshot", "partial", "Founded, HQ, status, categories, NAICS; legal entity / CIN not fetched"),
+    ("3 Founders and leadership", "partial", "Founders, education, prior employers, prior startups; board/advisors not indexed"),
+    ("4 Team and organization", "full", "Headcount history, function and country mix, hiring, talent quality, pay estimate"),
+    ("5 Product and technology", "partial", "Description and inferred use cases only"),
+    ("6 Market", "partial", "Category, crowding, funded peers; TAM/SAM not estimated"),
+    ("7 Competition", "partial", "Taxonomy peers with funding and growth (not a vetted competitor set)"),
+    ("8 Traction and customers", "partial", "Revenue estimate range, web traffic, followers; customer counts need the company"),
+    ("9 Unit economics", "data room", "CAC, LTV, margins need the company's numbers"),
+    ("10 Financials", "partial", "Payroll and runway estimates; P&L and cash need filings or the data room"),
+    ("11 Funding history", "full", "Every indexed round, primary vs secondary, months since last round"),
+    ("12 Cap table", "data room", "Ownership, SAFEs, option pool"),
+    ("13 Current fundraise", "data room", "Terms come from the founder"),
+    ("14 Go-to-market", "partial", "Sales/marketing headcount from the role mix"),
+    ("15 Legal and compliance", "partial", "Adverse-news screen only; court and regulator records not searched"),
+    ("16 Reputation", "partial", "News, followers, employee rating where indexed"),
+    ("18 Risk assessment", "full", "Flags with evidence (page 2) and the checklist above"),
+    ("19 Exit potential", "data room", "Not estimated"),
+    ("21 Questions for founders", "full", "Financing page, generated from gaps and corrections"),
+    ("23 Limitations", "full", "Methodology page"),
+    ("24 Sources and evidence", "full", "Methodology page: evidence IDs with locators"),
+]
+DATA_ROOM = ["Financial statements (P&L, balance sheet, cash flow) and monthly metrics",
+             "Fully diluted cap table with SAFEs, notes and the option pool",
+             "Customer list with contract values; retention and pipeline",
+             "Board decks, incorporation and prior financing documents, IP assignments"]
+
+
+def _red_flag_checklist(case: CaseRecord, s: Signals, flags: list[Flag]) -> list[tuple[str, str, str]]:
+    """Template section 18 checklist: (item, result, detail). result: flagged | clear | not checked."""
+    rules = {f.rule.split()[0] for f in flags}
+    out = []
+    corr = [f for f in case.findings if f.disposition in ("supported_corrected", "conflicting")]
+    if case.findings:
+        out.append(("Founder/team claims that don't match records", "flagged" if corr else "clear",
+                    f"{len(corr)} of {len(case.findings)} checked claims corrected or conflicting"))
+    else:
+        out.append(("Founder/team claims that don't match records", "not checked", "no source run yet"))
+    out.append(("Founder or senior leader left in 12 months", "not checked", "departures are not tracked yet"))
+    hy = _metric(s, "headcount_yoy_pct")
+    out.append(("Headcount falling or hiring freeze", "flagged" if "R1" in rules else "clear",
+                f"headcount {fmt_pct(hy.value)} YoY" if hy and hy.value is not None else "no headcount trend"))
+    mm = _metric(s, "months_since_last_round")
+    rev = _metric(s, "revenue_estimate_usd")
+    stale = mm is not None and mm.value is not None and mm.value > 24
+    out.append(("> 24 months since last round, no revenue evidence",
+                "flagged" if stale and not rev else "clear",
+                (f"{mm.value:.0f} months since last round" if mm and mm.value is not None else "no dated round")
+                + ("; revenue estimated" if rev else "")))
+    out.append(("Employee or customer ratings falling", "not checked",
+                f"current employee rating {s.employee_rating:.1f}/5; trend not indexed" if s.employee_rating
+                else "rating not indexed"))
+    legal = [n for n in s.news if n.kind == "legal_risk"]
+    out.append(("Litigation or adverse news", "flagged" if legal or any(f.level == "critical" for f in flags) else "clear",
+                f"{len(legal)} adverse news item(s) in the index"))
+    out.append(("Customer concentration", "not checked", "needs the customer list"))
+    tot, prim = _metric(s, "total_funding_usd"), _metric(s, "total_funding_primary_usd")
+    sec = bool(tot and prim and tot.value and prim.value and tot.value > prim.value * 1.01)
+    out.append(("'Total raised' includes secondary sales", "flagged" if sec else "clear",
+                f"total {fmt_usd(tot.value)} vs primary {fmt_usd(prim.value)}" if sec else "no secondary in the total"))
+    lim = " ".join(s.limitations).lower()
+    out.append(("Inconsistent data across sources", "flagged" if "stale" in lim or "mismatch" in lim else "clear",
+                "self-reported size band differs from records" if "stale" in lim else "no inconsistency detected"))
+    out.append(("Regulatory exposure without licences", "not checked", "regulator registers not searched"))
+    return out
+
+
+def _page_coverage(n: int, company: str, case: CaseRecord, s: Signals, flags: list[Flag]) -> str:
+    st = {"full": ("✔", "ok", "Covered"), "partial": ("◐", "warn", "Partial"), "data room": ("✖", "muted", "Data room")}
+    rows = "".join(f"<tr><td>{_e(sec)}</td><td><span class='mk {st[k][1]}'>{st[k][0]}</span> {st[k][2]}</td>"
+                   f"<td class='small'>{_e(note)}</td></tr>" for sec, k, note in COVERAGE)
+    res = {"flagged": ("bad", "Flagged"), "clear": ("ok", "Clear"), "not checked": ("muted", "Not checked")}
+    chk = "".join(f"<tr><td>{_e(item)}</td><td><span class='st st-{res[r][0]}'>{res[r][1]}</span></td>"
+                  f"<td class='small muted'>{_e(d)}</td></tr>" for item, r, d in _red_flag_checklist(case, s, flags))
+    dr = "".join(f"<li>{_e(x)}</li>" for x in DATA_ROOM)
+    body = ("<h3>Red-flag checklist (each item checked)</h3><table class='data compact'><thead><tr><th>Item</th><th>Result</th>"
+            "<th>Detail</th></tr></thead><tbody>" + chk + "</tbody></table>"
+            + "<h3>What this report covers (VC report template)</h3><table class='data compact'><thead><tr><th>Section</th>"
+              "<th>Status</th><th>Where / what is missing</th></tr></thead><tbody>" + rows + "</tbody></table>"
+            + f"<p class='small'><b>Ask for in the data room:</b> {_e('; '.join(DATA_ROOM))}.</p>")
+    return _page(n, "Coverage and red-flag checklist", company, body,
+                 "What was checked, what was found clear, and what needs the company's own documents.", pid="pc")
+
+
 def build_html(case: CaseRecord, signals: Signals, flags: list[Flag], pillars: list[Pillar],
                rec: Recommendation, *, rules: dict | None = None, sample: bool = False,
                talent: Any = None, economics: Any = None, revenue: dict | None = None) -> str:
@@ -1515,7 +1631,7 @@ def build_html(case: CaseRecord, signals: Signals, flags: list[Flag], pillars: l
     `sample=True` adds a SAMPLE DATA watermark and banner (placeholder Signals).
     """
     company = _company(case, signals)
-    footer = f"Proofroom · {company} · {' · '.join(run_labels(case))}" + (" · SAMPLE DATA" if sample else "")
+    footer = f"Proofroom · {company} · {case.run_mode}" + (" · SAMPLE DATA" if sample else "")
     extra = [p for p in ((lambda n: _page_talent(n, company, talent, economics)) if talent is not None else None,
                          (lambda n: _page_economics(n, company, signals, economics, revenue))
                          if economics is not None else None) if p]
@@ -1529,6 +1645,7 @@ def build_html(case: CaseRecord, signals: Signals, flags: list[Flag], pillars: l
         pages.append(f(len(pages) + 1))
     pages.append(_page5(company, signals, len(pages) + 1))
     pages.append(_page6(company, case, signals, len(pages) + 1))
+    pages.append(_page_coverage(len(pages) + 1, company, case, signals, flags))
     pages.append(_page7(company, case, signals, flags, pillars, rec, rules, sample, len(pages) + 1))
     wm = '<div class="watermark" aria-hidden="true">SAMPLE DATA</div>' if sample else ""
     return (f'<!doctype html><html lang="en"><head><meta charset="utf-8">'

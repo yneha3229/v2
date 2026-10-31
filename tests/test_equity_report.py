@@ -96,9 +96,11 @@ def doc() -> str:
 
 def test_pages_and_headline_content(doc):
     for heading in ("Investment snapshot", "Why this rating", "Growth and traction", "Team",
-                    "Market and competition", "Financing and verified claims", "Methodology"):
+                    "Market and competition", "Financing and verified claims", "Coverage and red-flag checklist",
+                    "Methodology"):
         assert heading in doc
-    assert doc.count('class="page"') == 7
+    assert doc.count('class="page"') == 8          # + coverage page; talent/economics pages are optional
+    assert "@@PAGES@@" not in doc and "1 / 8" in doc
     assert ">HOLD<" in doc
     assert "$100K" in doc and "of your $250K standard check (40%)" in doc
     assert "not financial advice" in doc
