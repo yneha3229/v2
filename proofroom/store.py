@@ -109,7 +109,7 @@ class Store:
         return None
 
     def publish(self, rd: RunDir, input_obj: dict, case_obj: dict, brief_md: str,
-                run_status: str = "DELIVERED") -> dict:
+                run_status: str = "DELIVERED", extra: dict[str, str] | None = None) -> dict:
         """Write the three files once, read them back, then write the manifest.
 
         `run_status` is the brief's own status (DELIVERED or NARROWED); the manifest's
@@ -123,8 +123,13 @@ class Store:
             "case.json": _dumps(case_obj),
             "brief.md": brief_md.encode("utf-8"),
         }
+        for name, text in (extra or {}).items():
+            if name in payloads or "/" in name or name.startswith(".") or name == "manifest.json":
+                raise StoreError(f"invalid extra file name {name!r}")
+            payloads[name] = text.encode("utf-8")
+        names = list(payloads)
         hashes: dict[str, str] = {}
-        for name in FILES:
+        for name in names:
             data = payloads[name]
             path = rd.path / name
             try:
@@ -134,7 +139,7 @@ class Store:
                 raise StoreError(f"write failed for {name}: {e}") from e
             hashes[name] = sha256_bytes(data)
 
-        for name in FILES:  # read back and verify before any manifest
+        for name in names:  # read back and verify before any manifest
             try:
                 back = (rd.path / name).read_bytes()
             except OSError as e:
@@ -188,4 +193,4 @@ def verify_run(rd: RunDir) -> bool:
                 return False
         except OSError:
             return False
-    return set(man.get("files") or {}) == set(FILES)
+    return set(FILES) <= set(man.get("files") or {})

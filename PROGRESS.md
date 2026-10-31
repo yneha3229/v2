@@ -125,6 +125,14 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 
 ---
 
+## Event deck facts (ContextCon 03 deck, read 11:25)
+
+- **Judging /100:** end-to-end 25 · facts & verification 20 · robustness & edge cases 20 · customer value & idea 20 · demo & understanding 15.
+- **Theme "Services, Replaced":** the agent does the whole service job; a person only for exceptions; every decision cites reasons.
+- **Submit by 15:30:** public GitHub repo + 2-min Loom of a request never seen before → finished work. Commit history from 31 Oct.
+- **README must have:** the service (who does it, who pays) · what it does now (and where a person is needed) · what next · how to run + how built (agents, models, tools, where Crustdata is called) · approaches tried (what worked / failed).
+- Any model allowed. 15,000 Crustdata credits per builder (IITB email, code CONTEXTCON-IITB). Agents may contact only the team and the Crustdata/Techfest teams.
+
 ## Decisions
 
 *Number every decision and cite the plan section it changes.*

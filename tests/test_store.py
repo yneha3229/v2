@@ -115,3 +115,14 @@ def test_model_schemas_are_strict_and_flat():
         assert "anyOf" not in js  # no nullable/union fields in model-call schemas
         for d in schema.model_json_schema().get("$defs", {}).values():
             assert set(d["required"]) == set(d["properties"])
+
+
+def test_extra_files_are_hashed_and_verified(tmp_path):
+    s = store.Store(tmp_path)
+    rd = s.new_run("c")
+    man = s.publish(rd, {}, {}, "brief", extra={"questions.md": "# Q"})
+    assert "questions.md" in man["files"] and store.verify_run(rd)
+    (rd.path / "questions.md").write_text("changed")
+    assert not store.verify_run(rd)
+    with pytest.raises(StoreError):
+        s.publish(s.new_run("c"), {}, {}, "b", extra={"../x": "no"})
