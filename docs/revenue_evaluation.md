@@ -2,7 +2,7 @@
 
 Scored against publicly reported revenue/ARR (`proofroom/data/revenue_ground_truth.json`, cited). **Leave-one-out:** a company's own reported figure is never in the benchmark that estimates it. Offline replay of recorded Crustdata data.
 
-Ensemble weights: benchmark 60%, v1 25%, v2 (social posts) 15% — v2 used: **no** (not available or did not beat v1 in cross-validation).
+Ensemble weights: benchmark 60%, v1 25%, v2 (social posts) 15% — v2 used: **yes** (it beat v1 in cross-validation on the same 80 companies (median |log10 err| 0.3568 vs 0.3759); the paired test is not significant, so its weight stays low).
 
 ## Accuracy against reported revenue
 
@@ -11,7 +11,8 @@ Ensemble weights: benchmark 60%, v1 25%, v2 (social posts) 15% — v2 used: **no
 | Crustdata band midpoint | 6 | 78% | 17% | 17% | 0.22 |
 | Model v1 (band-trained regression) | 6 | 57% | 33% | 33% | 0.43 |
 | Reported-revenue benchmark (LOO) | 6 | 42% | 17% | 83% | 1.12 |
-| **Calibrated ensemble** | 6 | 31% | 50% | 67% | 0.83 |
+| **Calibrated ensemble** | 6 | 36% | 50% | 83% | 0.78 |
+| Model v2 (v1 + social posts) | 6 | 57% | 17% | 50% | 0.46 |
 
 Same, excluding companies whose headcount is flagged as inflated by namesake profiles:
 
@@ -20,21 +21,22 @@ Same, excluding companies whose headcount is flagged as inflated by namesake pro
 | Crustdata band midpoint | 3 | 85% | 0% | 0% | 0.15 |
 | Model v1 (band-trained regression) | 3 | 64% | 0% | 0% | 0.36 |
 | Reported-revenue benchmark (LOO) | 3 | 47% | 0% | 100% | 1.33 |
-| **Calibrated ensemble** | 3 | 20% | 67% | 67% | 0.80 |
+| **Calibrated ensemble** | 3 | 28% | 67% | 67% | 0.72 |
+| Model v2 (v1 + social posts) | 3 | 63% | 0% | 0% | 0.37 |
 
 ## Per company
 
-| Company | Staff | Crustdata band | v1 | Benchmark (LOO) | Ensemble (range) | Reported | Ensemble error | v1 error |
-|---|---|---|---|---|---|---|---|---|
-| Koah | 24 | $0K–$500K | $540K | – | $540K | – | – | – |
-| Linear | 303 | $10.0M–$20.0M | $24.2M | $132.5M | $80.4M ($19.4M–$165.7M) | $100.0M | -20% | -76% |
-| Attio | 206 | $2.5M–$5.0M | $11.1M | $68.0M | $39.9M ($8.9M–$85.0M) | – | – | – |
-| Clay | 1,572 ⚠️ | $2.5M–$5.0M | $249.2M | $518.8M | $418.2M ($199.4M–$648.5M) | $200.0M | +109% | +25% |
-| Vercel | 1,027 | $50.0M–$100.0M | $218.0M | $318.7M | $285.0M ($174.4M–$398.3M) | $600.0M | -52% | -64% |
-| Retool | 413 | $20.0M–$50.0M | $44.1M | $188.8M | $123.1M ($35.3M–$236.0M) | $120.0M | +3% | -63% |
-| Ramp | 3,757 ⚠️ | $500.0M–$1.00B | $983.2M | $1.24B | $1.16B ($786.6M–$1.55B) | $2.00B | -42% | -51% |
-| Mercury | 1,782 ⚠️ | $500.0M–$1.00B | $500.0M | $588.1M | $560.7M ($400.0M–$735.1M) | $650.0M | -14% | -23% |
-| Terrastack | 7 | $0K–$500K | $457K | – | $457K | – | – | – |
+| Company | Staff | Crustdata band | v1 | v2 (social) | Benchmark (LOO) | Ensemble (range) | Reported | Ensemble error | v1 error |
+|---|---|---|---|---|---|---|---|---|---|
+| Koah | 24 | $0K–$500K | $540K | $162K | – | $451K | – | – | – |
+| Linear | 303 | $10.0M–$20.0M | $24.2M | $36.9M | $132.5M | $71.5M ($19.4M–$165.7M) | $100.0M | -28% | -76% |
+| Attio | 206 | $2.5M–$5.0M | $11.1M | $4.7M | $68.0M | $29.0M ($3.8M–$85.0M) | – | – | – |
+| Clay | 1,572 ⚠️ | $2.5M–$5.0M | $249.2M | $309.5M | $518.8M | $399.7M ($199.4M–$648.5M) | $200.0M | +100% | +25% |
+| Vercel | 1,027 | $50.0M–$100.0M | $218.0M | $206.0M | $318.7M | $271.5M ($164.8M–$398.3M) | $600.0M | -55% | -64% |
+| Retool | 413 | $20.0M–$50.0M | $44.1M | $50.0M | $188.8M | $107.6M ($35.3M–$236.0M) | $120.0M | -10% | -63% |
+| Ramp | 3,757 ⚠️ | $500.0M–$1.00B | $983.2M | $1.00B | $1.24B | $1.13B ($786.6M–$1.55B) | $2.00B | -43% | -51% |
+| Mercury | 1,782 ⚠️ | $500.0M–$1.00B | $500.0M | $500.0M | $588.1M | $551.1M ($400.0M–$735.1M) | $650.0M | -15% | -23% |
+| Terrastack | 7 | $0K–$500K | $457K | $26K | – | $297K | – | – | – |
 
 ⚠️ headcount flagged as inflated by namesake profiles (excluded from the benchmark's reference set; their estimates are less reliable).
 

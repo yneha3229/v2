@@ -25,9 +25,7 @@
  "snippets_note": "first 200 characters of up to 3 newest posts, for audit only",
  "credits_used_live_this_pull": 362.0,
  "credits_unknown_attempts": 1,
- "account_credits_before_pull": 15067.35,
- "account_credits_after_pull": 15067.35,
- "account_credits_note": "account balance is shared with other concurrent work; credits_used_live_this_pull is this script's own spend (sum of x-credits-used)",
+ "account_credits_note": "The /account/credits balance lagged (unchanged right after the pull) and is shared with concurrent agents; the x-credits-used sum is this task's own spend.",
  "stopped": "",
  "companies": [
   {
@@ -4022,5 +4020,17 @@
    "name": "SpaceX Super Intelligence",
    "stratum": "1001-5000"
   }
- ]
+ ],
+ "credits": {
+  "account_balance_task_start": 15086.58,
+  "account_balance_task_end": 14669.35,
+  "own_spend_from_x_credits_used": {
+   "koah_probe": 3.5,
+   "training_pull": 362.0,
+   "study_companies": 36.0,
+   "total": 401.5
+  },
+  "company_enrich_social_posts_probe": "403 permission_error, no charge observed",
+  "note": "The /account/credits balance lagged (unchanged right after the pull) and is shared with concurrent agents; the x-credits-used sum is this task's own spend."
+ }
 }

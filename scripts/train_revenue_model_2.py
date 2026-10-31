@@ -123,6 +123,8 @@ async def pull() -> None:
     if prev.get("account_credits_before_pull") and not spent:
         doc["account_credits_before_pull"] = prev["account_credits_before_pull"]
         doc["credits_used_live_this_pull"] = prev.get("credits_used_live_this_pull", 0)
+    if "credits" in prev:            # task-level credit accounting written after the pull
+        doc["credits"] = prev["credits"]
     rm2.SOCIAL_TRAINING_PATH.write_text(json.dumps(doc, indent=1, ensure_ascii=False),
                                         encoding="utf-8")
     print(f"{len(companies)} companies -> {rm2.SOCIAL_TRAINING_PATH}; live credits {spent}; "

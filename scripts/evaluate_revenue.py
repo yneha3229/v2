@@ -34,23 +34,36 @@ def _pct(v: float | None) -> str:
     return "–" if v is None else f"{v:+.0%}"
 
 
-def v2_status() -> tuple[bool, dict[str, float]]:
-    """(v2 beat v1 in its own CV, v2 point estimates by domain) if model 2 exists."""
+def v2_status() -> tuple[bool, dict]:
+    """(model 2 beat v1 in its own CV on the same companies, model 2 JSON) — rev-2 stores
+    its scores under cv.model (v2) and cv.v1_same_subset."""
     try:
         m = json.loads(V2_MODEL.read_text())
     except (OSError, ValueError):
         return False, {}
     cv = m.get("cv") or {}
-    v1, v2 = cv.get("v1") or {}, cv.get("v2") or {}
+    v2, v1 = cv.get("model") or {}, cv.get("v1_same_subset") or {}
     ok = bool(v1 and v2 and v2.get("median_abs_log10_error", 9) < v1.get("median_abs_log10_error", 9))
-    pts: dict[str, float] = {}
+    return ok, m
+
+
+async def v2_point(name: str, cid: int, sig) -> float | None:
+    """Model 2 estimate for one study company, offline from its social-post fixture."""
     try:
-        for row in json.loads(V2_RESULTS.read_text()):
-            if row.get("domain") and row.get("v2_point_usd"):
-                pts[row["domain"]] = float(row["v2_point_usd"])
-    except (OSError, ValueError, TypeError):
-        pass
-    return ok, pts
+        from proofroom import revenue_model_2 as rm2
+        from proofroom.crustdata import FIXTURE, Crustdata
+        async with Crustdata(FIXTURE, fixture=name) as c:
+            soc = await rm2.social_features_for(c, cid, rm2.AS_OF)
+            rec = economics._enrich_record(c, cid) or {}
+        hc = rec.get("headcount") or {}
+        # same inputs as v1 (largest country, listed size bucket) so the stale-band rule applies
+        return rm2.estimate_revenue_v2(
+            sig, soc["features"], as_of=rm2.AS_OF,
+            largest_country=str(hc.get("largest_headcount_country") or ""),
+            listed_bucket=str((rec.get("basic_info") or {}).get("employee_count_range") or ""))["point_usd"]
+    except Exception as e:  # noqa: BLE001 - a missing fixture just leaves v2 out
+        print(f"  v2 unavailable for {name}: {type(e).__name__}: {e}"[:160])
+        return None
 
 
 async def main() -> int:
@@ -68,7 +81,13 @@ async def main() -> int:
                      "reliability": (((gt.get(domain) or {}).get("reported") or [{}])[0] or {}).get("reliability", "")})
     refs = [cal.RefCompany(r["domain"], r["headcount"], r["truth"], r["flagged"], r["reliability"])
             for r in rows if r["truth"] and r["headcount"]]
-    v2_ok, v2_pts = v2_status()
+    v2_ok, v2_doc = v2_status()
+    v2_pts: dict[str, float] = {}
+    for (name, cid, domain), r in zip(economics.COMPANIES, rows):
+        sig, _ = await economics.replay(name, cid, domain)
+        pt = await v2_point(name, cid, sig)
+        if pt:
+            v2_pts[domain] = pt
     for r in rows:
         c = cal.calibrate(r["domain"], r["headcount"], r["primary"], r["v1"], refs,
                           v2_usd=v2_pts.get(r["domain"]), band=r["band"], v2_ok=v2_ok)
@@ -91,7 +110,7 @@ async def main() -> int:
          "that estimates it. Offline replay of recorded Crustdata data.", "",
          f"Ensemble weights: benchmark {cal.WEIGHTS['benchmark']:.0%}, v1 {cal.WEIGHTS['v1']:.0%}, "
          f"v2 (social posts) {cal.WEIGHTS['v2']:.0%} — v2 used: **{'yes' if v2_ok else 'no'}** "
-         f"({'it beat v1 in cross-validation' if v2_ok else 'not available or did not beat v1 in cross-validation'}).",
+         f"({'it beat v1 in cross-validation on the same 80 companies (median |log10 err| ' + str((v2_doc.get('cv') or {}).get('model', {}).get('median_abs_log10_error')) + ' vs ' + str((v2_doc.get('cv') or {}).get('v1_same_subset', {}).get('median_abs_log10_error')) + '); the paired test is not significant, so its weight stays low' if v2_ok else 'not available or did not beat v1 in cross-validation'}).",
          "", "## Accuracy against reported revenue", "",
          "| Estimator | n | Median error | Within 30% | Within 2x | Median estimate/reported |",
          "|---|---|---|---|---|---|"]
@@ -110,8 +129,8 @@ async def main() -> int:
             L.append(f"| {label[k]} | {s['n']} | {s['median_abs_pct_error']:.0%} | {s['within_30pct']:.0%} | "
                      f"{s['within_2x']:.0%} | {s['median_ratio']:.2f} |")
     L += ["", "## Per company", "",
-          "| Company | Staff | Crustdata band | v1 | Benchmark (LOO) | Ensemble (range) | Reported | Ensemble error | v1 error |",
-          "|---|---|---|---|---|---|---|---|---|"]
+          "| Company | Staff | Crustdata band | v1 | v2 (social) | Benchmark (LOO) | Ensemble (range) | Reported | Ensemble error | v1 error |",
+          "|---|---|---|---|---|---|---|---|---|---|"]
     for r in rows:
         c = r["cal"]
         band = f"{_usd(r['band'][0])}–{_usd(r['band'][1])}" if r["band"] else "–"
@@ -119,7 +138,7 @@ async def main() -> int:
         e_ens = c.point_usd / r["truth"] - 1 if r["truth"] and c.point_usd else None
         e_v1 = r["v1"] / r["truth"] - 1 if r["truth"] and r["v1"] else None
         staff = f"{r['headcount']:,.0f}" + (" ⚠️" if r["flagged"] else "")
-        L.append(f"| {r['name']} | {staff} | {band} | {_usd(r['v1'])} | {_usd(r['benchmark'])} | "
+        L.append(f"| {r['name']} | {staff} | {band} | {_usd(r['v1'])} | {_usd(v2_pts.get(r['domain']))} | {_usd(r['benchmark'])} | "
                  f"{_usd(c.point_usd)}{rng} | {_usd(r['truth'])} | {_pct(e_ens)} | {_pct(e_v1)} |")
     L += ["", "⚠️ headcount flagged as inflated by namesake profiles (excluded from the benchmark's "
           "reference set; their estimates are less reliable).", "",
