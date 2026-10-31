@@ -377,6 +377,9 @@ def _generated_question(case: CaseRecord, f: Finding) -> str:
     if f.disposition == "not_established":
         return (f'We could not establish this from public sources or Crustdata\'s graph: "{said}" '
                 "Could you point us to a source that documents it?")
+    if f.limitation.strip():
+        return (f"{f.limitation.strip().rstrip('.')}. Could you confirm this, and share a "
+                "document that shows it?")
     return (f'This holds only with a qualification: "{said}" Could you walk us through the '
             "details behind it?")
 

@@ -1,0 +1,358 @@
+{
+ "endpoint": "/company/identify",
+ "request": {
+  "names": [
+   "Forerunner"
+  ]
+ },
+ "status": 200,
+ "credits_used": "0",
+ "body": [
+  {
+   "matched_on": "Forerunner",
+   "match_type": "name",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 700458,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 700458,
+       "primary_domain": "withforerunner.com",
+       "all_domains": [
+        "withforerunner.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 992787,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 992787,
+       "primary_domain": "forerunnerventures.com",
+       "all_domains": [
+        "forerunnerventures.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 2483268,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 2483268,
+       "primary_domain": "tryforerunner.com",
+       "all_domains": [
+        "tryforerunner.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 14787168,
+      "basic_info": {
+       "name": "ForeRunner",
+       "crustdata_company_id": 14787168,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 16976707,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 16976707,
+       "primary_domain": "forerunner.tv",
+       "all_domains": [
+        "forerunner.tv"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 2575104,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 2575104,
+       "primary_domain": "forerunnerltd.com",
+       "all_domains": [
+        "forerunnerltd.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 14875944,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 14875944,
+       "primary_domain": "forerunner-design.com",
+       "all_domains": [
+        "forerunner-design.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 25816365,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 25816365,
+       "primary_domain": "selfovercoming.app",
+       "all_domains": [
+        "selfovercoming.app"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 63360007,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 63360007,
+       "primary_domain": "forerunner.pt",
+       "all_domains": [
+        "forerunner.pt"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 24606596,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 24606596,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.95,
+     "company_data": {
+      "crustdata_company_id": 8283737,
+      "basic_info": {
+       "name": "Forerunners",
+       "crustdata_company_id": 8283737,
+       "primary_domain": "forerunners.org",
+       "all_domains": [
+        "forerunners.org"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.95,
+     "company_data": {
+      "crustdata_company_id": 3660113,
+      "basic_info": {
+       "name": "Forerunners",
+       "crustdata_company_id": 3660113,
+       "primary_domain": "forerunners.nl",
+       "all_domains": [
+        "forerunners.nl"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 5234620,
+      "basic_info": {
+       "name": "Forerunner Technology",
+       "crustdata_company_id": 5234620,
+       "primary_domain": "globalconnectapp.com",
+       "all_domains": [
+        "globalconnectapp.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 11369514,
+      "basic_info": {
+       "name": "Forerunner Studios",
+       "crustdata_company_id": 11369514,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 14294516,
+      "basic_info": {
+       "name": "Forerunner Consulting",
+       "crustdata_company_id": 14294516,
+       "primary_domain": "forerunnerconsulting.org",
+       "all_domains": [
+        "forerunnerconsulting.org"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 26203957,
+      "basic_info": {
+       "name": "Forerunner Systems",
+       "crustdata_company_id": 26203957,
+       "primary_domain": "forerunner-systems.com",
+       "all_domains": [
+        "forerunner-systems.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 11638281,
+      "basic_info": {
+       "name": "Forerunner Church",
+       "crustdata_company_id": 11638281,
+       "primary_domain": "forerunnerchurch.com",
+       "all_domains": [
+        "forerunnerchurch.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 14386976,
+      "basic_info": {
+       "name": "Forerunner College",
+       "crustdata_company_id": 14386976,
+       "primary_domain": "hughesbay.com",
+       "all_domains": [
+        "hughesbay.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 16951735,
+      "basic_info": {
+       "name": "Forerunner tyres",
+       "crustdata_company_id": 16951735,
+       "primary_domain": "qihangtyre.com.cn",
+       "all_domains": [
+        "qihangtyre.com.cn"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 29592719,
+      "basic_info": {
+       "name": "Forerunner Digital",
+       "crustdata_company_id": 29592719,
+       "primary_domain": "forerunnerdigital.co.uk",
+       "all_domains": [
+        "forerunnerdigital.co.uk"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 32475811,
+      "basic_info": {
+       "name": "Forerunner Solutions",
+       "crustdata_company_id": 32475811,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 2181686,
+      "basic_info": {
+       "name": "Forerunner Technologies, Inc.",
+       "crustdata_company_id": 2181686,
+       "primary_domain": "frtinc.com",
+       "all_domains": [
+        "frtinc.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 61353571,
+      "basic_info": {
+       "name": "Forerunner Energy",
+       "crustdata_company_id": 61353571,
+       "primary_domain": "forerunnerenergy.net",
+       "all_domains": [
+        "forerunnerenergy.net"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 28900822,
+      "basic_info": {
+       "name": "Forerunner Transportation",
+       "crustdata_company_id": 28900822,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 8195800,
+      "basic_info": {
+       "name": "Forerunner Music",
+       "crustdata_company_id": 8195800,
+       "primary_domain": "ihopkc.org",
+       "all_domains": [
+        "ihopkc.org"
+       ]
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

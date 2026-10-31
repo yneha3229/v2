@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}Proofroom{% endblock %}</title>
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/">Proofroom</a>
+  <span class="tag">Team &amp; Financing claims, checked against Crustdata's identity graph and the original sources</span>
+</header>
+<main>
+{% block main %}{% endblock %}
+</main>
+<aside id="drawer" class="drawer" hidden aria-live="polite">
+  <div class="drawer-head">
+    <strong id="drawer-title">Evidence</strong>
+    <button type="button" id="drawer-close" class="btn small" aria-label="Close evidence drawer">Close</button>
+  </div>
+  <div id="drawer-body"></div>
+</aside>
+<script src="/static/app.js"></script>
+</body>
+</html>

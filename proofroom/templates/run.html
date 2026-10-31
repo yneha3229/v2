@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+{% block title %}Proofroom · {{ case_id }} #{{ n }}{% endblock %}
+{% block main %}
+{% if case %}
+{% set g1 = case.g1 %}
+<section class="panel">
+  <div class="chips">
+    <span class="chip mode-{{ case.run_mode|lower }}" title="Run mode">{{ case.run_mode }}</span>
+    <span class="chip" title="Model source">model: {{ model_source }}</span>
+    <span class="chip {{ 'warn' if profile == 'FAST' else '' }}" title="Profile">{{ profile }}{% if profile == 'FAST' %} · reduced checking{% endif %}</span>
+    <span class="chip" title="Input mode">Mode {{ case.input.input_mode }}</span>
+    <span class="chip {{ 'ok' if case.status == 'DELIVERED' else 'warn' }}" title="Brief status">{{ case.status }}</span>
+    {% if verified %}<span class="chip ok" title="Manifest DELIVERED and every file matches its SHA-256">Verified ✔</span>
+    {% else %}<span class="chip bad">Not delivered</span>{% endif %}
+  </div>
+  <h1>{{ g1.get('name') or case.input.domain }} <small class="muted">({{ case.input.domain }}) · run {{ case.run }} · reviewed {{ case.reviewed }}</small></h1>
+  {% if case.run_mode != 'LIVE' %}<p class="muted">This run is {{ case.run_mode }}: {% if case.run_mode == 'FIXTURE' %}recorded responses replayed with no keys{% else %}development-cache hits, labelled on each attempt{% endif %}. It is not a live run.</p>{% endif %}
+  <div class="actions">
+    <button type="button" class="btn" id="receipt-btn" data-case="{{ case_id }}" data-run="{{ n }}">Proof receipt</button>
+    <a class="btn" href="/">New run</a>
+  </div>
+  <pre id="receipt" class="receipt" hidden></pre>
+</section>
+
+<section class="panel" id="identity">
+  <h2>Identity</h2>
+  <dl class="kv">
+    <dt>Company</dt><dd>{{ g1.get('name') or '—' }}</dd>
+    <dt>Crustdata company ID</dt><dd>{{ g1.get('company_id') or 'not resolved' }}</dd>
+    <dt>Match</dt><dd><span class="chip {{ 'ok' if g1.get('status') == 'MATCHED' else 'bad' }}">{{ g1.get('status') or 'unknown' }}</span></dd>
+    <dt>Basis</dt><dd>{{ g1.get('basis') or '—' }}</dd>
+  </dl>
+  {% if g1.get('candidates') and g1.get('status') == 'TIE' %}
+  <p><strong>Candidates:</strong></p>
+  <ul>{% for c in g1.get('candidates') %}<li>{{ c.get('name') }} ({{ c.get('id') }}) {{ c.get('primary_domain') }}</li>{% endfor %}</ul>
+  {% endif %}
+  {% if g1.get('excluded') %}
+  <p><strong>Excluded namesakes:</strong></p>
+  <ul>{% for x in g1.get('excluded') %}<li>{% if x is mapping %}{{ x.get('name') or '?' }}{% if x.get('id') %} ({{ x.get('id') }}){% endif %}{% if x.get('primary_domain') %} · {{ x.get('primary_domain') }}{% endif %}{% if x.get('reason') %} · {{ x.get('reason') }}{% endif %}{% else %}{{ x }}{% endif %}</li>{% endfor %}</ul>
+  {% else %}<p class="muted">No namesakes excluded.</p>{% endif %}
+</section>
+
+<section class="panel" id="desk">
+  <h2>Needs a person: <span class="chip {{ 'ok' if not desk else 'warn' }}">{{ desk|length }}</span></h2>
+  {% if desk %}
+  <ul class="desk">{% for d in desk %}<li><strong>{{ d.get('title') }}</strong> <span class="muted">({{ d.get('kind') }})</span>: {{ d.get('detail')|cite }} {% for e in d.get('evidence_ids') or [] %}{{ ('[' ~ e ~ ']')|cite }}{% endfor %}</li>{% endfor %}</ul>
+  {% else %}<p class="muted">Every selected claim finished its checks.</p>{% endif %}
+</section>
+
+<section class="panel" id="claims">
+  <h2>Claims</h2>
+  {% if case.claims %}
+  <div class="claims">
+  {% for c in case.claims %}
+    {% set f = findings.get(c.id) %}
+    <article class="claim {{ 'excluded' if not c.selected }}">
+      <header><strong>{{ c.id }}</strong> <span class="chip">{{ c.family }}</span> <span class="muted">{{ c.predicate|replace('_', ' ') }} · {{ c.doc_id }} · {{ c.materiality }}</span>
+        {% if f %}<span class="chip disp-{{ f.disposition }}">{{ f.disposition|replace('_', ' ') }}{% if f.qualified %}, qualified{% endif %}</span>
+        {% elif not c.selected %}<span class="chip">not selected</span>
+        {% else %}<span class="chip warn">no sentence emitted</span>{% endif %}
+      </header>
+      <blockquote>“{{ c.quote }}”</blockquote>
+      {% if f %}
+      <p>{{ f.sentence|cite }} {% for e in f.evidence_ids %}{% if ('[' ~ e ~ ']') not in f.sentence %}{{ ('[' ~ e ~ ']')|cite }}{% endif %}{% endfor %}</p>
+      <p class="muted small">Basis: {{ f.basis|join(', ')|replace('_', ' ') }}{% if f.as_of %} · as of {{ f.as_of }}{% endif %}{% if f.correction_reason %} · corrected: {{ f.correction_reason }}{% endif %}{% if f.limitation %} · limitation: {{ f.limitation }}{% endif %}</p>
+      {% elif not c.selected %}<p class="muted small">{{ c.exclusion_reason or 'not selected' }}</p>{% endif %}
+    </article>
+  {% endfor %}
+  </div>
+  {% else %}<p class="muted">No claims extracted in this run.</p>{% endif %}
+  {% if case.financing %}
+  <h3>Financing (Crustdata indexed record, Crunchbase-derived)</h3>
+  <ul>{% for d in case.financing if d.get('kind') != 'meta' and d.get('line') %}<li>{{ d.get('line')|cite }}</li>{% endfor %}</ul>
+  {% endif %}
+</section>
+
+<section class="panel md" id="brief">
+  <h2>Brief <small class="muted">brief.md</small></h2>
+  {{ brief_html }}
+</section>
+
+<section class="panel" id="team">
+  <h2>Team (Crustdata identity graph)</h2>
+  {% if case.team %}
+  <div class="table-wrap"><table>
+    <thead><tr><th>Person</th><th>Person ID</th><th>Current role at {{ g1.get('name') or 'subject' }}</th><th>Employer-ID join</th><th>Prior employers</th><th>Profile updated</th></tr></thead>
+    <tbody>
+    {% for t in case.team %}
+    <tr>
+      <td>{% if t.profile_url|safe_url %}<a href="{{ t.profile_url|safe_url }}" rel="noopener noreferrer nofollow" target="_blank">{{ t.name }}</a>{% else %}{{ t.name }}{% endif %}</td>
+      <td>{{ t.person_id if t.person_id is not none else '?' }}</td>
+      <td>{% for e in t.current_at_subject %}{{ e.title or 'role not stated' }}{% if e.start %}, since {{ e.start }}{% endif %}{% if not loop.last %}; {% endif %}{% else %}<span class="muted">no current entry</span>{% endfor %}</td>
+      <td>{% if t.role_join %}<span class="mark ok">✔</span> {{ g1.get('company_id') }}{% else %}<span class="mark">?</span>{% endif %}</td>
+      <td>{% for j in t.prior_joins %}{{ j.employer_name }} {% if j.basis == 'name_match' or (j.note or '').lower().startswith('name match') %}<span class="mark warn" title="name match only">≈</span>{% elif j.joined %}<span class="mark ok" title="employer-ID join">✔</span>{% if j.employer_id %} {{ j.employer_id }}{% endif %}{% else %}<span class="mark" title="no join found">?</span>{% endif %}{% if not loop.last %} · {% endif %}{% else %}<span class="muted">none named by the sources</span>{% endfor %}</td>
+      <td>{{ t.updated_at or 'unknown' }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table></div>
+  <p class="muted small">✔ employer-ID join · ≈ name match only · ? no join found (absence is not a refutation). Profiles are self-maintained.</p>
+  {% else %}<p class="muted">No people found in Crustdata's graph for this company.</p>{% endif %}
+</section>
+
+<section class="panel" id="evidence">
+  <h2>Evidence <small class="muted">click any [E#]/[G#] citation</small></h2>
+  <details>
+    <summary>All {{ evidence|length }} evidence rows</summary>
+    {% for e in evidence %}
+    <div class="ev" id="ev-{{ e.id }}">
+      <strong>{{ e.id }}</strong> <span class="chip">{{ e.kind|replace('_', ' ') }}</span>
+      {% if e.url %}<a href="{{ e.url }}" rel="noopener noreferrer nofollow" target="_blank">{{ e.source }}</a>{% else %}<code>{{ e.source }}</code>{% endif %}
+      {% if e.locator %}<span class="muted"> · {{ e.locator }}</span>{% endif %}
+      <div class="val">{{ e.value }}</div>
+      <div class="muted small">{% if e.origin %}origin: {{ e.origin }} · {% endif %}{% for c in e.clocks %}{{ c.clock }}: {{ c.value or '—' }}{% if c.precision and c.value %} ({{ c.precision }}){% endif %}{% if not loop.last %} · {% endif %}{% endfor %}</div>
+    </div>
+    {% endfor %}
+  </details>
+  <script type="application/json" id="evidence-data">{{ evidence|tojson }}</script>
+</section>
+
+{% if origin_svg %}
+<section class="panel" id="origins">
+  <h2>Origin map{% if origin_count is not none %} <small class="muted">{{ origin_count }} distinct source origin{{ '' if origin_count == 1 else 's' }}; Crustdata rows never count as independent</small>{% endif %}</h2>
+  <div class="svg-wrap">{{ origin_svg }}</div>
+</section>
+{% endif %}
+
+{% if timeline %}
+<section class="panel" id="clocks">
+  <h2>Four clocks <small class="muted">event · published · updated · provider refresh · retrieved</small></h2>
+  {% set tl = timeline[0] %}
+  <p class="muted small">Span {{ tl.span[0] }} to {{ tl.span[1] }}. Year-level dates (YYYY-01-01) are placed at the start of the year and labelled “year”.</p>
+  <div class="legend">{% for c in ['event','published','updated','refreshed','retrieved'] %}<span class="dot c-{{ c }}"></span>{{ c }} {% endfor %}</div>
+  {% for row in tl.rows %}
+  <div class="tl-row">
+    <div class="tl-label">{{ row.claim_id }}</div>
+    <div class="tl-track">{% for p in row.points %}<span class="dot c-{{ p.clock }}" style="left: {{ p.left }}%" title="{{ p.clock }}: {{ p.value }} ({{ p.precision }}){% if p.evidence_id %} [{{ p.evidence_id }}]{% endif %}"></span>{% endfor %}</div>
+    <div class="tl-text small">{% for p in row.points %}{{ p.clock }}{% if p.evidence_id %} [{{ p.evidence_id }}]{% endif %}: {{ p.value }} ({{ p.precision }}){% if not loop.last %} · {% endif %}{% else %}<span class="muted">no dated clocks</span>{% endfor %}</div>
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
+
+{% if questions_html %}
+<section class="panel md" id="questions">
+  <h2>Questions <small class="muted">questions.md</small></h2>
+  {{ questions_html }}
+</section>
+{% endif %}
+
+{% if email_html %}
+<section class="panel md draft" id="email">
+  <h2>Founder email <span class="chip warn">DRAFT — not sent</span></h2>
+  <p class="muted small">Proofroom never sends anything. Review before use.</p>
+  {{ email_html }}
+</section>
+{% endif %}
+
+<section class="panel" id="runlog">
+  <h2>Run log</h2>
+  <dl class="kv">
+    <dt>Seconds</dt><dd>{{ case.stats.get('seconds', '—') }}</dd>
+    <dt>Crustdata credits</dt><dd>{{ case.stats.get('crustdata_credits', '—') }}{% if case.stats.get('credits_unknown_attempts') %} (+{{ case.stats.get('credits_unknown_attempts') }} attempts unknown){% endif %}</dd>
+    <dt>Model tokens</dt><dd>{{ case.stats.get('input_tokens', 0) }} in / {{ case.stats.get('output_tokens', 0) }} out</dd>
+    <dt>Sentences</dt><dd>{{ case.stats.get('sentences_emitted', 0) }} emitted, {{ case.stats.get('sentences_suppressed', 0) }} suppressed</dd>
+    <dt>Agent instructions ignored</dt><dd>{{ case.stats.get('agent_instructions_ignored', 0) }}</dd>
+  </dl>
+  {% if case.stats.get('stage_log') %}
+  <h3>Stages</h3>
+  <ol class="log">{% for l in case.stats.get('stage_log') %}<li><code>{{ l }}</code></li>{% endfor %}</ol>
+  {% endif %}
+  <h3>Attempts <small class="muted">{{ case.attempts|length }} total, {{ failed_attempts }} failed (kept)</small></h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Stage</th><th>Endpoint</th><th>Mode</th><th>Status</th><th>Seconds</th><th>Credits</th><th>Error</th></tr></thead>
+    <tbody>
+    {% for a in case.attempts %}
+    <tr class="{{ 'failed' if a is failed_attempt }}">
+      <td>{{ a.stage }}</td><td>{{ a.endpoint }}</td><td><span class="chip mode-{{ a.mode|lower }}">{{ a.mode }}</span></td>
+      <td>{{ a.status }}</td><td>{{ a.seconds }}</td><td>{{ a.credits_used or '—' }}</td>
+      <td>{% if a.error %}{{ a.error.get('type') or a.error.get('message') or a.error }}{% endif %}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table></div>
+  {% if case.limitations %}
+  <details><summary>Limitations ({{ case.limitations|length }})</summary><ul>{% for l in case.limitations %}<li>{{ l|cite }}</li>{% endfor %}</ul></details>
+  {% endif %}
+  {% if case.not_checked %}
+  <details><summary>Not checked ({{ case.not_checked|length }})</summary><ul>{% for l in case.not_checked %}<li>{{ l }}</li>{% endfor %}</ul></details>
+  {% endif %}
+</section>
+
+{% else %}
+<section class="panel">
+  <div class="chips"><span class="chip bad">Not delivered</span>{% if failed %}<span class="chip bad">FAILED</span>{% endif %}</div>
+  <h1>{{ case_id }} · run {{ n }}</h1>
+  {% if waiting %}<p class="wait">Waiting for the model (agent session) — call {{ waiting }}</p>{% endif %}
+  {% if failed %}
+  <p class="error">{{ failed.get('error') }}{% if failed.get('type') %} ({{ failed.get('type') }}){% endif %}</p>
+  <p class="muted">Failed after {{ failed.get('seconds', '?') }} s. Failed attempts are kept.</p>
+  {% if failed.get('stage_log') %}<h3>Stages</h3><ol class="log">{% for l in failed.get('stage_log') %}<li><code>{{ l }}</code></li>{% endfor %}</ol>{% endif %}
+  {% if failed.get('limitations') %}<h3>Limitations</h3><ul>{% for l in failed.get('limitations') %}<li>{{ l }}</li>{% endfor %}</ul>{% endif %}
+  {% if failed.get('model_attempts') %}
+  <h3>Model attempts</h3>
+  <div class="table-wrap"><table><thead><tr><th>Stage</th><th>Mode</th><th>Status</th><th>Seconds</th><th>Error</th></tr></thead><tbody>
+  {% for a in failed.get('model_attempts') %}<tr class="failed"><td>{{ a.get('stage') }}</td><td>{{ a.get('mode') }}</td><td>{{ a.get('status') }}</td><td>{{ a.get('seconds') }}</td><td>{{ (a.get('error') or {}).get('type', '') if a.get('error') is mapping else a.get('error') }}</td></tr>{% endfor %}
+  </tbody></table></div>
+  {% endif %}
+  {% elif manifest %}
+  <p class="error">case.json in this run folder does not load; nothing is presented as delivered.</p>
+  {% else %}
+  <p class="muted">This run has no manifest: it is still running or did not finish. A partial run is never presented as delivered.</p>
+  {% endif %}
+  <div class="actions"><a class="btn" href="/">New run</a></div>
+</section>
+{% endif %}
+{% endblock %}

@@ -174,7 +174,7 @@ async def run(req: RunRequest, *, st: store.Store | None = None,
         return RunOutcome("FAILED", None, None, error=f"a run for {case_id} is already active")
     with lock:
         existing = st.recent_identical(case_id, req.as_input().model_dump())
-        if existing and req.run_mode != cd.LIVE:
+        if existing and req.run_mode != cd.FIXTURE:  # FIXTURE replays are free; always rerun
             case = CaseRecord.model_validate_json((existing.path / "case.json").read_text())
             return RunOutcome(case.status, existing.path, case,
                               (existing.path / "brief.md").read_text(encoding="utf-8"))
@@ -279,10 +279,12 @@ async def _execute(r: _Run, rd: store.RunDir) -> RunOutcome:
         chk = await r.call_model(provider, "check", prompts.SYSTEM_CHECK,
                                  prompts.check_message(items), CheckResult, prof.effort_check)
         checks = chk.checks
-        kept = _apply_checks(kept, checks, r.limitations)
-    for f in kept:
-        if f.question:
-            r.questions.append(f.question)
+        kept, withheld = _apply_checks(kept, checks, r.limitations)
+        # A withheld sentence's question survives only if its own numbers pass the gate.
+        by_id = {e.id: e for e in evidence}
+        for f in withheld:
+            if f.question and gate.gate_sentence(f.question, f.evidence_ids, by_id).passed:
+                r.questions.append(f.question)
     await r.progress("checked", kept=len(kept), suppressed=len(suppressed))
 
     # Stage 7 render and publish.
@@ -381,11 +383,25 @@ def _passage_evidence(docs: list[Document], claims: list[Claim], domain: str) ->
     return rows
 
 
+_SENTENCE_END = re.compile(r"[.!?][\"”’)]?\s+(?=[A-Z\"“])|\n")
+
+
 def _context(text: str, span: tuple[int, int], width: int = 220) -> str:
+    """The quoted span with its sentence: start after the previous sentence end (or a
+    word boundary within `width`), end at the next full stop (or `width` past the span)."""
     a, b = span
-    start = max(0, text.rfind(".", 0, max(0, a - width)) + 1) if a > width else 0
-    end_dot = text.find(".", b)
-    end = min(len(text), end_dot + 1 if 0 <= end_dot < b + width else b + width)
+    lo = max(0, a - width)
+    window = text[lo:a]
+    ends = list(_SENTENCE_END.finditer(window))  # "Feb. 24" is not a sentence end
+    if ends:
+        start = lo + ends[-1].end()
+    elif lo == 0:
+        start = 0
+    else:
+        sp = window.find(" ")
+        start = lo + sp + 1 if sp >= 0 else a
+    m = _SENTENCE_END.search(text, b, min(len(text), b + width))
+    end = m.start() + 1 if m else min(len(text), b + width)
     return " ".join(text[start:end].split())
 
 
@@ -523,10 +539,10 @@ def _validate_assess(ass: AssessResult, claims: list[Claim],
 
 
 def _apply_checks(findings: list, checks: list, limitations: list[str]) -> list:
-    """Call 3: a sentence that is not entailed is suppressed; a missing qualifier is
-    recorded. There is no repair call (§5.4)."""
+    """Call 3: a sentence that is not entailed is withheld; a missing qualifier is
+    recorded. There is no repair call (§5.4). Returns (kept, withheld)."""
     by = {c.claim_id: c for c in checks}
-    kept = []
+    kept, withheld = [], []
     for f in findings:
         c = by.get(f.claim_id)
         if c is None:
@@ -537,12 +553,13 @@ def _apply_checks(findings: list, checks: list, limitations: list[str]) -> list:
             limitations.append(f"{f.claim_id}: suppressed by the sentence check"
                                + (f" (unsupported: \"{c.unsupported_fragment}\")"
                                   if c.unsupported_fragment else ""))
+            withheld.append(f)
             continue
         if c.missing_qualifier:
             limitations.append(f"{f.claim_id}: the evidence carries a qualifier the sentence "
                                f"omits: \"{c.missing_qualifier}\"")
         kept.append(f)
-    return kept
+    return kept, withheld
 
 
 def _crust_attempt(a: cd.Attempt) -> AttemptRecord:
@@ -563,9 +580,12 @@ def _write_failed(rd: store.RunDir, r: _Run, err: Exception) -> None:
 
 
 def _with_desk(brief: str, desk_md: str) -> str:
-    """U7: the exception desk goes right after the header block (first blank line)."""
-    head, sep, rest = brief.partition("\n\n")
-    return f"{head}\n\n## Needs a person\n\n{desk_md}\n{rest}" if sep else brief + "\n" + desk_md
+    """U7: the exception desk goes after the header, before the first section."""
+    section = "\n## "
+    i = brief.find(section)
+    if i < 0:
+        return brief.rstrip() + "\n\n## Needs a person\n\n" + desk_md
+    return brief[:i] + "\n## Needs a person\n\n" + desk_md + brief[i:]
 
 
 def _provider_label(provider: Any) -> str:

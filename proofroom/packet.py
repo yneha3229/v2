@@ -912,10 +912,32 @@ def _g1_fields(g1: Any) -> tuple[str, str]:
     return name, domain
 
 
+_WIRES = ("prnewswire.com", "businesswire.com", "globenewswire.com", "accesswire.com",
+          "einpresswire.com", "newswire.com")
+
+
+def press_release_by(text: str, source: str, subject_name: str, subject_domain: str) -> bool:
+    """A newswire page whose provider line names the subject ("News provided by Koah",
+    "SOURCE Koah") is the company's own statement, not an independent report."""
+    host = host_of(source)
+    if not any(host == w or host.endswith("." + w) for w in _WIRES):
+        return False
+    stem = subject_domain.split(".")[0] if subject_domain else ""
+    names = {n for n in (subject_name.strip(), stem) if len(n) >= 3}
+    for n in names:
+        pat = rf"(?:news\s+provided\s+by|^source)\s*:?\s*{re.escape(n)}\b"
+        if re.search(pat, text, re.I | re.M):
+            return True
+    return False
+
+
 def _make_doc(doc_id: str, source: str, content: str, *, title_hint: str, subject_domain: str,
+              subject_name: str = "",
               picked_because: str, retrieved: str, res: PacketResult) -> Document:
     page = extract_text(content)
     origin = "company" if source != "pasted" and _on_domain(source, subject_domain) else "unknown"
+    if origin == "unknown" and press_release_by(page.text, source, subject_name, subject_domain):
+        origin = "company (press release)"
     doc = Document(id=doc_id, source=source, title=page.title or title_hint, text=page.text,
                    published=page.published, updated=page.updated, retrieved=retrieved,
                    sha256=_sha(content), origin=origin, picked_because=picked_because)
@@ -957,7 +979,7 @@ def _cap_words(docs: list[Document], res: PacketResult, limit: int = MAX_WORDS) 
 
 
 async def _fetch_into(client: Any, targets: list[dict], subject_domain: str, res: PacketResult,
-                      start_index: int) -> int:
+                      start_index: int, subject_name: str = "") -> int:
     """ONE Web Fetch request for <=3 targets ({url, title, reason}). Returns docs added."""
     targets = targets[:3]
     urls = [t["url"] for t in targets]
@@ -1000,7 +1022,7 @@ async def _fetch_into(client: Any, targets: list[dict], subject_domain: str, res
             stamp = ts.strip()
         res.documents.append(_make_doc(doc_id, t["url"], content,
                                        title_hint=str(item.get("title") or t.get("title") or ""),
-                                       subject_domain=subject_domain,
+                                       subject_domain=subject_domain, subject_name=subject_name,
                                        picked_because=str(t.get("reason") or ""),
                                        retrieved=stamp, res=res))
     return added
@@ -1043,7 +1065,7 @@ async def assemble_mode_a(client: Any, g1: Any, news: list[dict], financing: dic
         res.limitations.append("No funding source found to fetch; the brief relies on the "
                                "indexed record only")
         return _finish(res)
-    await _fetch_into(client, picks, domain, res, 0)
+    await _fetch_into(client, picks, domain, res, 0, subject_name=name)
     return _finish(res)
 
 

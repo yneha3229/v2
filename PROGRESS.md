@@ -99,8 +99,8 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 | S4 Graph resolve | DONE | Claude | 10:51 | 10:54 | S4 | `28 passed` on recorded fixture `fixtures/koah`. 3 founders ✔ at 3718859; Herrick→Affirm 632082 ✔, Supermove 780882 ✔, **Qualified ? (see D14)**; seed $5M 2025-09-07. PC-2/3/6 applied |
 | S5 Packet intake | DONE | agent (verified by Claude) | 11:15 | 11:22 | S5 | `22 passed`. Koah picks: PR Newswire Series A 2026-02-24, TechCrunch $5M seed 2025-09-07, FinSMEs; 17 excluded with reasons. Attio published 2025-08-26 / updated 2026-08-04; "two months ago" → 2025-09. U2 injection meter in. 6 credits |
 | S6 Model calls | DONE | agent (verified by Claude) | 11:15 | 11:32 | S6 | `19 passed`. Session/API/fixture providers; strict local validation. PC-7: refusal = failed attempt (kept). Warmup N/A for session provider |
-| S7 Vertical slice (CLI) | TODO | B + C | | | | Deadline 11:35 |
-| S8 Mode A end to end | TODO | A + B | | | | |
+| S7 Vertical slice (CLI) | DONE | Claude + agents | 11:20 | 11:29 | S7 | Koah Mode A run-1 DELIVERED (99 s incl. agent answering; pipeline ≈1 s on cache). `verify` → RECEIPT OK, 17/17 citations. FIXTURE demo `run --fixture koah` DELIVERED in 0.31 s with no keys |
+| S8 Mode A end to end | IN PROGRESS | Claude | 11:29 | | | Koah domain-only works. K1/K2 ✔; K3/K4 absent (Theory post not in news[], as Prep_02 predicts). Next: Linear + Attio, LIVE timing |
 | S9 T2 usefulness | TODO | B + D | | | | Decision by 12:50; score against Prep_02 keys |
 | S10 Web UI | TODO | D | | | | |
 | S11 T3 tests and fixtures | TODO | C | | | | By 13:20; case tables in Prep_02 |
@@ -168,6 +168,7 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 
 | Run | Mode | Company | LIVE/CACHED/FIXTURE | Seconds | Crustdata credits | Model tokens (in/out) | Sentences emitted/supported/suppressed | Team rows / ID joins | Issues |
 |---|---|---|---|---|---|---|---|---|---|
+| koah run-1 | A FULL | Koah | CACHED, model=session | 99.5 (≈1 s pipeline + agent answering) | 0 (cached) | n/a (session) | 5 / 4 supported / 1 withheld (C4, call 3) | 3 / 3 role joins | Fixed after run: desk placement, excerpt boundary, PR Newswire = company statement, withheld-finding question kept if gated |
 
 **Spend so far:**
 

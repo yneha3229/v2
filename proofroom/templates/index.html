@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="panel">
+  <h1>Check a startup</h1>
+  <form id="run-form" class="form" method="post" action="/api/runs">
+    <label>Company domain
+      <input name="domain" id="domain" type="text" required placeholder="example.com" autocomplete="off" inputmode="url">
+    </label>
+    <p class="hint">Domain only (Mode A): Proofroom finds the funding announcement itself. Add a pasted text or URLs below for Mode B.</p>
+
+    <details class="more">
+      <summary>Mode B: your own sources (optional)</summary>
+      <label>Pasted announcement text
+        <textarea name="pasted" rows="6" placeholder="Paste the announcement or article text"></textarea>
+      </label>
+      <label>URLs (up to 3)
+        <input name="urls" type="url" placeholder="https://…">
+        <input name="urls" type="url" placeholder="https://…">
+        <input name="urls" type="url" placeholder="https://…">
+      </label>
+    </details>
+
+    <label>Check one sentence (U5, optional)
+      <input name="sentence" type="text" placeholder="e.g. The founders previously worked at Affirm.">
+    </label>
+    <label>Focus note (optional)
+      <input name="focus_note" type="text" placeholder="e.g. Is the seed lead right?">
+    </label>
+
+    <fieldset class="row">
+      <legend>Profile</legend>
+      <label class="opt"><input type="radio" name="profile" value="FULL" checked> FULL</label>
+      <label class="opt"><input type="radio" name="profile" value="FAST"> FAST <small>every step, lighter checks</small></label>
+    </fieldset>
+    <fieldset class="row">
+      <legend>Run mode</legend>
+      <label class="opt"><input type="radio" name="run_mode" value="LIVE"> LIVE <small>real API calls</small></label>
+      <label class="opt"><input type="radio" name="run_mode" value="CACHED" checked> CACHED <small>dev cache hits, labelled</small></label>
+    </fieldset>
+    <fieldset class="row">
+      <legend>Model</legend>
+      <label class="opt"><input type="radio" name="provider" value="auto" checked> auto</label>
+      <label class="opt"><input type="radio" name="provider" value="anthropic"> Anthropic API</label>
+      <label class="opt"><input type="radio" name="provider" value="session"> agent session</label>
+    </fieldset>
+    <label class="opt check"><input type="checkbox" name="email" value="1"> Draft founder email <small>(a draft only; never sent)</small></label>
+    <div class="actions"><button class="btn primary" type="submit">Run Proofroom</button></div>
+  </form>
+
+  <form id="demo-form" class="form demo" method="post" action="/api/runs">
+    <label>Load demo case (no keys)
+      <select name="demo" id="demo-select">
+        {% for d in demos %}
+        <option value="{{ d.key }}"{% if not d.available %} disabled{% endif %}>{{ d.label }} ({{ d.domain }}){% if not d.available %} (not recorded){% endif %}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <div class="actions"><button class="btn" type="submit">Load demo case (no keys)</button></div>
+    <p class="hint">Replays recorded Crustdata and model responses. Labelled FIXTURE everywhere; never presented as live.</p>
+  </form>
+  <p id="form-error" class="error" role="alert" hidden></p>
+</section>
+
+<section id="live" class="panel" hidden>
+  <div class="chips" id="live-chips"></div>
+  <h2 id="live-title">Running…</h2>
+  <p id="live-status" class="muted"></p>
+  <p id="live-wait" class="wait" hidden></p>
+  <p id="live-error" class="error" hidden></p>
+  <div id="live-identity" hidden><h3>Identity</h3><div class="body"></div></div>
+  <div id="live-packet" hidden><h3>Sources</h3><div class="body"></div></div>
+  <div id="live-claims" hidden><h3>Claims</h3><div class="body"></div></div>
+  <div id="live-brief" hidden><h3>Brief</h3><p><a class="btn primary" id="live-open" href="#">Open the full run page</a></p><div class="body md"></div></div>
+  <details><summary>Run log</summary><ol id="live-log" class="log"></ol></details>
+</section>
+
+<section class="panel">
+  <h2>Recent runs</h2>
+  {% if runs %}
+  <div class="table-wrap"><table>
+    <thead><tr><th>Run</th><th>Domain</th><th>Delivery</th><th>Status</th><th>Mode</th><th>Profile</th><th>When</th></tr></thead>
+    <tbody>
+    {% for r in runs %}
+    <tr>
+      <td><a href="/runs/{{ r.case_id }}/{{ r.run }}">{{ r.case_id }} #{{ r.run }}</a></td>
+      <td>{{ r.domain }}</td>
+      <td><span class="chip {{ 'ok' if r.delivery == 'DELIVERED' else 'bad' }}">{{ r.delivery }}</span></td>
+      <td>{{ r.status }}</td>
+      <td>{% if r.run_mode %}<span class="chip mode-{{ r.run_mode|lower }}">{{ r.run_mode }}</span>{% endif %}</td>
+      <td>{{ r.profile }}</td>
+      <td>{{ r.when }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table></div>
+  {% else %}
+  <p class="muted">No runs yet.</p>
+  {% endif %}
+</section>
+{% endblock %}
