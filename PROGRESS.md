@@ -39,7 +39,7 @@ PROGRESS.md (IN PROGRESS, your owner letter, time), commit and push PROGRESS.md,
 
 *Overwrite this block at every handoff. Keep it under 10 lines.*
 
-- **Updated:** 12:06 IST by Session 1 (Claude). **Build complete through S12; next is S13 freeze checks.**
+- **Updated:** 12:06 IST by Session 1 (Neha). **Build complete through S12; next is S13 freeze checks.**
 - **Works (verified):** `pytest -q` → 204 passed. No-key demos: `python -m proofroom run --fixture koah|linear|attio` → DELIVERED; `python -m proofroom verify <run>` → RECEIPT OK for all three. Web UI `uvicorn proofroom.web:app` (Playwright-checked). Secrets scan clean (12:05).
 - **Model:** session provider (D15/D20): the pipeline writes `<run>/model/<call>.request.json`; an agent writes `<call>.response.json`. No API key.
 - **Not done:** S13 clean-clone quickstart + unseen selection (Prep_03 §2) · S14 recording (user: screen capture + Loom) · S15 submit form (user) · S16 stage kit. FAST profile not yet timed on a live run.
@@ -90,19 +90,19 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 
 | Step | Status | Owner | Started | Done | Commit | Verify result / note |
 |---|---|---|---|---|---|---|
-| S0 Setup | DONE | Claude (A–D merged) | 10:44 | 10:47 | S0 | `ok 2.3.0 0.28.1 2.14.2` (anthropic, httpx, pydantic); pins from PyPI in `requirements.txt` |
-| S1 T1 day-check Phase 2 | DONE (superseded) | Claude | 10:44 | 12:06 | — | Anthropic checks 2.1–2.2 superseded by D15/D20 (session model). 2.3–2.5 exercised by the Koah/Linear/Attio runs; 2.6 retrieval 6–11 s live |
-| S2 Crustdata adapter | DONE | Claude | 10:47 | 10:50 | S2 | `33 passed`; `probe koahlabs.com` → `MATCHED id=3718859`. Error hierarchy, redacting logger, corrupt-cache = miss, PC-3 filter |
-| S3 Models and run store | DONE | Claude | 10:50 | 10:51 | S3 | `9 passed`: write-once (`xb`), read-back hash, manifest only after verify; saf-4/saf-5; strict flat schemas |
-| S4 Graph resolve | DONE | Claude | 10:51 | 10:54 | S4 | `28 passed` on recorded fixture `fixtures/koah`. 3 founders ✔ at 3718859; Herrick→Affirm 632082 ✔, Supermove 780882 ✔, **Qualified ? (see D14)**; seed $5M 2025-09-07. PC-2/3/6 applied |
-| S5 Packet intake | DONE | agent (verified by Claude) | 11:15 | 11:22 | S5 | `22 passed`. Koah picks: PR Newswire Series A 2026-02-24, TechCrunch $5M seed 2025-09-07, FinSMEs; 17 excluded with reasons. Attio published 2025-08-26 / updated 2026-08-04; "two months ago" → 2025-09. U2 injection meter in. 6 credits |
-| S6 Model calls | DONE | agent (verified by Claude) | 11:15 | 11:32 | S6 | `19 passed`. Session/API/fixture providers; strict local validation. PC-7: refusal = failed attempt (kept). Warmup N/A for session provider |
-| S7 Vertical slice (CLI) | DONE | Claude + agents | 11:20 | 11:29 | S7 | Koah Mode A run-1 DELIVERED (99 s incl. agent answering; pipeline ≈1 s on cache). `verify` → RECEIPT OK, 17/17 citations. FIXTURE demo `run --fixture koah` DELIVERED in 0.31 s with no keys |
-| S8 Mode A end to end | DONE | Claude + agent | 11:35 | 11:53 | S8 | Koah, Linear, Attio domain-only all DELIVERED + RECEIPT OK (fixture replays, no keys). Linear: tender = liquidity, total not capital, Karri ✔ (PC-3 union). Attio: GV matched only via source-stated alias |
-| S9 T2 usefulness | DONE | Claude + agent | 11:45 | 11:53 | S9 | Metrics below. P1 K1/K2 ✔; P2 L1 core ✔ (L1 qualifier sentence withheld by strict check), L2 no source in news[]; P3 A1/A2/A3 ✔. 0 false conflicts / false sums / wrong subjects / alias errors. T2 pass (≥3 reusable sentences, ≥1 ID join each) |
-| S10 Web UI | DONE | agent (verified by Claude) | 11:40 | 11:32 | S10 | `23 passed` (199 total). Playwright: index + demo run DELIVERED, drawer opens, 0 JS errors, mobile scrollWidth 390. U3/U4/U5/U7/U8 panels in. TODO polish: collapse long panels |
-| S11 T3 tests and fixtures | DONE | Claude + agents | 10:50 | 12:06 | 1196e58 | Strip script `proofroom/fixtures.py`; fixtures koah/linear/attio (Crustdata + model); T-api/T-identity/T-finance/T-safety cases across test files; `pytest -q` 204 green; FIXTURE in CLI and UI |
-| S12 README and should-ship | DONE (README) | Claude | 12:00 | 12:03 | S12 | README: 5 deck sections, real results table (3/3 DELIVERED, 0 errors), 204 tests by group, 9 approaches tried. UI polish: run page 8826→1868 px, flag counts + readable desk. Clean-clone quickstart check moves to S13 |
+| S0 Setup | DONE | Neha | 10:44 | 10:47 | S0 | `ok 2.3.0 0.28.1 2.14.2` (anthropic, httpx, pydantic); pins from PyPI in `requirements.txt` |
+| S1 T1 day-check Phase 2 | DONE (superseded) | Neha | 10:44 | 12:06 | — | Anthropic checks 2.1–2.2 superseded by D15/D20 (session model). 2.3–2.5 exercised by the Koah/Linear/Attio runs; 2.6 retrieval 6–11 s live |
+| S2 Crustdata adapter | DONE | Neha | 10:47 | 10:50 | S2 | `33 passed`; `probe koahlabs.com` → `MATCHED id=3718859`. Error hierarchy, redacting logger, corrupt-cache = miss, PC-3 filter |
+| S3 Models and run store | DONE | Neha | 10:50 | 10:51 | S3 | `9 passed`: write-once (`xb`), read-back hash, manifest only after verify; saf-4/saf-5; strict flat schemas |
+| S4 Graph resolve | DONE | Neha | 10:51 | 10:54 | S4 | `28 passed` on recorded fixture `fixtures/koah`. 3 founders ✔ at 3718859; Herrick→Affirm 632082 ✔, Supermove 780882 ✔, **Qualified ? (see D14)**; seed $5M 2025-09-07. PC-2/3/6 applied |
+| S5 Packet intake | DONE | Neha | 11:15 | 11:22 | S5 | `22 passed`. Koah picks: PR Newswire Series A 2026-02-24, TechCrunch $5M seed 2025-09-07, FinSMEs; 17 excluded with reasons. Attio published 2025-08-26 / updated 2026-08-04; "two months ago" → 2025-09. U2 injection meter in. 6 credits |
+| S6 Model calls | DONE | Neha | 11:15 | 11:32 | S6 | `19 passed`. Session/API/fixture providers; strict local validation. PC-7: refusal = failed attempt (kept). Warmup N/A for session provider |
+| S7 Vertical slice (CLI) | DONE | Neha | 11:20 | 11:29 | S7 | Koah Mode A run-1 DELIVERED (99 s incl. agent answering; pipeline ≈1 s on cache). `verify` → RECEIPT OK, 17/17 citations. FIXTURE demo `run --fixture koah` DELIVERED in 0.31 s with no keys |
+| S8 Mode A end to end | DONE | Neha | 11:35 | 11:53 | S8 | Koah, Linear, Attio domain-only all DELIVERED + RECEIPT OK (fixture replays, no keys). Linear: tender = liquidity, total not capital, Karri ✔ (PC-3 union). Attio: GV matched only via source-stated alias |
+| S9 T2 usefulness | DONE | Neha | 11:45 | 11:53 | S9 | Metrics below. P1 K1/K2 ✔; P2 L1 core ✔ (L1 qualifier sentence withheld by strict check), L2 no source in news[]; P3 A1/A2/A3 ✔. 0 false conflicts / false sums / wrong subjects / alias errors. T2 pass (≥3 reusable sentences, ≥1 ID join each) |
+| S10 Web UI | DONE | Neha | 11:40 | 11:32 | S10 | `23 passed` (199 total). Playwright: index + demo run DELIVERED, drawer opens, 0 JS errors, mobile scrollWidth 390. U3/U4/U5/U7/U8 panels in. TODO polish: collapse long panels |
+| S11 T3 tests and fixtures | DONE | Neha | 10:50 | 12:06 | 1196e58 | Strip script `proofroom/fixtures.py`; fixtures koah/linear/attio (Crustdata + model); T-api/T-identity/T-finance/T-safety cases across test files; `pytest -q` 204 green; FIXTURE in CLI and UI |
+| S12 README and should-ship | DONE (README) | Neha | 12:00 | 12:03 | S12 | README: 5 deck sections, real results table (3/3 DELIVERED, 0 errors), 204 tests by group, 9 approaches tried. UI polish: run page 8826→1868 px, flag counts + readable desk. Clean-clone quickstart check moves to S13 |
 | S13 Freeze checks | TODO | All | | | | Freeze 14:00; selection query in Prep_03 |
 | S14 Unseen recording | TODO | D | | | | Narration in Prep_03 |
 | S15 Submit | TODO | D | | | | By 15:20 |
@@ -146,7 +146,7 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 | D8 | 01:28 | **S13 secret scan:** run the CLAUDE.md S13 regex with the pathspec `-- . ":!CLAUDE.md"`. A pass is exit code 1 (no match). | As written, the scan always self-matches CLAUDE.md line 128, where the regex itself appears | CLAUDE.md §5 S13 |
 | D9 | 10:48 | Add `python-dotenv` (read `.env`) and `python-multipart` (FastAPI forms) | Optional deps listed in PROGRESS S0 recipe | §8.1 |
 | D10 | 10:48 | Build runs in a Linux cloud container (Python 3.12.3, repo `/home/user/v2`), installing the lock's exact pins from PyPI instead of the Windows wheelhouse | Session is remote; PyPI reachable | §8.1 |
-| D11 | 10:48 | One Claude session holds all four roles (A–D) and works steps sequentially in plan order | Single-session build | §14 |
+| D11 | 10:48 | Neha holds all four roles (A–D) in one session and works steps sequentially in plan order | Single-session build | §14 |
 | D12 | 11:05 | No `Co-Authored-By` trailers on commits; checkpoint commit + push at every step and every 15 min | User instruction | CLAUDE.md §2 |
 | D13 | 11:05 | Plan improvements are proposed to the user first and applied only after a go | User instruction | §15 |
 | D14 | 11:12 | **APPROVED (user): labelled name-match fallback.** **Finding:** Identify("Qualified") returns 25 candidates, none is 632707 ("Qualified (Acquired by Salesforce)"), so the strict §7 prior-employer rule leaves Herrick→Qualified as `?`. Proposal to user: a labelled name-prefix fallback against the person's own past entries | Live probe 10:58 | §7 G2 |
