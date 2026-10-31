@@ -755,8 +755,8 @@ def _hits(rules: tuple[tuple[str, str], ...], text: str) -> list[tuple[str, str]
     return out
 
 
-def infer_customers(signals: Signals, samples: list[EmployeeSample] | None = None
-                    ) -> CustomerProfile:
+def infer_customers(signals: Signals, samples: list[EmployeeSample] | None = None, *,
+                    naics: str = "") -> CustomerProfile:
     """Business model, target customers, use cases and talent sources, each with evidence."""
     cp = CustomerProfile()
     samples = samples or []
@@ -781,7 +781,7 @@ def infer_customers(signals: Signals, samples: list[EmployeeSample] | None = Non
         b2c += 1.0
         m = revenue_model.CATEGORY_PATTERNS["cat_consumer"].search(desc)
         cp.evidence.append(f"B2C: description mentions '{m.group(0) if m else 'consumer'}'")
-    naics = signals.market.naics
+    naics = naics or signals.market.naics
     if naics.startswith(("5112", "5132", "5415", "5182", "5416")):
         b2b += 0.5
         cp.evidence.append(f"B2B: NAICS {naics} (software / IT services)")
@@ -895,7 +895,9 @@ async def build_economics(client: Crustdata, signals: Signals, company_id: int, 
     eco.revenue = revenue_model.estimate_revenue(
         signals, eco.payroll, as_of=_today(client), largest_country=largest,
         listed_bucket=listed_bucket)
-    eco.customers = infer_customers(signals, samples)
+    nd = ((rec.get("taxonomy") or {}).get("primary_naics_detail")) or {}
+    naics = f"{nd.get('naics_code') or ''} {nd.get('industry') or ''}".strip()
+    eco.customers = infer_customers(signals, samples, naics=naics)
     eco.limitations.append("Payroll, revenue and customer profile are model estimates from "
                            "indexed data, not company-reported figures.")
     if samples:
