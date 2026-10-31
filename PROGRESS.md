@@ -97,8 +97,8 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 | S2 Crustdata adapter | DONE | Claude | 10:47 | 10:50 | S2 | `33 passed`; `probe koahlabs.com` → `MATCHED id=3718859`. Error hierarchy, redacting logger, corrupt-cache = miss, PC-3 filter |
 | S3 Models and run store | DONE | Claude | 10:50 | 10:51 | S3 | `9 passed`: write-once (`xb`), read-back hash, manifest only after verify; saf-4/saf-5; strict flat schemas |
 | S4 Graph resolve | DONE | Claude | 10:51 | 10:54 | S4 | `28 passed` on recorded fixture `fixtures/koah`. 3 founders ✔ at 3718859; Herrick→Affirm 632082 ✔, Supermove 780882 ✔, **Qualified ? (see D14)**; seed $5M 2025-09-07. PC-2/3/6 applied |
-| S5 Packet intake | TODO | C | | | | Apply PC-4 (±7-day rule mandatory; 1970-01-01 = unknown) |
-| S6 Model calls | TODO | B | | | | Type in Prep_01; decide PC-7 |
+| S5 Packet intake | DONE | agent (verified by Claude) | 11:15 | 11:22 | S5 | `22 passed`. Koah picks: PR Newswire Series A 2026-02-24, TechCrunch $5M seed 2025-09-07, FinSMEs; 17 excluded with reasons. Attio published 2025-08-26 / updated 2026-08-04; "two months ago" → 2025-09. U2 injection meter in. 6 credits |
+| S6 Model calls | DONE | agent (verified by Claude) | 11:15 | 11:32 | S6 | `19 passed`. Session/API/fixture providers; strict local validation. PC-7: refusal = failed attempt (kept). Warmup N/A for session provider |
 | S7 Vertical slice (CLI) | TODO | B + C | | | | Deadline 11:35 |
 | S8 Mode A end to end | TODO | A + B | | | | |
 | S9 T2 usefulness | TODO | B + D | | | | Decision by 12:50; score against Prep_02 keys |
@@ -171,7 +171,7 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 
 **Spend so far:**
 
-- **Crustdata (event key, this session):** 3.39 credits: Koah Company Enrich 2, Linear founder search 0.39 (PC-3 confirmed: Karri found), Karri Person Enrich 1. Identify is free.
+- **Crustdata (event key, this session):** 3.39 credits: Koah Company Enrich 2, Linear founder search 0.39 (PC-3 confirmed: Karri found), Karri Person Enrich 1, packet agent fetch/search 6 (Koah 3, Attio 3). Total ≈ 9.4. Identify is free.
 - **Crustdata (earlier):** about 7.45 credits, all on the personal MCP account: about 2.4 at 00:10 plus 5.05 at 01:20 (balance 192.56). Nothing on the event key yet.
 - **Anthropic:** $0.
 

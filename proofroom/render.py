@@ -8,10 +8,13 @@ graph.financing_summary, or by the caller directly):
      "record_refresh": "2026-10-23" | "unknown", "total_is_capital": bool, "basis": str}
     {"kind": "round" | "total" | "comparison" | "calculation" | "question" | "note",
      "line": "Seed $5M dated 7 Sep 2025 (day), lead Forerunner", "evidence_ids": ["G7"],
-     "total_is_capital": bool  # "total" lines only; defaults to the meta value, else False}
+     "total_is_capital": bool  # optional, "total" lines; falls back to the meta value}
 
-Every non-meta line is rendered with its [G#]/[E#] citations. A "total" line is shown
-as capital raised only when total_is_capital is True. Crustdata funding data is always
+Other kinds (e.g. the pipeline's "round_check", "indexed_round") render as plain lines.
+Every non-meta line is rendered with its [G#]/[E#] citations (not duplicated when the
+line already carries them). When total_is_capital is known (line or meta), a "total"
+line is prefixed "Total raised" only if it is True, else "Indexed total, not capital
+raised"; without it the line text must label itself. Crustdata funding data is always
 labelled "indexed record (Crunchbase-derived)".
 """
 from __future__ import annotations
@@ -280,9 +283,20 @@ def _prior_cell(t: TeamRow) -> str:
     return " · ".join(f"{_cell(j.employer_name)} {join_mark(j)}" for j in t.prior_joins)
 
 
+def record_refresh(case: CaseRecord) -> str:
+    """The meta line's record_refresh, else the indexed graph rows' refresh, else unknown."""
+    meta = _meta(case)
+    if meta.get("record_refresh"):
+        return str(meta["record_refresh"])
+    for e in case.evidence:
+        if e.kind == "graph" and "crunchbase" in (e.origin or "").lower() and e.refreshed:
+            return e.refreshed
+    return "unknown"
+
+
 def _funding_section(case: CaseRecord) -> list[str]:
     meta = _meta(case)
-    refresh = meta.get("record_refresh") or "unknown"
+    refresh = record_refresh(case)
     lines = [d for d in case.financing if d.get("kind") != "meta"]
     out = [f"Funding record: {INDEXED}; record refresh: {refresh}", ""]
     if not lines:
@@ -291,10 +305,9 @@ def _funding_section(case: CaseRecord) -> list[str]:
     for d in lines:
         text = str(d.get("line") or "").strip()
         kind = d.get("kind")
-        if kind == "total":
-            capital = d.get("total_is_capital", meta.get("total_is_capital", False))
-            prefix = ("Total raised" if capital is True
-                      else "Indexed total, not capital raised")
+        if kind == "total" and ("total_is_capital" in d or "total_is_capital" in meta):
+            capital = d.get("total_is_capital", meta.get("total_is_capital"))
+            prefix = "Total raised" if capital is True else "Indexed total, not capital raised"
             text = f"{prefix}: {text}"
         elif kind == "calculation" and "calculation" not in text.lower():
             text += " (calculation from Crustdata's indexed record)"
@@ -325,8 +338,18 @@ def _evidence_line(e: Evidence) -> str:
     return f'- **{e.id}** · {e.source}{loc}{origin} · "{_excerpt(e.value)}"{tail}'
 
 
+def _stat(v: object) -> str:
+    if isinstance(v, (list, tuple)):
+        if all(isinstance(x, (str, int, float)) for x in v) and len(", ".join(map(str, v))) <= 120:
+            return ", ".join(map(str, v)) or "none"
+        return f"{len(v)} entries"
+    if isinstance(v, dict):
+        return f"{len(v)} entries"
+    return str(v)
+
+
 def _stats(case: CaseRecord) -> list[str]:
-    rows = [(str(k), str(v)) for k, v in case.stats.items()]
+    rows = [(str(k), _stat(v)) for k, v in case.stats.items()]
     if case.attempts:
         failed = sum(1 for a in case.attempts if a.status not in ("ok", "OK", "200"))
         rows.append(("attempts", f"{len(case.attempts)} ({failed} not ok)"))

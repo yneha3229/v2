@@ -521,7 +521,7 @@ _ENTITY_NOUNS = {
     "stadium", "mall", "station", "railway", "rail", "walking", "bike", "path", "greenway",
     "algebra", "regression", "equation", "equations", "programming", "accelerator", "motor",
     "motors", "actuator", "amplifier", "polarizer", "polarization", "function", "functions",
-    "growth", "scale", "fit", "model", "models", "time", "foot", "feet", "mile", "miles",
+    "mile", "miles",
 }
 _ROUND_WORDS = {"pre_seed": r"pre-?seed", "seed": r"(?<!pre-)(?<!pre )seed",
                 "series_a": r"series\s+a\b", "series_b": r"series\s+b\b",
