@@ -7,6 +7,8 @@ ContextCon 03 · IIT Bombay · 31 Oct 2026 · Theme: **Investing** · *Services,
 - 2-minute video (an unseen company, first run): ‹link added at submission›
 - Raw unedited recording: ‹link›
 
+![Run page for Koah: labels, summary, Needs a person, cited sentences](docs/screenshots/ui-run-fold.png)
+
 ![Diligence report, page 1, for Koah](docs/screenshots/koah-report-page1.png)
 
 ---

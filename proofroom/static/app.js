@@ -13,6 +13,34 @@
   }
   function show(id, on) { var e = $(id); if (e) e.hidden = !on; }
 
+  // Text with [E1]/[G3] citations -> text nodes + drawer links (never innerHTML).
+  var CITE = /\[([EG]\d{1,4})\]/g;
+  function citeInto(node, text) {
+    var s = String(text || ""), last = 0, m;
+    CITE.lastIndex = 0;
+    while ((m = CITE.exec(s))) {
+      if (m.index > last) node.appendChild(document.createTextNode(s.slice(last, m.index)));
+      node.appendChild(citeLink(m[1]));
+      last = m.index + m[0].length;
+    }
+    if (last < s.length) node.appendChild(document.createTextNode(s.slice(last)));
+    return node;
+  }
+  function citeLink(id) {
+    var a = el("a", "cite", "[" + id + "]");
+    a.href = "#ev-" + id; a.setAttribute("data-ev", id);
+    return a;
+  }
+
+  // Folded panels: open the <details> that holds the URL #target.
+  function openTarget() {
+    if (!location.hash) return;
+    var t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    for (var n = t; n; n = n.parentElement) if (n.tagName === "DETAILS") n.open = true;
+  }
+  window.addEventListener("hashchange", openTarget);
+  openTarget();
+
   function loadEvidence(rows) {
     (rows || []).forEach(function (r) { EVIDENCE[r.id] = r; });
   }
@@ -96,9 +124,54 @@
 
   // ---- Live progressive panels -------------------------------------------------------
   var timer = null, seen = 0;
+  var STEPS = ["identity", "packet", "claims", "assessed", "checked", "published"];
+  var reached = -1;
+  function stepEls() { return document.querySelectorAll("#live-steps li"); }
+  function resetSteps() {
+    reached = -1;
+    Array.prototype.forEach.call(stepEls(), function (li) { li.className = ""; li.querySelector(".t").textContent = ""; });
+  }
+  function markStep(stage, elapsed) {
+    var i = STEPS.indexOf(stage);
+    if (i < 0) return;
+    var lis = stepEls();
+    if (lis[i]) lis[i].querySelector(".t").textContent = elapsed !== undefined && elapsed !== null ? elapsed + " s" : "";
+    if (i > reached) reached = i;
+  }
+  function paintSteps(status) {
+    var lis = stepEls();
+    for (var i = 0; i < lis.length; i++) {
+      var c = "";
+      if (i <= reached) c = "done";
+      else if (i === reached + 1) c = status === "RUNNING" ? "active" : (status === "DELIVERED" ? "" : "failed");
+      lis[i].className = c;
+    }
+  }
+  var BASIS = { crustdata_indexed_record: "Crustdata indexed record (Crunchbase-derived)" };
+  function basisLabel(b) { return BASIS[b] || String(b).replace(/_/g, " "); }
+  function renderFindings(res) {
+    var ol = $("live-findings"), fs = (res.case && res.case.findings) || [];
+    ol.textContent = "";
+    fs.forEach(function (f) {
+      var li = el("li"), head = el("div", "f-head");
+      var label = String(f.disposition || "").replace(/_/g, " ");
+      label = label.charAt(0).toUpperCase() + label.slice(1) + (f.qualified ? ", qualified" : "");
+      head.appendChild(el("span", "chip disp-" + f.disposition, label));
+      head.appendChild(el("span", "muted small", f.claim_id + " · " + (f.basis || []).map(basisLabel).join(" · ")));
+      li.appendChild(head);
+      var p = citeInto(el("p", "f-text"), f.sentence);
+      (f.evidence_ids || []).forEach(function (id) {
+        if (String(f.sentence || "").indexOf("[" + id + "]") < 0) { p.appendChild(document.createTextNode(" ")); p.appendChild(citeLink(id)); }
+      });
+      li.appendChild(p);
+      ol.appendChild(li);
+    });
+    if (!fs.length) ol.appendChild(el("li", "muted", "No sentence passed the checks in this run."));
+  }
   function beginLive(token) {
-    seen = 0;
-    ["live-identity", "live-packet", "live-claims", "live-brief", "live-error", "live-wait"].forEach(function (i) { show(i, false); });
+    seen = 0; resetSteps(); paintSteps("RUNNING");
+    ["live-identity", "live-packet", "live-claims", "live-brief", "live-error", "live-wait", "live-desk"].forEach(function (i) { show(i, false); });
+    ["live-identity", "live-packet", "live-claims"].forEach(function (i) { $(i).open = true; });
     $("live-log").textContent = ""; $("live-chips").textContent = "";
     $("live-title").textContent = "Running…";
     show("live", true);
@@ -112,10 +185,12 @@
     poll(); timer = setInterval(poll, 1000);
   }
 
+  function setSum(id, text) { var s = document.querySelector("#" + id + " .sum"); if (s) s.textContent = text; }
   function chip(text, cls) { $("live-chips").appendChild(el("span", "chip " + (cls || ""), text)); }
 
   function onEvent(e) {
     $("live-log").appendChild(el("li", "", e.elapsed + " s · " + e.stage));
+    markStep(e.stage, e.elapsed);
     if (e.stage === "start") {
       chip(e.mode, "mode-" + String(e.mode).toLowerCase());
       chip("model: " + e.model_source);
@@ -127,6 +202,7 @@
       b.appendChild(el("p", "muted", g.basis || ""));
       if ((g.excluded || []).length) b.appendChild(el("p", "small", "Excluded namesakes: " + g.excluded.map(function (x) { return x.name || x.id || JSON.stringify(x); }).join(", ")));
       b.appendChild(el("p", "", "Team in graph: " + ((e.team || []).join(", ") || "none")));
+      setSum("live-identity", "— " + (g.name || "?") + " · Crustdata ID " + (g.company_id || "not resolved") + " · " + (g.status || ""));
       show("live-identity", true);
     } else if (e.stage === "packet") {
       var p = document.querySelector("#live-packet .body"), ul = el("ul");
@@ -134,6 +210,7 @@
       (e.documents || []).forEach(function (d) { ul.appendChild(el("li", "", d.id + " · " + (d.title || "") + " · " + d.source)); });
       p.appendChild(ul);
       if (e.injection_notes) p.appendChild(el("p", "warn", e.injection_notes + " instruction-like passage(s) in fetched text ignored (data, not instructions)."));
+      setSum("live-packet", "(" + (e.documents || []).length + ")");
       show("live-packet", true);
     } else if (e.stage === "claims") {
       var c = document.querySelector("#live-claims .body"), cl = el("ul");
@@ -141,6 +218,8 @@
       (e.claims || []).forEach(function (x) { cl.appendChild(el("li", x.selected ? "" : "muted", x.id + " (" + x.family + ", " + x.predicate + ") “" + x.quote + "”" + (x.selected ? "" : " · not selected"))); });
       if (!(e.claims || []).length) cl.appendChild(el("li", "muted", "No claims extracted."));
       c.appendChild(cl);
+      var cs = e.claims || [];
+      setSum("live-claims", "(" + cs.length + " extracted, " + cs.filter(function (x) { return x.selected; }).length + " selected)");
       show("live-claims", true);
     } else if (e.stage === "assessed" || e.stage === "checked") {
       $("live-status").textContent = e.stage === "assessed" ? e.findings + " finding(s) assessed; running the code gate and sentence check…"
@@ -154,18 +233,27 @@
     var w = $("live-wait");
     if (j.waiting_for_model) { w.textContent = "Waiting for the model (agent session) — call " + j.waiting_for_model; w.hidden = false; }
     else w.hidden = true;
-    if (j.status === "RUNNING") { $("live-title").textContent = "Running " + j.domain + "… " + j.elapsed + " s"; return; }
-    $("live-title").textContent = j.domain + " · " + j.status;
+    paintSteps(j.status);
+    if (j.status === "RUNNING") {
+      var t = $("live-title"); t.textContent = "Running " + j.domain + "… ";
+      t.appendChild(el("span", "elapsed", j.elapsed + " s"));
+      return;
+    }
+    $("live-title").textContent = j.domain + " · " + j.status + (j.elapsed !== undefined ? " in " + j.elapsed + " s" : "");
     if (j.error) { $("live-error").textContent = j.error; show("live-error", true); }
     var res = j.result;
     if (res) {
       loadEvidence(res.evidence);
       var bb = document.querySelector("#live-brief .body");
       bb.innerHTML = res.brief_html || "";  // escaped server-side by md_to_html
+      renderFindings(res);
       var url = res.run_url || j.run_url;
-      if (url) $("live-open").href = url; else show("live-open", false);
+      if (url) { $("live-open").href = url; show("live-open", true); } else show("live-open", false);
       show("live-brief", true);
-      $("live-status").textContent = "Needs a person: " + (res.exceptions || []).length;
+      var nd = (res.exceptions || []).length, dl = $("live-desk");
+      dl.textContent = "Needs a person: " + nd; dl.className = "desk-line " + (nd ? "open" : "clear"); dl.hidden = false;
+      $("live-status").textContent = "";
+      ["live-identity", "live-packet", "live-claims"].forEach(function (i) { $(i).open = false; });
     } else if (j.run_url) {
       var a = el("a", "btn", "Open the run folder page"); a.href = j.run_url;
       $("live-status").textContent = ""; $("live-status").appendChild(a);

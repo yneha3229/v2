@@ -46,7 +46,8 @@ def exception_desk(case: CaseRecord) -> list[ExceptionItem]:
     for lim in case.limitations:
         low = lim.lower()
         if "suppressed" in low:
-            items.append(ExceptionItem("suppressed", "A sentence was withheld", lim, []))
+            from proofroom.report import _readable
+            items.append(ExceptionItem("suppressed", "A sentence was withheld", _readable(lim), []))
         elif "check incomplete" in low or "unchecked" in low:
             items.append(ExceptionItem("check_incomplete", "A check did not finish", lim, []))
         elif "failed" in low and ("fetch" in low or "crustdata" in low or "lookup" in low

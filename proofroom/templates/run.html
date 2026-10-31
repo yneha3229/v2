@@ -3,85 +3,94 @@
 {% block main %}
 {% if case %}
 {% set g1 = case.g1 %}
-<section class="panel">
-  <div class="chips">
-    <span class="chip mode-{{ case.run_mode|lower }}" title="Run mode">{{ case.run_mode }}</span>
+{% set team_n = case.team|length %}
+{% set joined_n = case.team|selectattr('role_join')|list|length %}
+{% set emitted = case.stats.get('sentences_emitted', case.findings|length) %}
+{% set withheld = case.stats.get('sentences_suppressed', 0) %}
+{% set n_sup = case.findings|selectattr('disposition', 'equalto', 'supported')|list|length %}
+{% set n_cor = case.findings|selectattr('disposition', 'equalto', 'supported_corrected')|list|length %}
+{% set n_con = case.findings|selectattr('disposition', 'equalto', 'conflicting')|list|length %}
+{% set n_ne = case.findings|selectattr('disposition', 'equalto', 'not_established')|list|length %}
+{% set ns = namespace(src=0) %}{% for e in evidence %}{% if (e.id|string).startswith('E') %}{% set ns.src = ns.src + 1 %}{% endif %}{% endfor %}
+{% set ev_src = ns.src %}
+{% set ev_graph = evidence|length - ev_src %}
+{% set BASIS = {'company_statement': 'company statement', 'investor_statement': 'investor statement', 'independent_report': 'independent report', 'crustdata_indexed_record': 'Crustdata indexed record (Crunchbase-derived)', 'calculation': 'calculation'} %}
+<section class="panel hero">
+  <div class="chips labels">
+    <span class="chip big mode-{{ case.run_mode|lower }}" title="Run mode">{{ case.run_mode }}</span>
     <span class="chip" title="Model source">model: {{ model_source }}</span>
     <span class="chip {{ 'warn' if profile == 'FAST' else '' }}" title="Profile">{{ profile }}{% if profile == 'FAST' %} · reduced checking{% endif %}</span>
     <span class="chip" title="Input mode">Mode {{ case.input.input_mode }}</span>
     <span class="chip {{ 'ok' if case.status == 'DELIVERED' else 'warn' }}" title="Brief status">{{ case.status }}</span>
-    {% if verified %}<span class="chip ok" title="Manifest DELIVERED and every file matches its SHA-256">Verified ✔</span>
-    {% else %}<span class="chip bad">Not delivered</span>{% endif %}
+    {% if verified %}<span class="chip big ok" title="Manifest DELIVERED and every file matches its SHA-256">Verified ✔</span>
+    {% else %}<span class="chip big bad">Not delivered</span>{% endif %}
   </div>
-  <h1>{{ g1.get('name') or case.input.domain }} <small class="muted">({{ case.input.domain }}) · run {{ case.run }} · reviewed {{ case.reviewed }}</small></h1>
-  {% if case.run_mode != 'LIVE' %}<p class="muted">This run is {{ case.run_mode }}: {% if case.run_mode == 'FIXTURE' %}recorded responses replayed with no keys{% else %}development-cache hits, labelled on each attempt{% endif %}. It is not a live run.</p>{% endif %}
-  <div class="actions">
-    <a class="btn" href="/runs/{{ case_id }}/{{ n }}/report" target="_blank" rel="noopener">Diligence report</a>
-    <button type="button" class="btn" id="receipt-btn" data-case="{{ case_id }}" data-run="{{ n }}">Proof receipt</button>
-    <a class="btn" href="/">New run</a>
+  <div class="hero-head">
+    <div class="hero-title">
+      <h1>{{ g1.get('name') or case.input.domain }}</h1>
+      <p class="idline"><span class="dom">{{ case.input.domain }}</span>
+        · Crustdata ID <strong>{{ g1.get('company_id') or 'not resolved' }}</strong>
+        <span class="chip {{ 'ok' if g1.get('status') == 'MATCHED' else 'bad' }}">{{ g1.get('status') or 'unknown' }}</span></p>
+      <p class="muted small runline">Run {{ case.run }} · reviewed {{ case.reviewed }}</p>
+    </div>
+    <div class="actions hero-actions">
+      <a class="btn primary big" href="/runs/{{ case_id }}/{{ n }}/report" target="_blank" rel="noopener">Diligence report ↗</a>
+      <button type="button" class="btn" id="receipt-btn" data-case="{{ case_id }}" data-run="{{ n }}">Proof receipt</button>
+      <a class="btn" href="/">New run</a>
+    </div>
   </div>
+  {% if case.run_mode != 'LIVE' %}<p class="muted small note">This run is {{ case.run_mode }}: {% if case.run_mode == 'FIXTURE' %}recorded responses replayed with no keys{% else %}development-cache hits, labelled on each attempt{% endif %}. It is not a live run.</p>{% endif %}
   <pre id="receipt" class="receipt" hidden></pre>
-</section>
 
-<section class="panel" id="identity">
-  <h2>Identity</h2>
-  <dl class="kv">
-    <dt>Company</dt><dd>{{ g1.get('name') or '—' }}</dd>
-    <dt>Crustdata company ID</dt><dd>{{ g1.get('company_id') or 'not resolved' }}</dd>
-    <dt>Match</dt><dd><span class="chip {{ 'ok' if g1.get('status') == 'MATCHED' else 'bad' }}">{{ g1.get('status') or 'unknown' }}</span></dd>
-    <dt>Basis</dt><dd>{{ g1.get('basis') or '—' }}</dd>
-  </dl>
-  {% if g1.get('candidates') and g1.get('status') == 'TIE' %}
-  <p><strong>Candidates:</strong></p>
-  <ul>{% for c in g1.get('candidates') %}<li>{{ c.get('name') }} ({{ c.get('id') }}) {{ c.get('primary_domain') }}</li>{% endfor %}</ul>
-  {% endif %}
-  {% if g1.get('excluded') %}
-  <p><strong>Excluded namesakes:</strong></p>
-  <ul>{% for x in g1.get('excluded') %}<li>{% if x is mapping %}{{ x.get('name') or '?' }}{% if x.get('id') %} ({{ x.get('id') }}){% endif %}{% if x.get('primary_domain') %} · {{ x.get('primary_domain') }}{% endif %}{% if x.get('reason') %} · {{ x.get('reason') }}{% endif %}{% else %}{{ x }}{% endif %}</li>{% endfor %}</ul>
-  {% else %}<p class="muted">No namesakes excluded.</p>{% endif %}
-</section>
-
-<section class="panel" id="desk">
-  <h2>Needs a person: <span class="chip {{ 'ok' if not desk else 'warn' }}">{{ desk|length }}</span></h2>
-  {% if desk %}
-  <ul class="desk">{% for d in desk %}<li><strong>{{ d.get('title') }}</strong> <span class="muted">({{ d.get('kind') }})</span>: {{ d.get('detail')|cite }} {% for e in d.get('evidence_ids') or [] %}{{ ('[' ~ e ~ ']')|cite }}{% endfor %}</li>{% endfor %}</ul>
-  {% else %}<p class="muted">Every selected claim finished its checks.</p>{% endif %}
-</section>
-
-<section class="panel" id="claims">
-  <h2>Claims</h2>
-  {% if case.claims %}
-  <div class="claims">
-  {% for c in case.claims %}
-    {% set f = findings.get(c.id) %}
-    <article class="claim {{ 'excluded' if not c.selected }}">
-      <header><strong>{{ c.id }}</strong> <span class="chip">{{ c.family }}</span> <span class="muted">{{ c.predicate|replace('_', ' ') }} · {{ c.doc_id }} · {{ c.materiality }}</span>
-        {% if f %}<span class="chip disp-{{ f.disposition }}">{{ f.disposition|replace('_', ' ') }}{% if f.qualified %}, qualified{% endif %}</span>
-        {% elif not c.selected %}<span class="chip">not selected</span>
-        {% else %}<span class="chip warn">no sentence emitted</span>{% endif %}
-      </header>
-      <blockquote>“{{ c.quote }}”</blockquote>
-      {% if f %}
-      <p>{{ f.sentence|cite }} {% for e in f.evidence_ids %}{% if ('[' ~ e ~ ']') not in f.sentence %}{{ ('[' ~ e ~ ']')|cite }}{% endif %}{% endfor %}</p>
-      <p class="muted small">Basis: {{ f.basis|join(', ')|replace('_', ' ') }}{% if f.as_of %} · as of {{ f.as_of }}{% endif %}{% if f.correction_reason %} · corrected: {{ f.correction_reason }}{% endif %}{% if f.limitation %} · limitation: {{ f.limitation }}{% endif %}</p>
-      {% elif not c.selected %}<p class="muted small">{{ c.exclusion_reason or 'not selected' }}</p>{% endif %}
-    </article>
-  {% endfor %}
+  <div class="stats">
+    <div class="stat">
+      <div class="num">{{ emitted }}</div>
+      <div class="lbl">sentences from the sources</div>
+      <div class="sub">{% if n_sup %}<span class="chip disp-supported">{{ n_sup }} supported</span>{% endif %}{% if n_cor %}<span class="chip disp-supported_corrected">{{ n_cor }} corrected</span>{% endif %}{% if n_con %}<span class="chip disp-conflicting">{{ n_con }} conflicting</span>{% endif %}{% if n_ne %}<span class="chip disp-not_established">{{ n_ne }} not established</span>{% endif %}</div>
+    </div>
+    <div class="stat">
+      <div class="num {{ 'warn' if withheld else '' }}">{{ withheld }}</div>
+      <div class="lbl">withheld by the checks</div>
+      <div class="sub muted small">never shown as fact</div>
+    </div>
+    <div class="stat">
+      <div class="num {{ 'ok' if team_n and joined_n == team_n else '' }}">{{ joined_n }}<span class="of">/{{ team_n }}</span></div>
+      <div class="lbl">founders ID-joined</div>
+      <div class="sub muted small">current role at {{ g1.get('company_id') or '?' }}</div>
+    </div>
+    <div class="stat">
+      <div class="num flags-num">{% if flag_counts %}<span class="f-red">{{ flag_counts.red }}</span> · <span class="f-amber">{{ flag_counts.amber }}</span> · <span class="f-green">{{ flag_counts.green }}</span>{% else %}–{% endif %}</div>
+      <div class="lbl">red · open · green flags</div>
+      <div class="sub muted small">{{ evidence|length }} evidence rows ({{ ev_src }} source · {{ ev_graph }} graph){% if origin_count is not none %} · {{ origin_count }} independent origin{{ '' if origin_count == 1 else 's' }}{% endif %}</div>
+    </div>
   </div>
-  {% else %}<p class="muted">No claims extracted in this run.</p>{% endif %}
-  {% if case.financing %}
-  <h3>Financing (Crustdata indexed record, Crunchbase-derived)</h3>
-  <ul>{% for d in case.financing if d.get('kind') != 'meta' and d.get('line') %}<li>{{ d.get('line')|cite }}</li>{% endfor %}</ul>
-  {% endif %}
+
+  <div class="desk-box {{ 'clear' if not desk else 'open' }}" id="desk">
+    <h2>Needs a person: <span class="chip desk-n {{ 'ok' if not desk else 'warn' }}">{{ desk|length }}</span></h2>
+    {% if desk %}
+    <ul class="desk">{% for d in desk %}<li><strong>{{ d.get('title') }}</strong> <span class="muted">({{ d.get('kind') }})</span>: {{ d.get('detail')|cite }} {% for e in d.get('evidence_ids') or [] %}{{ ('[' ~ e ~ ']')|cite }}{% endfor %}</li>{% endfor %}</ul>
+    {% else %}<p class="muted small">Every selected claim finished its checks.</p>{% endif %}
+  </div>
 </section>
 
-<section class="panel md" id="brief">
-  <h2>Brief <small class="muted">brief.md</small></h2>
-  {{ brief_html }}
+<section class="panel" id="sources">
+  <h2>From the sources <small class="muted">each sentence cites its evidence; click a citation</small></h2>
+  {% if case.findings %}
+  <ol class="findings">
+  {% for f in case.findings %}
+    <li class="finding">
+      <div class="f-head"><span class="chip disp-{{ f.disposition }}">{{ f.disposition|replace('_', ' ')|capitalize }}{% if f.qualified %}, qualified{% endif %}</span>
+        <span class="muted small">{{ f.claim_id }} · {% for b in f.basis %}{{ BASIS.get(b, b|replace('_', ' ')) }}{% if not loop.last %} · {% endif %}{% endfor %}{% if f.as_of %} · as of {{ f.as_of }}{% endif %}</span></div>
+      <p class="f-text">{{ f.sentence|cite }} {% for e in f.evidence_ids %}{% if ('[' ~ e ~ ']') not in f.sentence %}{{ ('[' ~ e ~ ']')|cite }}{% endif %}{% endfor %}</p>
+      {% if f.correction_reason or f.limitation %}<p class="muted small">{% if f.correction_reason %}corrected: {{ f.correction_reason }}{% endif %}{% if f.correction_reason and f.limitation %} · {% endif %}{% if f.limitation %}limitation: {{ f.limitation }}{% endif %}</p>{% endif %}
+    </li>
+  {% endfor %}
+  </ol>
+  {% else %}<p class="muted">No sentence passed the checks in this run.</p>{% endif %}
 </section>
 
 <section class="panel" id="team">
-  <h2>Team (Crustdata identity graph)</h2>
+  <h2>Team <small class="muted">Crustdata identity graph</small></h2>
   {% if case.team %}
   <div class="table-wrap"><table>
     <thead><tr><th>Person</th><th>Person ID</th><th>Current role at {{ g1.get('name') or 'subject' }}</th><th>Employer-ID join</th><th>Prior employers</th><th>Profile updated</th></tr></thead>
@@ -100,35 +109,79 @@
   </table></div>
   <p class="muted small">✔ employer-ID join · ≈ name match only · ? no join found (absence is not a refutation). Profiles are self-maintained.</p>
   {% else %}<p class="muted">No people found in Crustdata's graph for this company.</p>{% endif %}
+  {% set fin = case.financing|selectattr('line')|rejectattr('kind', 'equalto', 'meta')|list if case.financing else [] %}
+  {% if fin %}
+  <details class="sub-details">
+    <summary>Funding record <span class="muted">indexed record (Crunchbase-derived)</span> <span class="count">{{ fin|length }}</span></summary>
+    <ul>{% for d in fin %}<li>{{ d.get('line')|cite }}</li>{% endfor %}</ul>
+  </details>
+  {% endif %}
 </section>
 
-<section class="panel" id="evidence">
-  <h2>Evidence <small class="muted">click any [E#]/[G#] citation</small></h2>
-  <details>
-    <summary>All {{ evidence|length }} evidence rows</summary>
-    {% for e in evidence %}
-    <div class="ev" id="ev-{{ e.id }}">
-      <strong>{{ e.id }}</strong> <span class="chip">{{ e.kind|replace('_', ' ') }}</span>
-      {% if e.url %}<a href="{{ e.url }}" rel="noopener noreferrer nofollow" target="_blank">{{ e.source }}</a>{% else %}<code>{{ e.source }}</code>{% endif %}
-      {% if e.locator %}<span class="muted"> · {{ e.locator }}</span>{% endif %}
-      <div class="val">{{ e.value }}</div>
-      <div class="muted small">{% if e.origin %}origin: {{ e.origin }} · {% endif %}{% for c in e.clocks %}{{ c.clock }}: {{ c.value or '—' }}{% if c.precision and c.value %} ({{ c.precision }}){% endif %}{% if not loop.last %} · {% endif %}{% endfor %}</div>
-    </div>
-    {% endfor %}
-  </details>
-  <script type="application/json" id="evidence-data">{{ evidence|tojson }}</script>
-</section>
+<div class="more-panels">
+<details class="panel fold" id="claims">
+  <summary><span class="fold-title">Claims extracted</span> <span class="count">{{ case.claims|length }}</span> <span class="muted small">{{ case.claims|selectattr('selected')|list|length }} selected</span></summary>
+  {% if case.claims %}
+  <div class="claims">
+  {% for c in case.claims %}
+    {% set f = findings.get(c.id) %}
+    <article class="claim {{ 'excluded' if not c.selected }}">
+      <header><strong>{{ c.id }}</strong> <span class="chip">{{ c.family }}</span> <span class="muted">{{ c.predicate|replace('_', ' ') }} · {{ c.doc_id }} · {{ c.materiality }}</span>
+        {% if f %}<span class="chip disp-{{ f.disposition }}">{{ f.disposition|replace('_', ' ') }}{% if f.qualified %}, qualified{% endif %}</span>
+        {% elif not c.selected %}<span class="chip">not selected</span>
+        {% else %}<span class="chip warn">no sentence emitted</span>{% endif %}
+      </header>
+      <blockquote>“{{ c.quote }}”</blockquote>
+      {% if not f and not c.selected %}<p class="muted small">{{ c.exclusion_reason or 'not selected' }}</p>{% endif %}
+    </article>
+  {% endfor %}
+  </div>
+  {% else %}<p class="muted">No claims extracted in this run.</p>{% endif %}
+</details>
+
+<details class="panel fold" id="evidence">
+  <summary><span class="fold-title">Evidence</span> <span class="count">{{ evidence|length }}</span> <span class="muted small">click any [E#]/[G#] citation to open one row</span></summary>
+  {% for e in evidence %}
+  <div class="ev" id="ev-{{ e.id }}">
+    <strong>{{ e.id }}</strong> <span class="chip">{{ e.kind|replace('_', ' ') }}</span>
+    {% if e.url %}<a href="{{ e.url }}" rel="noopener noreferrer nofollow" target="_blank">{{ e.source }}</a>{% else %}<code>{{ e.source }}</code>{% endif %}
+    {% if e.locator %}<span class="muted"> · {{ e.locator }}</span>{% endif %}
+    <div class="val">{{ e.value }}</div>
+    <div class="muted small">{% if e.origin %}origin: {{ e.origin }} · {% endif %}{% for c in e.clocks %}{{ c.clock }}: {{ c.value or '—' }}{% if c.precision and c.value %} ({{ c.precision }}){% endif %}{% if not loop.last %} · {% endif %}{% endfor %}</div>
+  </div>
+  {% endfor %}
+</details>
+<script type="application/json" id="evidence-data">{{ evidence|tojson }}</script>
+
+<details class="panel fold" id="identity">
+  <summary><span class="fold-title">Identity resolution</span> <span class="chip {{ 'ok' if g1.get('status') == 'MATCHED' else 'bad' }}">{{ g1.get('status') or 'unknown' }}</span> <span class="muted small">{{ (g1.get('excluded') or [])|length }} namesake{{ '' if (g1.get('excluded') or [])|length == 1 else 's' }} excluded</span></summary>
+  <dl class="kv">
+    <dt>Company</dt><dd>{{ g1.get('name') or '—' }}</dd>
+    <dt>Crustdata company ID</dt><dd>{{ g1.get('company_id') or 'not resolved' }}</dd>
+    <dt>Match</dt><dd><span class="chip {{ 'ok' if g1.get('status') == 'MATCHED' else 'bad' }}">{{ g1.get('status') or 'unknown' }}</span></dd>
+    <dt>Basis</dt><dd>{{ g1.get('basis') or '—' }}</dd>
+  </dl>
+  {% if g1.get('candidates') and g1.get('status') == 'TIE' %}
+  <p><strong>Candidates:</strong></p>
+  <ul>{% for c in g1.get('candidates') %}<li>{{ c.get('name') }} ({{ c.get('id') }}) {{ c.get('primary_domain') }}</li>{% endfor %}</ul>
+  {% endif %}
+  {% if g1.get('excluded') %}
+  <p><strong>Excluded namesakes:</strong></p>
+  <ul>{% for x in g1.get('excluded') %}<li>{% if x is mapping %}{{ x.get('name') or '?' }}{% if x.get('id') %} ({{ x.get('id') }}){% endif %}{% if x.get('primary_domain') %} · {{ x.get('primary_domain') }}{% endif %}{% if x.get('reason') %} · {{ x.get('reason') }}{% endif %}{% else %}{{ x }}{% endif %}</li>{% endfor %}</ul>
+  {% else %}<p class="muted">No namesakes excluded.</p>{% endif %}
+</details>
 
 {% if origin_svg %}
-<section class="panel" id="origins">
-  <h2>Origin map{% if origin_count is not none %} <small class="muted">{{ origin_count }} distinct source origin{{ '' if origin_count == 1 else 's' }}; Crustdata rows never count as independent</small>{% endif %}</h2>
+<details class="panel fold" id="origins">
+  <summary><span class="fold-title">Origin map</span>{% if origin_count is not none %} <span class="muted">— {{ origin_count }} independent origin{{ '' if origin_count == 1 else 's' }}</span>{% endif %}</summary>
+  <p class="muted small">Crustdata rows never count as independent.</p>
   <div class="svg-wrap">{{ origin_svg }}</div>
-</section>
+</details>
 {% endif %}
 
 {% if timeline %}
-<section class="panel" id="clocks">
-  <h2>Four clocks <small class="muted">event · published · updated · provider refresh · retrieved</small></h2>
+<details class="panel fold" id="clocks">
+  <summary><span class="fold-title">Four clocks</span> <span class="muted small">event · published · updated · provider refresh · retrieved</span></summary>
   {% set tl = timeline[0] %}
   <p class="muted small">Span {{ tl.span[0] }} to {{ tl.span[1] }}. Year-level dates (YYYY-01-01) are placed at the start of the year and labelled “year”; undated clocks are listed but not plotted.</p>
   <div class="legend">{% for c in ['event','published','updated','refreshed','retrieved'] %}<span class="dot c-{{ c }}"></span>{{ c }} {% endfor %}</div>
@@ -139,26 +192,46 @@
     <div class="tl-text small">{% for p in row.points %}{{ p.clock }}{% if p.evidence_id %} [{{ p.evidence_id }}]{% endif %}: {{ p.value }} ({{ p.precision }}){% if not loop.last %} · {% endif %}{% else %}<span class="muted">no dated clocks</span>{% endfor %}</div>
   </div>
   {% endfor %}
-</section>
+</details>
 {% endif %}
 
 {% if questions_html %}
-<section class="panel md" id="questions">
-  <h2>Questions <small class="muted">questions.md</small></h2>
+{% set q_n = (questions_html|string).count('<li>') %}
+<details class="panel fold md" id="questions">
+  <summary><span class="fold-title">Questions for the founder meeting</span>{% if q_n %} <span class="count">{{ q_n }}</span>{% endif %} <span class="muted small">questions.md</span></summary>
   {{ questions_html }}
-</section>
+</details>
 {% endif %}
 
 {% if email_html %}
-<section class="panel md draft" id="email">
-  <h2>Founder email <span class="chip warn">DRAFT — not sent</span></h2>
+<details class="panel fold md draft" id="email">
+  <summary><span class="fold-title">Founder email draft</span> <span class="chip warn">DRAFT — not sent</span></summary>
   <p class="muted small">Proofroom never sends anything. Review before use.</p>
   {{ email_html }}
-</section>
+</details>
 {% endif %}
 
-<section class="panel" id="runlog">
-  <h2>Run log</h2>
+{% if case.not_checked %}
+<details class="panel fold" id="not-checked">
+  <summary><span class="fold-title">Not checked</span> <span class="count">{{ case.not_checked|length }}</span></summary>
+  <ul>{% for l in case.not_checked %}<li>{{ l }}</li>{% endfor %}</ul>
+</details>
+{% endif %}
+
+{% if case.limitations %}
+<details class="panel fold" id="limitations">
+  <summary><span class="fold-title">Limitations</span> <span class="count">{{ case.limitations|length }}</span></summary>
+  <ul>{% for l in case.limitations %}<li>{{ l|cite }}</li>{% endfor %}</ul>
+</details>
+{% endif %}
+
+<details class="panel fold md" id="brief">
+  <summary><span class="fold-title">Full brief (markdown)</span> <span class="muted small">brief.md, as published and hash-checked</span></summary>
+  {{ brief_html }}
+</details>
+
+<details class="panel fold" id="runlog">
+  <summary><span class="fold-title">Run log &amp; attempts</span> <span class="count">{{ case.attempts|length }}</span> <span class="muted small">{{ failed_attempts }} failed (kept) · {{ case.stats.get('seconds', '—') }} s · {{ case.stats.get('crustdata_credits', '—') }} credits</span></summary>
   <dl class="kv">
     <dt>Seconds</dt><dd>{{ case.stats.get('seconds', '—') }}</dd>
     <dt>Crustdata credits</dt><dd>{{ case.stats.get('crustdata_credits', '—') }}{% if case.stats.get('credits_unknown_attempts') %} (+{{ case.stats.get('credits_unknown_attempts') }} attempts unknown){% endif %}</dd>
@@ -183,13 +256,8 @@
     {% endfor %}
     </tbody>
   </table></div>
-  {% if case.limitations %}
-  <details><summary>Limitations ({{ case.limitations|length }})</summary><ul>{% for l in case.limitations %}<li>{{ l|cite }}</li>{% endfor %}</ul></details>
-  {% endif %}
-  {% if case.not_checked %}
-  <details><summary>Not checked ({{ case.not_checked|length }})</summary><ul>{% for l in case.not_checked %}<li>{{ l }}</li>{% endfor %}</ul></details>
-  {% endif %}
-</section>
+</details>
+</div>
 
 {% else %}
 <section class="panel">
