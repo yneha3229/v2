@@ -1,0 +1,138 @@
+{
+ "endpoint": "/person/enrich",
+ "request": {
+  "professional_network_profile_urls": [
+   "https://www.linkedin.com/in/karrisaarinen"
+  ],
+  "fields": [
+   "basic_profile",
+   "experience",
+   "social_handles"
+  ]
+ },
+ "status": 200,
+ "credits_used": "1",
+ "body": [
+  {
+   "matched_on": "https://www.linkedin.com/in/karrisaarinen",
+   "match_type": "professional_network_profile_url",
+   "match_status": "matched",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "person_data": {
+      "basic_profile": {
+       "current_title": "CEO, Cofounder",
+       "name": "Karri Saarinen"
+      },
+      "experience": {
+       "employment_details": {
+        "current": [
+         {
+          "crustdata_company_id": 633791,
+          "end_date": null,
+          "name": "Linear",
+          "start_date": "2019-04-01T00:00:00+00:00",
+          "title": "CEO, Cofounder"
+         }
+        ],
+        "past": [
+         {
+          "crustdata_company_id": 631480,
+          "end_date": "2019-04-01T00:00:00+00:00",
+          "name": "Airbnb",
+          "start_date": "2015-10-01T00:00:00+00:00",
+          "title": "Principal Designer"
+         },
+         {
+          "crustdata_company_id": 629262,
+          "end_date": "2015-06-01T00:00:00+00:00",
+          "name": "Coinbase",
+          "start_date": "2014-05-01T00:00:00+00:00",
+          "title": "Head of Design"
+         },
+         {
+          "crustdata_company_id": 4270757,
+          "end_date": "2014-05-01T00:00:00+00:00",
+          "name": "Kippt",
+          "start_date": "2011-10-01T00:00:00+00:00",
+          "title": "Co-Founder, Designer"
+         },
+         {
+          "crustdata_company_id": null,
+          "end_date": "2013-08-01T00:00:00+00:00",
+          "name": "Rails Girls",
+          "start_date": "2011-08-01T00:00:00+00:00",
+          "title": "Co-Founder"
+         },
+         {
+          "crustdata_company_id": 1111141,
+          "end_date": "2012-12-01T00:00:00+00:00",
+          "name": "ArcticStartup",
+          "start_date": "2008-09-01T00:00:00+00:00",
+          "title": "Co-Founder"
+         },
+         {
+          "crustdata_company_id": 4270758,
+          "end_date": "2011-12-01T00:00:00+00:00",
+          "name": "Grey Area",
+          "start_date": "2011-03-01T00:00:00+00:00",
+          "title": "Web Product Lead, Design"
+         },
+         {
+          "crustdata_company_id": 3324635,
+          "end_date": "2011-08-01T00:00:00+00:00",
+          "name": "Assembly Organizing",
+          "start_date": "2006-08-01T00:00:00+00:00",
+          "title": "Web Lead"
+         },
+         {
+          "crustdata_company_id": 2492596,
+          "end_date": "2011-07-01T00:00:00+00:00",
+          "name": "Kisko Labs",
+          "start_date": "2010-08-01T00:00:00+00:00",
+          "title": "Partner, Designer"
+         },
+         {
+          "crustdata_company_id": 3526027,
+          "end_date": "2010-08-01T00:00:00+00:00",
+          "name": "Flowdock",
+          "start_date": "2009-05-01T00:00:00+00:00",
+          "title": "Business Developer, Product Design"
+         },
+         {
+          "crustdata_company_id": 964251,
+          "end_date": "2008-08-01T00:00:00+00:00",
+          "name": "Crasman",
+          "start_date": "2008-01-01T00:00:00+00:00",
+          "title": "Web Developer & Designer"
+         },
+         {
+          "crustdata_company_id": 1183716,
+          "end_date": "2008-01-01T00:00:00+00:00",
+          "name": "Puolustusvoimat - Försvarsmakten - Finnish Defence Forces",
+          "start_date": "2007-07-01T00:00:00+00:00",
+          "title": "Team Leader, Web Developer"
+         },
+         {
+          "crustdata_company_id": 6594655,
+          "end_date": "2007-08-01T00:00:00+00:00",
+          "name": "Graftor Media Production Oy",
+          "start_date": "2005-06-01T00:00:00+00:00",
+          "title": "Web Developer"
+         }
+        ]
+       }
+      },
+      "social_handles": {
+       "professional_network_identifier": {
+        "profile_url": "https://www.linkedin.com/in/karrisaarinen"
+       }
+      },
+      "crustdata_person_id": 53007
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -51,6 +51,8 @@ materiality (round amount and lead, then founder roles, then totals and prior ro
 rest). If the user message gives a lower SELECTION CAP, mark at most that many. Every claim you
 do not select needs an exclusion_reason. Never pad the selection.
 
+Field contract: for led_round and participated_in_round, `object` is the investor and `subject` is the company or round; for holds_title, `subject` is the person and `title_text` the title; for previously_worked_at, `object` lists the employers as written.
+
 Think the problem through before you answer."""
 
 SYSTEM_ASSESS = """\

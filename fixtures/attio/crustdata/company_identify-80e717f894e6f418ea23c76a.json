@@ -1,0 +1,370 @@
+{
+ "endpoint": "/company/identify",
+ "request": {
+  "names": [
+   "GV (Google Ventures)"
+  ]
+ },
+ "status": 200,
+ "credits_used": "0",
+ "body": [
+  {
+   "matched_on": "GV (Google Ventures)",
+   "match_type": "name",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 1220936,
+      "basic_info": {
+       "name": "GV (Google Ventures)",
+       "crustdata_company_id": 1220936,
+       "primary_domain": "gv.com",
+       "all_domains": [
+        "gv.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 4926893,
+      "basic_info": {
+       "name": "Google",
+       "crustdata_company_id": 4926893,
+       "primary_domain": "google.com",
+       "all_domains": [
+        "blog.google",
+        "grow.google",
+        "goo.gle",
+        "android.com",
+        "google.com",
+        "google.dev",
+        "publicsector.google"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1034291,
+      "basic_info": {
+       "name": "Google DeepMind",
+       "crustdata_company_id": 1034291,
+       "primary_domain": "deepmind.google",
+       "all_domains": [
+        "deepmind.google"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 2087945,
+      "basic_info": {
+       "name": "Google Ads (Google Partner)",
+       "crustdata_company_id": 2087945,
+       "primary_domain": "google.com",
+       "all_domains": [
+        "google.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1152231,
+      "basic_info": {
+       "name": "Google Play",
+       "crustdata_company_id": 1152231,
+       "primary_domain": "google.com",
+       "all_domains": [
+        "google.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1383629,
+      "basic_info": {
+       "name": "Google for Startups",
+       "crustdata_company_id": 1383629,
+       "primary_domain": "google.com",
+       "all_domains": [
+        "google.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1217533,
+      "basic_info": {
+       "name": "Google Developers Group",
+       "crustdata_company_id": 1217533,
+       "primary_domain": "google.com",
+       "all_domains": [
+        "google.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1909203,
+      "basic_info": {
+       "name": "Google Developer Experts",
+       "crustdata_company_id": 1909203,
+       "primary_domain": "google.com",
+       "all_domains": [
+        "google.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1052068,
+      "basic_info": {
+       "name": "Google Operations Center",
+       "crustdata_company_id": 1052068,
+       "primary_domain": "googleoperationscenter.com",
+       "all_domains": [
+        "googleoperationscenter.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 6434044,
+      "basic_info": {
+       "name": "Google España",
+       "crustdata_company_id": 6434044,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 17084521,
+      "basic_info": {
+       "name": "Google Student Ambassadors (India)",
+       "crustdata_company_id": 17084521,
+       "primary_domain": "aiskillshouse.com",
+       "all_domains": [
+        "aiskillshouse.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 904760,
+      "basic_info": {
+       "name": "Fitbit (now part of Google)",
+       "crustdata_company_id": 904760,
+       "primary_domain": "fitbit.com",
+       "all_domains": [
+        "healthapp.google",
+        "fitbit.google",
+        "fitbit.com",
+        "google.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1313423,
+      "basic_info": {
+       "name": "Mandiant (part of Google Cloud)",
+       "crustdata_company_id": 1313423,
+       "primary_domain": "google.com",
+       "all_domains": [
+        "google.com",
+        "presale1.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 4717698,
+      "basic_info": {
+       "name": "GV",
+       "crustdata_company_id": 4717698,
+       "primary_domain": "grupovelten.com.br",
+       "all_domains": [
+        "grupovelten.com.br"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 6434045,
+      "basic_info": {
+       "name": "Google Digital Garage",
+       "crustdata_company_id": 6434045,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 32474167,
+      "basic_info": {
+       "name": "Google Student Ambassador",
+       "crustdata_company_id": 32474167,
+       "primary_domain": "geministudentambassador.com",
+       "all_domains": [
+        "geministudentambassador.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 2089399,
+      "basic_info": {
+       "name": "Google Cloud Security",
+       "crustdata_company_id": 2089399,
+       "primary_domain": "google.com",
+       "all_domains": [
+        "google.com",
+        "presale1.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1037553,
+      "basic_info": {
+       "name": "Google Summer of Code",
+       "crustdata_company_id": 1037553,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 6250696,
+      "basic_info": {
+       "name": "Bangkit led by Google, Goto, and Traveloka",
+       "crustdata_company_id": 6250696,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 9269383,
+      "basic_info": {
+       "name": "Unimed GV",
+       "crustdata_company_id": 9269383,
+       "primary_domain": "unimed.coop.br",
+       "all_domains": [
+        "unimed.coop.br"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1108601,
+      "basic_info": {
+       "name": "Google SEO (Page 1 Google)",
+       "crustdata_company_id": 1108601,
+       "primary_domain": "page1google.co.uk",
+       "all_domains": [
+        "page1google.co.uk"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1940845,
+      "basic_info": {
+       "name": "Google Developer Student Clubs",
+       "crustdata_company_id": 1940845,
+       "primary_domain": "google.com",
+       "all_domains": [
+        "google.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1910652,
+      "basic_info": {
+       "name": "Devoteam | Google Cloud Partner",
+       "crustdata_company_id": 1910652,
+       "primary_domain": "devoteam.com",
+       "all_domains": [
+        "devoteam.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1056299,
+      "basic_info": {
+       "name": "Google Crowdsource",
+       "crustdata_company_id": 1056299,
+       "primary_domain": "googlecrowdsource.com",
+       "all_domains": [
+        "crowdsourcecommunity.com",
+        "googlecrowdsource.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 18659483,
+      "basic_info": {
+       "name": "GV",
+       "crustdata_company_id": 18659483,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

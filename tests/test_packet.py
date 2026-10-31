@@ -27,9 +27,15 @@ def koah_record() -> dict:
     return graph.company_record(json.loads(Path(path).read_text(encoding="utf-8"))["body"])
 
 
-def fixture_body(name: str, prefix: str):
-    path = glob.glob(str(FIX / name / "crustdata" / f"{prefix}-*.json"))[0]
-    return json.loads(Path(path).read_text(encoding="utf-8"))["body"]
+def fixture_body(name: str, prefix: str, url: str = ""):
+    """The body of the fixture whose request names `url` (or the only/first one), so
+    adding fixtures never changes which recording a test reads."""
+    paths = sorted(glob.glob(str(FIX / name / "crustdata" / f"{prefix}-*.json")))
+    for path in paths:
+        rec = json.loads(Path(path).read_text(encoding="utf-8"))
+        if not url or url in json.dumps(rec.get("request")):
+            return rec["body"]
+    raise LookupError(f"no {prefix} fixture for {name} requesting {url!r}")
 
 
 # ---- dates: HTML metadata, JSON-LD, visible text (§5.3) ---------------------------
@@ -91,7 +97,8 @@ def test_time_element_labels():
 
 def test_real_attio_series_b_page_dates():
     """Recorded REST Web Fetch of attio.com/blog/attio-raises-52m-series-b (raw HTML)."""
-    items = {i["url"]: i for i in fixture_body("attio", "web_enrich_live")}
+    url = "https://attio.com/blog/attio-raises-52m-series-b"
+    items = {i["url"]: i for i in fixture_body("attio", "web_enrich_live", url)}
     page = packet.extract_text(items["https://attio.com/blog/attio-raises-52m-series-b"]["content"])
     assert page.published == "2025-08-26"   # labeled <time datetime>, visible "Aug '25"
     assert page.updated == "2026-08-04"     # visible "Updated Aug '26"; never re-dates

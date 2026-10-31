@@ -1,0 +1,67 @@
+{
+ "endpoint": "/person/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "experience.employment_details.current.company_id",
+     "type": "=",
+     "value": 664000
+    },
+    {
+     "op": "or",
+     "conditions": [
+      {
+       "field": "experience.employment_details.current.title",
+       "type": "(.)",
+       "value": "founder"
+      },
+      {
+       "field": "experience.employment_details.current.title",
+       "type": "(.)",
+       "value": "cofounder"
+      }
+     ]
+    }
+   ]
+  },
+  "fields": [
+   "crustdata_person_id",
+   "basic_profile",
+   "social_handles"
+  ],
+  "limit": 10
+ },
+ "status": 200,
+ "credits_used": "0.26",
+ "body": {
+  "profiles": [
+   {
+    "crustdata_person_id": 34147,
+    "basic_profile": {
+     "current_title": "Co-Founder and CEO",
+     "name": "Nicolas Sharp"
+    },
+    "social_handles": {
+     "professional_network_identifier": {
+      "profile_url": "https://www.linkedin.com/in/nicolas-sharp-a92726b1"
+     }
+    }
+   },
+   {
+    "crustdata_person_id": 34148,
+    "basic_profile": {
+     "current_title": "Co-Founder & CTO",
+     "name": "Alexander Christie"
+    },
+    "social_handles": {
+     "professional_network_identifier": {
+      "profile_url": "https://www.linkedin.com/in/alexander-christie-a42112a7"
+     }
+    }
+   }
+  ],
+  "total_count": 2
+ }
+}

@@ -1,0 +1,79 @@
+{
+ "endpoint": "/person/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "experience.employment_details.current.company_id",
+     "type": "=",
+     "value": 3718859
+    },
+    {
+     "op": "or",
+     "conditions": [
+      {
+       "field": "experience.employment_details.current.title",
+       "type": "(.)",
+       "value": "founder"
+      },
+      {
+       "field": "experience.employment_details.current.title",
+       "type": "(.)",
+       "value": "cofounder"
+      }
+     ]
+    }
+   ]
+  },
+  "fields": [
+   "crustdata_person_id",
+   "basic_profile",
+   "social_handles"
+  ],
+  "limit": 10
+ },
+ "status": 200,
+ "credits_used": "0.39",
+ "body": {
+  "profiles": [
+   {
+    "crustdata_person_id": 2739857,
+    "basic_profile": {
+     "current_title": "Co-Founder",
+     "name": "Mike Choi"
+    },
+    "social_handles": {
+     "professional_network_identifier": {
+      "profile_url": "https://www.linkedin.com/in/mikejschoi"
+     }
+    }
+   },
+   {
+    "crustdata_person_id": 28232995,
+    "basic_profile": {
+     "current_title": "Co-Founder",
+     "name": "Herrick Fang"
+    },
+    "social_handles": {
+     "professional_network_identifier": {
+      "profile_url": "https://www.linkedin.com/in/herrickfang"
+     }
+    }
+   },
+   {
+    "crustdata_person_id": 28237678,
+    "basic_profile": {
+     "current_title": "Co-Founder",
+     "name": "Nic Baird"
+    },
+    "social_handles": {
+     "professional_network_identifier": {
+      "profile_url": "https://www.linkedin.com/in/nicbaird"
+     }
+    }
+   }
+  ],
+  "total_count": 3
+ }
+}
