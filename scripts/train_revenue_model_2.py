@@ -35,6 +35,11 @@ from proofroom import revenue_model as rm  # noqa: E402
 from proofroom import revenue_model_2 as rm2  # noqa: E402
 from proofroom.crustdata import CACHED, FIXTURE, Crustdata, cache_key, sum_credits  # noqa: E402
 from proofroom.errors import CrustError  # noqa: E402
+from proofroom import crustdata as _cd  # noqa: E402
+
+# Social Post Search is documented at 30 rpm; crustdata.RPM has no entry for it (default 10).
+# Set in-process only, below the documented limit.
+_cd.RPM.setdefault(rm2.POSTS_ENDPOINT, 25)
 
 PER_STRATUM = 16
 BUDGET = 450.0          # task cap on Crustdata credits (all calls in this task)
