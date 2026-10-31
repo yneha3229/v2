@@ -1,0 +1,1 @@
+{"endpoint": "/social_post/search", "request": {"filters": {"op": "and", "conditions": [{"field": "mentions.company_id", "type": "in", "value": [631990]}, {"field": "actor.actor_type", "type": "=", "value": "person"}]}, "limit": 0}, "status": 200, "credits_used": "0", "body": {"posts": [], "next_cursor": null, "total_count": 3680}}
