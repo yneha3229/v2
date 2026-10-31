@@ -1,0 +1,34 @@
+{
+ "checks": [
+  {
+   "claim_id": "C1",
+   "entailed": true,
+   "missing_qualifier": "",
+   "unsupported_fragment": ""
+  },
+  {
+   "claim_id": "C2",
+   "entailed": true,
+   "missing_qualifier": "",
+   "unsupported_fragment": ""
+  },
+  {
+   "claim_id": "C3",
+   "entailed": true,
+   "missing_qualifier": "",
+   "unsupported_fragment": ""
+  },
+  {
+   "claim_id": "C4",
+   "entailed": true,
+   "missing_qualifier": "",
+   "unsupported_fragment": ""
+  },
+  {
+   "claim_id": "C5",
+   "entailed": true,
+   "missing_qualifier": "",
+   "unsupported_fragment": ""
+  }
+ ]
+}

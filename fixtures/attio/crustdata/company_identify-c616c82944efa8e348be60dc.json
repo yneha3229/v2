@@ -1,0 +1,388 @@
+{
+ "endpoint": "/company/identify",
+ "request": {
+  "names": [
+   "Attio's Series B"
+  ]
+ },
+ "status": 200,
+ "credits_used": "0",
+ "body": [
+  {
+   "matched_on": "Attio's Series B",
+   "match_type": "name",
+   "matches": [
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 71036733,
+      "basic_info": {
+       "name": "Shifter(s) Series",
+       "crustdata_company_id": 71036733,
+       "primary_domain": "theshiftstudios.co",
+       "all_domains": [
+        "theshiftstudios.co"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 68548734,
+      "basic_info": {
+       "name": "S-Series OTT",
+       "crustdata_company_id": 68548734,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 24410860,
+      "basic_info": {
+       "name": "S-Series Solutions, LLC",
+       "crustdata_company_id": 24410860,
+       "primary_domain": "sseriessolutions.com",
+       "all_domains": [
+        "sseriessolutions.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 664000,
+      "basic_info": {
+       "name": "Attio",
+       "crustdata_company_id": 664000,
+       "primary_domain": "attio.com",
+       "all_domains": [
+        "attio.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 2670889,
+      "basic_info": {
+       "name": "T-Series",
+       "crustdata_company_id": 2670889,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 6131683,
+      "basic_info": {
+       "name": "S-ryhmä / S Group",
+       "crustdata_company_id": 6131683,
+       "primary_domain": "s-ryhma.fi",
+       "all_domains": [
+        "s-ryhma.fi"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 899055,
+      "basic_info": {
+       "name": "ISS A/S",
+       "crustdata_company_id": 899055,
+       "primary_domain": "issworld.com",
+       "all_domains": [
+        "issworld.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 2119995,
+      "basic_info": {
+       "name": "Grendene S/A",
+       "crustdata_company_id": 2119995,
+       "primary_domain": "grendene.com.br",
+       "all_domains": [
+        "grendene.com.br"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 681210,
+      "basic_info": {
+       "name": "S&P Global",
+       "crustdata_company_id": 681210,
+       "primary_domain": "spglobal.com",
+       "all_domains": [
+        "spglobal.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 6120882,
+      "basic_info": {
+       "name": "Sotreq S/A",
+       "crustdata_company_id": 6120882,
+       "primary_domain": "sotreq.com.br",
+       "all_domains": [
+        "sotreqseminovos.com.br",
+        "sotreq.com.br"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1265750,
+      "basic_info": {
+       "name": "3 Corações S/A",
+       "crustdata_company_id": 1265750,
+       "primary_domain": "cafe3coracoes.com.br",
+       "all_domains": [
+        "pimpinela.com.br",
+        "cafe3coracoes.com.br",
+        "3coracoes.com.br"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 67132412,
+      "basic_info": {
+       "name": "S-Series Events and Entertainment",
+       "crustdata_company_id": 67132412,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1914,
+      "basic_info": {
+       "name": "HDFC Bank",
+       "crustdata_company_id": 1914,
+       "primary_domain": "hdfc.bank.in",
+       "all_domains": [
+        "hdfc.com",
+        "hdfc.bank.in",
+        "hdfcbank.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 2041,
+      "basic_info": {
+       "name": "ICICI Bank",
+       "crustdata_company_id": 2041,
+       "primary_domain": "icici.bank.in",
+       "all_domains": [
+        "icici.bank.in",
+        "icicibank.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 4316,
+      "basic_info": {
+       "name": "State Bank of India",
+       "crustdata_company_id": 4316,
+       "primary_domain": "sbi.bank.in",
+       "all_domains": [
+        "onlinesbi.sbi",
+        "bank.sbi",
+        "sbi.bank.in"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 680986,
+      "basic_info": {
+       "name": "Bank of America",
+       "crustdata_company_id": 680986,
+       "primary_domain": "bankofamerica.com",
+       "all_domains": [
+        "bankofamerica.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 681038,
+      "basic_info": {
+       "name": "Boeing",
+       "crustdata_company_id": 681038,
+       "primary_domain": "boeing.com",
+       "all_domains": [
+        "boeing.com",
+        "bia-boeing.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1043605,
+      "basic_info": {
+       "name": "BBVA",
+       "crustdata_company_id": 1043605,
+       "primary_domain": "bbva.com",
+       "all_domains": [
+        "bbva.com",
+        "bbva.ch"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1060132,
+      "basic_info": {
+       "name": "BNP Paribas",
+       "crustdata_company_id": 1060132,
+       "primary_domain": "mabanque.bnpparibas",
+       "all_domains": [
+        "bnpparibas.de",
+        "group.bnpparibas",
+        "mabanque.bnpparibas",
+        "bnpp.lk",
+        "bnpparibas.com",
+        "bnpparibas.nl",
+        "bnpparibas.co.uk",
+        "urlshortener.bnpparibas"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1115186,
+      "basic_info": {
+       "name": "Bosch",
+       "crustdata_company_id": 1115186,
+       "primary_domain": "bosch.com",
+       "all_domains": [
+        "bosch.sk",
+        "bosch-origify.com",
+        "bosch.com.tw",
+        "bosch.de",
+        "bosch.com",
+        "bosch-kazakhstan.com",
+        "bosch-mobility.com",
+        "bosch.ua",
+        "bosch.lk"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 6035783,
+      "basic_info": {
+       "name": "Axis Bank",
+       "crustdata_company_id": 6035783,
+       "primary_domain": "axis.bank.in",
+       "all_domains": [
+        "axis.bank.in",
+        "axisbank.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1224870,
+      "basic_info": {
+       "name": "S&S Activewear",
+       "crustdata_company_id": 1224870,
+       "primary_domain": "ssactivewear.com",
+       "all_domains": [
+        "ssactivewear.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1121343,
+      "basic_info": {
+       "name": "B&S",
+       "crustdata_company_id": 1121343,
+       "primary_domain": "bs-international.com",
+       "all_domains": [
+        "bs-international.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 3421342,
+      "basic_info": {
+       "name": "Bob ́s",
+       "crustdata_company_id": 3421342,
+       "primary_domain": "bobs.com.br",
+       "all_domains": [
+        "bobs.com.br"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1306640,
+      "basic_info": {
+       "name": "S&B",
+       "crustdata_company_id": 1306640,
+       "primary_domain": "sbec.com",
+       "all_domains": [
+        "sbec.com"
+       ]
+      }
+     }
+    }
+   ]
+  }
+ ]
+}
