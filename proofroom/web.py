@@ -689,3 +689,44 @@ async def run_report(case_id: str, n: int) -> HTMLResponse:
 @app.get("/healthz")
 async def healthz() -> dict:
     return {"ok": True}
+
+
+# ---- demo dashboard (/demo) ---------------------------------------------------------
+
+@app.get("/demo", response_class=HTMLResponse)
+async def demo_page() -> HTMLResponse:
+    return HTMLResponse((HERE / "static" / "demo.html").read_text())
+
+
+@app.get("/api/demo/search")
+async def demo_search(q: str = "") -> JSONResponse:
+    from proofroom import demo
+    hits = demo.search_known(q)
+    if len(q.strip()) >= 3 and not hits:
+        try:
+            hits = await demo.identify(q)
+        except Exception as e:  # noqa: BLE001 - search must not crash the page
+            log.warning("demo identify failed: %s", e)
+    return JSONResponse({"results": hits})
+
+
+@app.get("/api/demo/analyze")
+async def demo_analyze(domain: str, cid: int | None = None) -> JSONResponse:
+    from proofroom import demo
+    try:
+        return JSONResponse(await demo.analyze(domain, cid))
+    except Exception as e:  # noqa: BLE001 - shown to the user as a friendly error
+        log.exception("demo analyze failed")
+        return JSONResponse({"error": f"{type(e).__name__}: {e}"[:300]}, status_code=500)
+
+
+@app.post("/api/demo/report")
+async def demo_report(domain: str):
+    from fastapi.responses import FileResponse
+    from proofroom import demo
+    try:
+        p = await demo.report_pdf(domain)
+    except Exception as e:  # noqa: BLE001
+        log.exception("demo report failed")
+        return JSONResponse({"error": f"{type(e).__name__}: {e}"[:300]}, status_code=500)
+    return FileResponse(p, media_type="application/pdf", filename=p.name)

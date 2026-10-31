@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proofroom Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--bg:#070b16;--panel:#0f1629;--panel2:#141d35;--line:#22305a;--ink:#eef2ff;--ink2:#a9b4d6;--muted:#6e7aa3;
+--blue:#4f8cff;--cyan:#22d3ee;--violet:#8b5cf6;--green:#22c55e;--amber:#f5b301;--orange:#fb923c;--red:#ef4444}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 10% -10%,#1b2a6b55,transparent),radial-gradient(900px 500px at 100% 0%,#5b21b633,transparent),var(--bg);
+color:var(--ink);font-family:Inter,system-ui,sans-serif;min-height:100vh}
+a{color:var(--cyan)}
+.top{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;border-bottom:1px solid #ffffff10;position:sticky;top:0;
+backdrop-filter:blur(10px);background:#070b16cc;z-index:20}
+.brand{font-weight:900;letter-spacing:.5px;font-size:18px}.brand span{background:linear-gradient(90deg,var(--blue),var(--cyan));-webkit-background-clip:text;color:transparent}
+.btn{border:1px solid var(--line);background:linear-gradient(180deg,#1a2547,#121a33);color:var(--ink);padding:10px 16px;border-radius:12px;font-weight:600;cursor:pointer;font-size:14px}
+.btn:hover{border-color:var(--blue)}.btn.primary{background:linear-gradient(90deg,var(--blue),var(--violet));border:0}
+.btn:disabled{opacity:.6;cursor:wait}
+.hero{max-width:880px;margin:0 auto;padding:110px 20px 40px;text-align:center}
+.hero h1{font-size:54px;line-height:1.05;margin:0 0 14px;font-weight:900;letter-spacing:-1.5px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--violet));-webkit-background-clip:text;color:transparent}
+.hero p{color:var(--ink2);font-size:18px;margin:0 0 34px}
+.search{position:relative;max-width:640px;margin:0 auto}
+.search input{width:100%;padding:20px 22px 20px 54px;font-size:19px;border-radius:18px;border:1px solid var(--line);background:#0c1326;color:var(--ink);outline:none;
+box-shadow:0 0 0 0 #4f8cff55;transition:.2s}
+.search input:focus{border-color:var(--blue);box-shadow:0 0 0 6px #4f8cff22}
+.search svg{position:absolute;left:20px;top:22px;opacity:.6}
+.sugg{position:absolute;left:0;right:0;top:70px;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:left;display:none;z-index:5}
+.sugg div{padding:12px 18px;cursor:pointer;display:flex;justify-content:space-between}.sugg div:hover{background:var(--panel2)}
+.tag{font-size:11px;padding:3px 8px;border-radius:99px;background:#22d3ee22;color:var(--cyan);font-weight:600}
+.tag.live{background:#f5b30122;color:var(--amber)}
+.chips{margin-top:18px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.chip{padding:7px 12px;border-radius:99px;border:1px solid var(--line);color:var(--ink2);cursor:pointer;font-size:13px}.chip:hover{color:var(--ink);border-color:var(--blue)}
+.loading{max-width:520px;margin:90px auto;text-align:center;display:none}
+.ring{width:90px;height:90px;border-radius:50%;margin:0 auto 26px;border:4px solid #ffffff12;border-top-color:var(--cyan);border-right-color:var(--violet);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.steps div{color:var(--muted);padding:6px;font-size:15px;transition:.3s}.steps div.on{color:var(--ink)}.steps div.done{color:var(--green)}
+.app{max-width:1240px;margin:0 auto;padding:24px 24px 80px;display:none}
+.head{display:flex;gap:20px;align-items:center;margin-bottom:22px}
+.logo{width:74px;height:74px;border-radius:18px;background:linear-gradient(135deg,var(--blue),var(--violet));display:grid;place-items:center;font-size:32px;font-weight:900;overflow:hidden;flex:none}
+.logo img{width:100%;height:100%;object-fit:cover;background:#fff}
+.head h2{margin:0;font-size:34px;font-weight:900;letter-spacing:-.8px}.head .sub{color:var(--ink2);font-size:14px;margin-top:4px}
+.mode{margin-left:auto;text-align:right;font-size:12px;color:var(--muted)}
+.grid{display:grid;gap:16px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:1fr 1fr}
+@media(max-width:900px){.g4,.g3,.g2{grid-template-columns:1fr}.hero h1{font-size:38px}}
+.card{background:linear-gradient(180deg,#121a31,#0d1428);border:1px solid #ffffff12;border-radius:20px;padding:20px;position:relative;overflow:hidden}
+.card h3{margin:0 0 12px;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);font-weight:700}
+.verdict{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:900px){.verdict{grid-template-columns:1fr}}
+.rating{font-size:38px;font-weight:900;letter-spacing:-1px;padding:6px 18px;border-radius:14px;display:inline-block}
+.r-INVEST{background:#22c55e22;color:var(--green);box-shadow:0 0 40px #22c55e33}.r-ACCUMULATE{background:#f5b30122;color:var(--amber);box-shadow:0 0 40px #f5b30133}
+.r-HOLD{background:#fb923c22;color:var(--orange)}.r-AVOID{background:#ef444422;color:var(--red)}
+.big{font-size:44px;font-weight:900;letter-spacing:-1.2px}.bigsub{color:var(--ink2);font-size:13px;margin-top:4px}
+.kpi .v{font-size:32px;font-weight:800;letter-spacing:-.6px}.kpi .d{font-size:13px;margin-top:4px}
+.up{color:var(--green)}.down{color:var(--red)}.flat{color:var(--ink2)}
+.how{position:absolute;top:14px;right:14px;font-size:12px;color:var(--cyan);cursor:pointer;border:1px solid #22d3ee44;padding:4px 9px;border-radius:99px;background:#22d3ee11}
+.how:hover{background:#22d3ee22}
+.tabs{display:flex;gap:6px;margin:26px 0 18px;border-bottom:1px solid #ffffff12;overflow-x:auto}
+.tab{padding:12px 16px;cursor:pointer;color:var(--ink2);font-weight:600;border-bottom:2px solid transparent;white-space:nowrap}
+.tab.on{color:var(--ink);border-bottom-color:var(--cyan)}
+.pane{display:none;animation:fade .35s}.pane.on{display:block}@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+ul.clean{list-style:none;padding:0;margin:0}ul.clean li{padding:8px 0;border-bottom:1px solid #ffffff0d;font-size:14px;color:var(--ink2)}
+ul.clean li b{color:var(--ink)}
+.pill{display:inline-block;font-size:12px;padding:3px 9px;border-radius:99px;background:#4f8cff22;color:#9cc0ff;margin:2px 4px 2px 0;font-weight:600}
+.pill.gold{background:#f5b30122;color:var(--amber)}
+table{width:100%;border-collapse:collapse;font-size:14px}th{text-align:left;color:var(--muted);font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:8px;border-bottom:1px solid var(--line)}
+td{padding:9px 8px;border-bottom:1px solid #ffffff0b;color:var(--ink2)}td b{color:var(--ink)}td.n{text-align:right;font-variant-numeric:tabular-nums}
+.flag{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #ffffff0d}.dot{width:10px;height:10px;border-radius:50%;margin-top:6px;flex:none}
+.critical{background:var(--red);box-shadow:0 0 10px var(--red)}.red{background:var(--orange)}.amber{background:var(--amber)}.green{background:var(--green)}
+.res{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px}.res.flagged{background:#ef444422;color:var(--red)}.res.clear{background:#22c55e22;color:var(--green)}.res.not{background:#ffffff10;color:var(--muted)}
+.bar{height:10px;border-radius:99px;background:#ffffff10;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:99px;transition:width 1.2s}
+.pil{display:grid;grid-template-columns:120px 1fr 44px;gap:10px;align-items:center;margin:10px 0;font-size:14px}
+.modal{position:fixed;inset:0;background:#000a;display:none;z-index:50;align-items:center;justify-content:center;padding:20px}
+.modal .box{background:var(--panel);border:1px solid var(--line);border-radius:22px;max-width:860px;width:100%;max-height:88vh;overflow:auto;padding:26px;animation:fade .25s}
+.modal h2{margin:0 0 6px}.modal .x{float:right;cursor:pointer;color:var(--muted);font-size:22px}
+.step{display:flex;gap:14px;margin:14px 0}.step .n{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--violet));display:grid;place-items:center;font-weight:800;flex:none}
+.step p{margin:2px 0;color:var(--ink2);font-size:14px}
+.muted{color:var(--muted)}.small{font-size:12px}
+.toast{position:fixed;bottom:22px;right:22px;background:var(--panel);border:1px solid var(--line);padding:14px 18px;border-radius:14px;display:none;z-index:60}
+canvas{max-width:100%}
+.disc{color:var(--muted);font-size:12px;margin-top:30px;text-align:center}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="brand" onclick="home()" style="cursor:pointer">PROOF<span>ROOM</span> <span style="font-weight:500;color:var(--muted);-webkit-text-fill-color:var(--muted)">· signals</span></div>
+  <div style="display:flex;gap:10px">
+    <button class="btn" id="newBtn" onclick="home()" style="display:none">New search</button>
+    <button class="btn primary" id="dlBtn" onclick="downloadReport()" style="display:none">⬇ Download report (PDF)</button>
+  </div>
+</div>
+
+<section class="hero" id="hero">
+  <h1>Should you invest?<br><em>Ask the evidence.</em></h1>
+  <p>Type a startup. Proofroom reads its team, growth, money and market from Crustdata's graph, scores it with fixed rules, and shows its work.</p>
+  <div class="search">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+    <input id="q" placeholder="Company name or domain, e.g. TerraStack or linear.app" autocomplete="off">
+    <div class="sugg" id="sugg"></div>
+  </div>
+  <div class="chips" id="chips"></div>
+</section>
+
+<section class="loading" id="loading">
+  <div class="ring"></div>
+  <h2 id="ltitle" style="margin:0 0 18px">Analysing…</h2>
+  <div class="steps" id="steps"></div>
+</section>
+
+<main class="app" id="app"></main>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeM()"><div class="box" id="mbox"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const $=s=>document.querySelector(s);let D=null,charts=[];
+const fmtUSD=v=>v==null?'n/a':v>=1e9?'$'+(v/1e9).toFixed(2)+'B':v>=1e6?'$'+(v/1e6).toFixed(1)+'M':v>=1e3?'$'+(v/1e3).toFixed(0)+'K':'$'+Math.round(v);
+const fmtN=v=>v==null?'n/a':v>=1e6?(v/1e6).toFixed(1)+'M':v>=1e4?(v/1e3).toFixed(0)+'K':v>=1e3?(v/1e3).toFixed(1)+'K':Math.round(v).toLocaleString();
+const pct=v=>v==null?'n/a':(v>0?'+':'')+v.toFixed(0)+'%';
+const cls=v=>v==null?'flat':v>0?'up':v<0?'down':'flat';
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+Chart.defaults.color='#a9b4d6';Chart.defaults.borderColor='#ffffff12';Chart.defaults.font.family='Inter';
+
+async function loadChips(){const r=await fetch('/api/demo/search?q=').then(r=>r.json());
+ $('#chips').innerHTML=r.results.map(c=>`<span class="chip" onclick="go('${c.domain}')">${esc(c.name)}</span>`).join('')}
+let t;$('#q').addEventListener('input',e=>{clearTimeout(t);const q=e.target.value;if(!q.trim()){$('#sugg').style.display='none';return}
+ t=setTimeout(async()=>{$('#sugg').innerHTML='<div class="muted">Searching Crustdata…</div>';$('#sugg').style.display='block';
+ const r=await fetch('/api/demo/search?q='+encodeURIComponent(q)).then(r=>r.json());
+ $('#sugg').innerHTML=r.results.length?r.results.map(c=>`<div onclick="go('${esc(c.domain)}',${c.cid||'null'})"><span><b>${esc(c.name)}</b> <span class="muted">${esc(c.domain)}</span></span><span class="tag ${c.recorded?'':'live'}">${c.recorded?'recorded · instant':'live · ~1 min'}</span></div>`).join(''):'<div class="muted">No match. Try the domain, e.g. acme.com</div>'},350)});
+$('#q').addEventListener('keydown',e=>{if(e.key==='Enter'){const f=$('#sugg div[onclick]');if(f)f.click();else if($('#q').value.includes('.'))go($('#q').value)}});
+
+const STEPS=['Resolving the company in Crustdata','Reading headcount, traffic and followers','Mapping founders, schools and work history','Estimating payroll and revenue','Scanning the market and funded peers','Scoring with fixed rules'];
+async function go(domain,cid){ $('#sugg').style.display='none';$('#hero').style.display='none';$('#app').style.display='none';$('#loading').style.display='block';
+ $('#ltitle').textContent='Analysing '+domain;$('#steps').innerHTML=STEPS.map(s=>`<div>${s}</div>`).join('');
+ const els=[...document.querySelectorAll('#steps div')];let i=0;const iv=setInterval(()=>{if(i>0)els[i-1].className='done';if(i<els.length)els[i].className='on';i=Math.min(i+1,els.length)},450);
+ const t0=Date.now();let res;try{res=await fetch('/api/demo/analyze?domain='+encodeURIComponent(domain)+(cid?'&cid='+cid:'')).then(r=>r.json())}catch(e){res={error:String(e)}}
+ const wait=Math.max(0,2800-(Date.now()-t0));setTimeout(()=>{clearInterval(iv);els.forEach(e=>e.className='done');
+  if(res.error){$('#loading').style.display='none';$('#hero').style.display='block';toast('Could not analyse: '+res.error);return}
+  D=res;render()},wait)}
+function home(){$('#app').style.display='none';$('#loading').style.display='none';$('#hero').style.display='block';$('#dlBtn').style.display='none';$('#newBtn').style.display='none';$('#q').value='';$('#q').focus()}
+function toast(m,ms=4000){const t=$('#toast');t.innerHTML=m;t.style.display='block';clearTimeout(t._t);if(ms)t._t=setTimeout(()=>t.style.display='none',ms)}
+
+function count(el,to,f){const s=performance.now(),d=1300;function step(n){const p=Math.min(1,(n-s)/d),e=1-Math.pow(1-p,3);el.textContent=f(to*e);if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
+
+function render(){charts.forEach(c=>c.destroy());charts=[];const c=D.company,r=D.rec,k=D.kpi,rv=D.revenue,p=D.payroll;
+ $('#loading').style.display='none';$('#app').style.display='block';$('#dlBtn').style.display='inline-block';$('#newBtn').style.display='inline-block';
+ const risk=D.flags.filter(f=>f.level==='critical'||f.level==='red'),greens=D.flags.filter(f=>f.level==='green');
+ const pros=greens.slice(0,3).map(f=>`<li><b>✓ ${esc(f.title)}</b><br>${esc(f.detail)}</li>`).join('')||'<li>No strengths flagged</li>';
+ const cons=risk.concat(D.flags.filter(f=>f.level==='amber')).slice(0,3).map(f=>`<li><b style="color:${f.level==='critical'?'var(--red)':'var(--orange)'}">! ${esc(f.title)}</b><br>${esc(f.detail)}</li>`).join('')||'<li>No risk flags raised</li>';
+ const school=n=>{const s=D.talent.schools.find(x=>x.person===n);return s?`<span class="pill ${s.home?'gold':''}">${esc(s.label)}</span>`:''};
+ $('#app').innerHTML=`
+ <div class="head"><div class="logo">${c.logo?`<img src="${c.logo}">`:esc((c.name||'?')[0])}</div>
+  <div><h2>${esc(c.name)}</h2><div class="sub">${esc(D.domain)} · Founded ${esc(c.founded||'n/a')} · ${esc(c.hq||'')}</div>
+  <div class="sub" style="max-width:720px">${esc((c.description||'').slice(0,220))}${(c.description||'').length>220?'…':''}</div></div>
+  <div class="mode">${esc(D.mode)}<br>as of ${esc(D.as_of)}${D.verified?'<br><span class="up">claims verified</span>':'<br>claims not verified'}</div></div>
+ <div class="verdict">
+  <div class="card"><h3>Signal</h3><span class="how" onclick="howScore()">how is this scored?</span>
+   <div style="display:flex;align-items:center;gap:22px"><div><div class="rating r-${r.rating}">${r.rating}</div>
+   <div class="bigsub" style="margin-top:10px">Confidence: <b>${r.confidence}</b> · ${esc(r.horizon)}</div></div>
+   <canvas id="gauge" width="140" height="96" style="flex:none"></canvas></div>
+   <div style="margin-top:12px;font-size:17px;font-weight:700">${esc(r.headline)}</div></div>
+  <div class="card"><h3>Suggested allocation</h3><div class="big" id="alloc">$0</div><div class="bigsub">of a ${fmtUSD(r.check)} standard check</div>
+   <div class="bar" style="margin-top:16px"><i id="allocbar" style="width:0"></i></div>
+   <div class="bigsub" style="margin-top:14px">Risk flags: <b style="color:${risk.length?'var(--orange)':'var(--green)'}">${risk.length}</b> · strengths: <b class="up">${greens.length}</b></div></div>
+  <div class="card"><h3>Estimated revenue / yr</h3><span class="how" onclick="howRevenue()">how?</span>
+   <div class="big" id="rev" style="background:linear-gradient(90deg,var(--cyan),var(--blue));-webkit-background-clip:text;color:transparent">$0</div>
+   <div class="bigsub">range ${fmtUSD(rv.low_usd)} – ${fmtUSD(rv.high_usd)} · <i>estimated</i></div>
+   <div class="bigsub">${fmtUSD(rv.revenue_per_employee_usd)} per employee</div></div>
+ </div>
+ <div class="grid g4">
+  <div class="card kpi"><h3>Headcount</h3><div class="v" id="k1">0</div><div class="d ${cls(k.headcount_yoy)}">${pct(k.headcount_yoy)} YoY · ${pct(k.headcount_6m)} 6m</div></div>
+  <div class="card kpi"><h3>Web visitors / mo</h3><div class="v" id="k2">0</div><div class="d ${cls(k.web_yoy??k.web_qoq)}">${k.web_yoy!=null?pct(k.web_yoy)+' YoY':pct(k.web_qoq)+' QoQ'}</div></div>
+  <div class="card kpi"><h3>Avg salary (est.)</h3><span class="how" onclick="howSalary()">how?</span><div class="v" id="k3">0</div><div class="d flat">${p.market==='india'&&p.avg?'≈ ₹'+(p.avg*p.inr_per_usd/1e5).toFixed(1)+' lakh / yr':'loaded payroll '+fmtUSD(p.loaded)}</div></div>
+  <div class="card kpi"><h3>Last round</h3><div class="v">${k.months_since_round!=null?Math.round(k.months_since_round)+' mo':'n/a'}</div><div class="d flat">ago · capital ${k.capital?fmtUSD(k.capital):'undisclosed'}</div></div>
+ </div>
+ <div class="tabs">${['Overview','Growth','Team & Talent','Economics','Market','Financing','Flags & Checklist'].map((t,i)=>`<div class="tab ${i?'':'on'}" onclick="tab(${i})">${t}</div>`).join('')}</div>
+ <div class="pane on" id="p0"><div class="grid g3">
+   <div class="card"><h3>Why yes</h3><ul class="clean">${pros}</ul></div>
+   <div class="card"><h3>Why careful</h3><ul class="clean">${cons}</ul></div>
+   <div class="card"><h3>Founders</h3><ul class="clean">${D.founders.map(f=>`<li><b>${esc(f.name)}</b> ${school(f.name)}<br>${esc(f.title)}${f.prior.length?'<br><span class="small">ex '+esc(f.prior.slice(0,3).join(', '))+'</span>':''}</li>`).join('')||'<li>None indexed</li>'}</ul></div></div>
+   <div class="grid g2" style="margin-top:16px"><div class="card"><h3>Score by pillar</h3><span class="how" onclick="howScore()">how?</span><div id="pills"></div></div>
+   <div class="card"><h3>Headcount over time</h3><canvas id="c_hc0" height="170"></canvas></div></div></div>
+ <div class="pane" id="p1"><div class="grid g2">
+   <div class="card"><h3>Headcount</h3><canvas id="c_hc" height="200"></canvas></div>
+   <div class="card"><h3>Website visitors / month</h3><canvas id="c_web" height="200"></canvas></div>
+   <div class="card"><h3>LinkedIn followers</h3><canvas id="c_fo" height="200"></canvas></div>
+   <div class="card"><h3>Growth vs funded peers (headcount YoY)</h3><canvas id="c_peer" height="200"></canvas></div></div></div>
+ <div class="pane" id="p2"><div class="grid g4">
+   <div class="card kpi"><h3>Founders top-tier</h3><div class="v">${D.talent.founders_elite} / ${D.talent.founders_total}</div><div class="d flat">IIT/IIM · Ivy/Stanford/MIT/Oxbridge</div></div>
+   <div class="card kpi"><h3>Indexed staff</h3><div class="v">${fmtN(D.talent.staff_indexed)}</div><div class="d flat">LinkedIn profiles</div></div>
+   <div class="card kpi"><h3>Elite-school alumni</h3><div class="v">${Object.values(D.talent.alumni).reduce((a,b)=>a+b,0)}</div><div class="d flat">IIT alone: ${D.talent.alumni['IIT']||0}</div></div>
+   <div class="card kpi"><h3>Ex-big-tech</h3><div class="v">${D.talent.ex_big_tech??'n/a'}</div><div class="d flat">Google, Microsoft, Amazon…</div></div></div>
+   <div class="grid g2" style="margin-top:16px"><div class="card"><h3>Founders' education</h3><table><tr><th>Founder</th><th>School</th><th>Tier</th></tr>${D.talent.schools.map(s=>`<tr><td><b>${esc(s.person)}</b></td><td>${esc(s.school)}<div class="small muted">${esc(s.degree)}</div></td><td><span class="pill ${s.home?'gold':''}">${esc(s.label)}</span>${s.home?' home market':''}</td></tr>`).join('')||'<tr><td colspan=3 class="muted">No founder from a listed top-tier school</td></tr>'}</table></div>
+   <div class="card"><h3>Where the team comes from</h3><canvas id="c_alum" height="200"></canvas></div></div>
+   <div class="card" style="margin-top:16px"><h3>Team work history (internships included, prestige employers highlighted)</h3><table><tr><th>Person</th><th>Previous roles</th></tr>${D.talent.history.map(h=>`<tr><td><b>${esc(h.name)}</b><div class="small muted">${esc(h.title)}</div></td><td>${h.past.map(x=>`${esc(x.title)} @ ${x.prestige?`<span class="pill gold">${esc(x.company)}</span>`:'<b>'+esc(x.company)+'</b>'}${x.intern?' <span class="small muted">(intern)</span>':''} <span class="small muted">${esc((x.start||'').slice(0,4))}</span>`).join('<br>')||'<span class="muted">none listed</span>'}</td></tr>`).join('')}</table></div></div>
+ <div class="pane" id="p3"><div class="grid g4">
+   <div class="card kpi"><h3>Avg salary</h3><span class="how" onclick="howSalary()">how?</span><div class="v">${fmtUSD(p.avg)}</div><div class="d flat">${p.avg_range?fmtUSD(p.avg_range[0])+' – '+fmtUSD(p.avg_range[1]):''}</div></div>
+   <div class="card kpi"><h3>Payroll / yr</h3><div class="v">${fmtUSD(p.loaded)}</div><div class="d flat">loaded ×${p.overhead}</div></div>
+   <div class="card kpi"><h3>Runway (payroll only)</h3><div class="v">${p.runway_months?Math.round(p.runway_months)+' mo':'n/a'}</div><div class="d flat">on primary capital</div></div>
+   <div class="card kpi"><h3>Same team in SF</h3><div class="v">${fmtUSD(p.sf_equivalent)}</div><div class="d flat">${p.sf_equivalent&&p.loaded?(p.sf_equivalent/p.loaded).toFixed(1)+'× this team’s cost':''}</div></div></div>
+   <div class="grid g2" style="margin-top:16px"><div class="card"><h3>Average salary vs local benchmarks</h3><canvas id="c_pay" height="220"></canvas></div>
+   <div class="card"><h3>Where staff are based</h3><canvas id="c_loc" height="220"></canvas></div>
+   <div class="card"><h3>Role mix</h3><canvas id="c_role" height="220"></canvas></div>
+   <div class="card"><h3>Who it sells to (inferred)</h3><div class="big" style="font-size:30px">${esc(D.customers.model||'unknown')}</div><div style="margin-top:10px">${D.customers.targets.map(t=>`<span class="pill">${esc(t)}</span>`).join('')}</div><div class="small muted" style="margin-top:10px">${esc(D.customers.use_cases.join(' · '))}</div></div></div></div>
+ <div class="pane" id="p4"><div class="grid g4">
+   <div class="card kpi"><h3>Primary category</h3><div class="v" style="font-size:24px">${esc(D.market.primary||'n/a')}</div><div class="d flat">${D.market.categories.filter(x=>x!==D.market.primary).slice(0,4).map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</div></div>
+   <div class="card kpi"><h3>Crowding</h3><div class="v" style="color:${{low:'var(--green)',medium:'var(--amber)',high:'var(--red)'}[D.market.crowding]||'var(--ink2)'}">${esc((D.market.crowding||'').toUpperCase())}</div><div class="d flat">${fmtN(D.market.pool)} companies in category</div></div>
+   <div class="card kpi"><h3>Funded in 24 months</h3><div class="v">${fmtN(D.market.funded_24m)}</div><div class="d flat">peers that raised recently</div></div>
+   <div class="card kpi"><h3>Peer median growth</h3><div class="v">${pct(D.market.median_peer_yoy)}</div><div class="d ${cls(k.headcount_yoy-(D.market.median_peer_yoy||0))}">company ${pct(k.headcount_yoy)}</div></div></div>
+   <div class="card" style="margin-top:16px"><h3>Funded peers (Crustdata taxonomy, ${esc(D.market.category)})</h3><table><tr><th>Company</th><th class="n">Founded</th><th class="n">Headcount</th><th class="n">YoY</th><th class="n">Funding</th><th>Last round</th></tr>${D.market.peers.map(x=>`<tr><td><b>${esc(x.name)}</b><div class="small muted">${esc(x.domain)}</div></td><td class="n">${x.founded||''}</td><td class="n">${fmtN(x.headcount)}</td><td class="n ${cls(x.yoy)}">${pct(x.yoy)}</td><td class="n">${fmtUSD(x.funding)}</td><td>${esc(x.round||'')} <span class="small muted">${esc(x.round_date||'')}</span></td></tr>`).join('')||'<tr><td colspan=6 class="muted">No peers found</td></tr>'}</table></div></div>
+ <div class="pane" id="p5"><div class="grid g2">
+   <div class="card"><h3>Funding rounds</h3><canvas id="c_rounds" height="220"></canvas><table style="margin-top:10px">${D.financing.rounds.map(x=>`<tr><td><b>${esc(x.type)}</b></td><td>${esc(x.date)}</td><td class="n">${x.amount?fmtUSD(x.amount):'undisclosed'}</td><td>${x.secondary?'<span class="pill">secondary</span>':''}</td></tr>`).join('')||'<tr><td class="muted">No dated rounds in the claims record</td></tr>'}</table></div>
+   <div class="card"><h3>Verified claims</h3><ul class="clean">${D.financing.findings.map(f=>`<li><span class="pill">${esc(f.disposition.replace('_',' '))}</span> ${esc(f.sentence)}</li>`).join('')||'<li>No claims check run for this company yet</li>'}</ul>
+   <h3 style="margin-top:18px">Questions for the founders</h3><ul class="clean">${D.financing.questions.map(q=>`<li>${esc(q)}</li>`).join('')||'<li class="muted">None</li>'}</ul></div></div></div>
+ <div class="pane" id="p6"><div class="grid g2">
+   <div class="card"><h3>Flags raised by the rules</h3>${D.flags.map(f=>`<div class="flag"><span class="dot ${f.level}"></span><div><b>${esc(f.title)}</b> <span class="small muted">${esc(f.rule)}</span><div class="small" style="color:var(--ink2)">${esc(f.detail)}</div></div></div>`).join('')}</div>
+   <div class="card"><h3>Red-flag checklist</h3><table>${D.checklist.map(x=>`<tr><td>${esc(x.item)}<div class="small muted">${esc(x.detail)}</div></td><td><span class="res ${x.result==='not checked'?'not':x.result}">${x.result.toUpperCase()}</span></td></tr>`).join('')}</table></div></div></div>
+ <div class="disc">${esc(r.disclaimer)}</div>`;
+ count($('#alloc'),r.suggested,fmtUSD);count($('#rev'),rv.point_usd||0,fmtUSD);count($('#k1'),k.headcount||0,fmtN);count($('#k2'),k.web||0,fmtN);count($('#k3'),p.avg||0,fmtUSD);
+ setTimeout(()=>$('#allocbar').style.width=(r.suggested/r.check*100)+'%',50);
+ $('#pills').innerHTML=D.pillars.map(x=>`<div class="pil"><span>${x.name} <span class="small muted">${Math.round(x.weight*100)}%</span></span><div class="bar"><i style="width:0" data-w="${x.score}"></i></div><b>${Math.round(x.score)}</b></div>`).join('');
+ setTimeout(()=>document.querySelectorAll('#pills i').forEach(i=>i.style.width=i.dataset.w+'%'),80);
+ gauge();drawCharts();window.scrollTo({top:0,behavior:'smooth'})}
+
+function tab(i){document.querySelectorAll('.tab').forEach((t,j)=>t.classList.toggle('on',i===j));document.querySelectorAll('.pane').forEach((p,j)=>p.classList.toggle('on',i===j))}
+function gauge(){const s=D.rec.score,col={INVEST:'#22c55e',ACCUMULATE:'#f5b301',HOLD:'#fb923c',AVOID:'#ef4444'}[D.rec.rating];
+ charts.push(new Chart($('#gauge'),{type:'doughnut',data:{datasets:[{data:[s,100-s],backgroundColor:[col,'#ffffff12'],borderWidth:0,circumference:180,rotation:270,cutout:'78%'}]},
+ options:{responsive:false,plugins:{legend:{display:false},tooltip:{enabled:false}},animation:{duration:1400}},
+ plugins:[{id:'t',afterDraw(c){const x=c.ctx;x.save();x.fillStyle='#eef2ff';x.font='800 30px Inter';x.textAlign='center';x.fillText(Math.round(s),c.width/2,c.height-14);x.font='11px Inter';x.fillStyle='#6e7aa3';x.fillText('score / 100',c.width/2,c.height);x.restore()}}]}))}
+function line(id,pts,color,fill=true){const el=$(id);if(!el||!pts.length)return;const g=el.getContext('2d').createLinearGradient(0,0,0,220);g.addColorStop(0,color+'66');g.addColorStop(1,color+'00');
+ charts.push(new Chart(el,{type:'line',data:{labels:pts.map(p=>p[0]),datasets:[{data:pts.map(p=>p[1]),borderColor:color,backgroundColor:g,fill,tension:.35,pointRadius:0,borderWidth:2.5}]},
+ options:{plugins:{legend:{display:false}},scales:{x:{ticks:{maxTicksLimit:6}},y:{beginAtZero:true}}}}))}
+function hbar(id,labels,vals,colors,fmt=v=>v){const el=$(id);if(!el)return;charts.push(new Chart(el,{type:'bar',data:{labels,datasets:[{data:vals,backgroundColor:colors,borderRadius:6}]},
+ options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.raw)}}},scales:{x:{beginAtZero:true,ticks:{callback:v=>fmt(v)}}}}}))}
+function donut(id,obj){const el=$(id);if(!el)return;const e=Object.entries(obj||{}).sort((a,b)=>b[1]-a[1]).slice(0,7);
+ charts.push(new Chart(el,{type:'doughnut',data:{labels:e.map(x=>x[0]),datasets:[{data:e.map(x=>x[1]),backgroundColor:['#4f8cff','#22d3ee','#8b5cf6','#22c55e','#f5b301','#fb923c','#e879f9'],borderColor:'#0f1629',borderWidth:3}]},
+ options:{plugins:{legend:{position:'right'}},cutout:'62%'}}))}
+function drawCharts(){const S=D.series,p=D.payroll;line('#c_hc0',S.headcount,'#4f8cff');line('#c_hc',S.headcount,'#4f8cff');line('#c_web',S.web_visitors,'#22d3ee');line('#c_fo',S.followers,'#8b5cf6');
+ const peers=[[D.company.name,D.kpi.headcount_yoy]].concat(D.market.peers.map(x=>[x.name,x.yoy])).filter(x=>x[1]!=null);
+ hbar('#c_peer',peers.map(x=>x[0]),peers.map(x=>x[1]),peers.map((x,i)=>i?'#334476':'#22d3ee'),v=>v.toFixed(0)+'%');
+ const al=Object.entries(D.talent.alumni).concat(D.talent.ex_big_tech!=null?[['Ex-big-tech',D.talent.ex_big_tech]]:[]);
+ hbar('#c_alum',al.map(x=>x[0]),al.map(x=>x[1]),al.map(()=>'#8b5cf6'));
+ const india=p.market==='india',conv=v=>india?v*p.inr_per_usd/1e5:v/1e3,f=v=>india?'₹'+v.toFixed(1)+'L':'$'+v.toFixed(0)+'K';
+ const ctx=p.context.map(x=>[x.label,conv(x.usd)]);if(p.avg)ctx.push([D.company.name+' (est.)',conv(p.avg)]);ctx.sort((a,b)=>a[1]-b[1]);
+ hbar('#c_pay',ctx.map(x=>x[0]),ctx.map(x=>x[1]),ctx.map(x=>x[0].includes('(est.)')?'#22d3ee':'#334476'),f);
+ donut('#c_loc',p.by_location);donut('#c_role',p.by_role);
+ const rd=D.financing.rounds.filter(x=>x.amount);if($('#c_rounds')&&rd.length)charts.push(new Chart($('#c_rounds'),{type:'bar',data:{labels:rd.map(x=>x.type+' '+(x.date||'').slice(0,4)),datasets:[{data:rd.map(x=>x.amount),backgroundColor:rd.map(x=>x.secondary?'#334476':'#4f8cff'),borderRadius:6}]},options:{plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>fmtUSD(v)}}}}}))}
+
+function openM(h){$('#mbox').innerHTML='<span class="x" onclick="closeM()">✕</span>'+h;$('#modal').style.display='flex'}
+function closeM(){$('#modal').style.display='none';charts.filter(c=>c._modal).forEach(c=>c.destroy())}
+function howRevenue(){const rv=D.revenue,drv=rv.drivers||[];const base=Math.pow(10,rv.intercept_log10||0);
+ openM(`<h2>How we estimate revenue</h2><p class="muted">Private companies don't publish revenue, so we triangulate. Intuition, not the exact model:</p>
+ <div class="step"><div class="n">1</div><div><b>Start from a typical company</b><p>A regression learned from 126 companies' revenue bands gives a baseline for an average company (${fmtUSD(base)}).</p></div></div>
+ <div class="step"><div class="n">2</div><div><b>Adjust for this company's signals</b><p>Each factor multiplies the baseline up or down: bigger teams, more funding and an older company mean more revenue.</p></div></div>
+ <div style="height:${70+drv.length*40}px"><canvas id="m_drv"></canvas></div>
+ <p class="small muted">Baseline ${fmtUSD(base)} × ${drv.map(d=>d.factor.toFixed(2)).join(' × ')} ≈ ${fmtUSD(base*drv.reduce((a,d)=>a*d.factor,1))} before the corrections below. Green pushes revenue up, red pulls it down.</p>
+ <div class="step"><div class="n">3</div><div><b>Correct with companies that do publish revenue</b><p>Bands lag fast growers (Linear's band says $10–20M; it reports $100M+ ARR), so a bias factor learned leave-one-out from 6 companies with public revenue lifts the estimate. Past the early stage it is blended 50/50 with revenue per employee of comparable scaleups.</p></div></div>
+ <div class="step"><div class="n">4</div><div><b>Guardrails</b><p>Revenue per employee must stay between $20K and $1.5M, and never far above a trusted band. ${esc(rv.reason||'')}</p></div></div>
+ <div style="height:130px"><canvas id="m_rng"></canvas></div>
+ <p class="small muted">Accuracy: median error 14% on the 6 companies with public revenue (all within 2×). Small sample: treat it as a range, not a fact.</p>`);
+ if(drv.length){const c=new Chart($('#m_drv'),{type:'bar',data:{labels:drv.map(d=>d.feature.replace('log_','').replace('_',' ')),datasets:[{data:drv.map(d=>d.factor),backgroundColor:drv.map(d=>d.factor>=1?'#22c55e':'#ef4444'),borderRadius:6}]},
+ options:{maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'× '+c.raw.toFixed(2)}}},scales:{x:{min:0,suggestedMax:2,ticks:{callback:v=>'×'+v}}}}});c._modal=1;charts.push(c)}
+ const b=rv.band_usd||[0,0],c2=new Chart($('#m_rng'),{type:'bar',data:{labels:['Crustdata band','Our estimate'],datasets:[{data:[[b[0],b[1]],[rv.low_usd,rv.high_usd]],backgroundColor:['#334476','#22d3ee'],borderRadius:6}]},
+ options:{maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmtUSD(c.raw[0])+' – '+fmtUSD(c.raw[1])}}},scales:{x:{ticks:{callback:v=>fmtUSD(v)}}}}});c2._modal=1;charts.push(c2)}
+function howSalary(){const p=D.payroll;const s=p.samples.slice(0,5);
+ openM(`<h2>How we estimate average salary</h2><p class="muted">Nobody publishes payroll, so we build it bottom-up:</p>
+ <div class="step"><div class="n">1</div><div><b>Who works there, and where</b><p>Crustdata's headcount by role and by country: ${Object.entries(p.by_location).slice(0,3).map(([k,v])=>esc(k)+' '+Math.round(v)).join(', ')}.</p></div></div>
+ <div class="step"><div class="n">2</div><div><b>What that role pays in that city</b><p>Official and survey data: BLS (US), ONS (UK), Payscale (India), Carta (startups).</p></div></div>
+ <div class="step"><div class="n">3</div><div><b>Startups pay a switching premium</b><p>People who move jobs get about ${Math.round((p.switch[0]-1)*100)}–${Math.round((p.switch[1]-1)*100)}% more than they earned before. We sample real employees, look up their previous employer's pay level, and apply the premium.</p></div></div>
+ <table><tr><th>Sampled employee</th><th>Came from</th><th class="n">Est. salary</th></tr>${s.map(x=>`<tr><td>${esc(x.title)}</td><td><b>${esc(x.prior||'—')}</b></td><td class="n">${fmtUSD(x.est)}</td></tr>`).join('')}</table>
+ <div class="step"><div class="n">4</div><div><b>Add overhead</b><p>Benefits, taxes and equipment: salary × ${p.overhead} gives the loaded payroll of ${fmtUSD(p.loaded)} per year.</p></div></div>
+ ${p.market==='india'&&p.avg?`<p style="font-size:16px"><b>₹${(p.avg*p.inr_per_usd/1e5).toFixed(1)} lakh</b> average: about <b>${(p.avg/p.context[0].usd).toFixed(1)}×</b> India's average salaried wage and in line with TCS and Infosys. That's competitive pay for an Indian startup, at a fraction of the cost of the same team in San Francisco.</p>`:''}`)}
+function howScore(){const P=D.pillars;
+ openM(`<h2>How the signal is scored</h2><p class="muted">Fixed rules, identical for every company, so ratings are comparable.</p>
+ <div class="step"><div class="n">1</div><div><b>Five pillars, each 0–100</b><p>Team (founders verified, prior startups, schools, notable employers) · Traction (headcount, traffic, follower growth) · Market (crowding) · Financing (recency of funding) · Verification (claims matched to sources).</p></div></div>
+ <canvas id="m_w" height="230"></canvas>
+ <div class="step"><div class="n">2</div><div><b>Weighted sum = score</b><p>${P.map(p=>`${p.name} ${Math.round(p.score)}×${Math.round(p.weight*100)}%`).join(' + ')} = <b>${D.rec.score.toFixed(1)}</b></p></div></div>
+ <div class="step"><div class="n">3</div><div><b>Score → rating, then flags can cap it</b><p>INVEST ≥ 70 · ACCUMULATE ≥ 58 · HOLD ≥ 45 · else AVOID. A red flag caps INVEST at ACCUMULATE; a critical flag caps at HOLD; 2 critical flags force AVOID.</p></div></div>
+ <div class="step"><div class="n">4</div><div><b>Size the check</b><p>Rating × confidence → share of your ${fmtUSD(D.rec.check)} check: <b>${fmtUSD(D.rec.suggested)}</b>.</p></div></div>
+ <ul class="clean">${P.map(p=>`<li><b>${p.name}</b>: ${esc(p.reasons.join('; '))}</li>`).join('')}</ul>`);
+ const c=new Chart($('#m_w'),{type:'bar',data:{labels:P.map(p=>p.name),datasets:[{label:'contribution to score',data:P.map(p=>+(p.score*p.weight).toFixed(1)),backgroundColor:['#4f8cff','#22d3ee','#8b5cf6','#22c55e','#f5b301'],borderRadius:6},
+ {label:'max possible',data:P.map(p=>+(100*p.weight-p.score*p.weight).toFixed(1)),backgroundColor:'#ffffff10',borderRadius:6}]},
+ options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.raw+' pts'}}},scales:{x:{stacked:true},y:{stacked:true,title:{display:true,text:'points'}}}}});c._modal=1;charts.push(c)}
+
+async function downloadReport(){const b=$('#dlBtn');b.disabled=true;b.textContent='⏳ Building PDF…';toast('Building the PDF report (about 15–20 s)…',0);
+ try{const r=await fetch('/api/demo/report?domain='+encodeURIComponent(D.domain),{method:'POST'});if(!r.ok)throw new Error((await r.json()).error||r.status);
+  const blob=await r.blob(),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=D.domain.replace(/\./g,'-')+'-proofroom-report.pdf';a.click();toast('Report downloaded ✓')}
+ catch(e){toast('Report failed: '+e.message)}b.disabled=false;b.textContent='⬇ Download report (PDF)'}
+loadChips();
+</script>
+</body>
+</html>
