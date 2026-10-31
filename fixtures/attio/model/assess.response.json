@@ -1,0 +1,92 @@
+{
+ "findings": [
+  {
+   "claim_id": "C1",
+   "disposition": "supported",
+   "qualified": false,
+   "basis": [
+    "company_statement",
+    "crustdata_indexed_record"
+   ],
+   "sentence": "Attio's press release (PR Newswire, 2025-08-26) says Attio has raised $52 million in Series B funding. This is consistent with Crustdata's indexed record (Crunchbase-derived), which lists a Series B of $52,020,932 on 2025-08-26.",
+   "evidence_ids": [
+    "E1",
+    "G4"
+   ],
+   "as_of": "2025-08-26",
+   "correction_reason": "",
+   "limitation": "The release is the company's own statement; Crustdata's record is not independent confirmation.",
+   "question": ""
+  },
+  {
+   "claim_id": "C2",
+   "disposition": "supported",
+   "qualified": false,
+   "basis": [
+    "company_statement",
+    "crustdata_indexed_record"
+   ],
+   "sentence": "Attio's press release says the Series B was led by GV (Google Ventures). Crustdata's indexed record (Crunchbase-derived) lists the Series B lead as Google Ventures, the name the release gives in parentheses for GV.",
+   "evidence_ids": [
+    "E2",
+    "G4"
+   ],
+   "as_of": "2025-08-26",
+   "correction_reason": "",
+   "limitation": "The lead is the company's own statement; no investor post is in the packet.",
+   "question": ""
+  },
+  {
+   "claim_id": "C3",
+   "disposition": "supported",
+   "qualified": false,
+   "basis": [
+    "company_statement"
+   ],
+   "sentence": "Attio's press release quotes Nicolas Sharp as CEO and co-founder of Attio. Crustdata's identity graph shows Nicolas Sharp (person 34147) as Co-Founder and CEO at Attio 664000.",
+   "evidence_ids": [
+    "E3",
+    "G3"
+   ],
+   "as_of": "2025-08-26",
+   "correction_reason": "",
+   "limitation": "The graph title comes from a self-maintained profile; it shows association, not proof.",
+   "question": ""
+  },
+  {
+   "claim_id": "C4",
+   "disposition": "supported",
+   "qualified": false,
+   "basis": [
+    "company_statement"
+   ],
+   "sentence": "Attio's press release quotes Alexander Christie as CTO and co-founder of Attio. Crustdata's identity graph shows Alexander Christie (person 34148) as Co-Founder & CTO at Attio 664000.",
+   "evidence_ids": [
+    "E4",
+    "G2"
+   ],
+   "as_of": "2025-08-26",
+   "correction_reason": "",
+   "limitation": "The graph title comes from a self-maintained profile; it shows association, not proof.",
+   "question": ""
+  },
+  {
+   "claim_id": "C5",
+   "disposition": "supported",
+   "qualified": false,
+   "basis": [
+    "company_statement",
+    "crustdata_indexed_record"
+   ],
+   "sentence": "Attio's press release (2025-08-26) says Attio has raised $116 million to date. This is consistent with Crustdata's indexed total of $116,220,932 (Crunchbase-derived).",
+   "evidence_ids": [
+    "E5",
+    "G9"
+   ],
+   "as_of": "2025-08-26",
+   "correction_reason": "",
+   "limitation": "A total raised to date is not a round; the figure is the company's own and is as of the release date.",
+   "question": "Has Attio raised any new capital since the Series B announced on 2025-08-26?"
+  }
+ ]
+}

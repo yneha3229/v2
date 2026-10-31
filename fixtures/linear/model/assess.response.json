@@ -1,0 +1,101 @@
+{
+ "findings": [
+  {
+   "claim_id": "C1",
+   "disposition": "supported",
+   "qualified": false,
+   "basis": [
+    "independent_report",
+    "crustdata_indexed_record"
+   ],
+   "sentence": "TechStartups reported on 2025-06-10 that Linear has raised an $82 million Series C, as the company said. This is consistent with Crustdata's indexed record (Crunchbase-derived), which lists a Series C of $82,000,000 on 2025-06-10.",
+   "evidence_ids": [
+    "E1",
+    "G6"
+   ],
+   "as_of": "2025-06-10",
+   "correction_reason": "",
+   "limitation": "The packet holds a press report, not Linear's own post; the report is not independent of the company's announcement, and Crustdata's record is not independent confirmation.",
+   "question": ""
+  },
+  {
+   "claim_id": "C2",
+   "disposition": "supported",
+   "qualified": false,
+   "basis": [
+    "independent_report",
+    "company_statement",
+    "crustdata_indexed_record"
+   ],
+   "sentence": "TechStartups reports that Accel led Linear's $82 million Series C, and the CEO's blog post quoted in the same article says the round was led by Accel. Crustdata's indexed record (Crunchbase-derived) also lists Accel as the Series C lead.",
+   "evidence_ids": [
+    "E2",
+    "E3",
+    "G6"
+   ],
+   "as_of": "2025-06-10",
+   "correction_reason": "",
+   "limitation": "The CEO quote and the report are one announcement chain, not two independent sources.",
+   "question": ""
+  },
+  {
+   "claim_id": "C3",
+   "disposition": "supported",
+   "qualified": true,
+   "basis": [
+    "company_statement",
+    "crustdata_indexed_record"
+   ],
+   "sentence": "CEO Karri Saarinen's blog post, as quoted by TechStartups, says Linear raised an $82M Series C at a $1.25B valuation and that the round includes both primary and secondary funding. Crustdata's indexed record (Crunchbase-derived) separately lists a secondary-market entry on 2025-06-10 with no amount recorded.",
+   "evidence_ids": [
+    "E3",
+    "G5"
+   ],
+   "as_of": "2025-06-10",
+   "correction_reason": "",
+   "limitation": "No source gives the split between primary and secondary funding, so the share of the $82M that went to the company is unknown; the $1.25B valuation is not capital.",
+   "question": "How much of the $82M Series C was new primary capital to Linear, and how much was secondary sales by existing holders?"
+  },
+  {
+   "claim_id": "C4",
+   "disposition": "supported",
+   "qualified": false,
+   "basis": [
+    "independent_report"
+   ],
+   "sentence": "TechStartups, reporting Linear's $82 million Series C, quotes Karri Saarinen as CEO.",
+   "evidence_ids": [
+    "E1",
+    "E3",
+    "E4"
+   ],
+   "as_of": "2025-06-10",
+   "correction_reason": "",
+   "limitation": "Karri Saarinen is not among the founders in Crustdata's people record for this run, so his title has no graph join here; the title comes from the press report only.",
+   "question": ""
+  },
+  {
+   "claim_id": "C5",
+   "disposition": "supported",
+   "qualified": true,
+   "basis": [
+    "independent_report",
+    "crustdata_indexed_record"
+   ],
+   "sentence": "Tracxn's page (updated 2026-10-13) says Linear has raised a total of $134M over 4 funding rounds, which lines up with the seed, Series A, Series B and Series C entries in Crustdata's indexed record (Crunchbase-derived). Crustdata's total_investment_usd of $233,200,000 includes secondary sales, among them a $99,000,000 secondary-market entry on 2026-08-26, so it is not capital raised.",
+   "evidence_ids": [
+    "E5",
+    "G6",
+    "G7",
+    "G8",
+    "G9",
+    "G10",
+    "G4"
+   ],
+   "as_of": "2026-10-13",
+   "correction_reason": "",
+   "limitation": "The Series C itself includes secondary funding (per the CEO's quoted post), so neither total is a measure of primary capital; Tracxn is an aggregator, not a primary source.",
+   "question": ""
+  }
+ ]
+}

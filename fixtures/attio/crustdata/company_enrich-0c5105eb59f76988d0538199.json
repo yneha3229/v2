@@ -1,0 +1,766 @@
+{
+ "endpoint": "/company/enrich",
+ "request": {
+  "crustdata_company_ids": [
+   664000
+  ],
+  "fields": [
+   "basic_info",
+   "funding",
+   "people",
+   "news"
+  ]
+ },
+ "status": 200,
+ "credits_used": "2",
+ "body": [
+  {
+   "matched_on": "664000",
+   "match_type": "crustdata_company_id",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 664000,
+      "funding": {
+       "investors_detailed": [
+        {
+         "name": "01 Advisors"
+        },
+        {
+         "name": "Balderton Capital"
+        },
+        {
+         "name": "Google Ventures"
+        },
+        {
+         "name": "Headline"
+        },
+        {
+         "name": "Passion Capital"
+        },
+        {
+         "name": "Point Nine"
+        },
+        {
+         "name": "Redpoint"
+        },
+        {
+         "name": "Vinay Hiremath"
+        }
+       ],
+       "milestones": [
+        {
+         "round_type": "series_b",
+         "investors_detailed": [
+          {
+           "name": "Google Ventures"
+          },
+          {
+           "name": "Redpoint"
+          },
+          {
+           "name": "Point Nine"
+          },
+          {
+           "name": "Balderton Capital"
+          },
+          {
+           "name": "01 Advisors"
+          }
+         ],
+         "date": "2025-08-26",
+         "funding_date": "2025-08-26",
+         "amount_usd": 52020932.0,
+         "investors": "Google Ventures, Redpoint, Point Nine, Balderton Capital, 01 Advisors",
+         "lead_investors": "Google Ventures"
+        },
+        {
+         "round_type": "undisclosed",
+         "investors_detailed": [
+          {
+           "name": "Redpoint"
+          },
+          {
+           "name": "Point Nine"
+          },
+          {
+           "name": "Balderton Capital"
+          },
+          {
+           "name": "01 Advisors"
+          }
+         ],
+         "date": "2024-08-28",
+         "funding_date": "2024-08-28",
+         "amount_usd": 33000000.0,
+         "investors": "Redpoint, Point Nine, Balderton Capital, 01 Advisors",
+         "lead_investors": "Redpoint, Point Nine, Balderton Capital, 01 Advisors"
+        },
+        {
+         "round_type": "series_a",
+         "investors_detailed": [
+          {
+           "name": "Redpoint"
+          },
+          {
+           "name": "Point Nine"
+          },
+          {
+           "name": "Balderton Capital"
+          }
+         ],
+         "date": "2023-03-01",
+         "funding_date": "2023-03-01",
+         "amount_usd": 23500000.0,
+         "investors": "Redpoint, Point Nine, Balderton Capital",
+         "lead_investors": "Redpoint"
+        },
+        {
+         "round_type": "seed",
+         "investors_detailed": [
+          {
+           "name": "Point Nine"
+          },
+          {
+           "name": "Vinay Hiremath"
+          },
+          {
+           "name": "Passion Capital"
+          },
+          {
+           "name": "Headline"
+          },
+          {
+           "name": "Balderton Capital"
+          }
+         ],
+         "date": "2021-11-24",
+         "funding_date": "2021-11-24",
+         "amount_usd": 7700000.0,
+         "investors": "Point Nine, Vinay Hiremath, Passion Capital, Headline, Balderton Capital",
+         "lead_investors": "Point Nine"
+        },
+        {
+         "round_type": "pre_seed",
+         "investors_detailed": [
+          {
+           "name": "Passion Capital"
+          }
+         ],
+         "date": "2018-10-01",
+         "funding_date": "2018-10-01",
+         "amount_usd": null,
+         "investors": "Passion Capital",
+         "lead_investors": null
+        }
+       ],
+       "num_funding_rounds": 5,
+       "total_investment_usd": 116220932.0,
+       "last_round_amount_usd": 52020932.0,
+       "last_round_type": "series_b",
+       "investors": [
+        "01 Advisors",
+        "Balderton Capital",
+        "Google Ventures",
+        "Headline",
+        "Passion Capital",
+        "Point Nine",
+        "Redpoint",
+        "Vinay Hiremath"
+       ],
+       "last_fundraise_date": "2025-08-26"
+      },
+      "people": {
+       "founders": [
+        {
+         "crustdata_person_id": 34148,
+         "basic_profile": {
+          "name": "Alexander Christie",
+          "current_title": "Co-Founder & CTO"
+         },
+         "social_handles": {
+          "professional_network_identifier": {
+           "profile_url": "https://www.linkedin.com/in/alexander-christie-a42112a7"
+          }
+         },
+         "experience": {
+          "employment_details": {
+           "current": [
+            {
+             "employer_name": "Attio",
+             "employer_company_id": [
+              "664000"
+             ],
+             "employee_title": "Co-Founder & CTO",
+             "employee_start_date": "2019-11-01T00:00:00.000Z",
+             "employee_end_date": null
+            }
+           ],
+           "past": [
+            {
+             "employer_name": "Fundstack",
+             "employer_company_id": [
+              "8031087"
+             ],
+             "employee_title": "Head of Engineering",
+             "employee_start_date": "2017-08-01T00:00:00.000Z",
+             "employee_end_date": "2019-11-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Doorpass",
+             "employer_company_id": [
+              "4273605"
+             ],
+             "employee_title": "Founder",
+             "employee_start_date": "2016-11-01T00:00:00.000Z",
+             "employee_end_date": "2017-07-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Briefly.io Limited",
+             "employer_company_id": [
+              null
+             ],
+             "employee_title": "Founder",
+             "employee_start_date": "2014-06-01T00:00:00.000Z",
+             "employee_end_date": "2015-11-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "BORN AWARDS",
+             "employer_company_id": [
+              "642791"
+             ],
+             "employee_title": "VP Engineering",
+             "employee_start_date": "2015-11-01T00:00:00.000Z",
+             "employee_end_date": "2016-11-01T00:00:00.000Z"
+            }
+           ]
+          }
+         },
+         "updated_at": "2026-10-20T09:36:15.456Z"
+        },
+        {
+         "crustdata_person_id": 34147,
+         "basic_profile": {
+          "name": "Nicolas Sharp",
+          "current_title": "Co-Founder and CEO"
+         },
+         "social_handles": {
+          "professional_network_identifier": {
+           "profile_url": "https://www.linkedin.com/in/nicolas-sharp-a92726b1"
+          }
+         },
+         "experience": {
+          "employment_details": {
+           "current": [
+            {
+             "employer_name": "Attio",
+             "employer_company_id": [
+              "664000"
+             ],
+             "employee_title": "Co-Founder and CEO",
+             "employee_start_date": "2019-11-01T00:00:00.000Z",
+             "employee_end_date": null
+            }
+           ],
+           "past": [
+            {
+             "employer_name": "Fundstack",
+             "employer_company_id": [
+              "8031087"
+             ],
+             "employee_title": "Founder and CEO",
+             "employee_start_date": "2017-04-01T00:00:00.000Z",
+             "employee_end_date": "2019-10-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Big Life Foundation",
+             "employer_company_id": [
+              "1594888"
+             ],
+             "employee_title": "Head of Digital",
+             "employee_start_date": "2012-01-01T00:00:00.000Z",
+             "employee_end_date": "2013-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Passion Capital",
+             "employer_company_id": [
+              "982581"
+             ],
+             "employee_title": "Investment Associate",
+             "employee_start_date": "2014-11-01T00:00:00.000Z",
+             "employee_end_date": "2016-11-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "The Rug Company",
+             "employer_company_id": [
+              "1202827"
+             ],
+             "employee_title": "Head of E-Commerce",
+             "employee_start_date": "2013-01-01T00:00:00.000Z",
+             "employee_end_date": "2014-07-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Wireworks",
+             "employer_company_id": [
+              "1545228"
+             ],
+             "employee_title": "Software Developer",
+             "employee_start_date": "2011-05-01T00:00:00.000Z",
+             "employee_end_date": "2012-01-01T00:00:00.000Z"
+            }
+           ]
+          }
+         },
+         "updated_at": "2026-10-11T06:03:53.290Z"
+        }
+       ]
+      },
+      "basic_info": {
+       "name": "Attio",
+       "primary_domain": "attio.com",
+       "all_domains": [
+        "attio.com"
+       ],
+       "crustdata_company_id": 664000
+      },
+      "news": [
+       {
+        "article_publish_date": "2026-09-22",
+        "article_publisher_name": "Tracxn",
+        "article_title": "Attio - 2026 Funding Rounds & List of Investors",
+        "article_url": "https://tracxn.com/d/companies/attio/__zXaorGoGUFFCntq5i6GuYbFjA5y0l4NPgP5t1R3FhXg/funding-and-investors",
+        "confidence_score": 1.0,
+        "publisher_domain": "tracxn.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-08-27",
+        "article_publisher_name": "konsulteer.com",
+        "article_title": "Attio Raises $52M in Google Ventures-Led Series B.",
+        "article_url": "https://www.konsulteer.com/article/ai-crm-firm-attio-raises-40-million-in-google-ventures-led-series-b",
+        "confidence_score": 0.95,
+        "publisher_domain": "konsulteer.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-08-06",
+        "article_publisher_name": "TipRanks",
+        "article_title": "Attio Expands Graduate Program to Support Talent Pipeline and Growth",
+        "article_url": "https://www.tipranks.com/news/private-companies/attio-expands-graduate-program-to-support-talent-pipeline-and-growth",
+        "confidence_score": 0.9,
+        "publisher_domain": "tipranks.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-07-13",
+        "article_publisher_name": "Silicon Republic",
+        "article_title": "Irish-founded AI platform Inconvo acquired by UK-based Attio",
+        "article_url": "https://www.siliconrepublic.com/business/irish-founded-ai-platform-inconvo-acquired-by-uk-based-attio",
+        "confidence_score": 0.85,
+        "publisher_domain": "siliconrepublic.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-07-10",
+        "article_publisher_name": "Business Post",
+        "article_title": "Irish tech startup Inconvo acquired by UK platform Attio",
+        "article_url": "https://www.businesspost.ie/tech/irish-tech-startup-inconvo-acquired-by-uk-platform-attio/",
+        "confidence_score": 0.9,
+        "publisher_domain": "businesspost.ie",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-06-04",
+        "article_publisher_name": "TipRanks",
+        "article_title": "Attio Targets Early-Stage Startups With Free CRM and GTM Advisory Sessions",
+        "article_url": "https://www.tipranks.com/news/private-companies/attio-targets-early-stage-startups-with-free-crm-and-gtm-advisory-sessions",
+        "confidence_score": 0.8,
+        "publisher_domain": "tipranks.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-04-07",
+        "article_publisher_name": "Digital Journal",
+        "article_title": "Attio and the rise of the AI CRM for startups and modern revenue teams",
+        "article_url": "https://www.digitaljournal.com/business/attio-and-the-rise-of-the-ai-crm-for-startups-and-modern-revenue-teams/article",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-12-10",
+        "article_publisher_name": "The New Stack",
+        "article_title": "Inferno Vet Creates Frontend Framework Built With AI in Mind",
+        "article_url": "https://thenewstack.io/inferno-vet-creates-frontend-framework-built-with-ai-in-mind/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-12-02",
+        "article_publisher_name": "EU-Startups",
+        "article_title": "Belgium’s Donna secures €4.1 million to scale its AI assistant for field sales teams",
+        "article_url": "https://www.eu-startups.com/2025/12/belgiums-donna-secures-e4-1-million-to-scale-its-ai-assistant-for-field-sales-teams/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-10-29",
+        "article_publisher_name": "Newsfile",
+        "article_title": "Curated Pickleball Launches Corporate Networking Events That Combine Business Connection with Healthy Competition",
+        "article_url": "https://www.newsfilecorp.com/release/270415/Curated-Pickleball-Launches-Corporate-Networking-Events-That-Combine-Business-Connection-with-Healthy-Competition",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-10-08",
+        "article_publisher_name": "Fireflies AI",
+        "article_title": "Fireflies adds venture capital AI features that deliver investment intelligence, not just transcription",
+        "article_url": "https://www.globenewswire.com/news-release/2025/10/08/3163529/0/en/Fireflies-adds-venture-capital-AI-features-that-deliver-investment-intelligence-not-just-transcription.html",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-09-25",
+        "article_publisher_name": "IndiaTimes",
+        "article_title": "Trump’s H-1B visa fee hike impact: Germany, UK, Canada roll out red carpet for India’s tech talent; pitch ‘predictable’ rules",
+        "article_url": "https://timesofindia.indiatimes.com/business/india-business/trumps-h-1b-visa-fee-hike-impact-germany-uk-canada-roll-out-red-carpet-for-indias-tech-talent-pitch-predictable-rules/articleshow/124106390.cms",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-29",
+        "article_publisher_name": "SiliconANGLE",
+        "article_title": "The AI boom didn’t quite save Nvidia earnings, but enterprise software cashed in",
+        "article_url": "https://siliconangle.com/2025/08/29/ai-boom-didnt-quite-save-nvidia-earnings-enterprise-software-cashed/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-29",
+        "article_publisher_name": "Tech Startups - Startups and Technology news",
+        "article_title": "Top Startup and Tech Funding News Roundup – Week Ending August 29, 2025",
+        "article_url": "https://techstartups.com/2025/08/29/top-startup-and-tech-funding-news-roundup-week-ending-august-29-2025/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-29",
+        "article_publisher_name": "Tech Startups - Startups and Technology news",
+        "article_title": "Ethereum-Based Meme Project Pepeto ($PEPETO) Surges Past $6.5M in Presale",
+        "article_url": "https://techstartups.com/2025/08/29/ethereum-based-meme-project-pepeto-pepeto-surges-past-6-5m-in-presale/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-29",
+        "article_publisher_name": "UKTN",
+        "article_title": "UK tech funding roundup: This week’s deals from Paragraf to Wype",
+        "article_url": "https://www.uktech.news/funding/uk-tech-funding-roundup-this-weeks-deals-from-paragraf-to-wype-20250829",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-28",
+        "article_publisher_name": "PYMNTS.com",
+        "article_title": "Google Ventures-Backed Attio Raises $52 Million for AI-Native CRM Platform",
+        "article_url": "https://www.pymnts.com/news/investment-tracker/2025/google-ventures-backed-attio-raises-52-million-dollars-ai-native-crm-platform/",
+        "confidence_score": 1.0,
+        "publisher_domain": "pymnts.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-08-28",
+        "article_publisher_name": "PYMNTS.com",
+        "article_title": "This Week in B2B: Data, Trust and Treasury Innovation",
+        "article_url": "https://www.pymnts.com/news/b2b-payments/2025/this-week-in-b2b-data-trust-and-treasury-innovation/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-27",
+        "article_publisher_name": "Tech Funding News",
+        "article_title": "Attio scores $52M to launch AI-native CRM for the future of go-to-market",
+        "article_url": "https://techfundingnews.com/attio-series-b-ai-native-crm-funding/",
+        "confidence_score": 1.0,
+        "publisher_domain": "techfundingnews.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-08-27",
+        "article_publisher_name": "MrWeb",
+        "article_title": "Daily Research News Online no. 38719 - $52m for AI-Based CRM Firm Attio",
+        "article_url": "https://www.mrweb.com/drno/news38719.htm",
+        "confidence_score": 1.0,
+        "publisher_domain": "mrweb.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-08-27",
+        "article_publisher_name": "UKTN",
+        "article_title": "AI CRM firm Attio raises £40m in Google Ventures-led Series B",
+        "article_url": "https://www.uktech.news/ai/attio-ai-crm-series-b-20250827",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-27",
+        "article_publisher_name": "thesaasnews.com",
+        "article_title": "Attio Raises $52 Million in Series B",
+        "article_url": "https://www.thesaasnews.com/news/attio-raises-52-million-in-series-b",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-26",
+        "article_publisher_name": "Pulse 2.0",
+        "article_title": "Attio: $52 Million Series B Secured To Advance AI-Native CRM",
+        "article_url": "https://pulse2.com/attio-52-million-series-b-secured-to-advance-ai-native-crm/",
+        "confidence_score": 1.0,
+        "publisher_domain": "pulse2.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-08-26",
+        "article_publisher_name": "FinSMEs",
+        "article_title": "Attio Raises $52M in Series B Funding",
+        "article_url": "https://www.finsmes.com/2025/08/attio-raises-52m-in-series-b-funding.html",
+        "confidence_score": 1.0,
+        "publisher_domain": "finsmes.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-08-26",
+        "article_publisher_name": "Axios",
+        "article_title": "Apple's AI M&A, Pentagon's Lockheed Martin talks, and Attio's raise",
+        "article_url": "https://www.axios.com/pro/all-deals/2025/08/26/pro-rata-premium-first-look",
+        "confidence_score": 1.0,
+        "publisher_domain": "axios.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-08-26",
+        "article_publisher_name": "SiliconANGLE",
+        "article_title": "AI-native CRM startup Attio adds $52M in new funding",
+        "article_url": "https://siliconangle.com/2025/08/26/ai-native-crm-startup-attio-adds-52m-new-funding/",
+        "confidence_score": 1.0,
+        "publisher_domain": "siliconangle.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-08-26",
+        "article_publisher_name": "StartupHub.ai",
+        "article_title": "Attio Secures €44M Series B for AI-Native CRM Development",
+        "article_url": "https://www.startuphub.ai/ai-news/funding-round/2025/attio-secures-e44m-series-b-for-ai-native-crm-development/",
+        "confidence_score": 1.0,
+        "publisher_domain": "startuphub.ai",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-08-26",
+        "article_publisher_name": "EU-Startups",
+        "article_title": "London’s Attio raises €44 million to scale the first AI-native CRM for Go-to-Market builders",
+        "article_url": "https://www.eu-startups.com/2025/08/londons-attio-raises-e44-million-to-scale-the-first-ai-native-crm-for-go-to-market-builders/",
+        "confidence_score": 1.0,
+        "publisher_domain": "eu-startups.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-08-26",
+        "article_publisher_name": "Tech Startups - Startups and Technology news",
+        "article_title": "Top 10 Startup and Tech Funding News – August 26, 2025",
+        "article_url": "https://techstartups.com/2025/08/26/top-10-startup-and-tech-funding-news-august-19-2025/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-26",
+        "article_publisher_name": "Venture Capital",
+        "article_title": "Attio Raises $52M in Series B Funding to Reinvent CRM for the AI Era",
+        "article_url": "https://venturecapital.com/news/funding-events/attio-raises-52m-in-series-b-funding-to-reinvent-crm-for-the-ai-era-v1",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-26",
+        "article_publisher_name": "BusinessCloud",
+        "article_title": "Attio raises £38.6m to continue developing ‘first AI-native CRM’",
+        "article_url": "https://businesscloud.co.uk/news/attio-raises-38-6m-to-continue-developing-first-ai-native-crm/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-26",
+        "article_publisher_name": "Tech.eu",
+        "article_title": "Attio raises $52M Series B to scale CRM platform",
+        "article_url": "https://tech.eu/2025/08/26/attio-raises-52m-series-b-to-scale-crm-platform/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-26",
+        "article_publisher_name": "PR Newswire",
+        "article_title": "Attio Raises $52M Series B to Scale the First AI-Native CRM for Go-to-Market Builders",
+        "article_url": "https://www.prnewswire.com/news-releases/attio-raises-52m-series-b-to-scale-the-first-ai-native-crm-for-go-to-market-builders-302538357.html",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-26",
+        "article_publisher_name": "Techmeme",
+        "article_title": "London-based Attio, which offers a CRM service where AI agents and humans work together, raised a $52M Series B led by GV, bringing its total funding to $116M (Lucy Adams/Tech.eu)",
+        "article_url": "http://www.techmeme.com/250826/p26#a250826p26",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-26",
+        "article_publisher_name": "Tech Startups - Startups and Technology news",
+        "article_title": "Origin Summit Debuts in Seoul during KBW as Flagship Gathering on IP, AI, and the Next Era of Blockchain-enabled Real-World Assets",
+        "article_url": "https://techstartups.com/2025/08/26/origin-summit-debuts-in-seoul-during-kbw-as-flagship-gathering-on-ip-ai-and-the-next-era-of-blockchain-enabled-real-world-assets/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-26",
+        "article_publisher_name": "Silicon Canals",
+        "article_title": "UK’s Attio bags €45M from Google Ventures, others to accelerate development of its AI-native CRM",
+        "article_url": "https://siliconcanals.com/uks-attio-bags-45m/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-26",
+        "article_publisher_name": "vcnewsdaily.com",
+        "article_title": "Attio Raises $52M Series B Round",
+        "article_url": "https://vcnewsdaily.com/attio/venture-capital-funding/mhwhcltndk",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-09",
+        "article_publisher_name": "SuperbCrew",
+        "article_title": "How To Use Attio CRM; Step By Step Guide",
+        "article_url": "https://www.superbcrew.com/how-to-use-attio-crm-step-by-step-guide/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2024-08-30",
+        "article_publisher_name": "thesaasnews.com",
+        "article_title": "Attio Raises $33 Million in Funding",
+        "article_url": "https://www.thesaasnews.com/news/attio-raises-33-million-in-funding",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2023-03-06",
+        "article_publisher_name": "Built In San Francisco",
+        "article_title": "Attio Got $23.5M, Gable Secured $16M, and More SF Tech News",
+        "article_url": "https://ecs.page.link/UiKME",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2023-03-02",
+        "article_publisher_name": "Startup Around",
+        "article_title": "Attio Raises $23.5M in Series A Funding",
+        "article_url": "https://startuparound.com/read/1677761066.1929018/Attio-Raises-$23.5M-in-Series-A-Funding",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2023-03-02",
+        "article_publisher_name": "Silicon Canals",
+        "article_title": "London-based Attio bags €22.1M from Redpoint Ventures, others to help companies with real-time CRM",
+        "article_url": "https://bit.ly/3mlzvsQ",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2023-03-02",
+        "article_publisher_name": "TechCrunch",
+        "article_title": "Attio raises $23.5M to build a next-gen CRM platform",
+        "article_url": "https://techcrunch.com/2023/03/02/attio-raises-23-5m-to-build-a-next-gen-crm-platform/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2023-03-02",
+        "article_publisher_name": "VC News Daily",
+        "article_title": "Attio Scoops Up $23.5M Series A Financing",
+        "article_url": "https://vcnewsdaily.com/attio/venture-capital-funding/snxjhjjrnv",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2023-03-02",
+        "article_publisher_name": "Tech.eu",
+        "article_title": "Building the go-to-market CRM engine, London's Attio recharges with $23.5 million",
+        "article_url": "https://buff.ly/3y2tmnZ",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2023-03-02",
+        "article_publisher_name": "Balderton Capital - Leading venture firm focused on early and early growth stage investments in European founded companies",
+        "article_title": "Attio Raises $23.5 Million Series A to Usher in a New Era of CRM",
+        "article_url": "https://hubs.la/Q01DXHQd0",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "1970-01-01",
+        "article_publisher_name": "TechCrunch",
+        "article_title": "Attio wants to build the CRM for the Airtable generation",
+        "article_url": "https://techcrunch.com/2021/11/24/attio-wants-to-build-the-crm-for-the-airtable-generation/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "1970-01-01",
+        "article_publisher_name": "BusinessCloud",
+        "article_title": "‘Transformational’ CRM firm Attio raises £5.8m seed",
+        "article_url": "https://businesscloud.co.uk/news/transformational-crm-firm-attio-raises-5-8m-seed/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}
