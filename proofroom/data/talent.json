@@ -1,0 +1,268 @@
+{
+ "koahlabs.com": {
+  "domain": "koahlabs.com",
+  "country": "USA",
+  "founder_schools": [
+   {
+    "person": "Nic Baird",
+    "school": "Yale University",
+    "degree": "B.A. with Distinction",
+    "tier": "global_elite",
+    "label": "Yale",
+    "home_market": true
+   }
+  ],
+  "founders_with_elite": 1,
+  "founders_total": 3,
+  "indexed_staff": 22,
+  "alumni": {
+   "IIT": 0,
+   "IIM / IISc / BITS": 0,
+   "Stanford / MIT / Harvard": 1,
+   "Other Ivy + Berkeley/CMU/Oxbridge": 4
+  },
+  "ex_big_tech": 9,
+  "notes": [
+   "staff counts are indexed LinkedIn profiles currently at the company (Crustdata Person Search); profiles without education listed are not counted"
+  ],
+  "team_bonus": 14.0,
+  "team_bonus_why": "founder Nic Baird studied at Yale (top tier for the home market); 5 of 22 indexed staff are elite-school alumni"
+ },
+ "linear.app": {
+  "domain": "linear.app",
+  "country": "USA",
+  "founder_schools": [],
+  "founders_with_elite": 0,
+  "founders_total": 2,
+  "indexed_staff": 228,
+  "alumni": {
+   "IIT": 0,
+   "IIM / IISc / BITS": 0,
+   "Stanford / MIT / Harvard": 7,
+   "Other Ivy + Berkeley/CMU/Oxbridge": 21
+  },
+  "ex_big_tech": 36,
+  "notes": [
+   "staff counts are indexed LinkedIn profiles currently at the company (Crustdata Person Search); profiles without education listed are not counted"
+  ],
+  "team_bonus": 0.0,
+  "team_bonus_why": ""
+ },
+ "attio.com": {
+  "domain": "attio.com",
+  "country": "GBR",
+  "founder_schools": [],
+  "founders_with_elite": 0,
+  "founders_total": 2,
+  "indexed_staff": 190,
+  "alumni": {
+   "IIT": 0,
+   "IIM / IISc / BITS": 0,
+   "Stanford / MIT / Harvard": 5,
+   "Other Ivy + Berkeley/CMU/Oxbridge": 19
+  },
+  "ex_big_tech": 18,
+  "notes": [
+   "staff counts are indexed LinkedIn profiles currently at the company (Crustdata Person Search); profiles without education listed are not counted"
+  ],
+  "team_bonus": 0.0,
+  "team_bonus_why": ""
+ },
+ "clay.com": {
+  "domain": "clay.com",
+  "country": "USA",
+  "founder_schools": [
+   {
+    "person": "Varun Anand",
+    "school": "University of Pennsylvania",
+    "degree": "Bachelor of Arts (B.A.)",
+    "tier": "global_elite",
+    "label": "Penn",
+    "home_market": true
+   }
+  ],
+  "founders_with_elite": 1,
+  "founders_total": 6,
+  "indexed_staff": 1388,
+  "alumni": {
+   "IIT": 4,
+   "IIM / IISc / BITS": 5,
+   "Stanford / MIT / Harvard": 46,
+   "Other Ivy + Berkeley/CMU/Oxbridge": 128
+  },
+  "ex_big_tech": 143,
+  "notes": [
+   "staff counts are indexed LinkedIn profiles currently at the company (Crustdata Person Search); profiles without education listed are not counted"
+  ],
+  "team_bonus": 10.0,
+  "team_bonus_why": "founder Varun Anand studied at Penn (top tier for the home market)"
+ },
+ "vercel.com": {
+  "domain": "vercel.com",
+  "country": "USA",
+  "founder_schools": [],
+  "founders_with_elite": 0,
+  "founders_total": 0,
+  "indexed_staff": 964,
+  "alumni": {
+   "IIT": 3,
+   "IIM / IISc / BITS": 1,
+   "Stanford / MIT / Harvard": 33,
+   "Other Ivy + Berkeley/CMU/Oxbridge": 80
+  },
+  "ex_big_tech": 177,
+  "notes": [
+   "staff counts are indexed LinkedIn profiles currently at the company (Crustdata Person Search); profiles without education listed are not counted"
+  ],
+  "team_bonus": 0.0,
+  "team_bonus_why": ""
+ },
+ "retool.com": {
+  "domain": "retool.com",
+  "country": "USA",
+  "founder_schools": [
+   {
+    "person": "David Hsu",
+    "school": "University of Oxford",
+    "degree": "Bachelor of Arts (B.A.)",
+    "tier": "global_elite",
+    "label": "Oxford",
+    "home_market": true
+   },
+   {
+    "person": "Anthony G.",
+    "school": "University of Oxford",
+    "degree": "Bachelor of Science",
+    "tier": "global_elite",
+    "label": "Oxford",
+    "home_market": true
+   }
+  ],
+  "founders_with_elite": 2,
+  "founders_total": 2,
+  "indexed_staff": 397,
+  "alumni": {
+   "IIT": 1,
+   "IIM / IISc / BITS": 0,
+   "Stanford / MIT / Harvard": 18,
+   "Other Ivy + Berkeley/CMU/Oxbridge": 57
+  },
+  "ex_big_tech": 67,
+  "notes": [
+   "staff counts are indexed LinkedIn profiles currently at the company (Crustdata Person Search); profiles without education listed are not counted"
+  ],
+  "team_bonus": 10.0,
+  "team_bonus_why": "founder David Hsu studied at Oxford (top tier for the home market)"
+ },
+ "ramp.com": {
+  "domain": "ramp.com",
+  "country": "USA",
+  "founder_schools": [
+   {
+    "person": "Eric Glyman",
+    "school": "Harvard University",
+    "degree": "A.B.",
+    "tier": "global_elite",
+    "label": "Harvard",
+    "home_market": true
+   },
+   {
+    "person": "Karim Atiyeh",
+    "school": "Harvard University",
+    "degree": "M.S.",
+    "tier": "global_elite",
+    "label": "Harvard",
+    "home_market": true
+   }
+  ],
+  "founders_with_elite": 2,
+  "founders_total": 10,
+  "indexed_staff": 2973,
+  "alumni": {
+   "IIT": 3,
+   "IIM / IISc / BITS": 2,
+   "Stanford / MIT / Harvard": 73,
+   "Other Ivy + Berkeley/CMU/Oxbridge": 276
+  },
+  "ex_big_tech": 305,
+  "notes": [
+   "staff counts are indexed LinkedIn profiles currently at the company (Crustdata Person Search); profiles without education listed are not counted"
+  ],
+  "team_bonus": 10.0,
+  "team_bonus_why": "founder Eric Glyman studied at Harvard (top tier for the home market)"
+ },
+ "mercury.com": {
+  "domain": "mercury.com",
+  "country": "USA",
+  "founder_schools": [
+   {
+    "person": "Immad Akhund",
+    "school": "University of Cambridge",
+    "degree": "Master of Arts (M.A.)",
+    "tier": "global_elite",
+    "label": "Cambridge",
+    "home_market": true
+   },
+   {
+    "person": "Jason Zhang",
+    "school": "Stanford University",
+    "degree": "Bachelor of Science (BS)",
+    "tier": "global_elite",
+    "label": "Stanford",
+    "home_market": true
+   },
+   {
+    "person": "Immad Akhund",
+    "school": "University of Cambridge",
+    "degree": "Master of Arts (M.A.)",
+    "tier": "global_elite",
+    "label": "Cambridge",
+    "home_market": true
+   }
+  ],
+  "founders_with_elite": 3,
+  "founders_total": 3,
+  "indexed_staff": 1374,
+  "alumni": {
+   "IIT": 3,
+   "IIM / IISc / BITS": 2,
+   "Stanford / MIT / Harvard": 34,
+   "Other Ivy + Berkeley/CMU/Oxbridge": 113
+  },
+  "ex_big_tech": 173,
+  "notes": [
+   "staff counts are indexed LinkedIn profiles currently at the company (Crustdata Person Search); profiles without education listed are not counted"
+  ],
+  "team_bonus": 10.0,
+  "team_bonus_why": "founder Immad Akhund studied at Cambridge (top tier for the home market)"
+ },
+ "terrastack.in": {
+  "domain": "terrastack.in",
+  "country": "IND",
+  "founder_schools": [
+   {
+    "person": "Aaryan Dangi",
+    "school": "Indian Institute of Technology, Bombay",
+    "degree": "Bachelor of Technology - BTech",
+    "tier": "india_elite",
+    "label": "IIT",
+    "home_market": true
+   }
+  ],
+  "founders_with_elite": 1,
+  "founders_total": 1,
+  "indexed_staff": 6,
+  "alumni": {
+   "IIT": 5,
+   "IIM / IISc / BITS": 0,
+   "Stanford / MIT / Harvard": 0,
+   "Other Ivy + Berkeley/CMU/Oxbridge": 0
+  },
+  "ex_big_tech": 0,
+  "notes": [
+   "staff counts are indexed LinkedIn profiles currently at the company (Crustdata Person Search); profiles without education listed are not counted"
+  ],
+  "team_bonus": 14.0,
+  "team_bonus_why": "founder Aaryan Dangi studied at IIT (top tier for the home market); 5 of 6 indexed staff are elite-school alumni"
+ }
+}

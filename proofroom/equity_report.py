@@ -26,7 +26,7 @@ import tempfile
 from collections import Counter
 from datetime import date
 from pathlib import Path
-from typing import Iterable
+from typing import Any, Iterable
 
 from proofroom.errors import ProofroomError
 from proofroom.models import CaseRecord, TeamRow
@@ -40,6 +40,22 @@ __all__ = ["build_html", "render_pdf", "pdf_available", "PdfRenderError", "svg_l
 DISCLAIMER = ("Rules-based signal from public and indexed data; not financial advice. "
               "Proofroom verifies Team & Financing claims and summarises indexed signals; it "
               "does not value the company or assess the product.")
+
+TOTAL_TOKEN = "@@PAGES@@"   # replaced with the page count in build_html
+INR_PER_USD = 94.955        # ECB cross rate 2026-10-30 (salary_benchmarks.json)
+# Local pay context (annual, USD). India: PLFS 2025 annual report (male regular-wage avg
+# INR 24,217/mo) and Payscale; US: BLS OEWS May 2025 (in salary_benchmarks.json).
+PAY_CONTEXT = {
+    "india": [("India avg salaried worker (PLFS 2025)", 24217 * 12 / INR_PER_USD),
+              ("TCS average (Payscale)", 759487 / INR_PER_USD),
+              ("India software engineer avg (Payscale)", 824241 / INR_PER_USD),
+              ("Infosys average (Payscale)", 850000 / INR_PER_USD),
+              ("Bangalore software engineer avg (Payscale)", 1112181 / INR_PER_USD)],
+    "us": [("US software developer median (BLS)", 135980.0),
+           ("Software publishers median (BLS)", 164550.0),
+           ("SF Bay Area software developer median (BLS)", 186640.0),
+           ("VC startup new-hire engineer avg (Carta H1 2025)", 189000.0)],
+}
 
 RENDER_JS = Path(__file__).resolve().parent / "pdf" / "render_pdf.js"
 PDF_TIMEOUT_S = 60
@@ -126,6 +142,10 @@ def fmt_value(v: float | None, unit: str = "") -> str:
         return fmt_usd(v)
     if u == "%":
         return fmt_pct(v)
+    if u == " l ₹":
+        return f"₹{v:,.1f}L"
+    if u == "k $":
+        return f"${v:,.0f}K"
     return fmt_compact(v)
 
 
@@ -344,13 +364,15 @@ def svg_band_chart(low: Series | None, high: Series | None, *, width: int = 340,
 
 def svg_bar_chart(items: list[tuple[str, float | None]], *, width: int = 340, title: str = "",
                   unit: str = "%", highlight: str | None = None,
-                  reference: tuple[str, float] | None = None, color: str = BLUE) -> str:
+                  reference: tuple[str, float] | None = None, color: str = BLUE,
+                  label_width: int = 116) -> str:
     """Horizontal bars (handles negatives), value labels, optional dashed reference line."""
     title = title or "bar chart"
     vals = [v for _, v in items if v is not None]
     if not items or not vals:
         return _no_data(width, 90, title)
-    row, ml, mr = 20, 116, 52
+    row, ml, mr = 20, label_width, 52
+    max_chars = max(20, int(label_width / 5.6))
     mt = 16 if reference else 6
     height = mt + row * len(items) + 8
     refv = [reference[1]] if reference else []
@@ -367,7 +389,7 @@ def svg_bar_chart(items: list[tuple[str, float | None]], *, width: int = 340, ti
     for i, (name, v) in enumerate(items):
         y = mt + i * row
         is_hi = highlight is not None and name == highlight
-        label = name if len(name) <= 20 else name[:19] + "…"
+        label = name if len(name) <= max_chars else name[:max_chars - 1] + "…"
         out.append(_txt(ml - 6, y + 13, label, anchor="end", size=9.5,
                         weight="700" if is_hi else "400", opacity=1 if is_hi else 0.8))
         if v is None:
@@ -702,9 +724,9 @@ def _icon(level: str) -> str:
 
 # ---- page builders ----------------------------------------------------------------
 
-def _page(n: int, title: str, company: str, body: str, kicker: str = "") -> str:
-    return (f'<section class="page" id="p{n}"><div class="strip"><span>PROOFROOM · SIGNAL REPORT · '
-            f'{_e(company)}</span><span>{n} / 7</span></div>'
+def _page(n: int, title: str, company: str, body: str, kicker: str = "", pid: str = "") -> str:
+    return (f'<section class="page" id="{pid or f"p{n}"}"><div class="strip"><span>PROOFROOM · SIGNAL REPORT · '
+            f'{_e(company)}</span><span>{n} / {TOTAL_TOKEN}</span></div>'
             f'<h2 class="ph"><span class="pn">{n}</span>{_e(title)}</h2>'
             + (f'<p class="kicker">{_e(kicker)}</p>' if kicker else "") + body + "</section>")
 
@@ -763,10 +785,12 @@ def _kpis(case: CaseRecord, s: Signals, flags: list[Flag]) -> str:
                        f"indexed record (Crunchbase-derived) {tsrc}".strip()))
     band = s.revenue_band_usd
     rm = _metric(s, "revenue_estimate_usd")
-    rv = f"{fmt_usd(band[0])}–{fmt_usd(band[1])}" if band else fmt_usd(rm.value) if rm else "n/a"
+    rv = fmt_usd(rm.value) if rm else f"{fmt_usd(band[0])}–{fmt_usd(band[1])}" if band else "n/a"
     rb, rt = _metric(s, "revenue_band"), s.metrics.get("revenue_trend")
     rsub = '<span class="muted">Estimate band, not reported revenue</span>'
-    if rt and rt.value is not None:
+    if rm and band:
+        rsub = f'<span class="muted">Model estimate, range {_e(fmt_usd(band[0]))}–{_e(fmt_usd(band[1]))}; not reported revenue</span>'
+    if rt and rt.value is not None and not rm:
         rsub = _delta(rt.value, " band midpoint") + "<br>" + rsub
     rsrc = (rb or rm).source if (rb or rm) else ("Signals revenue band" if band else "")
     tiles.append(_tile("Revenue estimate", rv, rsub, "neutral",
@@ -788,7 +812,7 @@ def _kpis(case: CaseRecord, s: Signals, flags: list[Flag]) -> str:
     ftone = "bad" if cnt.get("critical") or cnt.get("red") else "warn" if cnt.get("amber") else "good"
     tiles.append(f'<div class="tile t-{ftone}"><div class="t-label">Flags raised by the rules</div>'
                  f'<div class="t-value">{len(flags)}</div><div class="fcs">{chips}</div>'
-                 f'<div class="t-src">fixed rules, identical for every company (page 7)</div></div>')
+                 f'<div class="t-src">fixed rules, identical for every company (methodology page)</div></div>')
     return '<div class="tiles">' + "".join(tiles) + "</div>"
 
 
@@ -799,7 +823,8 @@ def _founder_line(case: CaseRecord, s: Signals) -> list[tuple[str, str]]:
             if t.role_join or t.listed_as_founder]
 
 
-def _page1(case: CaseRecord, s: Signals, flags: list[Flag], rec: Recommendation, sample: bool) -> str:
+def _page1(case: CaseRecord, s: Signals, flags: list[Flag], rec: Recommendation, sample: bool,
+           talent: Any = None) -> str:
     company = _company(case, s)
     logo = (f'<img class="logo" src="{_e(s.logo_data_uri)}" alt="">' if s.logo_data_uri.startswith("data:image/")
             else f'<div class="logo initials">{_e(_initials(company))}</div>')
@@ -819,7 +844,12 @@ def _page1(case: CaseRecord, s: Signals, flags: list[Flag], rec: Recommendation,
         labels += '<span class="lab lab-sample">SIGNALS: SAMPLE</span>'
     bg, fg = RATING_STYLE.get(rec.rating, (NAVY, "#fff"))
     founders = _founder_line(case, s)
-    fl = "".join(f"<li><b>{_e(n)}</b>{(' · ' + _e(t)) if t else ''}</li>" for n, t in founders) or \
+    schools = {}
+    for h in (talent.founder_schools if talent else []):
+        schools.setdefault(h.person, h.label)
+    fl = "".join(f"<li><b>{_e(n)}</b>{(' · ' + _e(t)) if t else ''}"
+                 + (f' <span class="pill">{_e(schools[n])}</span>' if n in schools else "") + "</li>"
+                 for n, t in founders) or \
         "<li class='muted'>No founders found in the graph</li>"
     rationale = "".join(f"<li>{_e(r)}</li>" for r in rec.rationale[:5]) or "<li class='muted'>No rationale given</li>"
     pct = max(0.0, min(100.0, rec.sizing_pct if rec.sizing_pct > 1 else rec.sizing_pct * 100))
@@ -858,10 +888,10 @@ def _page1(case: CaseRecord, s: Signals, flags: list[Flag], rec: Recommendation,
   <div><h3>Founders</h3><ul class="plain">{fl}</ul></div>
 </div>
 <p class="disc"><b>{_e(rec.disclaimer or DISCLAIMER)}</b> Every figure carries its source; verified claims cite
-evidence IDs (E = source passage, G = Crustdata graph value) listed on page 7. Crustdata funding data is an
+evidence IDs (E = source passage, G = Crustdata graph value) listed on the methodology page. Crustdata funding data is an
 indexed record (Crunchbase-derived), not an independent source.</p>"""
     return (f'<section class="page" id="p1"><div class="strip"><span>PROOFROOM · SIGNAL REPORT</span>'
-            f'<span>1 / 7</span></div>{body}</section>')
+            f'<span>1 / {TOTAL_TOKEN}</span></div>{body}</section>')
 
 
 def _flag_block(level: str, items: list[Flag], empty: str) -> str:
@@ -1032,7 +1062,7 @@ def _page4(company: str, case: CaseRecord, s: Signals) -> str:
                  "Who runs the company, and whether the graph confirms they are where the sources say.")
 
 
-def _page5(company: str, s: Signals) -> str:
+def _page5(company: str, s: Signals, n: int = 5) -> str:
     mk = s.market
     crowd_tone = {"low": "good", "medium": "warn", "high": "bad"}.get(mk.crowding, "neutral")
     tiles = ('<div class="tiles t4">'
@@ -1066,11 +1096,11 @@ def _page5(company: str, s: Signals) -> str:
             + (rows or "<tr><td colspan=6 class='muted'>No peers found</td></tr>") + "</tbody></table>"
             + _chart_card("Headcount growth YoY: company vs peers", chart, mk.source)
             + seo)
-    return _page(5, "Market and competition", company, body,
+    return _page(n, "Market and competition", company, body,
                  "How crowded the category is, and how the company's growth compares with funded peers.")
 
 
-def _page6(company: str, case: CaseRecord, s: Signals) -> str:
+def _page6(company: str, case: CaseRecord, s: Signals, n: int = 6) -> str:
     rounds = funding_rounds(case)
     lines = "".join(f"<li>{_e(str(ln.get('line')))}</li>" for ln in case.financing
                     if ln.get("line") and ln.get("kind") in ("indexed_round", "total"))
@@ -1103,7 +1133,7 @@ def _page6(company: str, case: CaseRecord, s: Signals) -> str:
             + f"<ul class='plain small fin'>{lines}</ul>"
             + f"<h3>Verified claims</h3><ul class='findings'>{''.join(frows) or '<li class=muted>No findings</li>'}</ul>"
             + f'<div class="callout"><h3>Questions for the founders</h3><ul class="bul">{qs}</ul></div>' + newsh)
-    return _page(6, "Financing and verified claims", company, body,
+    return _page(n, "Financing and verified claims", company, body,
                  "Each sentence below passed the code check (every number against its cited evidence) and the "
                  "entailment check.")
 
@@ -1128,7 +1158,7 @@ def _rules_rows(flags: list[Flag], rules: dict | None) -> str:
 
 
 def _page7(company: str, case: CaseRecord, s: Signals, flags: list[Flag], pillars: list[Pillar],
-           rec: Recommendation, rules: dict | None, sample: bool) -> str:
+           rec: Recommendation, rules: dict | None, sample: bool, n: int = 7) -> str:
     fby = {f.claim_id: f for f in case.findings}
     withheld = {m.group(1) for x in case.limitations for m in [re.match(r"^(C\d+):", x.strip())] if m}
     crow = []
@@ -1194,7 +1224,8 @@ Crustdata credits {_e(str(st.get('crustdata_credits', 0)))} + signals {_e(_trim(
 <h3>Evidence</h3><table class="data small ev"><thead><tr><th>ID</th><th>Source · locator</th><th>Value</th></tr></thead>
 <tbody>{ev or "<tr><td colspan=3 class='muted'>No evidence</td></tr>"}</tbody></table>
 <h3>Limitations</h3><ul class="tight small">{lims or "<li class='muted'>None recorded</li>"}</ul>"""
-    return _page(7, "Methodology", company, body, "How every number and status in this report was produced.")
+    return _page(n, "Methodology", company, body, "How every number and status in this report was produced.",
+                 pid="p7")
 
 
 # ---- stylesheet ------------------------------------------------------------------
@@ -1337,8 +1368,147 @@ figcaption { font-weight:700; font-size:9pt; color:var(--navy); margin-bottom:2p
 
 # ---- public API ----------------------------------------------------------------
 
+def _pay_market(eco: Any) -> str:
+    locs = (eco.payroll.by_location or {}) if eco else {}
+    top = max(locs, key=locs.get) if locs else ""
+    return "india" if "india" in top.lower() or "bangalore" in top.lower() else "us"
+
+
+def _page_talent(n: int, company: str, talent: Any, eco: Any) -> str:
+    """Founder schools (tiered for the home market), elite-alumni and ex-big-tech staff counts,
+    and where sampled employees worked before."""
+    if talent is None:
+        return _page(n, "Talent and pedigree", company, "<p class='muted'>No talent data for this run.</p>")
+    rows = "".join(
+        f"<tr><td><b>{_e(h.person)}</b></td><td>{_e(h.school)}<div class='muted small'>{_e(h.degree)}</div></td>"
+        f"<td><span class='pill'>{_e(h.label)}</span></td>"
+        f"<td>{'<span class=\"mk ok\">✔</span> home market' if h.home_market else 'elite, other market'}</td></tr>"
+        for h in talent.founder_schools)
+    founders = ("<table class='data'><thead><tr><th>Founder</th><th>School and degree</th><th>Tier</th>"
+                "<th>Matches home market</th></tr></thead><tbody>"
+                + (rows or f"<tr><td colspan=4 class='muted'>No founder holds a degree from a listed top-tier "
+                           f"school ({talent.founders_total} founder profiles checked)</td></tr>")
+                + "</tbody></table>")
+    staff = talent.indexed_staff or 0
+    elite = talent.elite_staff
+    share = f"{100 * elite / staff:.0f}%" if staff else "n/a"
+    bt = talent.ex_big_tech
+    tiles = ('<div class="tiles t4">'
+             + _tile("Founders with a top-tier degree", f"{talent.founders_with_elite} of {talent.founders_total}",
+                     '<span class="muted">top-tier list in the note below</span>',
+                     "good" if talent.founders_with_elite else "neutral")
+             + _tile("Indexed staff", fmt_compact(staff) if staff else "n/a",
+                     '<span class="muted">LinkedIn profiles at the company</span>')
+             + _tile("Elite-school alumni on staff", f"{elite} ({share})",
+                     f'<span class="muted">IIT alone: {talent.alumni.get("IIT", 0)}</span>',
+                     "good" if staff and elite / staff >= 0.2 else "neutral")
+             + _tile("Ex-big-tech on staff", "n/a" if bt is None else f"{bt} ({100 * bt / staff:.0f}%)" if staff else str(bt),
+                     '<span class="muted">Google, Microsoft, Amazon, Meta, Apple, Stripe, Uber, Flipkart</span>')
+             + "</div>")
+    items = [(g, float(v)) for g, v in talent.alumni.items()] + ([("Ex-big-tech", float(bt))] if bt is not None else [])
+    chart = svg_bar_chart(items, width=688, title="Staff by school group and big-tech background", unit="",
+                          label_width=200)
+    samples = (eco.payroll.samples if eco else [])[:8]
+    srows = "".join(
+        f"<tr><td>{_e(x.title)}</td><td>{_e(x.location)}</td><td><b>{_e(x.prior_employer or '—')}</b></td>"
+        f"<td class='num'>{_e(fmt_usd(x.est_salary_usd)) if x.est_salary_usd else '—'}</td></tr>" for x in samples)
+    sources = ", ".join((eco.customers.talent_sources if eco else [])[:8])
+    body = (tiles + "<h3>Founders' education</h3>" + founders
+            + _chart_card("Where the team comes from (counts of indexed staff)", chart,
+                          "Crustdata Person Search total_count: company ID plus a school or past-employer filter. "
+                          "Profiles without education listed are not counted, so these are lower bounds.")
+            + ("<h3>Sampled employees and where they worked before</h3><table class='data'><thead><tr><th>Title</th>"
+               "<th>Location</th><th>Previous employer</th><th class='num'>Est. salary</th></tr></thead><tbody>"
+               + srows + "</tbody></table>" if srows else "")
+            + (f"<p class='foot-note'>Most common previous employers across sampled staff: {_e(sources)}</p>" if sources else "")
+            + "<p class='foot-note'>Tiering is a stated prior used by many early-stage investors, not a judgement "
+              "on any individual: a top-tier degree in the company's home market (IIT for India, Ivy/Stanford/MIT for "
+              "the US) adds up to 10 points to the Team pillar, another market's top tier 6, and an elite-alumni share "
+              "of at least 20% another 4 (cap 14).</p>")
+    return _page(n, "Talent and pedigree", company, body,
+                 "Which schools and employers the founders and staff come from.", pid="pt")
+
+
+def _page_economics(n: int, company: str, s: Signals, eco: Any, rev: dict | None) -> str:
+    """Revenue estimate with method and range, payroll, salary vs local benchmarks, location
+    split and what the same team would cost in San Francisco."""
+    if eco is None:
+        return _page(n, "Team economics and revenue", company, "<p class='muted'>No economics for this run.</p>")
+    pay = eco.payroll
+    rev = rev or {}
+    hc = s.headcount_total or pay.headcount
+    point, lo, hi = rev.get("point_usd"), rev.get("low_usd"), rev.get("high_usd")
+    rpe = point / hc if point and hc else None
+    runway = None
+    prim = _metric(s, "total_funding_primary_usd", "total_funding_usd")
+    if prim and prim.value and pay.loaded_cost_usd:
+        runway = prim.value / (pay.loaded_cost_usd / 12)
+    tiles = ('<div class="tiles t4">'
+             + _tile("Estimated revenue / yr", fmt_usd(point) if point else "n/a",
+                     f'<span class="muted">range {_e(fmt_usd(lo))}–{_e(fmt_usd(hi))}</span>' if lo and hi else "")
+             + _tile("Revenue per employee", fmt_usd(rpe) if rpe else "n/a", '<span class="muted">estimate / headcount</span>')
+             + _tile("Average salary (est.)", fmt_usd(pay.avg_salary_usd) if pay.avg_salary_usd else "n/a",
+                     (f'<span class="muted">≈ ₹{pay.avg_salary_usd * INR_PER_USD / 1e5:.1f} lakh / yr</span>'
+                      if _pay_market(eco) == "india" and pay.avg_salary_usd else
+                      f'<span class="muted">range {_e(fmt_usd(pay.avg_salary_range_usd[0]))}–{_e(fmt_usd(pay.avg_salary_range_usd[1]))}</span>'
+                      if pay.avg_salary_range_usd else ""))
+             + _tile("Payroll / yr (loaded ×1.3)", fmt_usd(pay.loaded_cost_usd) if pay.loaded_cost_usd else "n/a",
+                     f'<span class="muted">runway ≤ {runway:.0f} months on primary capital (payroll only)</span>'
+                     if runway else '<span class="muted">funding amount undisclosed</span>')
+             + "</div>")
+    market = _pay_market(eco)
+    ctx = list(PAY_CONTEXT[market])
+    if pay.avg_salary_usd:
+        ctx.append((f"{company} est. average", pay.avg_salary_usd))
+    ctx.sort(key=lambda r: r[1])
+    unit_div = (INR_PER_USD / 1e5) if market == "india" else 1 / 1e3
+    pay_chart = svg_bar_chart([(k, round(v * unit_div, 1)) for k, v in ctx], width=688,
+                              title="Average salary vs local benchmarks",
+                              unit=" L ₹" if market == "india" else "K $", highlight=f"{company} est. average",
+                              label_width=250)
+    pay_note = ""
+    if market == "india" and pay.avg_salary_usd:
+        plfs = PAY_CONTEXT["india"][0][1]
+        pay_note = (f"At about ₹{pay.avg_salary_usd * INR_PER_USD / 1e5:.1f} lakh a year, the estimated average is "
+                    f"{pay.avg_salary_usd / plfs:.1f}× India's average salaried wage and in line with IT-services "
+                    "majors: competitive pay for an Indian startup, while keeping burn low.")
+    elif pay.avg_salary_usd:
+        pay_note = (f"Estimated average {fmt_usd(pay.avg_salary_usd)} against a US software-developer median of "
+                    f"{fmt_usd(PAY_CONTEXT['us'][0][1])}.")
+    locs = sorted((pay.by_location or {}).items(), key=lambda kv: -kv[1])[:6]
+    loc_rows = "".join(f"<tr><td>{_e(k)}</td><td class='num'>{v:,.0f}</td>"
+                       f"<td class='num'>{100 * v / sum(pay.by_location.values()):.0f}%</td></tr>" for k, v in locs)
+    roles = sorted((pay.by_role or {}).items(), key=lambda kv: -kv[1])[:6]
+    role_rows = "".join(f"<tr><td>{_e(k)}</td><td class='num'>{v:,.1f}</td></tr>" for k, v in roles)
+    cust = eco.customers
+    cust_html = ""
+    if cust.business_model or cust.target_customers:
+        cust_html = (f"<h3>Who it sells to (inferred)</h3><p class='small'><b>{_e(cust.business_model or 'unknown')}</b>"
+                     + (f" · {_e(', '.join(cust.target_customers[:5]))}" if cust.target_customers else "")
+                     + (f"<br><span class='muted'>Use cases: {_e(', '.join(cust.use_cases[:4]))}</span>" if cust.use_cases else "")
+                     + "</p>")
+    reason = str(rev.get("reason") or "").replace("No reported revenue to compare: ", "")
+    reason = reason[:1].upper() + reason[1:]
+    body = (tiles
+            + _chart_card("Average salary vs local benchmarks" + (" (₹ lakh / yr)" if market == "india" else " ($K / yr)"),
+                          pay_chart, pay_note + " The company figure is a model estimate (benchmarks × role mix × "
+                          "job-switch premium), not reported pay.")
+            + "<div class='two'><div><h3>Where staff are based</h3><table class='data'><thead><tr><th>Location</th>"
+              "<th class='num'>People</th><th class='num'>Share</th></tr></thead><tbody>" + loc_rows + "</tbody></table></div>"
+            + "<div><h3>Role mix (people)</h3><table class='data'><thead><tr><th>Role</th><th class='num'>People</th>"
+              "</tr></thead><tbody>" + role_rows + "</tbody></table></div></div>"
+            + cust_html
+            + "<h3>How revenue is estimated</h3><p class='small'>Interval-censored regression on 126 companies' "
+              "Crustdata revenue bands, corrected by a leave-one-out bias factor from reported revenue, blended 50/50 "
+              "with a revenue-per-employee benchmark for scaleups, then guardrails. Median error 14% on 6 companies "
+              f"with public revenue (all within 2×). {_e(reason)}</p>")
+    return _page(n, "Team economics and revenue", company, body,
+                 "What the team costs, how that compares locally, and what the company likely earns.", pid="pe")
+
+
 def build_html(case: CaseRecord, signals: Signals, flags: list[Flag], pillars: list[Pillar],
-               rec: Recommendation, *, rules: dict | None = None, sample: bool = False) -> str:
+               rec: Recommendation, *, rules: dict | None = None, sample: bool = False,
+               talent: Any = None, economics: Any = None, revenue: dict | None = None) -> str:
     """Self-contained A4 HTML report (7 sections). All source text is HTML-escaped.
 
     `rules` maps rule id -> (level, condition) or -> condition, printed on page 7.
@@ -1346,21 +1516,26 @@ def build_html(case: CaseRecord, signals: Signals, flags: list[Flag], pillars: l
     """
     company = _company(case, signals)
     footer = f"Proofroom · {company} · {' · '.join(run_labels(case))}" + (" · SAMPLE DATA" if sample else "")
+    extra = [p for p in ((lambda n: _page_talent(n, company, talent, economics)) if talent is not None else None,
+                         (lambda n: _page_economics(n, company, signals, economics, revenue))
+                         if economics is not None else None) if p]
     pages = [
-        _page1(case, signals, flags, rec, sample),
+        _page1(case, signals, flags, rec, sample, talent),
         _page2(company, flags, pillars, rec),
         _page3(company, signals),
         _page4(company, case, signals),
-        _page5(company, signals),
-        _page6(company, case, signals),
-        _page7(company, case, signals, flags, pillars, rec, rules, sample),
     ]
+    for f in extra:
+        pages.append(f(len(pages) + 1))
+    pages.append(_page5(company, signals, len(pages) + 1))
+    pages.append(_page6(company, case, signals, len(pages) + 1))
+    pages.append(_page7(company, case, signals, flags, pillars, rec, rules, sample, len(pages) + 1))
     wm = '<div class="watermark" aria-hidden="true">SAMPLE DATA</div>' if sample else ""
     return (f'<!doctype html><html lang="en"><head><meta charset="utf-8">'
             f'<meta name="viewport" content="width=device-width, initial-scale=1">'
             f'<meta name="proofroom-footer" content="{_e(footer)}">'
             f'<title>{_e(company)} signal report</title><style>{CSS}</style></head><body>'
-            f'{wm}{"".join(pages)}</body></html>')
+            f'{wm}{"".join(pages)}</body></html>').replace(TOTAL_TOKEN, str(len(pages)))
 
 
 @functools.lru_cache(maxsize=1)

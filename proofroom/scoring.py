@@ -74,6 +74,8 @@ RULES: dict[str, tuple[str, str]] = {
                                      "tech company or scaleup"),
     "G7 beats-peers": ("green", "Headcount growth beats the peer median by more than 20 points"),
     "G8 audience-growth": ("green", "Followers grew more than 50% year on year"),
+    "G9 elite-founder": ("green", "A founder holds a degree from a top-tier school for the home market "
+                                  "(IIT/IISc/IIM/BITS in India; Ivy/Stanford/MIT/Berkeley/CMU/Oxbridge elsewhere)"),
 }
 
 
@@ -409,6 +411,24 @@ def recommend(case: CaseRecord, sig: Signals, fl: list[Flag], pl: list[Pillar],
                           sizing_pct=round(pct * 100, 1), headline=headline,
                           rationale=rationale, revisit_triggers=triggers, horizon=horizon,
                           disclaimer=DISCLAIMER)
+
+
+def apply_talent(fl: list[Flag], pl: list[Pillar], talent) -> None:
+    """D31: founder pedigree and elite-alumni share (proofroom.talent) feed the Team pillar
+    (+0..14) and add green flag G9. In place; `talent` None is a no-op."""
+    if talent is None:
+        return
+    from .talent import team_bonus
+    pts, why = team_bonus(talent)
+    if pts:
+        team = next(p for p in pl if p.name == "Team")
+        team.score = _clamp(team.score + pts)
+        team.reasons.append(why)
+    home = [h for h in talent.founder_schools if h.home_market]
+    if home:
+        fl.append(Flag(level="green", rule="G9 elite-founder", title="Top-school founder",
+                       detail="; ".join(f"{h.person}: {h.school}" for h in home[:3]),
+                       evidence=["metric:founder_education"]))
 
 
 def assess(case: CaseRecord, sig: Signals, check_size_usd: float = 100_000.0,
