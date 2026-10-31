@@ -183,7 +183,7 @@ cp .env.example .env            # set CRUSTDATA_API_KEY
 
 - Coverage of very new startups in Crustdata's graph can be thin; absence of a record is reported as "not found", never as a refutation.
 - Profiles are self-maintained, and funding records are Crunchbase-derived, so they are labelled "indexed record", never "independent".
-- In this build the model calls are answered by an agent session through request files. With an API key the same calls run on `claude-sonnet-5-5` with no code change.
+- In this build the model calls are answered by an agent session through request files. The Anthropic SDK provider (`claude-sonnet-5-5`) is implemented and unit-tested against a fake client, but it was not exercised against the live API during the event.
 - Out of scope: revenue, valuation advice, market assessment, OCR, outreach.
 
 ## 9. The unseen-run protocol (for the video)
