@@ -126,3 +126,12 @@ def test_extra_files_are_hashed_and_verified(tmp_path):
     assert not store.verify_run(rd)
     with pytest.raises(StoreError):
         s.publish(s.new_run("c"), {}, {}, "b", extra={"../x": "no"})
+
+
+def test_binary_extra_file_is_hashed(tmp_path):
+    s = store.Store(tmp_path)
+    rd = s.new_run("c")
+    pdf = b"%PDF-1.7 synthetic"
+    man = s.publish(rd, {}, {}, "brief", extra={"equity_report.pdf": pdf})
+    assert (rd.path / "equity_report.pdf").read_bytes() == pdf and store.verify_run(rd)
+    assert man["files"]["equity_report.pdf"] == store.sha256_bytes(pdf)
