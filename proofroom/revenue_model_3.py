@@ -509,7 +509,8 @@ def predict_v3(signals: Any, economics: Any, extra_features: dict) -> dict:
     """Offline, deterministic v3 estimate. `extra_features` is model3_features_for()'s
     output (raw inputs + counts). Returns v1 point, v3 raw/point, payroll-implied (k
     from the 6 reported companies and from band data), clean-headcount benchmark and an
-    ensemble (geometric mean of v3 point, payroll-implied and clean benchmark)."""
+    ensemble (geometric mean of v3 point, payroll-implied and clean benchmark; the
+    recommended variant uses the v1 point instead)."""
     doc = Model3.load()
     as_of = date.fromisoformat(extra_features.get("as_of") or date.today().isoformat())
     inp = extra_features.get("inputs") or {}
@@ -543,9 +544,17 @@ def predict_v3(signals: Any, economics: Any, extra_features: dict) -> dict:
     out["payroll_implied_reported_k_usd"] = payroll_implied(pay_loaded, k_rep) if k_rep else None
     rpe = d.get("revenue_per_clean_employee_reported")
     out["clean_benchmark_usd"] = clean["clean"] * rpe if rpe and stage == "late" else None
-    parts = [v for v in (out.get("v3_point_usd"), out["payroll_implied_reported_k_usd"]
-                         if stage == "late" else None, out["clean_benchmark_usd"]) if v]
-    out["ensemble_usd"] = round(float(np.exp(np.mean(np.log(parts)))), 0) if parts else None
+    late_parts = [out["payroll_implied_reported_k_usd"], out["clean_benchmark_usd"]] \
+        if stage == "late" else []
+
+    def geo(vals: list) -> float | None:
+        vals = [v for v in vals if v]
+        return round(float(np.exp(np.mean(np.log(vals)))), 0) if vals else None
+    # Pre-registered ensemble (v3 point + payroll-implied + clean benchmark) and the
+    # combination recommended in docs/revenue_model_3_results.md (v1 point instead of v3,
+    # chosen AFTER seeing the 6 reported companies: not independently validated).
+    out["ensemble_usd"] = geo([out.get("v3_point_usd")] + late_parts)
+    out["ensemble_recommended_usd"] = geo([v1_point] + late_parts)
     out["stage"] = stage
     if stage == "early":
         out["note"] = ("early-stage (< $100M indexed funding): reported-company k and the "

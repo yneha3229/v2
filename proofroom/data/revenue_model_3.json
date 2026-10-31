@@ -1,0 +1,433 @@
+{
+ "version": "rev-3",
+ "trained_on": "2026-10-31",
+ "n_rows": 80,
+ "target": "log10(Crustdata revenue band midpoint), interval-censored in [log10 lower, log10 upper]",
+ "method": "midpoint",
+ "lambda": 30.0,
+ "lambda_note": "v1's method and lambda reused unchanged (not re-tuned on these folds)",
+ "features": [
+  "log_headcount",
+  "hc_growth_log",
+  "log_funding",
+  "funded",
+  "log_last_round",
+  "years_since_round",
+  "age_years",
+  "largest_country_us",
+  "largest_country_high_cost",
+  "hq_tier1_metro",
+  "cat_ai",
+  "cat_devtools",
+  "cat_fintech",
+  "cat_consumer",
+  "cat_b2b",
+  "log_size_bucket",
+  "log_clean_headcount",
+  "clean_share",
+  "log_loaded_payroll",
+  "log_payroll_per_head",
+  "n_top_tier",
+  "last_lead_top_tier",
+  "log_mentions",
+  "log_mentions_12m",
+  "log_partner_posts",
+  "log_market_pool",
+  "log_market_funded_24m",
+  "openings_per_head"
+ ],
+ "coef_standardized": [
+  0.139949,
+  -0.110431,
+  0.049996,
+  0.02985,
+  0.018946,
+  0.007914,
+  0.109833,
+  0.039758,
+  -0.057025,
+  -0.056557,
+  -0.041476,
+  -0.082912,
+  0.034549,
+  -0.013374,
+  -0.030994,
+  0.350111,
+  0.092344,
+  -0.070562,
+  0.060604,
+  -0.048848,
+  0.016816,
+  -0.047444,
+  0.076266,
+  -0.031356,
+  0.036912,
+  -0.019508,
+  0.002011,
+  -0.069214
+ ],
+ "intercept": 7.635512,
+ "feature_means": [
+  2.423008,
+  0.147655,
+  7.633095,
+  0.9,
+  7.117801,
+  2.422159,
+  9.175,
+  0.3125,
+  0.075,
+  0.225,
+  0.275,
+  0.275,
+  0.35,
+  0.125,
+  0.425,
+  2.494056,
+  2.332528,
+  0.88819,
+  7.042158,
+  4.709629,
+  0.6625,
+  0.0125,
+  2.567138,
+  1.923949,
+  1.023383,
+  4.2299,
+  2.69335,
+  0.007134
+ ],
+ "feature_stds": [
+  0.794945,
+  0.320091,
+  2.755228,
+  0.3,
+  2.605627,
+  3.285223,
+  3.056857,
+  0.463512,
+  0.263391,
+  0.417582,
+  0.446514,
+  0.446514,
+  0.47697,
+  0.330719,
+  0.494343,
+  0.679112,
+  0.863304,
+  0.227271,
+  0.937842,
+  0.468449,
+  1.431291,
+  0.111102,
+  0.78011,
+  0.961833,
+  0.696554,
+  1.177039,
+  0.82614,
+  0.025767
+ ],
+ "cv": {
+  "folds": 5,
+  "seed": 7,
+  "results": {
+   "v1 (16 features, refit on this subset)": {
+    "band_hit_rate": 0.2,
+    "median_abs_log10_error": 0.3604,
+    "mean_abs_log10_error": 0.4781,
+    "q80_abs_log10_error": 0.7704,
+    "within_2x_rate": 0.375,
+    "vs_v1_sign_test": [
+     0,
+     0,
+     1.0
+    ]
+   },
+   "v1 + clean_headcount": {
+    "band_hit_rate": 0.2,
+    "median_abs_log10_error": 0.363,
+    "mean_abs_log10_error": 0.4812,
+    "q80_abs_log10_error": 0.8133,
+    "within_2x_rate": 0.425,
+    "vs_v1_sign_test": [
+     40,
+     40,
+     1.0
+    ]
+   },
+   "v1 + loaded_payroll": {
+    "band_hit_rate": 0.2,
+    "median_abs_log10_error": 0.3724,
+    "mean_abs_log10_error": 0.4839,
+    "q80_abs_log10_error": 0.7681,
+    "within_2x_rate": 0.4,
+    "vs_v1_sign_test": [
+     40,
+     40,
+     1.0
+    ]
+   },
+   "v1 + investor_quality": {
+    "band_hit_rate": 0.2,
+    "median_abs_log10_error": 0.3542,
+    "mean_abs_log10_error": 0.4851,
+    "q80_abs_log10_error": 0.794,
+    "within_2x_rate": 0.3875,
+    "vs_v1_sign_test": [
+     35,
+     45,
+     0.3143
+    ]
+   },
+   "v1 + mentions": {
+    "band_hit_rate": 0.1875,
+    "median_abs_log10_error": 0.3881,
+    "mean_abs_log10_error": 0.4795,
+    "q80_abs_log10_error": 0.7812,
+    "within_2x_rate": 0.375,
+    "vs_v1_sign_test": [
+     35,
+     45,
+     0.3143
+    ]
+   },
+   "v1 + market_width": {
+    "band_hit_rate": 0.2125,
+    "median_abs_log10_error": 0.3552,
+    "mean_abs_log10_error": 0.4811,
+    "q80_abs_log10_error": 0.7628,
+    "within_2x_rate": 0.3875,
+    "vs_v1_sign_test": [
+     34,
+     46,
+     0.2185
+    ]
+   },
+   "v1 + hiring_intensity": {
+    "band_hit_rate": 0.175,
+    "median_abs_log10_error": 0.3467,
+    "mean_abs_log10_error": 0.4686,
+    "q80_abs_log10_error": 0.7435,
+    "within_2x_rate": 0.4,
+    "vs_v1_sign_test": [
+     46,
+     34,
+     0.2185
+    ]
+   },
+   "v3 = v1 + all new": {
+    "band_hit_rate": 0.25,
+    "median_abs_log10_error": 0.4047,
+    "mean_abs_log10_error": 0.4822,
+    "q80_abs_log10_error": 0.8015,
+    "within_2x_rate": 0.4125,
+    "vs_v1_sign_test": [
+     38,
+     42,
+     0.7376
+    ]
+   },
+   "baseline: raw headcount x median rev/employee": {
+    "band_hit_rate": 0.1375,
+    "median_abs_log10_error": 0.4155,
+    "mean_abs_log10_error": 0.5322,
+    "q80_abs_log10_error": 0.8768,
+    "within_2x_rate": 0.3125,
+    "vs_v1_sign_test": [
+     33,
+     47,
+     0.1456
+    ]
+   },
+   "baseline: CLEAN headcount x median rev/clean employee": {
+    "band_hit_rate": 0.1625,
+    "median_abs_log10_error": 0.4695,
+    "mean_abs_log10_error": 0.579,
+    "q80_abs_log10_error": 0.9244,
+    "within_2x_rate": 0.325,
+    "vs_v1_sign_test": [
+     31,
+     49,
+     0.0567
+    ]
+   },
+   "payroll-implied: k x loaded payroll (k by stage)": {
+    "band_hit_rate": 0.175,
+    "median_abs_log10_error": 0.5854,
+    "mean_abs_log10_error": 0.6861,
+    "q80_abs_log10_error": 1.0885,
+    "within_2x_rate": 0.325,
+    "vs_v1_sign_test": [
+     30,
+     50,
+     0.033
+    ]
+   },
+   "payroll-implied: k x loaded payroll (single k)": {
+    "band_hit_rate": 0.1,
+    "median_abs_log10_error": 0.6208,
+    "mean_abs_log10_error": 0.7606,
+    "q80_abs_log10_error": 1.1856,
+    "within_2x_rate": 0.25,
+    "vs_v1_sign_test": [
+     25,
+     55,
+     0.0011
+    ]
+   }
+  },
+  "definition": "held-out rows scored with the headcount-implied size bucket (as v1); error vs log10 band midpoint"
+ },
+ "clean_headcount_training": {
+  "rows": 80,
+  "rows_cleaned": 43,
+  "median_clean_share": 0.977
+ },
+ "payroll_k_band": {
+  "early": 9.6443,
+  "late": 1.8943
+ },
+ "selection": "16 per size stratum of training_set.json ordered by sha256('rev3:<id>')",
+ "payroll_k_reported": 2.4577,
+ "revenue_per_clean_employee_reported": 352078.0,
+ "reported_companies": [
+  "linear.app",
+  "clay.com",
+  "vercel.com",
+  "retool.com",
+  "ramp.com",
+  "mercury.com"
+ ],
+ "reported_eval": {
+  "all": {
+   "v1": {
+    "n": 6,
+    "median_abs_pct_err": 0.57,
+    "within_30pct": 0.333,
+    "within_2x": 0.333,
+    "median_ratio": 0.43,
+    "worst_over": "clay 1.25x",
+    "worst_under": "linear 0.24x"
+   },
+   "v3": {
+    "n": 6,
+    "median_abs_pct_err": 0.792,
+    "within_30pct": 0.167,
+    "within_2x": 0.167,
+    "median_ratio": 0.251,
+    "worst_over": "clay 2.05x",
+    "worst_under": "linear 0.15x"
+   },
+   "payroll_band_k": {
+    "n": 6,
+    "median_abs_pct_err": 0.34,
+    "within_30pct": 0.5,
+    "within_2x": 0.833,
+    "median_ratio": 0.771,
+    "worst_over": "clay 1.76x",
+    "worst_under": "ramp 0.13x"
+   },
+   "payroll_loo": {
+    "n": 6,
+    "median_abs_pct_err": 0.442,
+    "within_30pct": 0.5,
+    "within_2x": 0.667,
+    "median_ratio": 1.0,
+    "worst_over": "clay 2.28x",
+    "worst_under": "ramp 0.16x"
+   },
+   "clean_bench_loo": {
+    "n": 6,
+    "median_abs_pct_err": 0.361,
+    "within_30pct": 0.5,
+    "within_2x": 0.667,
+    "median_ratio": 1.008,
+    "worst_over": "clay 2.57x",
+    "worst_under": "ramp 0.16x"
+   },
+   "ensemble": {
+    "n": 6,
+    "median_abs_pct_err": 0.489,
+    "within_30pct": 0.333,
+    "within_2x": 0.5,
+    "median_ratio": 0.627,
+    "worst_over": "clay 2.29x",
+    "worst_under": "ramp 0.19x"
+   },
+   "ensemble_v1": {
+    "n": 6,
+    "median_abs_pct_err": 0.408,
+    "within_30pct": 0.333,
+    "within_2x": 0.833,
+    "median_ratio": 0.765,
+    "worst_over": "clay 1.94x",
+    "worst_under": "ramp 0.24x"
+   }
+  },
+  "unflagged": {
+   "v1": {
+    "n": 3,
+    "median_abs_pct_err": 0.637,
+    "within_30pct": 0.0,
+    "within_2x": 0.0,
+    "median_ratio": 0.363,
+    "worst_over": "retool 0.37x",
+    "worst_under": "linear 0.24x"
+   },
+   "v3": {
+    "n": 3,
+    "median_abs_pct_err": 0.833,
+    "within_30pct": 0.0,
+    "within_2x": 0.0,
+    "median_ratio": 0.167,
+    "worst_over": "vercel 0.25x",
+    "worst_under": "linear 0.15x"
+   },
+   "payroll_band_k": {
+    "n": 3,
+    "median_abs_pct_err": 0.255,
+    "within_30pct": 0.667,
+    "within_2x": 1.0,
+    "median_ratio": 0.77,
+    "worst_over": "retool 1.25x",
+    "worst_under": "vercel 0.58x"
+   },
+   "payroll_loo": {
+    "n": 3,
+    "median_abs_pct_err": 0.255,
+    "within_30pct": 0.667,
+    "within_2x": 1.0,
+    "median_ratio": 0.997,
+    "worst_over": "retool 1.63x",
+    "worst_under": "vercel 0.75x"
+   },
+   "clean_bench_loo": {
+    "n": 3,
+    "median_abs_pct_err": 0.288,
+    "within_30pct": 0.667,
+    "within_2x": 1.0,
+    "median_ratio": 1.134,
+    "worst_over": "retool 1.29x",
+    "worst_under": "vercel 0.56x"
+   },
+   "ensemble": {
+    "n": 3,
+    "median_abs_pct_err": 0.451,
+    "within_30pct": 0.333,
+    "within_2x": 0.667,
+    "median_ratio": 0.549,
+    "worst_over": "retool 0.70x",
+    "worst_under": "vercel 0.47x"
+   },
+   "ensemble_v1": {
+    "n": 3,
+    "median_abs_pct_err": 0.351,
+    "within_30pct": 0.333,
+    "within_2x": 1.0,
+    "median_ratio": 0.649,
+    "worst_over": "retool 0.92x",
+    "worst_under": "vercel 0.53x"
+   }
+  }
+ }
+}
