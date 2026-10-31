@@ -695,7 +695,7 @@ async def healthz() -> dict:
 
 @app.get("/demo", response_class=HTMLResponse)
 async def demo_page() -> HTMLResponse:
-    return HTMLResponse((HERE / "static" / "demo.html").read_text())
+    return HTMLResponse((HERE / "static" / "demo.html").read_text(encoding="utf-8"))
 
 
 @app.get("/api/demo/search")

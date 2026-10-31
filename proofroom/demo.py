@@ -14,7 +14,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from . import config, economics, equity_report, scoring, talent
+from . import config, economics, equity_report, public_financials, scoring, talent
 from . import revenue_models_alt as alt
 from .crustdata import CACHED, Crustdata
 from .errors import CrustError, ProofroomError
@@ -90,12 +90,23 @@ async def _bundle(domain: str, cid: int | None = None) -> tuple:
             tal.staff = talent.staff_history(staff, int(cid))
         except CrustError as e:
             log.warning("staff sample failed: %s", e)
+    # D32: a listed company's filed accounts replace the model estimate
+    fin, note = await public_financials.reported_financials(rec)
+    if fin and fin["currency"] != "USD":
+        fin, note = None, f"{fin['ticker']} reports in {fin['currency']}; revenue is a model estimate"
+    if fin:
+        rev = public_financials.as_revenue(fin, rev, sig.headcount_total)
+    elif public_financials.is_public(rec):
+        rev["public_note"] = note
+        sig.limitations.append(f"Listed company, but {note}: revenue is a model estimate")
     if rev.get("low_usd") and rev.get("high_usd"):
         sig.revenue_band_usd = (rev["low_usd"], rev["high_usd"])
     if rev.get("point_usd"):
         sig.metrics["revenue_estimate_usd"] = Metric(
-            key="revenue_estimate_usd", label="Revenue estimate", value=rev["point_usd"], unit="USD",
-            display=equity_report.fmt_usd(rev["point_usd"]), source="revenue_models_alt")
+            key="revenue_estimate_usd",
+            label=f"Revenue (reported, FY ending {fin['fiscal_year_end']})" if fin else "Revenue estimate",
+            value=rev["point_usd"], unit="USD", display=equity_report.fmt_usd(rev["point_usd"]),
+            source=fin["source"] if fin else "revenue_models_alt")
     import sys
     sys.path.insert(0, str(config.ROOT / "scripts"))
     import signal_dashboard as sd  # verified case lookup + unverified stub
@@ -137,7 +148,7 @@ def _payload(b: tuple) -> dict:
     try:
         import json
         cells = {(x["role"], x["location"]): x["annual_usd"] for x in json.loads(
-            (config.ROOT / "proofroom/data/salary_benchmarks.json").read_text())["benchmarks"]}
+            (config.ROOT / "proofroom/data/salary_benchmarks.json").read_text(encoding="utf-8"))["benchmarks"]}
         rmap = {"Data & Research": "Data Science"}
         sf = sum(n * (cells.get((rmap.get(k, k), "San Francisco Bay Area")) or cells[("Other", "San Francisco Bay Area")])
                  for k, n in (pay.by_role or {}).items()) * pay.overhead_multiplier
@@ -169,7 +180,8 @@ def _payload(b: tuple) -> dict:
         "revenue": {k: rev.get(k) for k in ("point_usd", "low_usd", "high_usd", "drivers", "components",
                                             "band_usd", "band_trusted", "early_stage", "namesake",
                                             "intercept_log10", "revenue_per_employee_usd", "method",
-                                            "reason", "flags", "listed_bucket")},
+                                            "reason", "flags", "listed_bucket", "label", "reported",
+                                            "model_estimate_usd", "public_note")},
         "payroll": {"avg": pay.avg_salary_usd, "avg_range": pay.avg_salary_range_usd,
                     "base": pay.annual_payroll_usd, "loaded": pay.loaded_cost_usd,
                     "overhead": pay.overhead_multiplier, "switch": pay.switch_premium,

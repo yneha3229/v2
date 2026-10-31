@@ -186,7 +186,7 @@ async def run(req: RunRequest, *, st: store.Store | None = None,
     with lock:
         existing = st.recent_identical(case_id, req.as_input().model_dump())
         if existing and req.run_mode != cd.FIXTURE:  # FIXTURE replays are free; always rerun
-            case = CaseRecord.model_validate_json((existing.path / "case.json").read_text())
+            case = CaseRecord.model_validate_json((existing.path / "case.json").read_text(encoding="utf-8"))
             return RunOutcome(case.status, existing.path, case,
                               (existing.path / "brief.md").read_text(encoding="utf-8"))
         rd = st.new_run(case_id)
@@ -619,7 +619,7 @@ def _write_failed(rd: store.RunDir, r: _Run, err: Exception) -> None:
         (rd.path / "failed.json").write_text(json.dumps({
             "error": str(err), "type": type(err).__name__, "seconds": r.elapsed(),
             "limitations": r.limitations, "stage_log": r.log_lines,
-            "model_attempts": [a.model_dump() for a in r.model_attempts]}, indent=2))
+            "model_attempts": [a.model_dump() for a in r.model_attempts]}, indent=2), encoding="utf-8")
     except OSError as e:
         log.error("could not write failed.json: %s", e)
 
