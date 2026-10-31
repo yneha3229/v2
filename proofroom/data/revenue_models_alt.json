@@ -1,0 +1,145 @@
+{
+ "version": "rev-alt-1",
+ "trained_on": "2026-10-31",
+ "n_rows": 126,
+ "method": "tobit (interval-censored ridge, EM) on 126 Crustdata band rows; x reported-revenue bias factor; geometric 50/50 blend with reported revenue/employee benchmark (scaleups >= 50 staff and >= $20M primary capital only); then guardrails",
+ "model": {
+  "kind": "linear",
+  "name": "tobit",
+  "coef_standardized": [
+   0.24809867,
+   -0.16775366,
+   0.05385403,
+   0.04168738,
+   -0.03807773,
+   -0.01509953,
+   0.15461221,
+   -0.0115956,
+   -0.08059606,
+   -0.02039115,
+   -0.07515253,
+   -0.00970144,
+   0.00409467,
+   -0.01263622,
+   -0.00676258,
+   0.43564596
+  ],
+  "intercept": 7.52317414,
+  "feature_means": [
+   2.43619338,
+   0.18478691,
+   8.05158291,
+   0.93650794,
+   7.50240464,
+   1.97427289,
+   8.88888889,
+   0.32539683,
+   0.13492063,
+   0.22222222,
+   0.28571429,
+   0.27777778,
+   0.3015873,
+   0.11904762,
+   0.41269841,
+   2.47718272
+  ],
+  "feature_stds": [
+   0.80917537,
+   0.32314511,
+   2.35392851,
+   0.2438459,
+   2.25590778,
+   2.96319756,
+   3.35048497,
+   0.46852293,
+   0.34163878,
+   0.41573971,
+   0.45175395,
+   0.44790321,
+   0.45894706,
+   0.32384454,
+   0.49231944,
+   0.68148587
+  ],
+  "lam": 30.0,
+  "sigma": 0.465502
+ },
+ "features": [
+  "log_headcount",
+  "hc_growth_log",
+  "log_funding",
+  "funded",
+  "log_last_round",
+  "years_since_round",
+  "age_years",
+  "largest_country_us",
+  "largest_country_high_cost",
+  "hq_tier1_metro",
+  "cat_ai",
+  "cat_devtools",
+  "cat_fintech",
+  "cat_consumer",
+  "cat_b2b",
+  "log_size_bucket"
+ ],
+ "reported_bias_factor": 2.972626,
+ "reported_bias_refs": {
+  "linear.app": 4.4872,
+  "vercel.com": 2.9726,
+  "retool.com": 2.9157
+ },
+ "benchmark_rpe_usd": 330033.0,
+ "benchmark_n": 3,
+ "weights": {
+  "benchmark": 0.5,
+  "model_bias_corrected": 0.5
+ },
+ "spread_log10": 0.0648,
+ "guardrails": {
+  "rpe_min_usd": 20000.0,
+  "rpe_max_usd": 1500000.0,
+  "max_over_band_top": 15.0
+ },
+ "cv_bands": {
+  "model": "tobit",
+  "band_hit_rate": 0.2381,
+  "median_abs_log10_error": 0.3351,
+  "mean_abs_log10_error": 0.4876,
+  "q80_abs_log10_error": 0.7932,
+  "within_2x_rate": 0.4286,
+  "max_over_x": 120.3,
+  "max_under_x": 170.75,
+  "fold_hparams": [
+   {
+    "lam": 30.0
+   },
+   {
+    "lam": 10.0
+   },
+   {
+    "lam": 10.0
+   },
+   {
+    "lam": 1.0
+   },
+   {
+    "lam": 10.0
+   }
+  ]
+ },
+ "reported_loo": {
+  "n": 6,
+  "median_abs_pct_error": 0.1371,
+  "mean_abs_pct_error": 0.219,
+  "within_30pct": 0.6667,
+  "within_2x": 1.0,
+  "median_ratio": 0.9931,
+  "max_over": 1.5,
+  "max_under": 1.2297
+ },
+ "notes": [
+  "ESTIMATE, not reported revenue.",
+  "Bias factor and benchmark come from the unflagged reported companies (linear.app, retool.com, vercel.com); n=3, indicative only.",
+  "Blend weight 0.5 fixed a priori, not tuned on the reported companies."
+ ]
+}

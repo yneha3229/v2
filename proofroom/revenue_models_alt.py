@@ -527,7 +527,7 @@ def reason_line(d: dict) -> str:
     else:
         head = f"Close ({ratio:.2f}x reported)"
     rep_rpe, bench = d.get("reported_rpe_usd"), d.get("benchmark_rpe_usd")
-    if rep_rpe and bench:
+    if rep_rpe and bench and not d.get("namesake"):
         if rep_rpe > 1.3 * bench:
             why = ("typical of usage-priced infrastructure" if d.get("category") == "devtools"
                    else "typical of interchange/float fintech revenue"
@@ -538,10 +538,14 @@ def reason_line(d: dict) -> str:
             parts.append(f"low revenue per employee (${rep_rpe / 1e3:,.0f}K reported vs "
                          f"${bench / 1e3:,.0f}K benchmark)")
     if d.get("namesake"):
-        parts.append(f"headcount {d['headcount']:,.0f} is inflated by namesake profiles")
+        parts.append(f"headcount {d['headcount']:,.0f} is inflated by namesake profiles, so "
+                     "per-employee figures are distorted")
     if d.get("band_stale"):
         parts.append(f"band is stale (listed {d['listed_bucket']}, actual "
                      f"{d['headcount']:,.0f})")
+    over = d.get("estimate_vs_band_top")
+    if over and over > 1.5:
+        parts.append(f"estimate is {over:.1f}x the Crustdata band top")
     if d.get("early_stage"):
         parts.append("early-stage: no reported-revenue correction; model and band only")
     g = d.get("headcount_yoy_pct")
@@ -632,5 +636,6 @@ def predict_alt(signals: Any, economics: Any = None, *, model: AltModel | None =
         "ratio_to_reported": None, "namesake": namesake, "headcount": hc,
         "band_stale": bool(listed and listed != rm.bucket_of(hc)), "listed_bucket": listed,
         "early_stage": early, "headcount_yoy_pct": _metric(signals, "headcount_yoy_pct"),
+        "estimate_vs_band_top": (g["value_usd"] / band[1]) if band and band[1] else None,
         "guardrail_flags": g["flags"]})
     return out
