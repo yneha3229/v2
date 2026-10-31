@@ -39,14 +39,12 @@ PROGRESS.md (IN PROGRESS, your owner letter, time), commit and push PROGRESS.md,
 
 *Overwrite this block at every handoff. Keep it under 10 lines.*
 
-- **Updated:** 01:30 IST, 31 Oct, by the pre-event prep session (no product code written; rule 2).
-- **Current step:** S0 (not started; it may start at 10:30 only). Phase 0 of the day check is done early: GO-WITH-CHANGES.
-- **Works (verified):**
-  - The offline wheelhouse installs and the S0 import check prints `ok` on Python 3.12.2 and 3.14.7.
-  - anthropic 2.3.0 `messages.parse` supports `output_format`, `output_config` and `timeout`.
-- **Half-done:** nothing. There is no code. The repo folder holds only CLAUDE.md and PROGRESS.md, with no `git init`.
-- **Next action:** do the morning checklist below. At 10:30, run S1 (Phase 2) and S0 together, using the S0 recipe below.
-- **Blockers / open decisions:** `ANTHROPIC_API_KEY` is not set (check 0.6). Recorder test 0.5 still to do. Plan changes PC-1 to PC-7 need to be applied (see Decisions).
+- **Updated:** 12:06 IST by Session 1 (Claude). **Build complete through S12; next is S13 freeze checks.**
+- **Works (verified):** `pytest -q` → 204 passed. No-key demos: `python -m proofroom run --fixture koah|linear|attio` → DELIVERED; `python -m proofroom verify <run>` → RECEIPT OK for all three. Web UI `uvicorn proofroom.web:app` (Playwright-checked). Secrets scan clean (12:05).
+- **Model:** session provider (D15/D20): the pipeline writes `<run>/model/<call>.request.json`; an agent writes `<call>.response.json`. No API key.
+- **Not done:** S13 clean-clone quickstart + unseen selection (Prep_03 §2) · S14 recording (user: screen capture + Loom) · S15 submit form (user) · S16 stage kit. FAST profile not yet timed on a live run.
+- **Next action:** S13: `git clone` to a temp dir, follow README quickstart with no keys (`run --fixture koah`), then run the predeclared unseen-selection search after the freeze and pick candidate 1.
+- **Blockers / decisions:** the unseen run needs an agent to answer 3 model calls live on camera (≈1–3 min). Recorder test (0.5) still undone by the user.
 
 ---
 
@@ -93,7 +91,7 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 | Step | Status | Owner | Started | Done | Commit | Verify result / note |
 |---|---|---|---|---|---|---|
 | S0 Setup | DONE | Claude (A–D merged) | 10:44 | 10:47 | S0 | `ok 2.3.0 0.28.1 2.14.2` (anthropic, httpx, pydantic); pins from PyPI in `requirements.txt` |
-| S1 T1 day-check Phase 2 | TODO | A + B | | | | Phase 0 done early (GO-WITH-CHANGES); Phase 1 at 10:00 |
+| S1 T1 day-check Phase 2 | DONE (superseded) | Claude | 10:44 | 12:06 | — | Anthropic checks 2.1–2.2 superseded by D15/D20 (session model). 2.3–2.5 exercised by the Koah/Linear/Attio runs; 2.6 retrieval 6–11 s live |
 | S2 Crustdata adapter | DONE | Claude | 10:47 | 10:50 | S2 | `33 passed`; `probe koahlabs.com` → `MATCHED id=3718859`. Error hierarchy, redacting logger, corrupt-cache = miss, PC-3 filter |
 | S3 Models and run store | DONE | Claude | 10:50 | 10:51 | S3 | `9 passed`: write-once (`xb`), read-back hash, manifest only after verify; saf-4/saf-5; strict flat schemas |
 | S4 Graph resolve | DONE | Claude | 10:51 | 10:54 | S4 | `28 passed` on recorded fixture `fixtures/koah`. 3 founders ✔ at 3718859; Herrick→Affirm 632082 ✔, Supermove 780882 ✔, **Qualified ? (see D14)**; seed $5M 2025-09-07. PC-2/3/6 applied |
@@ -103,7 +101,7 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 | S8 Mode A end to end | DONE | Claude + agent | 11:35 | 11:53 | S8 | Koah, Linear, Attio domain-only all DELIVERED + RECEIPT OK (fixture replays, no keys). Linear: tender = liquidity, total not capital, Karri ✔ (PC-3 union). Attio: GV matched only via source-stated alias |
 | S9 T2 usefulness | DONE | Claude + agent | 11:45 | 11:53 | S9 | Metrics below. P1 K1/K2 ✔; P2 L1 core ✔ (L1 qualifier sentence withheld by strict check), L2 no source in news[]; P3 A1/A2/A3 ✔. 0 false conflicts / false sums / wrong subjects / alias errors. T2 pass (≥3 reusable sentences, ≥1 ID join each) |
 | S10 Web UI | DONE | agent (verified by Claude) | 11:40 | 11:32 | S10 | `23 passed` (199 total). Playwright: index + demo run DELIVERED, drawer opens, 0 JS errors, mobile scrollWidth 390. U3/U4/U5/U7/U8 panels in. TODO polish: collapse long panels |
-| S11 T3 tests and fixtures | TODO | C | | | | By 13:20; case tables in Prep_02 |
+| S11 T3 tests and fixtures | DONE | Claude + agents | 10:50 | 12:06 | 1196e58 | Strip script `proofroom/fixtures.py`; fixtures koah/linear/attio (Crustdata + model); T-api/T-identity/T-finance/T-safety cases across test files; `pytest -q` 204 green; FIXTURE in CLI and UI |
 | S12 README and should-ship | DONE (README) | Claude | 12:00 | 12:03 | S12 | README: 5 deck sections, real results table (3/3 DELIVERED, 0 errors), 204 tests by group, 9 approaches tried. UI polish: run page 8826→1868 px, flag counts + readable desk. Clean-clone quickstart check moves to S13 |
 | S13 Freeze checks | TODO | All | | | | Freeze 14:00; selection query in Prep_03 |
 | S14 Unseen recording | TODO | D | | | | Narration in Prep_03 |
