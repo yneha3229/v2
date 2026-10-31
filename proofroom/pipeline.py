@@ -25,7 +25,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Awaitable, Callable
 
-from proofroom import config, gate, graph, llm, packet, prompts, render, store
+from proofroom import config, exceptions, gate, graph, llm, packet, prompts, render, store
 from proofroom import crustdata as cd
 from proofroom.errors import ConfigError, CrustError, ModelError, ProofroomError, StoreError
 from proofroom.models import (AssessResult, AttemptRecord, CaseRecord, CheckResult, Claim,
@@ -69,6 +69,7 @@ class RunRequest:
     pasted: list[str] = field(default_factory=list)
     sentence: str = ""               # U5 one-sentence check (implies Mode B)
     fixture: str = ""
+    email: bool | None = None        # U8 founder email draft; None = config default (off)
 
     def normalized(self) -> "RunRequest":
         r = RunRequest(**{**self.__dict__})
@@ -307,11 +308,17 @@ async def _execute(r: _Run, rd: store.RunDir) -> RunOutcome:
                "packet_picks": [p.get("url") for p in pk.picks],
                "excluded_sources": len(pk.excluded),
                "stage_log": r.log_lines})
-    brief = render.brief_md(case, model_source=model_source, profile=prof.name)
-    questions = render.questions_md(case)
+    desk = exceptions.exception_desk(case)
+    case.stats["needs_a_person"] = len(desk)
+    case.stats["exceptions"] = [d.as_dict() for d in desk]
+    brief = _with_desk(render.brief_md(case, model_source=model_source, profile=prof.name),
+                       exceptions.exception_desk_md(desk))
+    extra = {"questions.md": render.questions_md(case)}
+    if req.email if req.email is not None else config.founder_email_enabled():
+        extra["founder_email.md"] = exceptions.founder_email_md(case)
     st = r.store
     st.publish(rd, req.as_input().model_dump(), case.model_dump(mode="json"), brief,
-               run_status=status, extra={"questions.md": questions})
+               run_status=status, extra=extra)
     await r.progress("published", status=status, run=rd.run)
     return RunOutcome(status, rd.path, case, brief, seconds=r.elapsed())
 
@@ -552,6 +559,12 @@ def _write_failed(rd: store.RunDir, r: _Run, err: Exception) -> None:
             "model_attempts": [a.model_dump() for a in r.model_attempts]}, indent=2))
     except OSError as e:
         log.error("could not write failed.json: %s", e)
+
+
+def _with_desk(brief: str, desk_md: str) -> str:
+    """U7: the exception desk goes right after the header block (first blank line)."""
+    head, sep, rest = brief.partition("\n\n")
+    return f"{head}\n\n## Needs a person\n\n{desk_md}\n{rest}" if sep else brief + "\n" + desk_md
 
 
 def _provider_label(provider: Any) -> str:
