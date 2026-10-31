@@ -50,7 +50,7 @@ def _run(args: argparse.Namespace) -> int:
         run_mode=mode, profile="FAST" if args.fast else "FULL",
         provider="fixture" if args.fixture else args.provider, focus_note=args.focus or "",
         urls=args.url or [], pasted=pasted, sentence=args.sentence or "",
-        fixture=args.fixture or "")
+        fixture=args.fixture or "", email=True if args.email else None)
 
     def show(stage: str, payload: dict) -> None:
         print(f"[{payload.get('elapsed', 0):6.2f}s] {stage}", flush=True)
@@ -83,6 +83,8 @@ def main(argv: list[str] | None = None) -> int:
     rn.add_argument("--mode", default="CACHED", choices=["LIVE", "CACHED"])
     rn.add_argument("--fixture", choices=sorted(FIXTURE_DOMAINS), help="replay a demo case, no keys")
     rn.add_argument("--fast", action="store_true", help="FAST profile: every step, lighter checks")
+    rn.add_argument("--email", action="store_true",
+                    help="U8: also write founder_email.md (a draft, never sent)")
     rn.add_argument("--provider", default="auto", choices=["auto", "session", "anthropic"])
     vf = sub.add_parser("verify", help="U1 proof receipt: re-check a published run offline")
     vf.add_argument("run_dir")

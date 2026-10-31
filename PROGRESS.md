@@ -157,6 +157,9 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 | D17 | 11:12 | Upgrades approved: U1 proof receipt (`verify` cmd), U2 injection meter, U3 origin map, U4 four-clocks timeline, U5 one-sentence check, U6 founder-meeting ask sheet (`questions.md`) | User go | §4.3, §15 |
 | D18 | 11:12 | Pipeline runs independent stages concurrently (asyncio). New **FAST** profile: every stage runs, code gate kept in full, but effort low on all calls, ≤2 pages, ≤3 claims, no stage-4 extra retrieval; every output labelled FAST | User request | §8.2, §8.3 |
 | D19 | 11:12 | Clock triggers relaxed for now at the user's request; freeze/submit times still noted | User instruction | CLAUDE.md §4 |
+| D20 | 11:30 | Session provider only for the event; no API key will be added (user) | User decision | §8.3 |
+| D21 | 11:30 | **U7 exception desk** approved: brief top section + UI badge "Needs a person: N" listing identity ties, conflicting claims, suppressed sentences and failed checks | Deck: "a person only for the exceptions" | §4.3 |
+| D22 | 11:30 | **U8 founder email draft** approved as OPTIONAL, off by default: `PROOFROOM_FOUNDER_EMAIL=1` or `run --email` writes `founder_email.md` (draft only, never sent) | User decision; deck rule: agents contact only the team | §4.5 |
 | D7 | — | **PC-7 (open, S6 owner):** refusal fallback. The recommendation is to keep "refusal = failed attempt". | Fallback only re-runs cyber/frontier_llm declines on Sonnet 5.5 | §8.3 |
 
 ---

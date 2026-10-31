@@ -21,3 +21,16 @@ def crustdata_key() -> str:
 
 def anthropic_key() -> str:
     return os.environ.get("ANTHROPIC_API_KEY", "")
+
+
+def flag(name: str, default: bool = False) -> bool:
+    """Boolean setting from the environment or .env: 1/true/yes/on."""
+    raw = os.environ.get(name)
+    if raw is None:
+        return default
+    return raw.strip().lower() in ("1", "true", "yes", "on")
+
+
+def founder_email_enabled() -> bool:
+    """U8 (D22): the founder email draft is optional and off by default."""
+    return flag("PROOFROOM_FOUNDER_EMAIL")
