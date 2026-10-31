@@ -1,0 +1,1756 @@
+{
+ "endpoint": "/company/identify",
+ "request": {
+  "names": [
+   "Affirm",
+   "Supermove",
+   "Qualified",
+   "Theory Ventures",
+   "Forerunner"
+  ]
+ },
+ "status": 200,
+ "credits_used": "0",
+ "body": [
+  {
+   "matched_on": "Affirm",
+   "match_type": "name",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 632082,
+      "basic_info": {
+       "name": "Affirm",
+       "crustdata_company_id": 632082,
+       "primary_domain": "affirm.com",
+       "all_domains": [
+        "affirm.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 16611721,
+      "basic_info": {
+       "name": "Affirm",
+       "crustdata_company_id": 16611721,
+       "primary_domain": "affirmhq.com",
+       "all_domains": [
+        "affirmhq.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 14700574,
+      "basic_info": {
+       "name": "affirm",
+       "crustdata_company_id": 14700574,
+       "primary_domain": "affirmtec.com",
+       "all_domains": [
+        "affirmtec.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 73388544,
+      "basic_info": {
+       "name": "Affirm",
+       "crustdata_company_id": 73388544,
+       "primary_domain": "tryaffirm.quest",
+       "all_domains": [
+        "tryaffirm.quest"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 5346633,
+      "basic_info": {
+       "name": "Affirm Partners",
+       "crustdata_company_id": 5346633,
+       "primary_domain": "affirmpartners.com",
+       "all_domains": [
+        "affirmpartners.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 3494763,
+      "basic_info": {
+       "name": "Affirm Press",
+       "crustdata_company_id": 3494763,
+       "primary_domain": "affirmpress.com.au",
+       "all_domains": [
+        "affirmpress.com.au"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 842562,
+      "basic_info": {
+       "name": "Affirm Health",
+       "crustdata_company_id": 842562,
+       "primary_domain": "affirmhealth.com",
+       "all_domains": [
+        "meetrosemary.com",
+        "affirmhealth.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 23947889,
+      "basic_info": {
+       "name": "Affirm Education",
+       "crustdata_company_id": 23947889,
+       "primary_domain": "affirmeducation.com",
+       "all_domains": [
+        "affirmeducation.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 7653773,
+      "basic_info": {
+       "name": "Affirm Technologies",
+       "crustdata_company_id": 7653773,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 1883184,
+      "basic_info": {
+       "name": "AFFIRM Agency",
+       "crustdata_company_id": 1883184,
+       "primary_domain": "affirmagency.com",
+       "all_domains": [
+        "affirmagency.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 14195510,
+      "basic_info": {
+       "name": "Affirm Legal",
+       "crustdata_company_id": 14195510,
+       "primary_domain": "affirmlegal.com.au",
+       "all_domains": [
+        "affirmlegal.com.au"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 14851126,
+      "basic_info": {
+       "name": "Affirm CleanCo",
+       "crustdata_company_id": 14851126,
+       "primary_domain": "affirmcleanco.com",
+       "all_domains": [
+        "affirmcleanco.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 15643862,
+      "basic_info": {
+       "name": "Affirm Telecom",
+       "crustdata_company_id": 15643862,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 119505004,
+      "basic_info": {
+       "name": "Affirm Strategy",
+       "crustdata_company_id": 119505004,
+       "primary_domain": "affirmstrategy.com",
+       "all_domains": [
+        "affirmstrategy.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 67358803,
+      "basic_info": {
+       "name": "Affirm OT",
+       "crustdata_company_id": 67358803,
+       "primary_domain": "affirmoccupationaltherapy.com",
+       "all_domains": [
+        "affirmoccupationaltherapy.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 31429095,
+      "basic_info": {
+       "name": "Affirm Pilates",
+       "crustdata_company_id": 31429095,
+       "primary_domain": "affirmpilates.com",
+       "all_domains": [
+        "affirmpilates.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 64114972,
+      "basic_info": {
+       "name": "Affirm Solution",
+       "crustdata_company_id": 64114972,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 12601598,
+      "basic_info": {
+       "name": "Affirm Lab",
+       "crustdata_company_id": 12601598,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 27271315,
+      "basic_info": {
+       "name": "Growth Affirm",
+       "crustdata_company_id": 27271315,
+       "primary_domain": "growthaffirm.in",
+       "all_domains": [
+        "growthaffirm.in"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 32074455,
+      "basic_info": {
+       "name": "Affirm Counseling",
+       "crustdata_company_id": 32074455,
+       "primary_domain": "affirmcounselingco.com",
+       "all_domains": [
+        "affirmcounselingco.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 14088100,
+      "basic_info": {
+       "name": "affirm arts",
+       "crustdata_company_id": 14088100,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 19693603,
+      "basic_info": {
+       "name": "Affirm Merit",
+       "crustdata_company_id": 19693603,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 68444567,
+      "basic_info": {
+       "name": "Affirm Medical",
+       "crustdata_company_id": 68444567,
+       "primary_domain": "affirmmedical.com.au",
+       "all_domains": [
+        "affirmmedical.com.au"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 5497474,
+      "basic_info": {
+       "name": "AFFIRM Science",
+       "crustdata_company_id": 5497474,
+       "primary_domain": "affirmscience.com",
+       "all_domains": [
+        "affirmscience.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 9616778,
+      "basic_info": {
+       "name": "Affirm Legal",
+       "crustdata_company_id": 9616778,
+       "primary_domain": "affirmlegal.co.uk",
+       "all_domains": [
+        "affirmlegal.co.uk"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "matched_on": "Supermove",
+   "match_type": "name",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 780882,
+      "basic_info": {
+       "name": "Supermove",
+       "crustdata_company_id": 780882,
+       "primary_domain": "supermove.com",
+       "all_domains": [
+        "supermove.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 3781260,
+      "basic_info": {
+       "name": "Supermove Logistics",
+       "crustdata_company_id": 3781260,
+       "primary_domain": "truckstop40llc.com",
+       "all_domains": [
+        "truckstop40llc.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 31148730,
+      "basic_info": {
+       "name": "Supermove Removals",
+       "crustdata_company_id": 31148730,
+       "primary_domain": "supermove.nl",
+       "all_domains": [
+        "supermove.nl"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 73963388,
+      "basic_info": {
+       "name": "Supermove | Professionelt flyttefirma",
+       "crustdata_company_id": 73963388,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 74104031,
+      "basic_info": {
+       "name": "Supermove International Pvt Ltd",
+       "crustdata_company_id": 74104031,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 29087262,
+      "basic_info": {
+       "name": "Zhejiang SuperMove Technology Co., Ltd.",
+       "crustdata_company_id": 29087262,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 4395104,
+      "basic_info": {
+       "name": "Asian Digital SuperMovers #Clubhouse",
+       "crustdata_company_id": 4395104,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 3995272,
+      "basic_info": {
+       "name": "Supermoveis",
+       "crustdata_company_id": 3995272,
+       "primary_domain": "supermoveisresende.com",
+       "all_domains": [
+        "supermoveisresende.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 7721778,
+      "basic_info": {
+       "name": "Tennis SuperMovers",
+       "crustdata_company_id": 7721778,
+       "primary_domain": "tennissupermovers.com",
+       "all_domains": [
+        "tennissupermovers.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 14627563,
+      "basic_info": {
+       "name": "Supermovers",
+       "crustdata_company_id": 14627563,
+       "primary_domain": "supermovers.us",
+       "all_domains": [
+        "supermovers.us"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 17422138,
+      "basic_info": {
+       "name": "Supermover",
+       "crustdata_company_id": 17422138,
+       "primary_domain": "supermover.co.uk",
+       "all_domains": [
+        "supermover.co.uk"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.4,
+     "company_data": {
+      "crustdata_company_id": 6283516,
+      "basic_info": {
+       "name": "Scuola Normale Superiore",
+       "crustdata_company_id": 6283516,
+       "primary_domain": "sns.it",
+       "all_domains": [
+        "sns.it"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.4,
+     "company_data": {
+      "crustdata_company_id": 1652714,
+      "basic_info": {
+       "name": "Scuola Superiore Sant'Anna",
+       "crustdata_company_id": 1652714,
+       "primary_domain": "santannapisa.it",
+       "all_domains": [
+        "santannapisa.it"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.4,
+     "company_data": {
+      "crustdata_company_id": 895611,
+      "basic_info": {
+       "name": "Supernova",
+       "crustdata_company_id": 895611,
+       "primary_domain": "supernovaenergy.solar",
+       "all_domains": [
+        "supernovaenergy.solar"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.4,
+     "company_data": {
+      "crustdata_company_id": 2052510,
+      "basic_info": {
+       "name": "Istituto Superiore di Sanità",
+       "crustdata_company_id": 2052510,
+       "primary_domain": "iss.it",
+       "all_domains": [
+        "iss.it"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.4,
+     "company_data": {
+      "crustdata_company_id": 2536021,
+      "basic_info": {
+       "name": "Supermoney",
+       "crustdata_company_id": 2536021,
+       "primary_domain": "supermoney.it",
+       "all_domains": [
+        "supermoney.it"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.4,
+     "company_data": {
+      "crustdata_company_id": 7463817,
+      "basic_info": {
+       "name": "Scuola Superiore Pubblica Amministrazione Locale",
+       "crustdata_company_id": 7463817,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.4,
+     "company_data": {
+      "crustdata_company_id": 2691676,
+      "basic_info": {
+       "name": "Scuola Superiore della Pubblica Amministrazione",
+       "crustdata_company_id": 2691676,
+       "primary_domain": "sspa.it",
+       "all_domains": [
+        "sspa.it"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.4,
+     "company_data": {
+      "crustdata_company_id": 2637007,
+      "basic_info": {
+       "name": "Supernova",
+       "crustdata_company_id": 2637007,
+       "primary_domain": "supernova.xyz",
+       "all_domains": [
+        "supernova.xyz"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.4,
+     "company_data": {
+      "crustdata_company_id": 4682777,
+      "basic_info": {
+       "name": "PT Supernova Flexible Packaging",
+       "crustdata_company_id": 4682777,
+       "primary_domain": "supernova-id.com",
+       "all_domains": [
+        "supernova-id.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.4,
+     "company_data": {
+      "crustdata_company_id": 895610,
+      "basic_info": {
+       "name": "SuperNova Solutions",
+       "crustdata_company_id": 895610,
+       "primary_domain": "global-supernova.com",
+       "all_domains": [
+        "global-supernova.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.4,
+     "company_data": {
+      "crustdata_company_id": 895615,
+      "basic_info": {
+       "name": "Supernova TechnologyTM",
+       "crustdata_company_id": 895615,
+       "primary_domain": "supernovacompanies.com",
+       "all_domains": [
+        "supernovacompanies.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.4,
+     "company_data": {
+      "crustdata_company_id": 706725,
+      "basic_info": {
+       "name": "Superfone",
+       "crustdata_company_id": 706725,
+       "primary_domain": "superfone.in",
+       "all_domains": [
+        "superfone.in"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.4,
+     "company_data": {
+      "crustdata_company_id": 2167539,
+      "basic_info": {
+       "name": "SuperNova",
+       "crustdata_company_id": 2167539,
+       "primary_domain": "supernovafest.eu",
+       "all_domains": [
+        "supernovafest.eu",
+        "ftisupernova.eu"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.4,
+     "company_data": {
+      "crustdata_company_id": 3905116,
+      "basic_info": {
+       "name": "SUPERMODA",
+       "crustdata_company_id": 3905116,
+       "primary_domain": "supermoda.online",
+       "all_domains": [
+        "supermoda.online"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "matched_on": "Qualified",
+   "match_type": "name",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 3433268,
+      "basic_info": {
+       "name": "Qualified",
+       "crustdata_company_id": 3433268,
+       "primary_domain": "thinkqualified.com",
+       "all_domains": [
+        "thinkqualified.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 13593604,
+      "basic_info": {
+       "name": "Qualified",
+       "crustdata_company_id": 13593604,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 15565860,
+      "basic_info": {
+       "name": "Qualified",
+       "crustdata_company_id": 15565860,
+       "primary_domain": "qualified.ph",
+       "all_domains": [
+        "qualified.ph"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 64926686,
+      "basic_info": {
+       "name": "Qualified",
+       "crustdata_company_id": 64926686,
+       "primary_domain": "qualifiedacademy.co.uk",
+       "all_domains": [
+        "qualifiedacademy.co.uk"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 3150439,
+      "basic_info": {
+       "name": "Qualified Health",
+       "crustdata_company_id": 3150439,
+       "primary_domain": "qualifiedhealthai.com",
+       "all_domains": [
+        "qualifiedhealthai.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 1901695,
+      "basic_info": {
+       "name": "Qualified Staffing",
+       "crustdata_company_id": 1901695,
+       "primary_domain": "q-staffing.com",
+       "all_domains": [
+        "q-staffing.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 2072029,
+      "basic_info": {
+       "name": "Qualified Digital",
+       "crustdata_company_id": 2072029,
+       "primary_domain": "qualifiedigital.com",
+       "all_domains": [
+        "qualifiedigital.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 2286561,
+      "basic_info": {
+       "name": "Qualified Tutor",
+       "crustdata_company_id": 2286561,
+       "primary_domain": "qualifiedtutor.org",
+       "all_domains": [
+        "qualifiedtutor.org"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 2306812,
+      "basic_info": {
+       "name": "Qualified Creatives",
+       "crustdata_company_id": 2306812,
+       "primary_domain": "qualifiedcreatives.com",
+       "all_domains": [
+        "qualifiedcreatives.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 9851303,
+      "basic_info": {
+       "name": "Qualified Ingenieros",
+       "crustdata_company_id": 9851303,
+       "primary_domain": "qualifiedingenieros.com",
+       "all_domains": [
+        "qualifiedingenieros.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 4214816,
+      "basic_info": {
+       "name": "Qualified TC",
+       "crustdata_company_id": 4214816,
+       "primary_domain": "qualifiedtc.com",
+       "all_domains": [
+        "qualifiedtc.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 14227157,
+      "basic_info": {
+       "name": "Qualified Group",
+       "crustdata_company_id": 14227157,
+       "primary_domain": "ukimmigrationsolicitors.co.uk",
+       "all_domains": [
+        "qualifiedgroup.co.uk",
+        "ukimmigrationsolicitors.co.uk"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 1151457,
+      "basic_info": {
+       "name": "Qualified Meetings",
+       "crustdata_company_id": 1151457,
+       "primary_domain": "qualifiedmeetings.com",
+       "all_domains": [
+        "qualifiedmeetings.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 13951987,
+      "basic_info": {
+       "name": "Qualified Consultants",
+       "crustdata_company_id": 13951987,
+       "primary_domain": "qualifiedconsultants.se",
+       "all_domains": [
+        "q.group",
+        "qualifiedconsultants.se"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 71693903,
+      "basic_info": {
+       "name": "Qualified Talent",
+       "crustdata_company_id": 71693903,
+       "primary_domain": "qualified-talent.com",
+       "all_domains": [
+        "qualified-talent.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 3564261,
+      "basic_info": {
+       "name": "Qualified People",
+       "crustdata_company_id": 3564261,
+       "primary_domain": "qualifiedpeople.nl",
+       "all_domains": [
+        "qualifiedpeople.nl"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 10863518,
+      "basic_info": {
+       "name": "Qualified Talent",
+       "crustdata_company_id": 10863518,
+       "primary_domain": "qualifiedtalent.co.uk",
+       "all_domains": [
+        "qualifiedtalent.co.uk"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 1304267,
+      "basic_info": {
+       "name": "Qualified Recruiter, LLC",
+       "crustdata_company_id": 1304267,
+       "primary_domain": "qualifiedrecruiter.com",
+       "all_domains": [
+        "qualifiedrecruiter.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 3415514,
+      "basic_info": {
+       "name": "Qualified Professionals",
+       "crustdata_company_id": 3415514,
+       "primary_domain": "q-p.no",
+       "all_domains": [
+        "q-p.no"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 1889724,
+      "basic_info": {
+       "name": "Qualified Crew",
+       "crustdata_company_id": 1889724,
+       "primary_domain": "qualifiedcrew.com",
+       "all_domains": [
+        "qualifiedcrew.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 30625622,
+      "basic_info": {
+       "name": "Qualified Connections",
+       "crustdata_company_id": 30625622,
+       "primary_domain": "qualifiedconnection.com",
+       "all_domains": [
+        "qualifiedconnection.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 21698374,
+      "basic_info": {
+       "name": "Qualified TnC",
+       "crustdata_company_id": 21698374,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 14392199,
+      "basic_info": {
+       "name": "Qualified People",
+       "crustdata_company_id": 14392199,
+       "primary_domain": "qpeople.no",
+       "all_domains": [
+        "qpeople.no"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 65634949,
+      "basic_info": {
+       "name": "Qualified Logistics",
+       "crustdata_company_id": 65634949,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 2064352,
+      "basic_info": {
+       "name": "Qualified Leads",
+       "crustdata_company_id": 2064352,
+       "primary_domain": "qualifiedleads.com",
+       "all_domains": [
+        "qualifiedleads.com"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "matched_on": "Theory Ventures",
+   "match_type": "name",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 1152287,
+      "basic_info": {
+       "name": "Theory Ventures",
+       "crustdata_company_id": 1152287,
+       "primary_domain": "theoryvc.com",
+       "all_domains": [
+        "theoryvc.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 4273003,
+      "basic_info": {
+       "name": "New Theory Ventures",
+       "crustdata_company_id": 4273003,
+       "primary_domain": "newtheoryventures.com",
+       "all_domains": [
+        "newtheoryventures.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 12791391,
+      "basic_info": {
+       "name": "M-theory Ventures",
+       "crustdata_company_id": 12791391,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 61008222,
+      "basic_info": {
+       "name": "String Theory Ventures",
+       "crustdata_company_id": 61008222,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 6714870,
+      "basic_info": {
+       "name": "Olive Theory Ventures, Inc",
+       "crustdata_company_id": 6714870,
+       "primary_domain": "olivetheoryventures.com",
+       "all_domains": [
+        "olivetheoryventures.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 4316554,
+      "basic_info": {
+       "name": "Theory Forge Ventures",
+       "crustdata_company_id": 4316554,
+       "primary_domain": "theoryforge.vc",
+       "all_domains": [
+        "theoryforge.vc"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 799030,
+      "basic_info": {
+       "name": "Theory",
+       "crustdata_company_id": 799030,
+       "primary_domain": "theory.com",
+       "all_domains": [
+        "theory.com",
+        "fastretailing.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1109763,
+      "basic_info": {
+       "name": "Code and Theory",
+       "crustdata_company_id": 1109763,
+       "primary_domain": "codeandtheory.com",
+       "all_domains": [
+        "codeandtheory.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1214096,
+      "basic_info": {
+       "name": "Gain Theory",
+       "crustdata_company_id": 1214096,
+       "primary_domain": "gaintheory.com",
+       "all_domains": [
+        "gaintheory.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 640517,
+      "basic_info": {
+       "name": "Game Theory",
+       "crustdata_company_id": 640517,
+       "primary_domain": "mvpindex.com",
+       "all_domains": [
+        "gametheoryinc.com",
+        "mvpindex.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 11437,
+      "basic_info": {
+       "name": "Game Theory",
+       "crustdata_company_id": 11437,
+       "primary_domain": "gametheory.in",
+       "all_domains": [
+        "gametheory.in"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 857692,
+      "basic_info": {
+       "name": "Fool's Theory",
+       "crustdata_company_id": 857692,
+       "primary_domain": "foolstheory.com",
+       "all_domains": [
+        "foolstheory.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1297100,
+      "basic_info": {
+       "name": "Yes Theory",
+       "crustdata_company_id": 1297100,
+       "primary_domain": "yestheory.com",
+       "all_domains": [
+        "yestheory.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1308677,
+      "basic_info": {
+       "name": "Ninja Theory",
+       "crustdata_company_id": 1308677,
+       "primary_domain": "ninjatheory.com",
+       "all_domains": [
+        "ninjatheory.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 2010398,
+      "basic_info": {
+       "name": "Theory Wellness",
+       "crustdata_company_id": 2010398,
+       "primary_domain": "theorywellness.org",
+       "all_domains": [
+        "theorywellness.org"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 2075687,
+      "basic_info": {
+       "name": "Risk Theory",
+       "crustdata_company_id": 2075687,
+       "primary_domain": "risktheory.com",
+       "all_domains": [
+        "risktheory.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 2402394,
+      "basic_info": {
+       "name": "Chaos Theory",
+       "crustdata_company_id": 2402394,
+       "primary_domain": "chaostheory.hk",
+       "all_domains": [
+        "chaostheory.hk"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1914157,
+      "basic_info": {
+       "name": "Signal Theory Inc.",
+       "crustdata_company_id": 1914157,
+       "primary_domain": "signaltheory.com",
+       "all_domains": [
+        "signaltheory.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1809647,
+      "basic_info": {
+       "name": "String Theory Schools",
+       "crustdata_company_id": 1809647,
+       "primary_domain": "stringtheoryschools.org",
+       "all_domains": [
+        "stringtheoryschools.org"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 1216025,
+      "basic_info": {
+       "name": "Active Theory",
+       "crustdata_company_id": 1216025,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 2214295,
+      "basic_info": {
+       "name": "Impact Theory",
+       "crustdata_company_id": 2214295,
+       "primary_domain": "impacttheory.com",
+       "all_domains": [
+        "impacttheory.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 623214,
+      "basic_info": {
+       "name": "Style Theory",
+       "crustdata_company_id": 623214,
+       "primary_domain": "styletheory.co",
+       "all_domains": [
+        "styletheory.co"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 689828,
+      "basic_info": {
+       "name": "Basis Theory",
+       "crustdata_company_id": 689828,
+       "primary_domain": "basistheory.com",
+       "all_domains": [
+        "basistheory.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 66822465,
+      "basic_info": {
+       "name": "&Theory",
+       "crustdata_company_id": 66822465,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.6,
+     "company_data": {
+      "crustdata_company_id": 13694598,
+      "basic_info": {
+       "name": "Theory",
+       "crustdata_company_id": 13694598,
+       "primary_domain": "thisistheory.com",
+       "all_domains": [
+        "thisistheory.com"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "matched_on": "Forerunner",
+   "match_type": "name",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 700458,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 700458,
+       "primary_domain": "withforerunner.com",
+       "all_domains": [
+        "withforerunner.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 992787,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 992787,
+       "primary_domain": "forerunnerventures.com",
+       "all_domains": [
+        "forerunnerventures.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 2483268,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 2483268,
+       "primary_domain": "tryforerunner.com",
+       "all_domains": [
+        "tryforerunner.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 14787168,
+      "basic_info": {
+       "name": "ForeRunner",
+       "crustdata_company_id": 14787168,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 16976707,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 16976707,
+       "primary_domain": "forerunner.tv",
+       "all_domains": [
+        "forerunner.tv"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 2575104,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 2575104,
+       "primary_domain": "forerunnerltd.com",
+       "all_domains": [
+        "forerunnerltd.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 14875944,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 14875944,
+       "primary_domain": "forerunner-design.com",
+       "all_domains": [
+        "forerunner-design.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 25816365,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 25816365,
+       "primary_domain": "selfovercoming.app",
+       "all_domains": [
+        "selfovercoming.app"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 63360007,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 63360007,
+       "primary_domain": "forerunner.pt",
+       "all_domains": [
+        "forerunner.pt"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 24606596,
+      "basic_info": {
+       "name": "Forerunner",
+       "crustdata_company_id": 24606596,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.95,
+     "company_data": {
+      "crustdata_company_id": 8283737,
+      "basic_info": {
+       "name": "Forerunners",
+       "crustdata_company_id": 8283737,
+       "primary_domain": "forerunners.org",
+       "all_domains": [
+        "forerunners.org"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.95,
+     "company_data": {
+      "crustdata_company_id": 3660113,
+      "basic_info": {
+       "name": "Forerunners",
+       "crustdata_company_id": 3660113,
+       "primary_domain": "forerunners.nl",
+       "all_domains": [
+        "forerunners.nl"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 14294516,
+      "basic_info": {
+       "name": "Forerunner Consulting",
+       "crustdata_company_id": 14294516,
+       "primary_domain": "forerunnerconsulting.org",
+       "all_domains": [
+        "forerunnerconsulting.org"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 26203957,
+      "basic_info": {
+       "name": "Forerunner Systems",
+       "crustdata_company_id": 26203957,
+       "primary_domain": "forerunner-systems.com",
+       "all_domains": [
+        "forerunner-systems.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 5234620,
+      "basic_info": {
+       "name": "Forerunner Technology",
+       "crustdata_company_id": 5234620,
+       "primary_domain": "globalconnectapp.com",
+       "all_domains": [
+        "globalconnectapp.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 11369514,
+      "basic_info": {
+       "name": "Forerunner Studios",
+       "crustdata_company_id": 11369514,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 11638281,
+      "basic_info": {
+       "name": "Forerunner Church",
+       "crustdata_company_id": 11638281,
+       "primary_domain": "forerunnerchurch.com",
+       "all_domains": [
+        "forerunnerchurch.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 14386976,
+      "basic_info": {
+       "name": "Forerunner College",
+       "crustdata_company_id": 14386976,
+       "primary_domain": "hughesbay.com",
+       "all_domains": [
+        "hughesbay.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 16951735,
+      "basic_info": {
+       "name": "Forerunner tyres",
+       "crustdata_company_id": 16951735,
+       "primary_domain": "qihangtyre.com.cn",
+       "all_domains": [
+        "qihangtyre.com.cn"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 29592719,
+      "basic_info": {
+       "name": "Forerunner Digital",
+       "crustdata_company_id": 29592719,
+       "primary_domain": "forerunnerdigital.co.uk",
+       "all_domains": [
+        "forerunnerdigital.co.uk"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 32475811,
+      "basic_info": {
+       "name": "Forerunner Solutions",
+       "crustdata_company_id": 32475811,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 28900822,
+      "basic_info": {
+       "name": "Forerunner Transportation",
+       "crustdata_company_id": 28900822,
+       "primary_domain": null,
+       "all_domains": []
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 2181686,
+      "basic_info": {
+       "name": "Forerunner Technologies, Inc.",
+       "crustdata_company_id": 2181686,
+       "primary_domain": "frtinc.com",
+       "all_domains": [
+        "frtinc.com"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 61353571,
+      "basic_info": {
+       "name": "Forerunner Energy",
+       "crustdata_company_id": 61353571,
+       "primary_domain": "forerunnerenergy.net",
+       "all_domains": [
+        "forerunnerenergy.net"
+       ]
+      }
+     }
+    },
+    {
+     "confidence_score": 0.8,
+     "company_data": {
+      "crustdata_company_id": 2667750,
+      "basic_info": {
+       "name": "Forerunner Oy",
+       "crustdata_company_id": 2667750,
+       "primary_domain": "forerunner.fi",
+       "all_domains": [
+        "forerunner.fi"
+       ]
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -92,11 +92,11 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 
 | Step | Status | Owner | Started | Done | Commit | Verify result / note |
 |---|---|---|---|---|---|---|
-| S0 Setup | DONE | Claude (A–D merged) | 10:44 | 10:50 | S0 | `ok 2.3.0 0.28.1 2.14.2` (anthropic, httpx, pydantic); pins from PyPI in `requirements.txt` |
+| S0 Setup | DONE | Claude (A–D merged) | 10:44 | 10:47 | S0 | `ok 2.3.0 0.28.1 2.14.2` (anthropic, httpx, pydantic); pins from PyPI in `requirements.txt` |
 | S1 T1 day-check Phase 2 | TODO | A + B | | | | Phase 0 done early (GO-WITH-CHANGES); Phase 1 at 10:00 |
-| S2 Crustdata adapter | DONE | Claude | 10:52 | 11:12 | S2 | `33 passed`; `probe koahlabs.com` → `MATCHED id=3718859`. Error hierarchy, redacting logger, corrupt-cache = miss, PC-3 filter |
-| S3 Models and run store | DONE | Claude | 11:12 | 10:51 | S3 | `9 passed`: write-once (`xb`), read-back hash, manifest only after verify; saf-4/saf-5; strict flat schemas |
-| S4 Graph resolve | TODO | A | | | | Apply PC-2, PC-3, PC-6; answer keys in Prep_02 |
+| S2 Crustdata adapter | DONE | Claude | 10:47 | 10:50 | S2 | `33 passed`; `probe koahlabs.com` → `MATCHED id=3718859`. Error hierarchy, redacting logger, corrupt-cache = miss, PC-3 filter |
+| S3 Models and run store | DONE | Claude | 10:50 | 10:51 | S3 | `9 passed`: write-once (`xb`), read-back hash, manifest only after verify; saf-4/saf-5; strict flat schemas |
+| S4 Graph resolve | DONE | Claude | 10:51 | 10:54 | S4 | `28 passed` on recorded fixture `fixtures/koah`. 3 founders ✔ at 3718859; Herrick→Affirm 632082 ✔, Supermove 780882 ✔, **Qualified ? (see D14)**; seed $5M 2025-09-07. PC-2/3/6 applied |
 | S5 Packet intake | TODO | C | | | | Apply PC-4 (±7-day rule mandatory; 1970-01-01 = unknown) |
 | S6 Model calls | TODO | B | | | | Type in Prep_01; decide PC-7 |
 | S7 Vertical slice (CLI) | TODO | B + C | | | | Deadline 11:35 |
@@ -143,6 +143,7 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 | D11 | 10:48 | One Claude session holds all four roles (A–D) and works steps sequentially in plan order | Single-session build | §14 |
 | D12 | 11:05 | No `Co-Authored-By` trailers on commits; checkpoint commit + push at every step and every 15 min | User instruction | CLAUDE.md §2 |
 | D13 | 11:05 | Plan improvements are proposed to the user first and applied only after a go | User instruction | §15 |
+| D14 | open | **Finding:** Identify("Qualified") returns 25 candidates, none is 632707 ("Qualified (Acquired by Salesforce)"), so the strict §7 prior-employer rule leaves Herrick→Qualified as `?`. Proposal to user: a labelled name-prefix fallback against the person's own past entries | Live probe 10:58 | §7 G2 |
 | D7 | — | **PC-7 (open, S6 owner):** refusal fallback. The recommendation is to keep "refusal = failed attempt". | Fallback only re-runs cyber/frontier_llm declines on Sonnet 5.5 | §8.3 |
 
 ---
@@ -154,7 +155,7 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 
 **Spend so far:**
 
-- **Crustdata (event key, this session):** 2 credits (Koah Company Enrich, cached; Identify is free).
+- **Crustdata (event key, this session):** 3.39 credits: Koah Company Enrich 2, Linear founder search 0.39 (PC-3 confirmed: Karri found), Karri Person Enrich 1. Identify is free.
 - **Crustdata (earlier):** about 7.45 credits, all on the personal MCP account: about 2.4 at 00:10 plus 5.05 at 01:20 (balance 192.56). Nothing on the event key yet.
 - **Anthropic:** $0.
 

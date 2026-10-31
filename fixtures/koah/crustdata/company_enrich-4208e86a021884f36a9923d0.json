@@ -1,0 +1,565 @@
+{
+ "endpoint": "/company/enrich",
+ "request": {
+  "crustdata_company_ids": [
+   3718859
+  ],
+  "fields": [
+   "basic_info",
+   "funding",
+   "people",
+   "news"
+  ]
+ },
+ "status": 200,
+ "credits_used": "2",
+ "body": [
+  {
+   "matched_on": "3718859",
+   "match_type": "crustdata_company_id",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 3718859,
+      "funding": {
+       "investors_detailed": [
+        {
+         "name": "Andrew Karam"
+        },
+        {
+         "name": "Forerunner"
+        },
+        {
+         "name": "South Park Commons"
+        },
+        {
+         "name": "Theory Ventures"
+        }
+       ],
+       "milestones": [
+        {
+         "round_type": "series_a",
+         "investors_detailed": [
+          {
+           "name": "Theory Ventures"
+          },
+          {
+           "name": "Forerunner"
+          },
+          {
+           "name": "South Park Commons"
+          }
+         ],
+         "date": "2026-02-24",
+         "funding_date": "2026-02-24",
+         "amount_usd": 20500000.0,
+         "investors": "Theory Ventures, Forerunner, South Park Commons",
+         "lead_investors": "Theory Ventures"
+        },
+        {
+         "round_type": "seed",
+         "investors_detailed": [
+          {
+           "name": "Forerunner"
+          },
+          {
+           "name": "Andrew Karam"
+          },
+          {
+           "name": "South Park Commons"
+          }
+         ],
+         "date": "2025-09-07",
+         "funding_date": "2025-09-07",
+         "amount_usd": 5000000.0,
+         "investors": "Forerunner, Andrew Karam, South Park Commons",
+         "lead_investors": "Forerunner"
+        },
+        {
+         "round_type": "pre_seed",
+         "investors_detailed": [
+          {
+           "name": "South Park Commons"
+          }
+         ],
+         "date": "2024-01-01",
+         "funding_date": "2024-01-01",
+         "amount_usd": null,
+         "investors": "South Park Commons",
+         "lead_investors": null
+        }
+       ],
+       "num_funding_rounds": 3,
+       "total_investment_usd": 25500000.0,
+       "last_round_amount_usd": 20500000.0,
+       "last_round_type": "series_a",
+       "investors": [
+        "Andrew Karam",
+        "Forerunner",
+        "South Park Commons",
+        "Theory Ventures"
+       ],
+       "last_fundraise_date": "2026-02-24"
+      },
+      "people": {
+       "founders": [
+        {
+         "crustdata_person_id": 2739857,
+         "basic_profile": {
+          "name": "Mike Choi",
+          "current_title": "Co-Founder"
+         },
+         "social_handles": {
+          "professional_network_identifier": {
+           "profile_url": "https://www.linkedin.com/in/mikejschoi"
+          }
+         },
+         "experience": {
+          "employment_details": {
+           "current": [
+            {
+             "employer_name": "Koah",
+             "employer_company_id": [
+              "3718859"
+             ],
+             "employee_title": "Co-Founder",
+             "employee_start_date": "2024-08-01T00:00:00.000Z",
+             "employee_end_date": null
+            }
+           ],
+           "past": [
+            {
+             "employer_name": "Google",
+             "employer_company_id": [
+              "4926893"
+             ],
+             "employee_title": "Software Engineer Intern",
+             "employee_start_date": "2018-05-01T00:00:00.000Z",
+             "employee_end_date": "2018-08-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Apple",
+             "employer_company_id": [
+              "680979"
+             ],
+             "employee_title": "Software Engineer",
+             "employee_start_date": "2019-01-01T00:00:00.000Z",
+             "employee_end_date": "2021-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Twitter",
+             "employer_company_id": [
+              "662348"
+             ],
+             "employee_title": "Senior Software Engineer",
+             "employee_start_date": "2021-01-01T00:00:00.000Z",
+             "employee_end_date": "2023-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "South Park Commons",
+             "employer_company_id": [
+              "820009"
+             ],
+             "employee_title": "Founder Fellow",
+             "employee_start_date": "2023-01-01T00:00:00.000Z",
+             "employee_end_date": "2024-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Republic of Korea Army",
+             "employer_company_id": [
+              "2225991"
+             ],
+             "employee_title": "Sergeant",
+             "employee_start_date": "2015-01-01T00:00:00.000Z",
+             "employee_end_date": "2017-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "X",
+             "employer_company_id": [
+              "13567232"
+             ],
+             "employee_title": "Senior Software Engineer",
+             "employee_start_date": "2023-01-01T00:00:00.000Z",
+             "employee_end_date": "2023-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Detroit Labs",
+             "employer_company_id": [
+              "1915816"
+             ],
+             "employee_title": "Software Engineer Intern",
+             "employee_start_date": "2015-05-01T00:00:00.000Z",
+             "employee_end_date": "2015-09-01T00:00:00.000Z"
+            }
+           ]
+          }
+         },
+         "updated_at": "2026-10-23T03:09:13.742Z"
+        },
+        {
+         "crustdata_person_id": 28237678,
+         "basic_profile": {
+          "name": "Nic Baird",
+          "current_title": "Co-Founder"
+         },
+         "social_handles": {
+          "professional_network_identifier": {
+           "profile_url": "https://www.linkedin.com/in/nicbaird"
+          }
+         },
+         "experience": {
+          "employment_details": {
+           "current": [
+            {
+             "employer_name": "South Park Commons",
+             "employer_company_id": [
+              "820009"
+             ],
+             "employee_title": "Founder Fellow",
+             "employee_start_date": "2024-01-01T00:00:00.000Z",
+             "employee_end_date": null
+            },
+            {
+             "employer_name": "Koah",
+             "employer_company_id": [
+              "3718859"
+             ],
+             "employee_title": "Co-Founder",
+             "employee_start_date": "2024-01-01T00:00:00.000Z",
+             "employee_end_date": null
+            }
+           ],
+           "past": [
+            {
+             "employer_name": "Halo Neuroscience",
+             "employer_company_id": [
+              "637629"
+             ],
+             "employee_title": "Marketing Intern, Esports",
+             "employee_start_date": "2017-09-01T00:00:00.000Z",
+             "employee_end_date": "2017-12-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "MarkSetBot",
+             "employer_company_id": [
+              "3800198"
+             ],
+             "employee_title": "Marketing and Sales",
+             "employee_start_date": "2019-01-01T00:00:00.000Z",
+             "employee_end_date": "2021-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "MarkSetBot",
+             "employer_company_id": [
+              "3800198"
+             ],
+             "employee_title": "Sales",
+             "employee_start_date": "2019-01-01T00:00:00.000Z",
+             "employee_end_date": "2019-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Thync Global, Inc.",
+             "employer_company_id": [
+              "641938"
+             ],
+             "employee_title": "Chief of Staff",
+             "employee_start_date": "2020-01-01T00:00:00.000Z",
+             "employee_end_date": "2021-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Thinktiv",
+             "employer_company_id": [
+              "1224636"
+             ],
+             "employee_title": "Consultant",
+             "employee_start_date": "2021-01-01T00:00:00.000Z",
+             "employee_end_date": "2022-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "South Park Commons",
+             "employer_company_id": [
+              "820009"
+             ],
+             "employee_title": "Investor",
+             "employee_start_date": "2022-01-01T00:00:00.000Z",
+             "employee_end_date": "2023-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "South Park Commons",
+             "employer_company_id": [
+              "820009"
+             ],
+             "employee_title": "Member",
+             "employee_start_date": "2023-01-01T00:00:00.000Z",
+             "employee_end_date": "2024-01-01T00:00:00.000Z"
+            }
+           ]
+          }
+         },
+         "updated_at": "2026-10-23T03:15:42.804Z"
+        },
+        {
+         "crustdata_person_id": 28232995,
+         "basic_profile": {
+          "name": "Herrick Fang",
+          "current_title": "Co-Founder"
+         },
+         "social_handles": {
+          "professional_network_identifier": {
+           "profile_url": "https://www.linkedin.com/in/herrickfang"
+          }
+         },
+         "experience": {
+          "employment_details": {
+           "current": [
+            {
+             "employer_name": "Koah",
+             "employer_company_id": [
+              "3718859"
+             ],
+             "employee_title": "Co-Founder",
+             "employee_start_date": "2024-01-01T00:00:00.000Z",
+             "employee_end_date": null
+            }
+           ],
+           "past": [
+            {
+             "employer_name": "Qualified (Acquired by Salesforce)",
+             "employer_company_id": [
+              "632707"
+             ],
+             "employee_title": "Senior Software Engineer",
+             "employee_start_date": "2021-01-01T00:00:00.000Z",
+             "employee_end_date": "2023-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Supermove",
+             "employer_company_id": [
+              "780882"
+             ],
+             "employee_title": "Founding Software Engineer",
+             "employee_start_date": "2020-01-01T00:00:00.000Z",
+             "employee_end_date": "2021-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Affirm",
+             "employer_company_id": [
+              "632082"
+             ],
+             "employee_title": "Software Engineer",
+             "employee_start_date": "2019-01-01T00:00:00.000Z",
+             "employee_end_date": "2020-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "South Park Commons",
+             "employer_company_id": [
+              "820009"
+             ],
+             "employee_title": "Member",
+             "employee_start_date": "2023-01-01T00:00:00.000Z",
+             "employee_end_date": "2025-01-01T00:00:00.000Z"
+            }
+           ]
+          }
+         },
+         "updated_at": "2026-10-23T03:15:36.840Z"
+        }
+       ]
+      },
+      "basic_info": {
+       "name": "Koah",
+       "primary_domain": "koahlabs.com",
+       "all_domains": [
+        "koahlabs.com"
+       ],
+       "crustdata_company_id": 3718859
+      },
+      "news": [
+       {
+        "article_publish_date": "2026-03-06",
+        "article_publisher_name": "Sherwood News",
+        "article_title": "Ads have entered the chat",
+        "article_url": "https://sherwood.news/tech/the-ai-chatbot-ad-rush-has-begun/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-03-03",
+        "article_publisher_name": "vcnewsdaily.com",
+        "article_title": "Koah Bags $20.5M Series A Round",
+        "article_url": "https://vcnewsdaily.com/koah/venture-capital-funding/hzlgltbgpx",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-03-02",
+        "article_publisher_name": "alleywatch.com",
+        "article_title": "The Weekly Notable Startup Funding Report: 3/2/26",
+        "article_url": "https://www.alleywatch.com/2026/03/the-weekly-notable-startup-funding-report-3-2-26/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-03-02",
+        "article_publisher_name": "PYMNTS.com",
+        "article_title": "Investors Ramp up Bets on the Agent Economy",
+        "article_url": "https://www.pymnts.com/news/artificial-intelligence/2026/investors-ramp-up-bets-on-the-agent-economy/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-02-27",
+        "article_publisher_name": "SiliconANGLE",
+        "article_title": "OpenAI raises its megaround, Anthropic’s battles multiply and the SaaSpocalypse widens — but Dell cashes in",
+        "article_url": "https://siliconangle.com/2026/02/27/openai-raises-megaround-anthropics-battles-multiply-saaspocalypse-widens/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-02-25",
+        "article_publisher_name": "Techmeme",
+        "article_title": "Koah, which embeds sponsored ads directly into AI chatbots and aims to build an AdSense for AI, raised a $20.5M Series A led by Theory Ventures (Trishla Ostwal/Adweek)",
+        "article_url": "http://www.techmeme.com/260224/p58#a260224p58",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-02-25",
+        "article_publisher_name": "Ventureburn",
+        "article_title": "Koah Raises $20.5M To Scale AI-Native Advertising Platform",
+        "article_url": "https://ventureburn.com/koah-raises-205m/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-02-24",
+        "article_publisher_name": "Morningstar.com",
+        "article_title": "Koah Raises $20.5M Series A Led by Theory Ventures to Scale AI-Native Monetization",
+        "article_url": "https://www.morningstar.com/news/pr-newswire/20260224sf92171/koah-raises-205m-series-a-led-by-theory-ventures-to-scale-ai-native-monetization",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-02-24",
+        "article_publisher_name": "FinSMEs",
+        "article_title": "Koah Raises $20.5M in Series A Funding",
+        "article_url": "https://www.finsmes.com/2026/02/koah-raises-20-5m-in-series-a-funding.html",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-02-24",
+        "article_publisher_name": "PR Newswire",
+        "article_title": "Koah Raises $20.5M Series A Led by Theory Ventures to Scale AI-Native Monetization",
+        "article_url": "https://www.prnewswire.com/news-releases/koah-raises-20-5m-series-a-led-by-theory-ventures-to-scale-ai-native-monetization-302695002.html",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-02-24",
+        "article_publisher_name": "Venture Capital Firms",
+        "article_title": "Koah Raises $20.5M Series A Led by Theory Ventures to Scale AI-Native Monetization",
+        "article_url": "https://www.vcaonline.com/news/2026022405/koah-raises-20-5m-series-a-led-by-theory-ventures-to-scale-ai-native-monetization/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-09-10",
+        "article_publisher_name": "StartupHub.ai",
+        "article_title": "Koah Raises $5M for AI App Advertising Platform",
+        "article_url": "https://www.startuphub.ai/ai-news/funding-round/2025/koah-raises-5m-for-ai-app-advertising-platform/",
+        "confidence_score": 1.0,
+        "publisher_domain": "startuphub.ai",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-10",
+        "article_publisher_name": "AI Insider",
+        "article_title": "Koah Secures $5M to Build Advertising Layer for AI Apps",
+        "article_url": "https://theaiinsider.tech/2025/09/10/koah-secures-5m-to-build-advertising-layer-for-ai-apps/",
+        "confidence_score": 1.0,
+        "publisher_domain": "theaiinsider.tech",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-10",
+        "article_publisher_name": "MarTech Cube",
+        "article_title": "Koah Launches “AdSense for GenAI” — Monetization Standard for AI Chat Apps",
+        "article_url": "https://www.martechcube.com/koah-launches-adsense-for-genai-monetization-standard-for-ai-chat-apps/",
+        "confidence_score": 1.0,
+        "publisher_domain": "martechcube.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-09",
+        "article_publisher_name": "CDP Institute",
+        "article_title": "Koah Raises $5 Million to Put Ads Inside AI Apps",
+        "article_url": "https://www.cdpinstitute.org/news/koah-raises-5-million-to-put-ads-inside-ai-apps/",
+        "confidence_score": 1.0,
+        "publisher_domain": "cdpinstitute.org",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-08",
+        "article_publisher_name": "CryptoRank",
+        "article_title": "Koah pushes ads into AI apps while OpenAI lags behind",
+        "article_url": "https://cryptorank.io/news/feed/729c3-koah-ads-fuel-ai-apps-openai-stalls",
+        "confidence_score": 1.0,
+        "publisher_domain": "cryptorank.io",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-08",
+        "article_publisher_name": "Tech in Asia",
+        "article_title": "US-based startup Koah raises $5m to bring ads into AI apps",
+        "article_url": "https://www.techinasia.com/news/us-based-startup-koah-raises-5m-to-bring-ads-into-ai-apps",
+        "confidence_score": 1.0,
+        "publisher_domain": "techinasia.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-07",
+        "article_publisher_name": "SQMagazine",
+        "article_title": "AI Monetization Gets a Boost as Koah Bags $5M Seed Funding",
+        "article_url": "https://sqmagazine.co.uk/koah-ads-ai-apps-funding/",
+        "confidence_score": 1.0,
+        "publisher_domain": "sqmagazine.co.uk",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-07",
+        "article_publisher_name": "TechCrunch",
+        "article_title": "Koah raises $5M to bring ads into AI apps",
+        "article_url": "https://techcrunch.com/2025/09/07/koah-raises-5m-to-bring-ads-into-ai-apps/",
+        "confidence_score": 1.0,
+        "publisher_domain": "techcrunch.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-07",
+        "article_publisher_name": "SSBCrack",
+        "article_title": "Koah Raises $5 Million to Monetize AI Apps Through Advertising",
+        "article_url": "https://news.ssbcrack.com/koah-raises-5-million-to-monetize-ai-apps-through-advertising/",
+        "confidence_score": 1.0,
+        "publisher_domain": "ssbcrack.com",
+        "source": "google_news"
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}
