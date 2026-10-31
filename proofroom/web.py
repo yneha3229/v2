@@ -607,6 +607,17 @@ def _run_url(run_dir: str | None) -> str | None:
     return f"/runs/{p.parent.name}/{m.group(1)}"
 
 
+def _flag_counts(case: Any) -> dict | None:
+    """U9 flag counts for the summary strip; None if the report rules cannot run."""
+    try:
+        from proofroom import report as _report
+        fl = _report.flags(case)
+    except Exception:  # noqa: BLE001 - the page must render even if a rule breaks
+        log.exception("flag counts failed")
+        return None
+    return {lv: sum(f.level == lv for f in fl) for lv in ("red", "amber", "green")}
+
+
 @app.get("/runs/{case_id}/{n}", response_class=HTMLResponse)
 async def run_page(request: Request, case_id: str, n: int) -> HTMLResponse:
     p = run_path(case_id, n)
@@ -627,6 +638,7 @@ async def run_page(request: Request, case_id: str, n: int) -> HTMLResponse:
             "questions_html": Markup(md_to_html(q)) if (q := _read(p / "questions.md")) else None,
             "email_html": Markup(md_to_html(em)) if (em := _read(p / "founder_email.md")) else None,
             "desk": _desk(case),
+            "flag_counts": _flag_counts(case),
             "evidence": evidence_rows(case),
             "findings": {f.claim_id: f for f in case.findings},
             "origin_svg": Markup(svg) if isinstance(svg, str) and svg.lstrip().startswith("<svg") else None,

@@ -104,7 +104,7 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 | S9 T2 usefulness | DONE | Claude + agent | 11:45 | 11:53 | S9 | Metrics below. P1 K1/K2 ✔; P2 L1 core ✔ (L1 qualifier sentence withheld by strict check), L2 no source in news[]; P3 A1/A2/A3 ✔. 0 false conflicts / false sums / wrong subjects / alias errors. T2 pass (≥3 reusable sentences, ≥1 ID join each) |
 | S10 Web UI | DONE | agent (verified by Claude) | 11:40 | 11:32 | S10 | `23 passed` (199 total). Playwright: index + demo run DELIVERED, drawer opens, 0 JS errors, mobile scrollWidth 390. U3/U4/U5/U7/U8 panels in. TODO polish: collapse long panels |
 | S11 T3 tests and fixtures | TODO | C | | | | By 13:20; case tables in Prep_02 |
-| S12 README and should-ship | TODO | D | | | | Outline in Prep_03 |
+| S12 README and should-ship | DONE (README) | Claude | 12:00 | 12:03 | S12 | README: 5 deck sections, real results table (3/3 DELIVERED, 0 errors), 204 tests by group, 9 approaches tried. UI polish: run page 8826→1868 px, flag counts + readable desk. Clean-clone quickstart check moves to S13 |
 | S13 Freeze checks | TODO | All | | | | Freeze 14:00; selection query in Prep_03 |
 | S14 Unseen recording | TODO | D | | | | Narration in Prep_03 |
 | S15 Submit | TODO | D | | | | By 15:20 |
