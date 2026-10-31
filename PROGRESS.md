@@ -92,7 +92,7 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 
 | Step | Status | Owner | Started | Done | Commit | Verify result / note |
 |---|---|---|---|---|---|---|
-| S0 Setup | TODO | C | | | | Pre-staged: wheelhouse + lock verified offline 01:30. Run the S0 recipe at 10:30. |
+| S0 Setup | DONE | Claude (A–D merged) | 10:44 | 10:50 | S0 | `ok 2.3.0 0.28.1 2.14.2` (anthropic, httpx, pydantic); pins from PyPI in `requirements.txt` |
 | S1 T1 day-check Phase 2 | TODO | A + B | | | | Phase 0 done early (GO-WITH-CHANGES); Phase 1 at 10:00 |
 | S2 Crustdata adapter | TODO | A | | | | Apply PC-1 (httpx stays separate from the Anthropic client) and PC-3 |
 | S3 Models and run store | TODO | C | | | | |
@@ -138,6 +138,9 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
 | D5 | 01:25 | **PC-4:** the ±7-day milestone rule is mandatory for S2 URL picks; `1970-01-01` = unknown date | Linear `news[]` has namesakes; Attio has sentinel and re-dated items | §20.2 |
 | D6 | 01:25 | **PC-5/PC-6:** the gate compares amounts at the stated precision. Aliases (GV / Google Ventures, 01A / 01 Advisors) match only when a source states them. | Attio 52,020,932 vs "$52M"; real alias cases | §5.4, §7 |
 | D8 | 01:28 | **S13 secret scan:** run the CLAUDE.md S13 regex with the pathspec `-- . ":!CLAUDE.md"`. A pass is exit code 1 (no match). | As written, the scan always self-matches CLAUDE.md line 128, where the regex itself appears | CLAUDE.md §5 S13 |
+| D9 | 10:48 | Add `python-dotenv` (read `.env`) and `python-multipart` (FastAPI forms) | Optional deps listed in PROGRESS S0 recipe | §8.1 |
+| D10 | 10:48 | Build runs in a Linux cloud container (Python 3.12.3, repo `/home/user/v2`), installing the lock's exact pins from PyPI instead of the Windows wheelhouse | Session is remote; PyPI reachable | §8.1 |
+| D11 | 10:48 | One Claude session holds all four roles (A–D) and works steps sequentially in plan order | Single-session build | §14 |
 | D7 | — | **PC-7 (open, S6 owner):** refusal fallback. The recommendation is to keep "refusal = failed attempt". | Fallback only re-runs cyber/frontier_llm declines on Sonnet 5.5 | §8.3 |
 
 ---
@@ -177,3 +180,4 @@ Copy-Item C:\dev\proofroom-wheelhouse\requirements.lock.txt requirements.txt
   - Prep_01 to Prep_03 written.
   - Repo folder created.
   - Ended at: the morning checklist.
+- Session 1 started 10:44 IST (Linux cloud container), resuming at step S0. No ANTHROPIC_API_KEY in env; CRUSTDATA_API_KEY put in `.env`.
