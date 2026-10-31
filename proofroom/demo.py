@@ -137,7 +137,7 @@ def _payload(b: tuple) -> dict:
     try:
         import json
         cells = {(x["role"], x["location"]): x["annual_usd"] for x in json.loads(
-            (config.ROOT / "proofroom/data/salary_benchmarks.json").read_text())["benchmarks"]}
+            (config.ROOT / "proofroom/data/salary_benchmarks.json").read_text(encoding="utf-8"))["benchmarks"]}
         rmap = {"Data & Research": "Data Science"}
         sf = sum(n * (cells.get((rmap.get(k, k), "San Francisco Bay Area")) or cells[("Other", "San Francisco Bay Area")])
                  for k, n in (pay.by_role or {}).items()) * pay.overhead_multiplier

@@ -226,7 +226,7 @@ cp .env.example .env            # set CRUSTDATA_API_KEY for live search of new c
 .venv/bin/uvicorn proofroom.web:app --port 8000
 ```
 
-On **Windows**, use `.venv\Scripts\python.exe` in place of `.venv/bin/python`. Also set `PYTHONUTF8=1` before starting the server; without it, Python reads the page files in the Windows code page and `/demo` returns an error.
+On **Windows**, use `.venv\Scripts\python.exe` in place of `.venv/bin/python`.
 
 **What to open:**
 
