@@ -16,6 +16,7 @@
   <h1>{{ g1.get('name') or case.input.domain }} <small class="muted">({{ case.input.domain }}) · run {{ case.run }} · reviewed {{ case.reviewed }}</small></h1>
   {% if case.run_mode != 'LIVE' %}<p class="muted">This run is {{ case.run_mode }}: {% if case.run_mode == 'FIXTURE' %}recorded responses replayed with no keys{% else %}development-cache hits, labelled on each attempt{% endif %}. It is not a live run.</p>{% endif %}
   <div class="actions">
+    <a class="btn" href="/runs/{{ case_id }}/{{ n }}/report" target="_blank" rel="noopener">Diligence report</a>
     <button type="button" class="btn" id="receipt-btn" data-case="{{ case_id }}" data-run="{{ n }}">Proof receipt</button>
     <a class="btn" href="/">New run</a>
   </div>

@@ -665,6 +665,15 @@ async def verify_run(case_id: str, n: int) -> JSONResponse:
         return JSONResponse({"ok": False, "lines": [f"FAIL receipt error: {type(e).__name__}"]})
 
 
+@app.get("/runs/{case_id}/{n}/report", response_class=HTMLResponse)
+async def run_report(case_id: str, n: int) -> HTMLResponse:
+    """U9: the printable three-page diligence report, as published (hash-checked)."""
+    p = run_path(case_id, n) / "report.html"
+    if not p.is_file():
+        raise HTTPException(404, "this run has no report")
+    return HTMLResponse(p.read_text(encoding="utf-8"))
+
+
 @app.get("/healthz")
 async def healthz() -> dict:
     return {"ok": True}

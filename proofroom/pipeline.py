@@ -25,7 +25,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Awaitable, Callable
 
-from proofroom import config, exceptions, gate, graph, llm, packet, prompts, render, store
+from proofroom import config, exceptions, gate, graph, llm, packet, prompts, render, report, store
 from proofroom import crustdata as cd
 from proofroom.errors import ConfigError, CrustError, ModelError, ProofroomError, StoreError
 from proofroom.models import (AssessResult, AttemptRecord, CaseRecord, CheckResult, Claim,
@@ -272,6 +272,7 @@ async def _execute(r: _Run, rd: store.RunDir) -> RunOutcome:
     kept, suppressed, lims = gate.gate_findings(findings, evidence)
     r.limitations += lims
     checks = []
+    withheld_n = 0
     if kept:
         by_id = {e.id: e for e in evidence}
         items = [(f.claim_id, f.sentence, [by_id[i] for i in f.evidence_ids if i in by_id])
@@ -280,6 +281,7 @@ async def _execute(r: _Run, rd: store.RunDir) -> RunOutcome:
                                  prompts.check_message(items), CheckResult, prof.effort_check)
         checks = chk.checks
         kept, withheld = _apply_checks(kept, checks, r.limitations)
+        withheld_n = len(withheld)
         # A withheld sentence's question survives only if its own numbers pass the gate.
         by_id = {e.id: e for e in evidence}
         for f in withheld:
@@ -303,7 +305,7 @@ async def _execute(r: _Run, rd: store.RunDir) -> RunOutcome:
                "crustdata_credits": credits, "credits_unknown_attempts": unknown,
                "input_tokens": sum(a.input_tokens for a in r.model_attempts),
                "output_tokens": sum(a.output_tokens for a in r.model_attempts),
-               "sentences_emitted": len(kept), "sentences_suppressed": len(suppressed),
+               "sentences_emitted": len(kept), "sentences_suppressed": len(suppressed) + withheld_n,
                "team_rows": len(g.team),
                "id_joins": sum(t.role_join for t in g.team)
                + sum(j.joined for t in g.team for j in t.prior_joins),
@@ -316,7 +318,8 @@ async def _execute(r: _Run, rd: store.RunDir) -> RunOutcome:
     case.stats["exceptions"] = [d.as_dict() for d in desk]
     brief = _with_desk(render.brief_md(case, model_source=model_source, profile=prof.name),
                        exceptions.exception_desk_md(desk))
-    extra = {"questions.md": render.questions_md(case)}
+    extra = {"questions.md": render.questions_md(case),
+             "report.md": report.report_md(case), "report.html": report.report_html(case)}
     if req.email if req.email is not None else config.founder_email_enabled():
         extra["founder_email.md"] = exceptions.founder_email_md(case)
     st = r.store
@@ -450,7 +453,11 @@ def _financing_lines(g: graph.GraphResult, claims: list[Claim], evidence: list[E
         eid = by_loc.get(ms["path"])
         verdict = ("consistent with Crustdata's record" if m["status"] == "consistent"
                    else "record differs: " + "; ".join(m["differences"]))
-        extra = f" Lead: {m['lead']}." if "lead" in m else ""
+        extra = ""
+        if "lead" in m:
+            lead_s = m["lead"]
+            extra = (f" Lead {lead} is among the record's investors." if lead_s.startswith("found")
+                     else f" Lead {lead}: {lead_s}.")
         lines.append({"kind": "round_check", "claim_id": c.id,
                       "evidence_ids": [eid] if eid else [],
                       "line": f"{c.id} ({rtype.replace('_', ' ')}): {verdict}.{extra} "
