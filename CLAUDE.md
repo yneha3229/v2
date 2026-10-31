@@ -43,7 +43,7 @@
 
 ---
 
-## 3. Hard rules
+## 3.  rules
 
 - **Keys:**
   - Keys are read only from the environment or from `.env` (git-ignored): `CRUSTDATA_API_KEY` and `ANTHROPIC_API_KEY`.
