@@ -197,7 +197,8 @@ async def _execute(r: _Run, rd: store.RunDir) -> RunOutcome:
     client = cd.Crustdata(req.run_mode, fixture=req.fixture, deadline=deadline,
                           use_cache=req.run_mode != cd.LIVE)
     async with client:
-        await r.progress("start", domain=req.domain, profile=prof.name, mode=req.run_mode)
+        await r.progress("start", domain=req.domain, profile=prof.name, mode=req.run_mode,
+                         run_dir=str(rd.path), run=rd.run, model_source=model_source)
 
         # Stage 2 resolve || Mode B fetch (independent).
         mode_b = (packet.assemble_mode_b(client, req.pasted, req.urls, domain=req.domain)
