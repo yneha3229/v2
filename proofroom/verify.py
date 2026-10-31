@@ -18,9 +18,10 @@ from proofroom import store
 from proofroom.gate import CITE_RE, GateResult, gate_sentence, normalize
 from proofroom.models import CaseRecord
 
-# Financing lines whose numbers are derived, not quoted, so they cannot match evidence
-# text by construction; they are labelled calculations instead (§5.3).
-_UNGATED_KINDS = {"meta", "calculation", "question"}
+# Financing lines whose numbers are copied from the cited record rows. Other kinds
+# (calculation, question, the pipeline's round_check, which quotes the announcement's
+# figures next to the record's) are labelled text, not record quotes, so not re-gated.
+GATED_FINANCING_KINDS = {"round", "indexed_round", "total"}
 
 
 @dataclass
@@ -91,7 +92,7 @@ def verify_receipt(run_dir: Path) -> Receipt:
 
     for n, d in enumerate(case.financing):
         ids = [i for i in d.get("evidence_ids") or [] if i]
-        if d.get("kind") in _UNGATED_KINDS or not ids:
+        if d.get("kind") not in GATED_FINANCING_KINDS or not ids:
             continue
         r = gate_sentence(str(d.get("line") or ""), ids, ev)
         why = "" if r.clean else f" ({'; '.join(r.failures)})"
