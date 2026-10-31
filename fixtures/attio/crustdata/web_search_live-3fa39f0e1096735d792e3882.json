@@ -1,0 +1,89 @@
+{
+ "endpoint": "/web/search/live",
+ "request": {
+  "query": "attio series b",
+  "sources": [
+   "web"
+  ],
+  "site": "attio.com"
+ },
+ "status": 200,
+ "credits_used": "1",
+ "body": {
+  "success": true,
+  "timestamp": 1793425769840,
+  "results": [
+   {
+    "source": "web",
+    "title": "Attio raises $33 million in funding",
+    "url": "https://www.google.com/goto?url=CAESfQHrOzAVpO-ot2uRy8fskrD1-I30tT__PI_W-hjJUQH1TbGUyKcZstW9bcLtWRbgnMBYuARP0YR6JfMGs-mn4lGvkpEsPlK7RWKS3kIPuu3RIfhdX97ndAL1RMaHO9WAsUrCejFrXeaNrlOKf75gT_IkwnZHL_IurpdVAgB_",
+    "snippet": "To accelerate its mission and seize the massive opportunity ahead, Attio has raised a further $33 million to build the definitive CRM for the next generation.Read more",
+    "position": 1
+   },
+   {
+    "source": "web",
+    "title": "Attio scores $52M to launch AI-native CRM for the future of ...",
+    "url": "https://www.google.com/goto?url=CAESfAHrOzAV6oFArLzEukZaxFr9QcygVheEmxqS_DB0JOH0sV8wzQqYkSvN4YpAYkXGsyaU6gTYu1aLixP6rCZHruu34V4EkKAkYApVoyVC6h6YFn7pIdeKiOrJdMt1GcwmwOEdxHSpmfTKsZEUYlHQe6elvzaZmvGediGlcB0",
+    "snippet": "Aug 27, 2025 — Attio raises $52M Series B led by GV to scale its AI-native CRM platform that empowers businesses with real-time data, intelligent workflows ...",
+    "position": 2
+   },
+   {
+    "source": "web",
+    "title": "Attio raises $52m for AI-native CRM platform",
+    "url": "https://www.google.com/goto?url=CAESvwEB6zswFUSQ-GKEoB2iJnmwijoHgibk0acjOpcLmcoXVQkyF5bz6ibeRQT6h_AEQ2G3pQtCfNubT8RiuZzBXhNRhNVTGvwPVqKoKzZAhd2Hp7YGLokbV6gmKdQFgmZdlCYZkC2yfE1EGgEa2MKszE9lLzH5lFNfDPfm95znfGbws6PVTBdEw-AsyPlbEQJJnWvJwFhkfev2JVw4mmHV5ujkeuzzUvPxfc_fkwO_HawuNvG8bLf4CGFMOl3b97KBRQ",
+    "snippet": "Attio, a company developing an “AI-native” CRM platform, has raised $52m (£38.6m) in a Series B round led by GV (Google Ventures).",
+    "position": 3
+   },
+   {
+    "source": "web",
+    "title": "Attio Funding: $116M Raised, Series B (2025)",
+    "url": "https://startupfundraising.com/companies/attio",
+    "snippet": "Attio is a SaaS company based in London, UK. It has raised $116M in total funding. Latest round: Series B.",
+    "position": 4
+   },
+   {
+    "source": "web",
+    "title": "Attio News - Sacra",
+    "url": "https://www.google.com/goto?url=CAESWgHrOzAVqKym1pKHpOBfjfqpAe7GsoTdW9I1u3LikUntYGGa_zZHXyjA9nWBeduq7wpOPsNbS3VX9_qj7DC8N0kfWbCUWWTbBY3Bq2jxSz6wizvRLjIXq8FoXA",
+    "snippet": "Attio Raises $38.6 Million in Series B Funding, Totaling $86 Million to Accelerate AI-Native CRM Development Attio's significant funding round positions it to ...",
+    "position": 5
+   },
+   {
+    "source": "web",
+    "title": "Attio Valuation & Funding History",
+    "url": "https://www.caplight.com/company/attio",
+    "snippet": "Attio's most recent funding round was Series B on August 26, 2025. Key investors in Attio include GV, 01 Advisors, Point Nine, Balderton Capital, Redpoint ...",
+    "position": 6
+   },
+   {
+    "source": "web",
+    "title": "Funding Round - Series B - Attio",
+    "url": "https://www.google.com/goto?url=CAESfAHrOzAVKiyejSrQq7lOZVhdmCv0lQlDhRVONLhcwNzEyZIRj_Jda3E4r7pOGFVLMZD24ByXBiL25A8Z1JON4SI8rOxeeKdfFxZ2NPsBudluIwgKJaoZbULLkCRU3G7ZNHtH-1wxzVIZdCMO0XgDEGf5bLwpCi0xj5mNV6U",
+    "snippet": "Series B - Attio Logo Funding Round. Ventures is an investment arm of Alphabet that provides seed, venture, and growth-stage funding to technology companies.",
+    "position": 7
+   },
+   {
+    "source": "web",
+    "title": "Attio Hits 1.6B API Calls, 35M Automated Workflows",
+    "url": "https://www.google.com/goto?url=CAESsQEB6zswFZ2OaQJcrgjWZkOvByyJ-uiblSrLbkPaMfmk4Cu4BHvTPhYkbGa-bxntaPc324kSqI96Kgj9qwF_LdI5cLJret57J-KcgT6VseP0ewX7gcy2FZ6482oQIPG1RTTv7Ft7jL05hgmhoVxvuP5s-tSfYYTvAWx8IDBAGOzF86RzKOCwAtggVGBAcmyL3XXFgvAW57LKivZb9dGQM7XxK1QjAwKlOwDzDtvZL-mK1is",
+    "snippet": "It raised a $52m Series B led by GV (Google Ventures) last year and has gone from strength to strength.",
+    "position": 8
+   },
+   {
+    "source": "web",
+    "title": "I'm the co-founder of Attio CRM. We just raised a $50 ...",
+    "url": "https://www.google.com/goto?url=CAESnQEB6zswFdjj3HxKGIo8ODuxQSVJqCkoNNuKrZOtU7kmgA3-lDQf8rJ2fZ5-a4cIThZvlmBHlGWKuhyF50syXxqwSkXS5tvabgggoJCnXUFnYqsdQvcnOyIVzwIEBcppOv2avmcs-oisZfgvvr2mx4MOfMtmvyEz9ci-WfBIRBFdPNFJh32Q5c_DpbOGUStx86sP2JNYA1cSLxqtnRJ0",
+    "snippet": "I'm the co-founder of Attio CRM. We just raised a $50 million Series B to build out the future of CRM. AMA. · 1 - GTM operators are builders now.Read more",
+    "position": 9
+   },
+   {
+    "source": "web",
+    "title": "Attio raises $52M in Series B funding from GV, Balderton ...",
+    "url": "https://www.google.com/goto?url=CAESrwEB6zswFavXYg0MTdpQt3NeUrG0FOAB4WBzeTIAfmzdV9wpQEAUa74QFbtQzuX7o97UT9QgBr_Xlrcvz46risQfDYE7MP4CMsnyOGf6b6Y9NuMMs-tMyARWt2FhP9J2FADnq0cUvA6R_6PsCEY29JDefKajp-HmPEzJaNpusptAcPveR32BRq8gUgIjuayDo_pnxR-7dUfCMwHpwgJvipyReVmDH_9fP1zNau4bkaJ8",
+    "snippet": "London-based Attio, a Customer Relationship Management (CRM) software provider, has secured $52M (approximately €45M) in Series B funding.",
+    "position": 10
+   }
+  ],
+  "metadata": {}
+ }
+}
