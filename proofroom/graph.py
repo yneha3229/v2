@@ -240,9 +240,14 @@ def name_candidates(identify_response: Any) -> dict[str, set[int]]:
 
 
 def prior_joins(row: TeamRow, names: list[str], candidates: dict[str, set[int]]) -> list[PriorJoin]:
-    """Accept a prior-employer join only when exactly one Identify candidate ID appears
-    in this person's past entries (strict §7 rule). Otherwise `joined` is False and the
-    note says why; absence is never a refutation (§5.2)."""
+    """Accept an ID join only when exactly one Identify candidate ID appears in this
+    person's past entries (strict §7 rule).
+
+    D14 fallback: when no candidate ID is in the past entries, match the source's
+    name against the person's own past employer names (whole-word prefix, e.g.
+    "Qualified" ~ "Qualified (Acquired by Salesforce)"). Exactly one distinct
+    employer ID gives a `name_match` join, rendered "≈" and never counted as an
+    ID join. Absence is never a refutation (§5.2)."""
     past_ids = {e.employer_id for e in row.past if e.employer_id is not None}
     joins = []
     for name in names:
@@ -252,18 +257,40 @@ def prior_joins(row: TeamRow, names: list[str], candidates: dict[str, set[int]])
             cid = hits.pop()
             entry = next(e for e in row.past if e.employer_id == cid)
             joins.append(PriorJoin(employer_name=name, employer_id=cid, joined=True, entry=entry,
+                                   basis="id",
                                    note=f"ID join: past entry '{entry.employer_name}' = {cid}"))
-        elif len(hits) > 1:
+            continue
+        if len(hits) > 1:
             joins.append(PriorJoin(employer_name=name, employer_id=None, joined=False,
                                    note=f"ambiguous: {len(hits)} candidate IDs in past entries"))
-        elif not cands:
-            joins.append(PriorJoin(employer_name=name, employer_id=None, joined=False,
-                                   note="Identify returned no candidates for this name"))
+            continue
+        why = ("Identify returned no candidates for this name" if not cands else
+               f"none of {len(cands)} Identify candidates is in this person's indexed past roles")
+        named = name_matched_entries(row.past, name)
+        ids = {e.employer_id for e in named}
+        if len(ids) == 1 and None not in ids:
+            entry = named[0]
+            joins.append(PriorJoin(
+                employer_name=name, employer_id=entry.employer_id, joined=False, entry=entry,
+                basis="name_match",
+                note=f"name match (not an ID join): past entry '{entry.employer_name}' = "
+                     f"{entry.employer_id}; {why}"))
         else:
             joins.append(PriorJoin(employer_name=name, employer_id=None, joined=False,
-                                   note=f"none of {len(cands)} Identify candidates is in this "
-                                        "person's indexed past roles (not a refutation)"))
+                                   note=f"{why} (not a refutation)"))
     return joins
+
+
+def _name_words(name: str) -> list[str]:
+    return re.sub(r"[^a-z0-9 ]+", " ", (name or "").casefold()).split()
+
+
+def name_matched_entries(entries: list[Employment], name: str) -> list[Employment]:
+    """Entries whose employer name starts with `name` as whole words."""
+    want = _name_words(name)
+    if not want:
+        return []
+    return [e for e in entries if _name_words(e.employer_name)[:len(want)] == want]
 
 
 # ---- G4 financing cross-check (§7, PC-2, PC-5, PC-6) ------------------------------------

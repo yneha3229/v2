@@ -137,9 +137,10 @@ class Employment(BaseModel):
 class PriorJoin(BaseModel):
     employer_name: str             # as named by a source
     employer_id: int | None        # Identify(names) result
-    joined: bool                   # exactly one matching past entry for this person
+    joined: bool                   # exactly one matching past entry for this person (ID join)
     entry: Employment | None = None
     note: str = ""
+    basis: Literal["id", "name_match", "none"] = "none"  # name_match is shown as "≈" (D14)
 
 
 class TeamRow(BaseModel):
