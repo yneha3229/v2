@@ -443,10 +443,31 @@ def _usd(v: float) -> str:
     return f"${v:,.0f}"
 
 
+def effective_band(band: tuple[float, float] | None, listed_bucket: str,
+                   headcount: float | None) -> tuple[tuple[float, float] | None, str]:
+    """The band used for clamping. Crustdata's band follows the LISTED employee_count_range
+    bucket (training-set evidence, module doc), so when the indexed headcount implies a
+    different bucket the band is stale on one side: a bigger company keeps the band's lower
+    bound as a floor only; a smaller one keeps the upper bound as a cap only."""
+    if not band or not listed_bucket or listed_bucket not in _BUCKET_RANK or not headcount:
+        return band, ""
+    implied = bucket_of(headcount)
+    if _BUCKET_RANK[implied] > _BUCKET_RANK[listed_bucket]:
+        return (band[0], math.inf), (f"listed size bucket {listed_bucket} is below the "
+                                     f"{implied} implied by {headcount:.0f} indexed staff: "
+                                     "band used as a floor only")
+    if _BUCKET_RANK[implied] < _BUCKET_RANK[listed_bucket]:
+        return (0.0, band[1]), (f"listed size bucket {listed_bucket} is above the {implied} "
+                                f"implied by {headcount:.0f} indexed staff: band used as a "
+                                "cap only")
+    return band, ""
+
+
 def estimate_revenue(signals: Signals, payroll: PayrollEstimate | None = None, *,
                      model: RevenueModel | None = None, as_of: date | None = None,
-                     largest_country: str = "") -> RevenueEstimate:
-    """Model estimate narrowed into the company's Crustdata band. Always an estimate."""
+                     largest_country: str = "", listed_bucket: str = "") -> RevenueEstimate:
+    """Model estimate narrowed into the company's Crustdata band. Always an estimate.
+    `listed_bucket` is basic_info.employee_count_range (enables the stale-band rule)."""
     est = RevenueEstimate(crustdata_band_usd=signals.revenue_band_usd)
     est.method.append("ESTIMATE, not reported revenue: model output narrowed into Crustdata's "
                       "third-party revenue band.")
@@ -471,17 +492,22 @@ def estimate_revenue(signals: Signals, payroll: PayrollEstimate | None = None, *
     log_raw = model.predict_log10(feats)
     raw = 10 ** log_raw
     est.model_raw_usd = round(raw, 0)
-    point, clamped = clamp_to_band(raw, band)
+    clamp_band, stale = effective_band(band, listed_bucket, signals.headcount_total)
+    point, clamped = clamp_to_band(raw, clamp_band)
     est.point_usd = round(point, 0)
     spread = 10 ** model.q80
     low, high = point / spread, point * spread
-    if band:
-        low, high = max(low, band[0]), min(high, band[1])
+    if clamp_band:
+        low, high = max(low, clamp_band[0]), min(high, clamp_band[1])
     est.low_usd, est.high_usd = round(low, 0), round(high, 0)
     est.method.append(f"Model raw {_usd(raw)} from {est.model}; held-out CV band hit rate "
                       f"{est.cv_band_hit_rate:.0%}, median |log10 error| "
                       f"{est.cv_median_abs_log_error:.2f} (x{10 ** est.cv_median_abs_log_error:.1f}).")
-    if band:
+    if band and stale:
+        est.method.append(f"Crustdata band {_usd(band[0])}–{_usd(band[1])}: {stale}"
+                          + ("; raw prediction moved to that bound." if clamped
+                             else "; raw prediction already satisfies it."))
+    elif band:
         est.method.append(
             f"Clamped into the Crustdata band {_usd(band[0])}–{_usd(band[1])}"
             + (" (raw prediction was outside it)." if clamped else " (raw prediction inside it).")
