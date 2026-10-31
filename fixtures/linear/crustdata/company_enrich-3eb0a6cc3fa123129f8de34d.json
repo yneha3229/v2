@@ -1,0 +1,6180 @@
+{
+ "endpoint": "/company/enrich",
+ "request": {
+  "crustdata_company_ids": [
+   633791
+  ],
+  "fields": [
+   "basic_info",
+   "funding",
+   "people",
+   "news",
+   "headcount",
+   "revenue",
+   "hiring",
+   "followers",
+   "web_traffic",
+   "competitors",
+   "taxonomy",
+   "employee_reviews",
+   "seo",
+   "locations",
+   "software_reviews",
+   "public_launches",
+   "market_intel",
+   "metadata"
+  ]
+ },
+ "status": 200,
+ "credits_used": "2",
+ "body": [
+  {
+   "matched_on": "633791",
+   "match_type": "crustdata_company_id",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 633791,
+      "funding": {
+       "acquired_by": [],
+       "acquisitions": [],
+       "investors_detailed": [
+        {
+         "name": "01 Advisors",
+         "type": "organization",
+         "categories": [
+          "venture_capital"
+         ]
+        },
+        {
+         "name": "Accel",
+         "type": "organization",
+         "categories": [
+          "venture_capital"
+         ]
+        },
+        {
+         "name": "Adam Bain",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Akash Garg",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Andrew Mason",
+         "type": "person",
+         "categories": [
+          ""
+         ]
+        },
+        {
+         "name": "Andrew Mason",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Anssi Rusi",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Anthony Guo",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Aston Motes",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Bobby Goodlatte",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Cal Henderson",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Charlie Cheever",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Christina Cacioppo",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Claire Hughes Johnson",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Dan Romero",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Designer Fund",
+         "type": "organization",
+         "categories": [
+          "angel_group",
+          "micro_vc"
+         ]
+        },
+        {
+         "name": "Dylan Field",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Emilie Choi",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Emily Choi",
+         "type": "person",
+         "categories": [
+          ""
+         ]
+        },
+        {
+         "name": "Fred Stevens-Smith",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Ganesh Srinivasan",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Gavin Weigh",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Guillermo Rauch",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Gustaf Alstromer",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Harry Stebbings",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Ilkka Paananen",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Illusian Founder Office",
+         "type": "organization",
+         "categories": [
+          "venture_capital"
+         ]
+        },
+        {
+         "name": "Immad Akhund",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Index Ventures",
+         "type": "organization",
+         "categories": [
+          "venture_capital"
+         ]
+        },
+        {
+         "name": "Indie.vc",
+         "type": "organization",
+         "categories": [
+          "venture_capital"
+         ]
+        },
+        {
+         "name": "James Smith",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "James Smith",
+         "type": "person",
+         "categories": [
+          ""
+         ]
+        },
+        {
+         "name": "Jeff Chang",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Jeff Weinstein",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Jorn van Dijk",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Josh Miller",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Jude Gomila",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Julia DeWahl",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Kenneth Auchenberg",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Koen Bok",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Kristo Ovaska",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Krithika Muthukumar",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Kyle Parrish",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Larry Gadea",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Lauren Loktev",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Lee Robinson",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Lenny Rachitsky",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Marc McCabe",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Marianne Vikkula",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Oskari Saarenmaa",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Patrick Collison",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Pia Henrietta Kekäläinen",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Praveen Neppalli Naga",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Richard Costolo",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Riku Mäkelä",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Robert Gentz",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Rudi Skogman",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "S32",
+         "type": "organization",
+         "categories": [
+          "venture_capital"
+         ]
+        },
+        {
+         "name": "Salesforce Ventures",
+         "type": "organization",
+         "categories": [
+          "corporate_venture_capital",
+          "venture_capital"
+         ]
+        },
+        {
+         "name": "Sequoia Capital",
+         "type": "organization",
+         "categories": [
+          "venture_capital"
+         ]
+        },
+        {
+         "name": "Seven Seven Six",
+         "type": "organization",
+         "categories": [
+          "venture_capital"
+         ]
+        },
+        {
+         "name": "Soleio ‎‏Cuervo",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Stephanie Zhan",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Stewart Butterfield",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "TK Ventures",
+         "type": "organization",
+         "categories": [
+          "venture_capital"
+         ]
+        },
+        {
+         "name": "Tikhon Bernstam",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        },
+        {
+         "name": "Vlad Loktev",
+         "type": "person",
+         "categories": [
+          "angel",
+          "investment_partner"
+         ]
+        }
+       ],
+       "milestones": [
+        {
+         "round_type": "secondary_market",
+         "is_fund": false,
+         "investors_detailed": [
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "Accel",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "01 Advisors",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "S32",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "corporate_venture_capital",
+            "venture_capital"
+           ],
+           "name": "Salesforce Ventures",
+           "type": "organization"
+          }
+         ],
+         "date": "2026-08-26",
+         "funding_date": "2026-08-26",
+         "amount_usd": 99000000.0,
+         "investors": "Accel, 01 Advisors, S32, Salesforce Ventures",
+         "lead_investors": "Accel"
+        },
+        {
+         "round_type": "secondary_market",
+         "is_fund": false,
+         "investors_detailed": [],
+         "date": "2025-06-10",
+         "funding_date": "2025-06-10",
+         "amount_usd": null,
+         "investors": null,
+         "lead_investors": null
+        },
+        {
+         "round_type": "series_c",
+         "is_fund": false,
+         "investors_detailed": [
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "Accel",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "01 Advisors",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "angel_group",
+            "micro_vc"
+           ],
+           "name": "Designer Fund",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Ilkka Paananen",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "Indie.vc",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Jeff Weinstein",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Lauren Loktev",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "Sequoia Capital",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "Seven Seven Six",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Soleio ‎‏Cuervo",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "TK Ventures",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Vlad Loktev",
+           "type": "person"
+          }
+         ],
+         "date": "2025-06-10",
+         "funding_date": "2025-06-10",
+         "amount_usd": 82000000.0,
+         "investors": "Accel, 01 Advisors, Designer Fund, Ilkka Paananen, Indie.vc, Jeff Weinstein, Lauren Loktev, Sequoia Capital, Seven Seven Six, Soleio ‎‏Cuervo, TK Ventures, Vlad Loktev",
+         "lead_investors": "Accel"
+        },
+        {
+         "round_type": "series_b",
+         "is_fund": false,
+         "investors_detailed": [
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "Accel",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "01 Advisors",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Akash Garg",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Andrew Mason",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Anssi Rusi",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Anthony Guo",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Cal Henderson",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Christina Cacioppo",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Claire Hughes Johnson",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Ganesh Srinivasan",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Gavin Weigh",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Guillermo Rauch",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Ilkka Paananen",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "Illusian Founder Office",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Immad Akhund",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Jorn van Dijk",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Josh Miller",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Kenneth Auchenberg",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Koen Bok",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Kristo Ovaska",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Krithika Muthukumar",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Kyle Parrish",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Lee Robinson",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Marianne Vikkula",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Oskari Saarenmaa",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Pia Henrietta Kekäläinen",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Praveen Neppalli Naga",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Riku Mäkelä",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Robert Gentz",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Rudi Skogman",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "Sequoia Capital",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Stewart Butterfield",
+           "type": "person"
+          }
+         ],
+         "date": "2023-09-14",
+         "funding_date": "2023-09-14",
+         "amount_usd": 35000000.0,
+         "investors": "Accel, 01 Advisors, Akash Garg, Andrew Mason, Anssi Rusi, Anthony Guo, Cal Henderson, Christina Cacioppo, Claire Hughes Johnson, Ganesh Srinivasan, Gavin Weigh, Guillermo Rauch, Ilkka Paananen, Illusian Founder Office, Immad Akhund, Jorn van Dijk, Josh Miller, Kenneth Auchenberg, Koen Bok, Kristo Ovaska, Krithika Muthukumar, Kyle Parrish, Lee Robinson, Marianne Vikkula, Oskari Saarenmaa, Pia Henrietta Kekäläinen, Praveen Neppalli Naga, Riku Mäkelä, Robert Gentz, Rudi Skogman, Sequoia Capital, Stewart Butterfield",
+         "lead_investors": "Accel"
+        },
+        {
+         "round_type": "series_a",
+         "is_fund": false,
+         "investors_detailed": [
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "Sequoia Capital",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Adam Bain",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Aston Motes",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Bobby Goodlatte",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Dylan Field",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Emilie Choi",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Gustaf Alstromer",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Harry Stebbings",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Jude Gomila",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Julia DeWahl",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Lenny Rachitsky",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Richard Costolo",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Stephanie Zhan",
+           "type": "person"
+          }
+         ],
+         "date": "2020-12-08",
+         "funding_date": "2020-12-08",
+         "amount_usd": 13000000.0,
+         "investors": "Sequoia Capital, Adam Bain, Aston Motes, Bobby Goodlatte, Dylan Field, Emilie Choi, Gustaf Alstromer, Harry Stebbings, Jude Gomila, Julia DeWahl, Lenny Rachitsky, Richard Costolo, Stephanie Zhan",
+         "lead_investors": "Sequoia Capital"
+        },
+        {
+         "round_type": "seed",
+         "is_fund": false,
+         "investors_detailed": [
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "Sequoia Capital",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Bobby Goodlatte",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Charlie Cheever",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Dan Romero",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Dylan Field",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Emilie Choi",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Fred Stevens-Smith",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Gustaf Alstromer",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "Index Ventures",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "James Smith",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Jeff Chang",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Jude Gomila",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Julia DeWahl",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Larry Gadea",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Marc McCabe",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "angel",
+            "investment_partner"
+           ],
+           "name": "Tikhon Bernstam",
+           "type": "person"
+          }
+         ],
+         "date": "2019-11-22",
+         "funding_date": "2019-11-22",
+         "amount_usd": 4200000.0,
+         "investors": "Sequoia Capital, Bobby Goodlatte, Charlie Cheever, Dan Romero, Dylan Field, Emilie Choi, Fred Stevens-Smith, Gustaf Alstromer, Index Ventures, James Smith, Jeff Chang, Jude Gomila, Julia DeWahl, Larry Gadea, Marc McCabe, Tikhon Bernstam",
+         "lead_investors": "Sequoia Capital"
+        }
+       ],
+       "contact_email": "hello@linear.app",
+       "is_investor": false,
+       "phone_number": null,
+       "funds_total_usd": null,
+       "last_fund_date": null,
+       "num_funding_rounds": 6,
+       "num_funds": 0,
+       "total_investment_usd": 233200000.0,
+       "last_round_amount_usd": 99000000.0,
+       "last_round_type": "secondary_market",
+       "investors": [
+        "01 Advisors",
+        "Accel",
+        "Adam Bain",
+        "Akash Garg",
+        "Andrew Mason",
+        "Anssi Rusi",
+        "Anthony Guo",
+        "Aston Motes",
+        "Bobby Goodlatte",
+        "Cal Henderson",
+        "Charlie Cheever",
+        "Christina Cacioppo",
+        "Claire Hughes Johnson",
+        "Dan Romero",
+        "Designer Fund",
+        "Dylan Field",
+        "Emilie Choi",
+        "Emily Choi",
+        "Fred Stevens-Smith",
+        "Ganesh Srinivasan",
+        "Gavin Weigh",
+        "Guillermo Rauch",
+        "Gustaf Alstromer",
+        "Harry Stebbings",
+        "Ilkka Paananen",
+        "Illusian Founder Office",
+        "Immad Akhund",
+        "Index Ventures",
+        "Indie.vc",
+        "James Smith",
+        "Jeff Chang",
+        "Jeff Weinstein",
+        "Jorn van Dijk",
+        "Josh Miller",
+        "Jude Gomila",
+        "Julia DeWahl",
+        "Kenneth Auchenberg",
+        "Koen Bok",
+        "Kristo Ovaska",
+        "Krithika Muthukumar",
+        "Kyle Parrish",
+        "Larry Gadea",
+        "Lauren Loktev",
+        "Lee Robinson",
+        "Lenny Rachitsky",
+        "Marc McCabe",
+        "Marianne Vikkula",
+        "Oskari Saarenmaa",
+        "Patrick Collison",
+        "Pia Henrietta Kekäläinen",
+        "Praveen Neppalli Naga",
+        "Richard Costolo",
+        "Riku Mäkelä",
+        "Robert Gentz",
+        "Rudi Skogman",
+        "S32",
+        "Salesforce Ventures",
+        "Sequoia Capital",
+        "Seven Seven Six",
+        "Soleio ‎‏Cuervo",
+        "Stephanie Zhan",
+        "Stewart Butterfield",
+        "TK Ventures",
+        "Tikhon Bernstam",
+        "Vlad Loktev"
+       ],
+       "last_fundraise_date": "2026-08-26"
+      },
+      "headcount": {
+       "by_function_timeseries": {
+        "CURRENT_FUNCTION": {
+         "Human Resources": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 7
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 8
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 8
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 8
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 8
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 8
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 9
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 9
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 11
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 11
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 12
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 13
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 13
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 13
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 13
+          }
+         ],
+         "Military and Protective Services": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 3
+          }
+         ],
+         "Legal": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 1
+          }
+         ],
+         "Entrepreneurship": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 5
+          }
+         ],
+         "Administrative": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 7
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 8
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 8
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 7
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 7
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 8
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 8
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 8
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 8
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 8
+          }
+         ],
+         "Engineering": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 29
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 29
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 31
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 32
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 33
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 36
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 36
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 40
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 43
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 44
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 45
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 47
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 46
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 50
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 57
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 62
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 64
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 64
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 88
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 88
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 88
+          }
+         ],
+         "Marketing": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 7
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 7
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 7
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 8
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 8
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 8
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 9
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 9
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 10
+          }
+         ],
+         "Accounting": [
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 2
+          }
+         ],
+         "Consulting": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 1
+          }
+         ],
+         "Research": [
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 1
+          }
+         ],
+         "Operations": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 14
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 14
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 16
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 17
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 17
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 17
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 18
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 19
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 19
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 21
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 22
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 24
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 25
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 25
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 25
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 25
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 25
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 25
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 26
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 27
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 27
+          }
+         ],
+         "Business Development": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 6
+          }
+         ],
+         "Media and Communication": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 4
+          }
+         ],
+         "Arts and Design": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 9
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 9
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 9
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 9
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 10
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 10
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 9
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 11
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 11
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 10
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 10
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 11
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 12
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 12
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 11
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 11
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 12
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 12
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 12
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 12
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 12
+          }
+         ],
+         "Sales": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 9
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 9
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 9
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 10
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 10
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 10
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 11
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 13
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 13
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 14
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 15
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 16
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 13
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 13
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 15
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 17
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 18
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 21
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 21
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 24
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 29
+          }
+         ],
+         "Education": [
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 1
+          }
+         ],
+         "Healthcare Services": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 1
+          }
+         ],
+         "Community and Social Services": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 1
+          }
+         ],
+         "Customer Success and Support": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 8
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 10
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 11
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 13
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 13
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 13
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 14
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 14
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 16
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 18
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 20
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 20
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 20
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 21
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 22
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 22
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 25
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 26
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 26
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 25
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 26
+          }
+         ],
+         "Product Management": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 5
+          }
+         ],
+         "Finance": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 3
+          }
+         ],
+         "Information Technology": [
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 7
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 7
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 7
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 7
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 7
+          }
+         ]
+        }
+       },
+       "largest_headcount_country": "USA",
+       "total": 303,
+       "growth_percent": {
+        "mom": 4.123711340206185,
+        "qoq": 7.829181494661921,
+        "six_months": 32.89473684210527,
+        "yoy": 71.1864406779661,
+        "two_years": 163.47826086956522
+       },
+       "growth_absolute": {
+        "mom": 12,
+        "qoq": 22,
+        "six_months": 75,
+        "yoy": 126,
+        "two_years": 188
+       },
+       "by_role_absolute": {
+        "Administrative": 8,
+        "Engineering": 88,
+        "Operations": 27,
+        "Entrepreneurship": 5,
+        "Marketing": 10,
+        "Business Development": 6,
+        "Human Resources": 13,
+        "Sales": 29,
+        "Information Technology": 7,
+        "Product Management": 5,
+        "Arts and Design": 12,
+        "Support": 26
+       },
+       "by_role_percent": {
+        "Administrative": 2.6402640264026402,
+        "Engineering": 29.042904290429046,
+        "Operations": 8.91089108910891,
+        "Entrepreneurship": 1.65016501650165,
+        "Marketing": 3.3003300330033,
+        "Business Development": 1.9801980198019802,
+        "Human Resources": 4.29042904290429,
+        "Sales": 9.570957095709572,
+        "Information Technology": 2.31023102310231,
+        "Product Management": 1.65016501650165,
+        "Arts and Design": 3.9603960396039604,
+        "Support": 8.58085808580858
+       },
+       "by_role_growth_6m_pct": {
+        "Business Development": 0.0,
+        "Consulting": 0.0,
+        "Legal": 0.0,
+        "Information Technology": 16.666666666666664,
+        "Operations": 8.0,
+        "Customer Success and Support": 18.181818181818183,
+        "Product Management": 25.0,
+        "Administrative": 14.285714285714285,
+        "Community and Social Services": 0.0,
+        "Arts and Design": 9.090909090909092,
+        "Accounting": 0.0,
+        "Engineering": 54.385964912280706,
+        "Research": 0.0,
+        "Human Resources": 18.181818181818183,
+        "Finance": 0.0,
+        "Marketing": 42.857142857142854,
+        "Sales": 93.33333333333333,
+        "Purchasing": 0.0,
+        "Support": 23.809523809523807,
+        "Media and Communication": 33.33333333333333,
+        "Entrepreneurship": 0.0,
+        "Military and Protective Services": 0.0,
+        "Education": 0.0,
+        "Healthcare Services": 0.0,
+        "Real Estate": 0.0
+       },
+       "by_role_growth_yoy_pct": {
+        "Business Development": 20.0,
+        "Consulting": -50.0,
+        "Legal": 0.0,
+        "Information Technology": 16.666666666666664,
+        "Operations": 42.10526315789473,
+        "Customer Success and Support": 62.5,
+        "Product Management": 66.66666666666666,
+        "Administrative": 33.33333333333333,
+        "Community and Social Services": 0.0,
+        "Arts and Design": 20.0,
+        "Accounting": 100.0,
+        "Engineering": 137.83783783783784,
+        "Research": 0.0,
+        "Human Resources": 62.5,
+        "Finance": 50.0,
+        "Marketing": 100.0,
+        "Sales": 107.14285714285714,
+        "Support": 100.0,
+        "Media and Communication": 100.0,
+        "Entrepreneurship": 0.0,
+        "Military and Protective Services": 0.0,
+        "Education": 0.0,
+        "Healthcare Services": 0.0
+       },
+       "by_region_absolute": {
+        "San Francisco Bay Area": 35,
+        "Colorado, United States": 9,
+        "London Area, United Kingdom": 15,
+        "Los Angeles Metropolitan Area": 9,
+        "England, United Kingdom": 29,
+        "Greater London": 12,
+        "New York, United States": 24,
+        "New York City Metropolitan Area": 26,
+        "New York, NY": 14,
+        "San Francisco, CA": 26,
+        "United Kingdom": 35,
+        "California, United States": 51,
+        "India": 9,
+        "United States": 135,
+        "Brazil": 20
+       },
+       "by_region_percent": {
+        "San Francisco Bay Area": 11.55115511551155,
+        "Colorado, United States": 2.9702970297029703,
+        "London Area, United Kingdom": 4.9504950495049505,
+        "Los Angeles Metropolitan Area": 2.9702970297029703,
+        "England, United Kingdom": 9.570957095709572,
+        "Greater London": 3.9603960396039604,
+        "New York, United States": 7.920792079207921,
+        "New York City Metropolitan Area": 8.58085808580858,
+        "New York, NY": 4.62046204620462,
+        "San Francisco, CA": 8.58085808580858,
+        "United Kingdom": 11.55115511551155,
+        "California, United States": 16.831683168316832,
+        "India": 2.9702970297029703,
+        "United States": 44.554455445544555,
+        "Brazil": 6.6006600660066
+       },
+       "timeseries": [
+        {
+         "date": "2021-09-27",
+         "employee_count": 18
+        },
+        {
+         "date": "2021-10-04",
+         "employee_count": 18
+        },
+        {
+         "date": "2021-10-11",
+         "employee_count": 18
+        },
+        {
+         "date": "2021-10-18",
+         "employee_count": 18
+        },
+        {
+         "date": "2021-10-25",
+         "employee_count": 18
+        },
+        {
+         "date": "2021-11-01",
+         "employee_count": 18
+        },
+        {
+         "date": "2021-11-08",
+         "employee_count": 18
+        },
+        {
+         "date": "2021-11-15",
+         "employee_count": 18
+        },
+        {
+         "date": "2021-11-22",
+         "employee_count": 18
+        },
+        {
+         "date": "2021-11-29",
+         "employee_count": 19
+        },
+        {
+         "date": "2021-12-06",
+         "employee_count": 19
+        },
+        {
+         "date": "2021-12-13",
+         "employee_count": 19
+        },
+        {
+         "date": "2021-12-20",
+         "employee_count": 19
+        },
+        {
+         "date": "2021-12-27",
+         "employee_count": 23
+        },
+        {
+         "date": "2022-01-03",
+         "employee_count": 23
+        },
+        {
+         "date": "2022-01-10",
+         "employee_count": 23
+        },
+        {
+         "date": "2022-01-17",
+         "employee_count": 23
+        },
+        {
+         "date": "2022-01-24",
+         "employee_count": 23
+        },
+        {
+         "date": "2022-01-31",
+         "employee_count": 25
+        },
+        {
+         "date": "2022-02-07",
+         "employee_count": 25
+        },
+        {
+         "date": "2022-02-14",
+         "employee_count": 25
+        },
+        {
+         "date": "2022-02-21",
+         "employee_count": 25
+        },
+        {
+         "date": "2022-02-28",
+         "employee_count": 25
+        },
+        {
+         "date": "2022-03-07",
+         "employee_count": 25
+        },
+        {
+         "date": "2022-03-14",
+         "employee_count": 25
+        },
+        {
+         "date": "2022-03-21",
+         "employee_count": 25
+        },
+        {
+         "date": "2022-03-28",
+         "employee_count": 27
+        },
+        {
+         "date": "2022-04-04",
+         "employee_count": 27
+        },
+        {
+         "date": "2022-04-11",
+         "employee_count": 27
+        },
+        {
+         "date": "2022-04-18",
+         "employee_count": 27
+        },
+        {
+         "date": "2022-04-25",
+         "employee_count": 27
+        },
+        {
+         "date": "2022-10-31",
+         "employee_count": 38
+        },
+        {
+         "date": "2022-11-07",
+         "employee_count": 38
+        },
+        {
+         "date": "2022-11-14",
+         "employee_count": 38
+        },
+        {
+         "date": "2022-11-21",
+         "employee_count": 38
+        },
+        {
+         "date": "2022-11-28",
+         "employee_count": 39
+        },
+        {
+         "date": "2022-12-05",
+         "employee_count": 39
+        },
+        {
+         "date": "2022-12-12",
+         "employee_count": 39
+        },
+        {
+         "date": "2022-12-19",
+         "employee_count": 39
+        },
+        {
+         "date": "2022-12-26",
+         "employee_count": 40
+        },
+        {
+         "date": "2023-01-02",
+         "employee_count": 40
+        },
+        {
+         "date": "2023-01-09",
+         "employee_count": 40
+        },
+        {
+         "date": "2023-01-16",
+         "employee_count": 40
+        },
+        {
+         "date": "2023-01-23",
+         "employee_count": 40
+        },
+        {
+         "date": "2023-01-30",
+         "employee_count": 43
+        },
+        {
+         "date": "2023-02-06",
+         "employee_count": 43
+        },
+        {
+         "date": "2023-02-13",
+         "employee_count": 43
+        },
+        {
+         "date": "2023-02-20",
+         "employee_count": 43
+        },
+        {
+         "date": "2023-02-27",
+         "employee_count": 48
+        },
+        {
+         "date": "2023-03-06",
+         "employee_count": 48
+        },
+        {
+         "date": "2023-03-13",
+         "employee_count": 48
+        },
+        {
+         "date": "2023-03-20",
+         "employee_count": 48
+        },
+        {
+         "date": "2023-03-27",
+         "employee_count": 50
+        },
+        {
+         "date": "2023-04-03",
+         "employee_count": 50
+        },
+        {
+         "date": "2023-04-10",
+         "employee_count": 50
+        },
+        {
+         "date": "2023-04-17",
+         "employee_count": 50
+        },
+        {
+         "date": "2023-04-24",
+         "employee_count": 50
+        },
+        {
+         "date": "2023-05-01",
+         "employee_count": 53
+        },
+        {
+         "date": "2023-05-08",
+         "employee_count": 53
+        },
+        {
+         "date": "2023-05-15",
+         "employee_count": 53
+        },
+        {
+         "date": "2023-05-22",
+         "employee_count": 53
+        },
+        {
+         "date": "2023-05-29",
+         "employee_count": 58
+        },
+        {
+         "date": "2023-06-05",
+         "employee_count": 58
+        },
+        {
+         "date": "2023-06-12",
+         "employee_count": 58
+        },
+        {
+         "date": "2023-06-19",
+         "employee_count": 58
+        },
+        {
+         "date": "2023-06-26",
+         "employee_count": 63
+        },
+        {
+         "date": "2023-07-03",
+         "employee_count": 63
+        },
+        {
+         "date": "2023-07-10",
+         "employee_count": 63
+        },
+        {
+         "date": "2023-07-17",
+         "employee_count": 63
+        },
+        {
+         "date": "2023-07-24",
+         "employee_count": 63
+        },
+        {
+         "date": "2023-07-31",
+         "employee_count": 71
+        },
+        {
+         "date": "2023-08-07",
+         "employee_count": 71
+        },
+        {
+         "date": "2023-08-14",
+         "employee_count": 71
+        },
+        {
+         "date": "2023-08-21",
+         "employee_count": 71
+        },
+        {
+         "date": "2023-08-28",
+         "employee_count": 76
+        },
+        {
+         "date": "2023-09-04",
+         "employee_count": 76
+        },
+        {
+         "date": "2023-09-11",
+         "employee_count": 76
+        },
+        {
+         "date": "2023-09-18",
+         "employee_count": 76
+        },
+        {
+         "date": "2023-09-25",
+         "employee_count": 78
+        },
+        {
+         "date": "2023-10-02",
+         "employee_count": 78
+        },
+        {
+         "date": "2023-10-09",
+         "employee_count": 78
+        },
+        {
+         "date": "2023-10-16",
+         "employee_count": 78
+        },
+        {
+         "date": "2023-10-23",
+         "employee_count": 78
+        },
+        {
+         "date": "2023-10-30",
+         "employee_count": 78
+        },
+        {
+         "date": "2023-11-06",
+         "employee_count": 72
+        },
+        {
+         "date": "2023-11-13",
+         "employee_count": 72
+        },
+        {
+         "date": "2023-11-20",
+         "employee_count": 72
+        },
+        {
+         "date": "2023-11-27",
+         "employee_count": 72
+        },
+        {
+         "date": "2023-12-04",
+         "employee_count": 73
+        },
+        {
+         "date": "2023-12-11",
+         "employee_count": 73
+        },
+        {
+         "date": "2023-12-18",
+         "employee_count": 73
+        },
+        {
+         "date": "2023-12-25",
+         "employee_count": 73
+        },
+        {
+         "date": "2024-01-01",
+         "employee_count": 79
+        },
+        {
+         "date": "2024-01-08",
+         "employee_count": 79
+        },
+        {
+         "date": "2024-01-15",
+         "employee_count": 79
+        },
+        {
+         "date": "2024-01-22",
+         "employee_count": 79
+        },
+        {
+         "date": "2024-01-29",
+         "employee_count": 79
+        },
+        {
+         "date": "2024-02-05",
+         "employee_count": 80
+        },
+        {
+         "date": "2024-02-12",
+         "employee_count": 80
+        },
+        {
+         "date": "2024-02-19",
+         "employee_count": 80
+        },
+        {
+         "date": "2024-02-26",
+         "employee_count": 80
+        },
+        {
+         "date": "2024-03-04",
+         "employee_count": 84
+        },
+        {
+         "date": "2024-03-11",
+         "employee_count": 84
+        },
+        {
+         "date": "2024-03-18",
+         "employee_count": 84
+        },
+        {
+         "date": "2024-03-25",
+         "employee_count": 84
+        },
+        {
+         "date": "2024-04-01",
+         "employee_count": 86
+        },
+        {
+         "date": "2024-04-08",
+         "employee_count": 86
+        },
+        {
+         "date": "2024-04-15",
+         "employee_count": 86
+        },
+        {
+         "date": "2024-04-22",
+         "employee_count": 86
+        },
+        {
+         "date": "2024-04-29",
+         "employee_count": 86
+        },
+        {
+         "date": "2024-05-06",
+         "employee_count": 92
+        },
+        {
+         "date": "2024-05-13",
+         "employee_count": 92
+        },
+        {
+         "date": "2024-05-20",
+         "employee_count": 92
+        },
+        {
+         "date": "2024-05-27",
+         "employee_count": 92
+        },
+        {
+         "date": "2024-06-03",
+         "employee_count": 102
+        },
+        {
+         "date": "2024-06-10",
+         "employee_count": 102
+        },
+        {
+         "date": "2024-06-17",
+         "employee_count": 102
+        },
+        {
+         "date": "2024-06-24",
+         "employee_count": 102
+        },
+        {
+         "date": "2024-07-01",
+         "employee_count": 106
+        },
+        {
+         "date": "2024-07-08",
+         "employee_count": 106
+        },
+        {
+         "date": "2024-07-15",
+         "employee_count": 106
+        },
+        {
+         "date": "2024-07-22",
+         "employee_count": 106
+        },
+        {
+         "date": "2024-07-29",
+         "employee_count": 106
+        },
+        {
+         "date": "2024-08-05",
+         "employee_count": 108
+        },
+        {
+         "date": "2024-08-12",
+         "employee_count": 108
+        },
+        {
+         "date": "2024-08-19",
+         "employee_count": 108
+        },
+        {
+         "date": "2024-08-26",
+         "employee_count": 108
+        },
+        {
+         "date": "2024-09-02",
+         "employee_count": 112
+        },
+        {
+         "date": "2024-09-09",
+         "employee_count": 112
+        },
+        {
+         "date": "2024-09-16",
+         "employee_count": 112
+        },
+        {
+         "date": "2024-09-23",
+         "employee_count": 112
+        },
+        {
+         "date": "2024-09-30",
+         "employee_count": 112
+        },
+        {
+         "date": "2024-10-07",
+         "employee_count": 115
+        },
+        {
+         "date": "2024-10-14",
+         "employee_count": 115
+        },
+        {
+         "date": "2024-10-21",
+         "employee_count": 115
+        },
+        {
+         "date": "2024-10-28",
+         "employee_count": 115
+        },
+        {
+         "date": "2024-11-04",
+         "employee_count": 117
+        },
+        {
+         "date": "2024-11-11",
+         "employee_count": 117
+        },
+        {
+         "date": "2024-11-18",
+         "employee_count": 117
+        },
+        {
+         "date": "2024-11-25",
+         "employee_count": 117
+        },
+        {
+         "date": "2024-12-02",
+         "employee_count": 119
+        },
+        {
+         "date": "2024-12-09",
+         "employee_count": 119
+        },
+        {
+         "date": "2024-12-16",
+         "employee_count": 119
+        },
+        {
+         "date": "2024-12-23",
+         "employee_count": 119
+        },
+        {
+         "date": "2024-12-30",
+         "employee_count": 119
+        },
+        {
+         "date": "2025-01-06",
+         "employee_count": 123
+        },
+        {
+         "date": "2025-01-13",
+         "employee_count": 123
+        },
+        {
+         "date": "2025-01-20",
+         "employee_count": 123
+        },
+        {
+         "date": "2025-01-27",
+         "employee_count": 123
+        },
+        {
+         "date": "2025-02-03",
+         "employee_count": 127
+        },
+        {
+         "date": "2025-02-10",
+         "employee_count": 127
+        },
+        {
+         "date": "2025-02-17",
+         "employee_count": 127
+        },
+        {
+         "date": "2025-02-24",
+         "employee_count": 127
+        },
+        {
+         "date": "2025-03-03",
+         "employee_count": 135
+        },
+        {
+         "date": "2025-03-10",
+         "employee_count": 135
+        },
+        {
+         "date": "2025-03-17",
+         "employee_count": 135
+        },
+        {
+         "date": "2025-03-24",
+         "employee_count": 135
+        },
+        {
+         "date": "2025-03-31",
+         "employee_count": 135
+        },
+        {
+         "date": "2025-04-07",
+         "employee_count": 138
+        },
+        {
+         "date": "2025-04-14",
+         "employee_count": 138
+        },
+        {
+         "date": "2025-04-21",
+         "employee_count": 138
+        },
+        {
+         "date": "2025-04-28",
+         "employee_count": 138
+        },
+        {
+         "date": "2025-05-05",
+         "employee_count": 143
+        },
+        {
+         "date": "2025-05-12",
+         "employee_count": 143
+        },
+        {
+         "date": "2025-05-19",
+         "employee_count": 143
+        },
+        {
+         "date": "2025-05-26",
+         "employee_count": 143
+        },
+        {
+         "date": "2025-06-02",
+         "employee_count": 151
+        },
+        {
+         "date": "2025-06-09",
+         "employee_count": 151
+        },
+        {
+         "date": "2025-06-16",
+         "employee_count": 151
+        },
+        {
+         "date": "2025-06-23",
+         "employee_count": 151
+        },
+        {
+         "date": "2025-06-30",
+         "employee_count": 151
+        },
+        {
+         "date": "2025-07-07",
+         "employee_count": 159
+        },
+        {
+         "date": "2025-07-14",
+         "employee_count": 159
+        },
+        {
+         "date": "2025-07-21",
+         "employee_count": 159
+        },
+        {
+         "date": "2025-07-28",
+         "employee_count": 159
+        },
+        {
+         "date": "2025-08-04",
+         "employee_count": 164
+        },
+        {
+         "date": "2025-08-11",
+         "employee_count": 164
+        },
+        {
+         "date": "2025-08-18",
+         "employee_count": 164
+        },
+        {
+         "date": "2025-08-25",
+         "employee_count": 164
+        },
+        {
+         "date": "2025-09-01",
+         "employee_count": 172
+        },
+        {
+         "date": "2025-09-08",
+         "employee_count": 172
+        },
+        {
+         "date": "2025-09-15",
+         "employee_count": 172
+        },
+        {
+         "date": "2025-09-22",
+         "employee_count": 172
+        },
+        {
+         "date": "2025-09-29",
+         "employee_count": 172
+        },
+        {
+         "date": "2025-10-06",
+         "employee_count": 177
+        },
+        {
+         "date": "2025-10-13",
+         "employee_count": 177
+        },
+        {
+         "date": "2025-10-20",
+         "employee_count": 177
+        },
+        {
+         "date": "2025-10-27",
+         "employee_count": 177
+        },
+        {
+         "date": "2025-11-03",
+         "employee_count": 186
+        },
+        {
+         "date": "2025-11-10",
+         "employee_count": 186
+        },
+        {
+         "date": "2025-11-17",
+         "employee_count": 186
+        },
+        {
+         "date": "2025-11-24",
+         "employee_count": 186
+        },
+        {
+         "date": "2025-12-01",
+         "employee_count": 195
+        },
+        {
+         "date": "2025-12-08",
+         "employee_count": 195
+        },
+        {
+         "date": "2025-12-15",
+         "employee_count": 195
+        },
+        {
+         "date": "2025-12-22",
+         "employee_count": 195
+        },
+        {
+         "date": "2025-12-29",
+         "employee_count": 195
+        },
+        {
+         "date": "2026-01-05",
+         "employee_count": 202
+        },
+        {
+         "date": "2026-01-12",
+         "employee_count": 202
+        },
+        {
+         "date": "2026-01-19",
+         "employee_count": 202
+        },
+        {
+         "date": "2026-01-26",
+         "employee_count": 202
+        },
+        {
+         "date": "2026-02-02",
+         "employee_count": 209
+        },
+        {
+         "date": "2026-02-09",
+         "employee_count": 209
+        },
+        {
+         "date": "2026-02-16",
+         "employee_count": 209
+        },
+        {
+         "date": "2026-02-23",
+         "employee_count": 209
+        },
+        {
+         "date": "2026-03-02",
+         "employee_count": 219
+        },
+        {
+         "date": "2026-03-09",
+         "employee_count": 219
+        },
+        {
+         "date": "2026-03-16",
+         "employee_count": 219
+        },
+        {
+         "date": "2026-03-23",
+         "employee_count": 219
+        },
+        {
+         "date": "2026-03-30",
+         "employee_count": 219
+        },
+        {
+         "date": "2026-04-06",
+         "employee_count": 228
+        },
+        {
+         "date": "2026-04-13",
+         "employee_count": 228
+        },
+        {
+         "date": "2026-04-20",
+         "employee_count": 228
+        },
+        {
+         "date": "2026-04-27",
+         "employee_count": 228
+        },
+        {
+         "date": "2026-05-04",
+         "employee_count": 235
+        },
+        {
+         "date": "2026-05-11",
+         "employee_count": 235
+        },
+        {
+         "date": "2026-05-18",
+         "employee_count": 235
+        },
+        {
+         "date": "2026-05-25",
+         "employee_count": 235
+        },
+        {
+         "date": "2026-06-01",
+         "employee_count": 269
+        },
+        {
+         "date": "2026-06-08",
+         "employee_count": 269
+        },
+        {
+         "date": "2026-06-15",
+         "employee_count": 269
+        },
+        {
+         "date": "2026-06-22",
+         "employee_count": 269
+        },
+        {
+         "date": "2026-06-29",
+         "employee_count": 269
+        },
+        {
+         "date": "2026-07-06",
+         "employee_count": 281
+        },
+        {
+         "date": "2026-07-13",
+         "employee_count": 281
+        },
+        {
+         "date": "2026-07-20",
+         "employee_count": 281
+        },
+        {
+         "date": "2026-07-27",
+         "employee_count": 281
+        },
+        {
+         "date": "2026-08-03",
+         "employee_count": 281
+        },
+        {
+         "date": "2026-08-10",
+         "employee_count": 281
+        },
+        {
+         "date": "2026-08-17",
+         "employee_count": 281
+        },
+        {
+         "date": "2026-08-24",
+         "employee_count": 281
+        },
+        {
+         "date": "2026-08-31",
+         "employee_count": 281
+        },
+        {
+         "date": "2026-09-08",
+         "employee_count": 291
+        },
+        {
+         "date": "2026-10-12",
+         "employee_count": 303
+        }
+       ]
+      },
+      "locations": {
+       "city": "San Francisco",
+       "country": "USA",
+       "state": "California",
+       "street_address": "San Francisco, California, United States",
+       "headquarters": "San Francisco, California, United States",
+       "all_office_addresses": [
+        ", New York City, New York, 10001, US",
+        ", Helsinki, Helsinki, 00100, FI"
+       ]
+      },
+      "market_intel": {
+       "company_name": null,
+       "company_website_url": null,
+       "description": null,
+       "head_office_city": null,
+       "head_office_country": null,
+       "num_employees_max": null,
+       "num_employees_min": null,
+       "slug": null,
+       "year_founded": null
+      },
+      "people": {
+       "founders": [
+        {
+         "crustdata_person_id": 53006,
+         "basic_profile": {
+          "name": "Tuomas Artman",
+          "headline": "Co-Founder, CTO at Linear",
+          "current_title": "Co-Founder",
+          "languages": [
+           "Finnish (Native or bilingual proficiency)",
+           "English (Full professional proficiency)",
+           "German (Full professional proficiency)",
+           "Swedish (Elementary proficiency)",
+           "Mandarin (Elementary proficiency)"
+          ],
+          "last_updated": "2026-10-21T18:56:10.511Z",
+          "location": {}
+         },
+         "social_handles": {
+          "professional_network_identifier": {
+           "profile_url": "https://www.linkedin.com/in/tuomasartman"
+          },
+          "twitter_identifier": {
+           "slug": "artman"
+          }
+         },
+         "experience": {
+          "employment_details": {
+           "current": [
+            {
+             "employer_name": "Linear",
+             "employer_linkedin_id": "29309454",
+             "employer_company_id": [
+              "633791"
+             ],
+             "employer_website": [
+              "linear.app"
+             ],
+             "employee_title": "Co-Founder",
+             "employee_start_date": "2019-04-01T00:00:00.000Z",
+             "employee_end_date": null
+            }
+           ],
+           "past": [
+            {
+             "employer_name": "Monimonsu Oy",
+             "employer_linkedin_id": "701240",
+             "employer_company_id": [
+              "14664190"
+             ],
+             "employer_website": [
+              null
+             ],
+             "employee_title": "Co-Founder, CEO",
+             "employee_start_date": "2009-11-01T00:00:00.000Z",
+             "employee_end_date": "2010-06-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Artman & Co",
+             "employer_linkedin_id": "871243",
+             "employer_company_id": [
+              "7640926"
+             ],
+             "employer_website": [
+              null
+             ],
+             "employee_title": "Founder",
+             "employee_start_date": "2010-02-01T00:00:00.000Z",
+             "employee_end_date": "2012-06-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Sofanatics",
+             "employer_linkedin_id": "676190",
+             "employer_company_id": [
+              "4270755"
+             ],
+             "employer_website": [
+              "sofanatics.com"
+             ],
+             "employee_title": "Chief Engineer & Product owner",
+             "employee_start_date": "2010-02-01T00:00:00.000Z",
+             "employee_end_date": "2011-06-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Apple Toon Inc.",
+             "employer_linkedin_id": null,
+             "employer_company_id": [
+              null
+             ],
+             "employer_website": [
+              null
+             ],
+             "employee_title": "Group CTO",
+             "employee_start_date": "2011-07-01T00:00:00.000Z",
+             "employee_end_date": "2012-06-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "To the Point",
+             "employer_linkedin_id": null,
+             "employer_company_id": [
+              null
+             ],
+             "employer_website": [
+              null
+             ],
+             "employee_title": "Director of Development",
+             "employee_start_date": "1996-06-01T00:00:00.000Z",
+             "employee_end_date": "2000-02-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Razorfish Helsinki",
+             "employer_linkedin_id": null,
+             "employer_company_id": [
+              null
+             ],
+             "employer_website": [
+              null
+             ],
+             "employee_title": "Senior Developer",
+             "employee_start_date": "2000-02-01T00:00:00.000Z",
+             "employee_end_date": "2000-11-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Groupon",
+             "employer_linkedin_id": "355611",
+             "employer_company_id": [
+              "662461"
+             ],
+             "employer_website": [
+              "groupon.com"
+             ],
+             "employee_title": "Sr. Manager, Engineering",
+             "employee_start_date": "2012-06-01T00:00:00.000Z",
+             "employee_end_date": "2014-07-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Uber",
+             "employer_linkedin_id": "1815218",
+             "employer_company_id": [
+              "5714"
+             ],
+             "employer_website": [
+              "uber.com"
+             ],
+             "employee_title": "Engineering Manager",
+             "employee_start_date": "2014-07-01T00:00:00.000Z",
+             "employee_end_date": "2017-02-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Valve",
+             "employer_linkedin_id": "45567",
+             "employer_company_id": [
+              "949905"
+             ],
+             "employer_website": [
+              "valve.fi"
+             ],
+             "employee_title": "Co-Founder, CTO",
+             "employee_start_date": "2000-12-01T00:00:00.000Z",
+             "employee_end_date": "2009-12-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Uber",
+             "employer_linkedin_id": "1815218",
+             "employer_company_id": [
+              "5714"
+             ],
+             "employer_website": [
+              "uber.com"
+             ],
+             "employee_title": "Senior Staff Engineer",
+             "employee_start_date": "2017-02-01T00:00:00.000Z",
+             "employee_end_date": "2019-04-01T00:00:00.000Z"
+            }
+           ]
+          }
+         },
+         "education": {
+          "schools": [
+           {
+            "school": "Helsingin yliopisto",
+            "degree": "Undergraduate dropout",
+            "field_of_study": "Information technology"
+           }
+          ]
+         },
+         "updated_at": "2026-10-21T18:56:10.511Z"
+        },
+        {
+         "crustdata_person_id": 53008,
+         "basic_profile": {
+          "name": "Jori Lallo",
+          "headline": "Cofounder @ linear.app",
+          "current_title": "Co-Founder, CPO",
+          "languages": [],
+          "last_updated": "2026-10-27T13:27:57.116Z",
+          "location": {}
+         },
+         "social_handles": {
+          "professional_network_identifier": {
+           "profile_url": "https://www.linkedin.com/in/jorilallo"
+          },
+          "twitter_identifier": {
+           "slug": null
+          }
+         },
+         "experience": {
+          "employment_details": {
+           "current": [
+            {
+             "employer_name": "Linear",
+             "employer_linkedin_id": "29309454",
+             "employer_company_id": [
+              "633791"
+             ],
+             "employer_website": [
+              "linear.app"
+             ],
+             "employee_title": "Co-Founder, CPO",
+             "employee_start_date": "2019-04-01T00:00:00.000Z",
+             "employee_end_date": null
+            }
+           ],
+           "past": [
+            {
+             "employer_name": "Grove.io",
+             "employer_linkedin_id": null,
+             "employer_company_id": [
+              null
+             ],
+             "employer_website": [
+              null
+             ],
+             "employee_title": "Software Engineer",
+             "employee_start_date": "2011-06-01T00:00:00.000Z",
+             "employee_end_date": "2012-02-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Inc (sendtoinc.com) / Kippt (kippt.com)",
+             "employer_linkedin_id": null,
+             "employer_company_id": [
+              null
+             ],
+             "employer_website": [
+              null
+             ],
+             "employee_title": "Co-Founder",
+             "employee_start_date": "2012-03-01T00:00:00.000Z",
+             "employee_end_date": "2014-03-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Coinbase",
+             "employer_linkedin_id": "2857634",
+             "employer_company_id": [
+              "629262"
+             ],
+             "employer_website": [
+              "coinbase.com"
+             ],
+             "employee_title": "Software Engineer",
+             "employee_start_date": "2014-03-01T00:00:00.000Z",
+             "employee_end_date": "2018-06-01T00:00:00.000Z"
+            }
+           ]
+          }
+         },
+         "education": {
+          "schools": [
+           {
+            "school": "Teknillinen korkeakoulu-Tekniska högskolan",
+            "degree": "Masters of Science",
+            "field_of_study": "Telecommunications"
+           }
+          ]
+         },
+         "updated_at": "2026-10-27T13:27:57.116Z"
+        }
+       ]
+      },
+      "public_launches": {
+       "angel_list_url": null,
+       "categories": null,
+       "company_name": null,
+       "company_website_url": null,
+       "description": null,
+       "facebook_url": null,
+       "github_url": null,
+       "instagram_url": null,
+       "last_updated": null,
+       "linkedin_url": null,
+       "num_followers": null,
+       "num_reviews": null,
+       "num_upvotes": null,
+       "producthunt_url": null,
+       "rating": null,
+       "slug": null,
+       "threads_url": null,
+       "twitter_url": null
+      },
+      "metadata": {
+       "indexed_at": null,
+       "updated_at": null,
+       "growth_calculation_date": null
+      },
+      "basic_info": {
+       "status": "active",
+       "name": "Linear",
+       "primary_domain": "linear.app",
+       "all_domains": [
+        "linear.app"
+       ],
+       "website": "https://linear.app",
+       "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/5eef66555b35669efa7470b5dedb0125a2cb2d87c20e1ccef5be531dc1ad783e.jpg",
+       "description": "At Linear, we are on a mission to bring magic back to software. To empower product teams to do their best work, we are building an issue tracking and project management tool that combines UI elegance with world-class performance. Founded in 2019, Linear has become the tool of choice for thousands of high-impact companies to build their products better.Linear was set up as a fully remote company from the start. Today, our small but mighty team is distributed across North America and Europe. What unites us is relentless focus, fast execution, and our passion for software craftsmanship. We are all makers at heart and care deeply about the quality of our work.",
+       "company_type": "Privately Held",
+       "year_founded": 2019,
+       "employee_count_range": "51-200",
+       "markets": [
+        "PRIVATE"
+       ],
+       "crustdata_company_id": 633791,
+       "professional_network_id": "29309454",
+       "professional_network_url": "https://www.linkedin.com/company/linearapp",
+       "profile_name": "Linear"
+      },
+      "revenue": {
+       "estimated": {
+        "lower_bound_usd": 10000000,
+        "upper_bound_usd": 20000000,
+        "timeseries": [
+         {
+          "date": "2025-01-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2025-02-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2025-03-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2025-04-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2025-05-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2025-06-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2025-07-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2025-08-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2025-09-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2025-10-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2025-11-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2025-12-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2026-01-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2026-02-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2026-03-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2026-04-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2026-06-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2026-07-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2026-08-01",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2026-09-09",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         },
+         {
+          "date": "2026-10-09",
+          "revenue_lower_bound_usd": 10000000,
+          "revenue_upper_bound_usd": 20000000
+         }
+        ]
+       },
+       "public_markets": {
+        "ipo_date": null,
+        "stock_symbols": [
+         "LINEAR"
+        ],
+        "fiscal_year_end": null
+       },
+       "acquisition_status": null
+      },
+      "hiring": {
+       "recent_titles_csv": null,
+       "openings_count": null,
+       "openings_growth_percent": null,
+       "by_function_qoq_pct": null,
+       "by_function_6m_pct": null
+      },
+      "web_traffic": {
+       "domain_traffic": {
+        "linear.app": {
+         "domain": "linear.app",
+         "monthly_visitors": 9387120.0,
+         "mom_pct": 0.14,
+         "qoq_pct": 21.62,
+         "source_search_pct": 6.302075486117439,
+         "source_direct_pct": 79.31590319056448,
+         "source_social_pct": 4.891414027113404,
+         "source_paid_referral_pct": 0.1240864512325665,
+         "source_referral_pct": 4.146040582049959,
+         "monthly_visitors_timeseries": [
+          {
+           "date": "2024-06-01T00:00:00+00:00",
+           "monthly_visitors": 2242902
+          },
+          {
+           "date": "2024-07-01T00:00:00+00:00",
+           "monthly_visitors": 2123179
+          },
+          {
+           "date": "2024-08-01T00:00:00+00:00",
+           "monthly_visitors": 2378598
+          },
+          {
+           "date": "2024-09-01T00:00:00+00:00",
+           "monthly_visitors": 2306046
+          },
+          {
+           "date": "2024-10-01T00:00:00+00:00",
+           "monthly_visitors": 2545039
+          },
+          {
+           "date": "2024-11-01T00:00:00+00:00",
+           "monthly_visitors": 2299302
+          },
+          {
+           "date": "2024-12-01T00:00:00+00:00",
+           "monthly_visitors": 2198607
+          },
+          {
+           "date": "2025-01-01T00:00:00+00:00",
+           "monthly_visitors": 2701728
+          },
+          {
+           "date": "2025-03-01T00:00:00+00:00",
+           "monthly_visitors": 2970284
+          },
+          {
+           "date": "2025-05-01T00:00:00+00:00",
+           "monthly_visitors": 3326378
+          },
+          {
+           "date": "2025-06-01T00:00:00+00:00",
+           "monthly_visitors": 3740111
+          },
+          {
+           "date": "2025-07-01T00:00:00+00:00",
+           "monthly_visitors": 4228206
+          },
+          {
+           "date": "2025-08-01T00:00:00+00:00",
+           "monthly_visitors": 4359354
+          },
+          {
+           "date": "2025-09-01T00:00:00+00:00",
+           "monthly_visitors": 4650857
+          },
+          {
+           "date": "2025-10-01T00:00:00+00:00",
+           "monthly_visitors": 4798788
+          },
+          {
+           "date": "2025-11-01T00:00:00+00:00",
+           "monthly_visitors": 4658497
+          },
+          {
+           "date": "2025-12-01T00:00:00+00:00",
+           "monthly_visitors": 4826473
+          },
+          {
+           "date": "2026-01-01T00:00:00+00:00",
+           "monthly_visitors": 5769817
+          },
+          {
+           "date": "2026-02-01T00:00:00+00:00",
+           "monthly_visitors": 5893982
+          },
+          {
+           "date": "2026-03-01T00:00:00+00:00",
+           "monthly_visitors": 7228399
+          },
+          {
+           "date": "2026-05-01T00:00:00+00:00",
+           "monthly_visitors": 7718186
+          },
+          {
+           "date": "2026-06-01T00:00:00+00:00",
+           "monthly_visitors": 8572820
+          },
+          {
+           "date": "2026-07-01T00:00:00+00:00",
+           "monthly_visitors": 9373991
+          },
+          {
+           "date": "2026-08-01T00:00:00+00:00",
+           "monthly_visitors": 9387120
+          }
+         ]
+        }
+       }
+      },
+      "seo": {
+       "total_organic_results": 9495,
+       "average_seo_organic_rank": 48.3,
+       "monthly_google_ads_budget": 53000.0,
+       "monthly_paid_clicks": 11090,
+       "monthly_organic_clicks": 18520,
+       "monthly_organic_value": 19460.0,
+       "average_ad_rank": 2.6,
+       "total_ads_purchased": 2507,
+       "lost_ranked_seo_keywords": 665,
+       "gained_ranked_seo_keywords": 530,
+       "newly_ranked_seo_keywords": 3738
+      },
+      "competitors": {
+       "all_domains": [
+        "https://www.promptloop.com/",
+        "http://ssimple.co",
+        "https://www.keepy.ai/",
+        "https://www.baserun.ai/",
+        "http://liquidholdings.com/",
+        "https://teamkinetic.co.uk/",
+        "https://logidots.com",
+        "https://www.foundational.io",
+        "https://www.pennylane.com/fr/",
+        "https://skillibrium.com/",
+        "https://www.spotr.se/",
+        "http://luni.app",
+        "https://www.wavelength.cx/",
+        "http://www.leelinear.com",
+        "http://hooklineapp.com",
+        "http://www.parallelo.io",
+        "http://www.stimlinedigital.com",
+        "http://www.streamlinehq.com",
+        "https://www.linelab.io",
+        "http://www.ica4ins.com",
+        "http://www.lightspark.com",
+        "https://www.onbrandplm.com",
+        "http://www.amount.com",
+        "https://www.lineal.co.uk",
+        "https://www.toplyne.io",
+        "https://lineup.ua",
+        "https://huly.io",
+        "http://www.loopster.com",
+        "https://magnitglobal.com/",
+        "https://www.throughline.com/",
+        "https://service.runlve.ai/",
+        "http://www.realsoftwaresystems.com",
+        "http://getlila.com",
+        "https://www.opsgods.com/",
+        "http://findlineinc.com",
+        "https://productlane.com/",
+        "http://lpt4.me",
+        "https://langtail.com/",
+        "http://www.tilde.io",
+        "https://lightworks.ventures/",
+        "https://dev.listonic.com",
+        "https://www.centerlinedesign.de",
+        "https://rcl.sh",
+        "http://www.lineal.com",
+        "http://www.levellr.com",
+        "http://scrumlin.com/",
+        "http://www.codetree.com",
+        "https://shareline.co/",
+        "http://longjump.vc/",
+        "https://dlthub.com",
+        "http://www.thelynq.in/",
+        "http://txtech.co/",
+        "http://www.Vertiv.com",
+        "https://www.flatiron.software/",
+        "https://www.golimelight.com/",
+        "https://www.followstoryline.io",
+        "https://circleci.com/",
+        "https://lighttag.io",
+        "https://longnow.org",
+        "http://www.scrivener.com",
+        "http://limewire.com",
+        "http://www.BetFully.com",
+        "http://www.galactify.com",
+        "https://www.melostat.com/",
+        "https://raiselink.co/",
+        "https://layer.agency/",
+        "https://www.traceloop.com",
+        "http://liapp.lockincomp.com",
+        "https://www.lc.dev",
+        "http://www.coderline.io",
+        "https://pipeops.io",
+        "http://line.do",
+        "https://libermans.co/",
+        "http://www.sidewalklabs.com/",
+        "http://onelogic.fr",
+        "https://relume.ai/?via=linkedin",
+        "http://www.linrob.io",
+        "http://www.firelinescience.com",
+        "http://www.rivermatrix.com",
+        "https://libera.com/",
+        "https://www.linearb.io",
+        "https://coherent-labs.com",
+        "https://www.leadsimple.com/?utm_medium=social&utm_source=linkedin&utm_campaign=inbound",
+        "http://www.jaket.app",
+        "https://www.lunar.dev",
+        "http://lbaccelerator.org",
+        "https://www.logcheck.com",
+        "https://www.sourcelair.com",
+        "http://getlockr.com/",
+        "https://marker.io",
+        "https://gadflyllc.com",
+        "https://www.monoscope.ai/",
+        "https://nunosoft.net",
+        "http://logbar.jp",
+        "https://www.komment.ai",
+        "http://loopinglobal.com"
+       ],
+       "paid_seo": [
+        "shakebugs.com",
+        " atlassian.com",
+        " jam.dev",
+        " bugherd.com",
+        " bugsnag.com"
+       ],
+       "organic_seo": [
+        "linear-solutions.com",
+        " rls.si",
+        " linearrecumbent.com",
+        " thomsonlinear.com",
+        " ahearnecycles.com"
+       ]
+      },
+      "taxonomy": {
+       "primary_naics_detail": {
+        "naics_code": "513210",
+        "year": 2022,
+        "sector": "Information",
+        "sub_sector": "Publishing Industries",
+        "industry_group": "Software Publishers",
+        "industry": "Software Publishers"
+       },
+       "sic_detail_list": [
+        {
+         "sic_code": "7372",
+         "year": 1987,
+         "industry": "Prepackaged Software"
+        }
+       ],
+       "categories": [
+        "Artificial Intelligence (AI)",
+        "Computer",
+        "Developer Platform",
+        "Developer Tools",
+        "Information Technology",
+        "Productivity Tools",
+        "Software"
+       ],
+       "professional_network_industries": [
+        "Software Development",
+        "Technology, Information and Internet",
+        "Technology, Information and Media"
+       ],
+       "professional_network_industry": "Software Development",
+       "professional_network_specialities": []
+      },
+      "news": [
+       {
+        "article_publish_date": "2026-10-06",
+        "article_publisher_name": "CryptoRank",
+        "article_title": "ClawSecure Discloses Critical MCP Protocol Vulnerabilities Affecting Linear, Notion, Dropbox Dash",
+        "article_url": "https://cryptorank.io/news/feed/95663-clawsecure-discloses-critical-mcp-protocol-vulnerabilities-affecting-linear-notion-dropbox-dash",
+        "confidence_score": 0.95,
+        "publisher_domain": "cryptorank.io",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-10-06",
+        "article_publisher_name": "Forkast News",
+        "article_title": "ClawSecure Discloses Critical MCP Protocol Vulnerabilities Affecting Linear, Notion, Dropbox Dash",
+        "article_url": "https://forkast.news/clawsecure-discloses-critical-mcp-protocol-vulnerabilities-affecting-linear-notion-dropbox-dash/",
+        "confidence_score": 0.95,
+        "publisher_domain": "forkast.news",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-09-30",
+        "article_publisher_name": "Dealroom",
+        "article_title": "Context is the product: Linear's Karri Saarinen on keeping teams learning in the AI era",
+        "article_url": "https://app.dealroom.co/news/note/context-is-the-product-linear-s-karri-saarinen-on-keeping-teams-learning-in-the-ai-era",
+        "confidence_score": 0.95,
+        "publisher_domain": "dealroom.co",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-09-25",
+        "article_publisher_name": "Riddle Russia",
+        "article_title": "Linear Russia",
+        "article_url": "https://ridl.io/linear-russia/",
+        "confidence_score": 0.95,
+        "publisher_domain": "ridl.io",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-09-15",
+        "article_publisher_name": "Radio & Television Business Report",
+        "article_title": "For MoffettNathanson, Linear Versus Streaming Is Harder To Gauge",
+        "article_url": "https://rbr.com/for-moffettnathanson-linear-versus-streaming-is-harder-to-gauge310996-2/",
+        "confidence_score": 0.85,
+        "publisher_domain": "rbr.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-08-28",
+        "article_publisher_name": "Pulse 2.0",
+        "article_title": "Linear Completes $99 Million Tender At $2.5 Billion Valuation As ARR Tops $100 Million And Net Retention Hits 177%",
+        "article_url": "https://pulse2.com/linear-completes-99-million-tender-at-2-5-billion-valuation-as-arr-tops-100-million-and-net-retention-hits-177/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-08-26",
+        "article_publisher_name": "GetLatka",
+        "article_title": "Linear App Revenue 2026: $100M ARR, $2.5B Valuation",
+        "article_url": "https://getlatka.com/companies/linear.app",
+        "confidence_score": 0.95,
+        "publisher_domain": "getlatka.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-08-26",
+        "article_publisher_name": "Business Insider",
+        "article_title": "Everyone says software is dead. SaaS startup Linear just doubled its valuation to $2.5 billion.",
+        "article_url": "https://www.businessinsider.com/saas-is-dead-startup-linear-just-doubled-its-valuation-2026-8",
+        "confidence_score": 0.95,
+        "publisher_domain": "businessinsider.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-08-26",
+        "article_publisher_name": "Tracxn",
+        "article_title": "Linear - 2026 Funding Rounds & List of Investors",
+        "article_url": "https://tracxn.com/d/companies/linear/__xC97n-jdX7VZjDBpNyRfVH-H_Elzu354nD5Yz5FaUVI/funding-and-investors",
+        "confidence_score": 0.95,
+        "publisher_domain": "tracxn.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-08-26",
+        "article_publisher_name": "Techmeme",
+        "article_title": "Product management startup Linear topped $100M in annual recurring revenue and held a $99M employee tender offer at a $2.5B valuation, up from $1.25B in 2025 (Ben Bergman/Business Insider)",
+        "article_url": "https://www.techmeme.com/260826/p51#a260826p51",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-07-16",
+        "article_publisher_name": "Deadline",
+        "article_title": "ABC, NBC And CNN Won't Carry Trump's Speech On Their Linear Networks",
+        "article_url": "https://deadline.com/2026/07/trump-broadcast-networks-primetime-speech-1236984189/",
+        "confidence_score": 0.8,
+        "publisher_domain": "deadline.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-07-06",
+        "article_publisher_name": "Cointelegraph",
+        "article_title": "ivault achieves major scale in H1 2026: Surpasses 170,000 installs and signals AI expansion",
+        "article_url": "https://cointelegraph.com/press-releases/ivault-achieves-major-scale-in-h1-2026-surpasses-170000-installs-and-signals-ai-expansion",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-07-01",
+        "article_publisher_name": "SD Times",
+        "article_title": "Platform Engineering & Developer Experience: Making Engineers Faster Without Making Them Reckless: SD Times 100",
+        "article_url": "https://sdtimes.com/platform-engineering/platform-engineering-developer-experience-making-engineers-faster-without-making-them-reckless-sd-times-100/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-06-18",
+        "article_publisher_name": "The New Stack",
+        "article_title": "MCP gets its missing enterprise authorization layer",
+        "article_url": "https://thenewstack.io/mcp-gets-its-missing-enterprise-authorization-layer/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-06-11",
+        "article_publisher_name": "Mshale",
+        "article_title": "Linear, Jira, Asana & Aha! Ship Agent Endpoints | Project-Management SaaS Recap 2026 Botic Van De Zandschulp (YWGM3F1998)",
+        "article_url": "https://mshale.com/e38f8b4d/361deedbeVZjMCNHEZ8",
+        "confidence_score": 0.9,
+        "publisher_domain": "mshale.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-05-20",
+        "article_publisher_name": "Crunchbase News",
+        "article_title": "Digital Banking Startup Mercury Lands $200M At $5.2B Valuation Amid Fintech Funding Uptick",
+        "article_url": "https://news.crunchbase.com/venture/fintech-funding-digital-banking-startup-mercury-lands-200m/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-04-17",
+        "article_publisher_name": "EurekAlert!",
+        "article_title": "Linear regression plot of the difference in AL (Argos vs IOLMaster 700) plotted against AL measured by the IOLMaster 700.",
+        "article_url": "https://www.eurekalert.org/multimedia/1126232",
+        "confidence_score": 0.9,
+        "publisher_domain": "eurekalert.org",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-04-14",
+        "article_publisher_name": "WBMA",
+        "article_title": "Birmingham City Council approves funding for Village Creek Linear Walking Trail",
+        "article_url": "https://abc3340.com/news/local/birmingham-city-council-approves-funding-for-village-creek-linear-walking-trail",
+        "confidence_score": 0.8,
+        "publisher_domain": "abc3340.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-04-10",
+        "article_publisher_name": "EqualOcean",
+        "article_title": "SynapX secured hundreds of millions in investment led by top Singapore VC K3.",
+        "article_url": "https://equalocean.com/news/2026041021828",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-04-03",
+        "article_publisher_name": "PR TIMES",
+        "article_title": "Vライバーの4割は「現役会社員」。顔出し不要の『アバター副業』が、慎重派な会社員の新たなキャリア形成として定着か",
+        "article_url": "https://prtimes.jp/main/html/rd/p/000000011.000157759.html",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-03-26",
+        "article_publisher_name": "The Register",
+        "article_title": "Linear moves sideways to agentic AI as CEO declares issue tracking dead",
+        "article_url": "https://www.theregister.com/2026/03/26/linear_agent/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-03-25",
+        "article_publisher_name": "PR Newswire",
+        "article_title": "BAE Systems announces Partner 2 Win Supplier of the Year award winners",
+        "article_url": "https://www.prnewswire.com/news-releases/bae-systems-announces-partner-2-win-supplier-of-the-year-award-winners-302725093.html",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-03-25",
+        "article_publisher_name": "Morningstar.com",
+        "article_title": "BAE Systems announces Partner 2 Win Supplier of the Year award winners",
+        "article_url": "https://www.morningstar.com/news/pr-newswire/20260325ne19262/bae-systems-announces-partner-2-win-supplier-of-the-year-award-winners",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-03-18",
+        "article_publisher_name": "EIN Presswire",
+        "article_title": "BNB Plus Corp. Announces European Patent Grant for Fundamental Technology Underlying its Linea™ IVT Platform",
+        "article_url": "https://www.einpresswire.com/article/900270499/bnb-plus-corp-announces-european-patent-grant-for-fundamental-technology-underlying-its-linea-ivt-platform",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-03-16",
+        "article_publisher_name": "Bakersfield.com",
+        "article_title": "Semtech Launches 224Gbps IC Family for Linear Optics Era",
+        "article_url": "https://www.bakersfield.com/ap/news/semtech-launches-224gbps-ic-family-for-linear-optics-era/article_2d4dd4ef-48d6-57eb-bf22-2b2027993502.html",
+        "confidence_score": 0.8,
+        "publisher_domain": "bakersfield.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-03-16",
+        "article_publisher_name": "Nasdaq",
+        "article_title": "Semtech Launches 224Gbps IC Family for Linear Optics Era",
+        "article_url": "https://www.nasdaq.com/press-release/semtech-launches-224gbps-ic-family-linear-optics-era-2026-03-16",
+        "confidence_score": 0.8,
+        "publisher_domain": "nasdaq.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-03-13",
+        "article_publisher_name": "Business Live",
+        "article_title": "Linear Living plans Green Quarter tower with hundreds of homes",
+        "article_url": "https://www.business-live.co.uk/commercial-property/linear-living-plans-green-quarter-33587540",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-03-12",
+        "article_publisher_name": "TVTechnology",
+        "article_title": "BIScience Adds Linear TV to its AdClarity Analysis Platform",
+        "article_url": "https://www.tvtechnology.com/business/biscience-adds-linear-tv-to-its-adclarity-analysis-platform",
+        "confidence_score": 0.8,
+        "publisher_domain": "tvtechnology.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-03-09",
+        "article_publisher_name": "Sports Business Journal",
+        "article_title": "Peacock Performance View will soon make linear TV debut during NBA on NBC",
+        "article_url": "https://www.sportsbusinessjournal.com/Articles/2026/03/09/peacock-performance-view-will-soon-make-linear-tv-debut-during-nba-on-nbc/",
+        "confidence_score": 0.8,
+        "publisher_domain": "sportsbusinessjournal.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-03-02",
+        "article_publisher_name": "Yahoo Finance",
+        "article_title": "WBD Q4 Earnings Miss on Linear TV Decline and Studios Weakness",
+        "article_url": "https://finance.yahoo.com/news/wbd-q4-earnings-miss-linear-132700445.html",
+        "confidence_score": 0.9,
+        "publisher_domain": "yahoo.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2026-01-30",
+        "article_publisher_name": "HPCwire",
+        "article_title": "SQream’s GPU-Acceleration Unlocks Linear Scalability in TPC-DS",
+        "article_url": "https://www.hpcwire.com/bigdatawire/this-just-in/sqreams-gpu-acceleration-unlocks-linear-scalability-in-tpc-ds/",
+        "confidence_score": 0.8,
+        "publisher_domain": "hpcwire.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-11-29",
+        "article_publisher_name": "Inc.com",
+        "article_title": "The Billion-Dollar AI Startup Rejecting 996 Hustle Culture",
+        "article_url": "https://www.inc.com/fast-company-2/billion-dollar-ai-startup-linear-996-hustle-culture/91272151",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-11-07",
+        "article_publisher_name": "MarketScreener",
+        "article_title": "Unipol not expecting government tax on insurers to impact group targets, CEO says",
+        "article_url": "https://www.marketscreener.com/news/unipol-not-expecting-government-tax-on-insurers-to-impact-group-targets-ceo-says-ce7d5fdadb8af62c",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-10-28",
+        "article_publisher_name": "EU-Startups",
+        "article_title": "Scaling subscription-based apps: Monetisation strategies that work",
+        "article_url": "https://www.eu-startups.com/2025/10/scaling-subscription-based-apps-monetisation-strategies-that-work/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-10-28",
+        "article_publisher_name": "KDnuggets",
+        "article_title": "7 Free Remote MCPs You Must Use As A Developer",
+        "article_url": "https://www.kdnuggets.com/7-free-remote-mcps-you-must-use-as-a-developer",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-09-19",
+        "article_publisher_name": "The New Stack",
+        "article_title": "Why Linear Built an API For Agents",
+        "article_url": "https://thenewstack.io/why-linear-built-an-api-for-agents/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-09-17",
+        "article_publisher_name": "Tech.eu",
+        "article_title": "Time Atlas Labs raises €1.8M to help people track and learn from life’s moments",
+        "article_url": "https://tech.eu/2025/09/17/time-atlas-labs-raises-eur18m-to-help-people-track-and-learn-from-lifes-moments/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-09-17",
+        "article_publisher_name": "Startbase",
+        "article_title": "Time Atlas Labs receives € 1.8 million in financing",
+        "article_url": "https://www.startbase.com/news/time-atlas-labs-erhaelt-18-mio-e-finanzierung/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-09-17",
+        "article_publisher_name": "Tech Funding News",
+        "article_title": "Startup in spotlight: Habbo Hotel co-creator raises €1.8M for Time Atlas, a privacy-first life tracking app",
+        "article_url": "https://techfundingnews.com/time-atlas-labs-raises-1-8m-lifeline-ventures-privacy-life-tracking/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-09-08",
+        "article_publisher_name": "The French Tech Journal",
+        "article_title": "How Alpic Is Building Model Context Protocol (MCP) Infrastructure For A New Agentic Internet",
+        "article_url": "https://frenchtechjournal.com/how-alpic-is-building-model-context-protocol-mcp-infrastructure-for-a-new-agentic-internet/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-09-06",
+        "article_publisher_name": "Geeky Gadgets",
+        "article_title": "Gemini CLI Model Context Protocol (MCP) : The Secret to Smarter AI Workflows",
+        "article_url": "https://www.geeky-gadgets.com/gemini-cli-model-context-protocol-mcp/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-08-28",
+        "article_publisher_name": "Morningstar.com",
+        "article_title": "Madrona Announces the 2025 Intelligent Applications 40, Recognizing the World's Leading Private AI Companies",
+        "article_url": "https://www.morningstar.com/news/business-wire/20250828149539/madrona-announces-the-2025-intelligent-applications-40-recognizing-the-worlds-leading-private-ai-companies",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-07-23",
+        "article_publisher_name": "Crunchbase News",
+        "article_title": "June Hits 3-Year High In Unicorn Births Across AI, Robotics And More",
+        "article_url": "https://news.crunchbase.com/venture/unicorn-board-june-2025-ai-robotics/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-07-01",
+        "article_publisher_name": "SaaStr",
+        "article_title": "Everything Now is Just So Much Faster in The AI Age. Have You Adjusted?",
+        "article_url": "https://www.saastr.com/everything-now-is-just-faf-have-you-adjusted/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-07-01",
+        "article_publisher_name": "BioSpace",
+        "article_title": "Applied DNA Sharpens Strategic Focus on Synthetic DNA Manufacturing for Biotherapeutics Applications, Consolidates Operations Behind LineaRx",
+        "article_url": "https://www.biospace.com/press-releases/applied-dna-sharpens-strategic-focus-on-synthetic-dna-manufacturing-for-biotherapeutics-applications-consolidates-operations-behind-linearx",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-06-18",
+        "article_publisher_name": "The New Stack",
+        "article_title": "Anthropic’s Claude Code Gets Support for Remote MCP Servers",
+        "article_url": "https://thenewstack.io/anthropics-claude-code-gets-support-for-remote-mcp-servers/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-06-17",
+        "article_publisher_name": "ArcticStartup",
+        "article_title": "Helsinki & San Francisco-based product workflow platform reaches $1.25B valuation in Series C",
+        "article_url": "https://arcticstartup.com/linear-raises-82m-series-c/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-06-16",
+        "article_publisher_name": "The SaaS News",
+        "article_title": "Linear Raises $82 Million in Series C",
+        "article_url": "https://www.thesaasnews.com/news/linear-raises-82-million-in-series-c",
+        "confidence_score": 0.9,
+        "publisher_domain": "thesaasnews.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-06-16",
+        "article_publisher_name": "alleywatch.com",
+        "article_title": "The Weekly Notable Startup Funding Report: 6/16/25",
+        "article_url": "https://www.alleywatch.com/2025/06/the-weekly-notable-startup-funding-report-6-16-25/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-06-13",
+        "article_publisher_name": "Crunchbase News",
+        "article_title": "The Week’s Biggest Funding Rounds: Scale AI Tops Busy Week For AI Investment",
+        "article_url": "https://news.crunchbase.com/venture/biggest-funding-rounds-robotics-cyber-scale-ai/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-06-12",
+        "article_publisher_name": "EntrepreNerd",
+        "article_title": "Finnish company Linear becomes a unicorn after raising $82M Series C at a $1.25B valuation",
+        "article_url": "https://www.entnerd.com/en/finnish-company-linear-becomes-a-unicorn-after-raising-82m-series-c-at-a-125b-valuation/",
+        "confidence_score": 1.0,
+        "publisher_domain": "entnerd.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-06-11",
+        "article_publisher_name": "Tech Funding News",
+        "article_title": "Linear rockets to unicorn status: $82M Series C fuels $1.25B valuation in Jira showdown",
+        "article_url": "https://techfundingnews.com/linear-rockets-to-unicorn-status-82m-series-c-fuels-1-25b-valuation-in-jira-showdown/",
+        "confidence_score": 1.0,
+        "publisher_domain": "techfundingnews.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-06-11",
+        "article_publisher_name": "Built In",
+        "article_title": "Software Development Company Linear Raises $82M Series C at $1.25B Valuation",
+        "article_url": "https://www.builtinsf.com/articles/linear-raises-82m-series-c-1b-valuation-20250611",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-06-10",
+        "article_publisher_name": "Reuters",
+        "article_title": "Atlassian competitor Linear raises funding at $1.25-billion valuation",
+        "article_url": "https://www.reuters.com/business/atlassian-competitor-linear-raises-funding-125-billion-valuation-2025-06-10/",
+        "confidence_score": 0.9,
+        "publisher_domain": "reuters.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-06-10",
+        "article_publisher_name": "SiliconANGLE",
+        "article_title": "Atlassian rival Linear raises $82M to expand developer tools and target enterprise adoption",
+        "article_url": "https://siliconangle.com/2025/06/10/atlassian-competitor-linear-raises-82m-expand-developer-tools-target-enterprise-adoption/",
+        "confidence_score": 1.0,
+        "publisher_domain": "siliconangle.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-06-10",
+        "article_publisher_name": "MarketScreener",
+        "article_title": "Atlassian competitor Linear raises funding at $1.25-billion valuation",
+        "article_url": "https://www.marketscreener.com/quote/stock/ATLASSIAN-CORPORATION-25531314/news/Atlassian-competitor-Linear-raises-funding-at-1-25-billion-valuation-50201449/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-06-10",
+        "article_publisher_name": "Tech Startups - Startups and Technology news",
+        "article_title": "Linear raises $82M in series C funding at $1.25B valuation to challenge Atlassian",
+        "article_url": "https://techstartups.com/2025/06/10/linear-raises-82m-in-series-c-funding-at-1-25b-valuation-to-challenge-atlassian/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-06-10",
+        "article_publisher_name": "Reuters",
+        "article_title": "Atlassian competitor Linear raises funding at $1.25-billion valuation",
+        "article_url": "https://www.tradingview.com/news/reuters.com,2025:newsml_L6N3SC080:0-atlassian-competitor-linear-raises-funding-at-1-25-billion-valuation/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-06-10",
+        "article_publisher_name": "Techmeme",
+        "article_title": "Linear, which makes software development and project planning tools that rival Atlassian's Jira, raised an $82M Series C led by Accel, valuing it at $1.25B (Anna Tong/Reuters)",
+        "article_url": "http://www.techmeme.com/250610/p18#a250610p18",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-06-10",
+        "article_publisher_name": "TechCrunch",
+        "article_title": "Atlassian rival Linear raises $82M at $1.25B valuation",
+        "article_url": "https://techcrunch.com/2025/06/10/atlassian-rival-linear-raises-82m-at-1-25b-valuation/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-06-10",
+        "article_publisher_name": "Seattle TechFlash",
+        "article_title": "Daily Digest: Giant spheres coming to S.F. waterfront, OneTaste founder convicted",
+        "article_url": "https://www.bizjournals.com/sanfrancisco/news/2025/06/10/sfbt-digest-tuesday-grand-jury-sf-openai.html",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-06-10",
+        "article_publisher_name": "Yahoo Finance",
+        "article_title": "Atlassian competitor Linear raises funding at $1.25-billion valuation",
+        "article_url": "https://finance.yahoo.com/news/atlassian-competitor-linear-raises-funding-122031727.html",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-05-28",
+        "article_publisher_name": "TechCrunch",
+        "article_title": "How to seize the opportunity and compete with an incumbent, with Linear COO Cristina Cordova at TechCrunch Sessions: AI",
+        "article_url": "https://techcrunch.com/2025/05/28/how-to-seize-the-opportunity-and-compete-with-an-incumbent-with-linear-coo-cristina-cordova-at-techcrunch-sessions-ai/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-05-02",
+        "article_publisher_name": "ChannelE2E",
+        "article_title": "Cloudflare Powers Enterprise Access to Claude AI with MCP Server Toolkit",
+        "article_url": "https://www.channele2e.com/news/cloudflare-powers-enterprise-access-to-claude-ai-with-mcp-server-toolkit",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-05-01",
+        "article_publisher_name": "Business Wire",
+        "article_title": "Cloudflare Helps Anthropic and Leading Tech Companies to Unlock Real AI Agent Experiences Through Claude",
+        "article_url": "https://www.businesswire.com/news/home/20250501890304/en/Cloudflare-Helps-Anthropic-and-Leading-Tech-Companies-to-Unlock-Real-AI-Agent-Experiences-Through-Claude",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-03-27",
+        "article_publisher_name": "theblock.co",
+        "article_title": "LINA down 23% as DeFi protocol Linear Finance shuts down",
+        "article_url": "https://www.theblock.co/post/348444/lina-down-20-linear-finance-decides-sunset-project",
+        "confidence_score": 0.8,
+        "publisher_domain": "theblock.co",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-03-01",
+        "article_publisher_name": "TradingView",
+        "article_title": "Linear to Add Multichain Deposit Swaps in Q1",
+        "article_url": "https://www.tradingview.com/news/coindar:53dcd3993094b:0-linear-to-add-multichain-deposit-swaps-in-q1/",
+        "confidence_score": 1.0,
+        "publisher_domain": "tradingview.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-02-25",
+        "article_publisher_name": "TradingView",
+        "article_title": "Linear to Launch Roadmap in February",
+        "article_url": "https://www.tradingview.com/news/coindar:986b64438094b:0-linear-to-launch-roadmap-in-february/",
+        "confidence_score": 0.9,
+        "publisher_domain": "tradingview.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-02-11",
+        "article_publisher_name": "Business Insider",
+        "article_title": "Bain Capital Ventures-backed startup Index raises $2 million to build product management tools",
+        "article_url": "https://www.businessinsider.com/index-secures-funding-bain-capital-ventures-product-management-tools-2025-2",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-02-11",
+        "article_publisher_name": "Forbes Australia",
+        "article_title": "Index lands $3.5m seed round from Blackbird and Bain",
+        "article_url": "https://www.forbes.com.au/news/innovation/index-lands-3-5m-seed-round-from-blackbird-and-bain/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       }
+      ],
+      "employee_reviews": {
+       "career_opportunities_rating": null,
+       "overall_rating": {
+        "rating": null,
+        "rating_1_count": null,
+        "rating_2_count": null,
+        "rating_3_count": null,
+        "rating_4_count": null,
+        "rating_5_count": null,
+        "total_count": null
+       },
+       "senior_management_rating": null,
+       "work_life_balance_rating": null,
+       "business_outlook_rating": null,
+       "company_ceo": {
+        "ceo_rating": null
+       },
+       "compensation_and_benefits_rating": null,
+       "culture_and_values_rating": null,
+       "diversity_and_inclusion_rating": null,
+       "recommend_to_friend_rating": null
+      },
+      "followers": {
+       "count": 91727,
+       "mom_percent": 3.7401040488577246,
+       "qoq_percent": 10.072840291361166,
+       "six_months_growth_percent": 25.21602620981503,
+       "timeseries": [
+        {
+         "date": "2023-07-03",
+         "follower_count": 6580
+        },
+        {
+         "date": "2023-07-10",
+         "follower_count": 6748
+        },
+        {
+         "date": "2023-07-17",
+         "follower_count": 6787
+        },
+        {
+         "date": "2023-07-24",
+         "follower_count": 6787
+        },
+        {
+         "date": "2023-07-31",
+         "follower_count": 7037
+        },
+        {
+         "date": "2023-08-07",
+         "follower_count": 7166
+        },
+        {
+         "date": "2023-08-14",
+         "follower_count": 7166
+        },
+        {
+         "date": "2023-08-21",
+         "follower_count": 7329
+        },
+        {
+         "date": "2023-08-28",
+         "follower_count": 7362
+        },
+        {
+         "date": "2023-09-04",
+         "follower_count": 7471
+        },
+        {
+         "date": "2023-09-11",
+         "follower_count": 7565
+        },
+        {
+         "date": "2023-09-18",
+         "follower_count": 7565
+        },
+        {
+         "date": "2023-09-25",
+         "follower_count": 9324
+        },
+        {
+         "date": "2023-10-02",
+         "follower_count": 9701
+        },
+        {
+         "date": "2023-10-09",
+         "follower_count": 10286
+        },
+        {
+         "date": "2023-10-16",
+         "follower_count": 10652
+        },
+        {
+         "date": "2023-10-23",
+         "follower_count": 11057
+        },
+        {
+         "date": "2023-10-30",
+         "follower_count": 11165
+        },
+        {
+         "date": "2023-11-06",
+         "follower_count": 11367
+        },
+        {
+         "date": "2023-11-13",
+         "follower_count": 11509
+        },
+        {
+         "date": "2023-11-20",
+         "follower_count": 11690
+        },
+        {
+         "date": "2023-11-27",
+         "follower_count": 11690
+        },
+        {
+         "date": "2023-12-04",
+         "follower_count": 12350
+        },
+        {
+         "date": "2023-12-11",
+         "follower_count": 12685
+        },
+        {
+         "date": "2023-12-18",
+         "follower_count": 12876
+        },
+        {
+         "date": "2023-12-25",
+         "follower_count": 12990
+        },
+        {
+         "date": "2024-01-01",
+         "follower_count": 13429
+        },
+        {
+         "date": "2024-01-08",
+         "follower_count": 13531
+        },
+        {
+         "date": "2024-01-15",
+         "follower_count": 13915
+        },
+        {
+         "date": "2024-01-22",
+         "follower_count": 15247
+        },
+        {
+         "date": "2024-01-29",
+         "follower_count": 16065
+        },
+        {
+         "date": "2024-02-05",
+         "follower_count": 16364
+        },
+        {
+         "date": "2024-02-12",
+         "follower_count": 16692
+        },
+        {
+         "date": "2024-02-19",
+         "follower_count": 17229
+        },
+        {
+         "date": "2024-02-26",
+         "follower_count": 17991
+        },
+        {
+         "date": "2024-03-04",
+         "follower_count": 18442
+        },
+        {
+         "date": "2024-03-11",
+         "follower_count": 18786
+        },
+        {
+         "date": "2024-03-18",
+         "follower_count": 19017
+        },
+        {
+         "date": "2024-03-25",
+         "follower_count": 19441
+        },
+        {
+         "date": "2024-04-01",
+         "follower_count": 20205
+        },
+        {
+         "date": "2024-04-08",
+         "follower_count": 20538
+        },
+        {
+         "date": "2024-04-15",
+         "follower_count": 20765
+        },
+        {
+         "date": "2024-04-22",
+         "follower_count": 21185
+        },
+        {
+         "date": "2024-04-29",
+         "follower_count": 21704
+        },
+        {
+         "date": "2024-05-06",
+         "follower_count": 22260
+        },
+        {
+         "date": "2024-05-13",
+         "follower_count": 22549
+        },
+        {
+         "date": "2024-05-20",
+         "follower_count": 22854
+        },
+        {
+         "date": "2024-05-27",
+         "follower_count": 23258
+        },
+        {
+         "date": "2024-06-03",
+         "follower_count": 23668
+        },
+        {
+         "date": "2024-06-10",
+         "follower_count": 24191
+        },
+        {
+         "date": "2024-06-17",
+         "follower_count": 24652
+        },
+        {
+         "date": "2024-06-24",
+         "follower_count": 24865
+        },
+        {
+         "date": "2024-07-01",
+         "follower_count": 25166
+        },
+        {
+         "date": "2024-07-08",
+         "follower_count": 25595
+        },
+        {
+         "date": "2024-07-15",
+         "follower_count": 25595
+        },
+        {
+         "date": "2024-07-22",
+         "follower_count": 26250
+        },
+        {
+         "date": "2024-07-29",
+         "follower_count": 26518
+        },
+        {
+         "date": "2024-08-05",
+         "follower_count": 26606
+        },
+        {
+         "date": "2024-08-12",
+         "follower_count": 27085
+        },
+        {
+         "date": "2024-08-19",
+         "follower_count": 27085
+        },
+        {
+         "date": "2024-08-26",
+         "follower_count": 27698
+        },
+        {
+         "date": "2024-09-02",
+         "follower_count": 27698
+        },
+        {
+         "date": "2024-09-09",
+         "follower_count": 28132
+        },
+        {
+         "date": "2024-09-16",
+         "follower_count": 28556
+        },
+        {
+         "date": "2024-09-23",
+         "follower_count": 29057
+        },
+        {
+         "date": "2024-09-30",
+         "follower_count": 29057
+        },
+        {
+         "date": "2024-10-07",
+         "follower_count": 29876
+        },
+        {
+         "date": "2024-10-14",
+         "follower_count": 30147
+        },
+        {
+         "date": "2024-10-21",
+         "follower_count": 30147
+        },
+        {
+         "date": "2024-10-28",
+         "follower_count": 31001
+        },
+        {
+         "date": "2024-11-04",
+         "follower_count": 31207
+        },
+        {
+         "date": "2024-11-11",
+         "follower_count": 31365
+        },
+        {
+         "date": "2024-11-18",
+         "follower_count": 31861
+        },
+        {
+         "date": "2024-11-25",
+         "follower_count": 31959
+        },
+        {
+         "date": "2024-12-02",
+         "follower_count": 31959
+        },
+        {
+         "date": "2024-12-09",
+         "follower_count": 31959
+        },
+        {
+         "date": "2024-12-16",
+         "follower_count": 33083
+        },
+        {
+         "date": "2024-12-23",
+         "follower_count": 33279
+        },
+        {
+         "date": "2024-12-30",
+         "follower_count": 33380
+        },
+        {
+         "date": "2025-01-06",
+         "follower_count": 33380
+        },
+        {
+         "date": "2025-01-13",
+         "follower_count": 33731
+        },
+        {
+         "date": "2025-01-20",
+         "follower_count": 35078
+        },
+        {
+         "date": "2025-01-27",
+         "follower_count": 35078
+        },
+        {
+         "date": "2025-02-03",
+         "follower_count": 37074
+        },
+        {
+         "date": "2025-02-10",
+         "follower_count": 37074
+        },
+        {
+         "date": "2025-02-17",
+         "follower_count": 38936
+        },
+        {
+         "date": "2025-02-24",
+         "follower_count": 39181
+        },
+        {
+         "date": "2025-03-03",
+         "follower_count": 39545
+        },
+        {
+         "date": "2025-03-10",
+         "follower_count": 39545
+        },
+        {
+         "date": "2025-03-17",
+         "follower_count": 39545
+        },
+        {
+         "date": "2025-03-24",
+         "follower_count": 40952
+        },
+        {
+         "date": "2025-03-31",
+         "follower_count": 40952
+        },
+        {
+         "date": "2025-04-07",
+         "follower_count": 42241
+        },
+        {
+         "date": "2025-04-14",
+         "follower_count": 42858
+        },
+        {
+         "date": "2025-04-21",
+         "follower_count": 42858
+        },
+        {
+         "date": "2025-04-28",
+         "follower_count": 45320
+        },
+        {
+         "date": "2025-05-05",
+         "follower_count": 45320
+        },
+        {
+         "date": "2025-05-12",
+         "follower_count": 45657
+        },
+        {
+         "date": "2025-05-19",
+         "follower_count": 45657
+        },
+        {
+         "date": "2025-05-26",
+         "follower_count": 47550
+        },
+        {
+         "date": "2025-06-02",
+         "follower_count": 50406
+        },
+        {
+         "date": "2025-06-09",
+         "follower_count": 50406
+        },
+        {
+         "date": "2025-06-16",
+         "follower_count": 52144
+        },
+        {
+         "date": "2025-06-23",
+         "follower_count": 52144
+        },
+        {
+         "date": "2025-06-30",
+         "follower_count": 52144
+        },
+        {
+         "date": "2025-07-07",
+         "follower_count": 52144
+        },
+        {
+         "date": "2025-07-14",
+         "follower_count": 52144
+        },
+        {
+         "date": "2025-07-21",
+         "follower_count": 52144
+        },
+        {
+         "date": "2025-07-28",
+         "follower_count": 54849
+        },
+        {
+         "date": "2025-08-04",
+         "follower_count": 55455
+        },
+        {
+         "date": "2025-08-11",
+         "follower_count": 56101
+        },
+        {
+         "date": "2025-08-18",
+         "follower_count": 56159
+        },
+        {
+         "date": "2025-08-25",
+         "follower_count": 56159
+        },
+        {
+         "date": "2025-09-01",
+         "follower_count": 56159
+        },
+        {
+         "date": "2025-09-08",
+         "follower_count": 58380
+        },
+        {
+         "date": "2025-09-15",
+         "follower_count": 58380
+        },
+        {
+         "date": "2025-09-22",
+         "follower_count": 59035
+        },
+        {
+         "date": "2025-09-29",
+         "follower_count": 59035
+        },
+        {
+         "date": "2025-10-06",
+         "follower_count": 59035
+        },
+        {
+         "date": "2025-10-13",
+         "follower_count": 59035
+        },
+        {
+         "date": "2025-10-20",
+         "follower_count": 61631
+        },
+        {
+         "date": "2025-10-27",
+         "follower_count": 62468
+        },
+        {
+         "date": "2025-11-03",
+         "follower_count": 62963
+        },
+        {
+         "date": "2025-12-15",
+         "follower_count": 65916
+        },
+        {
+         "date": "2025-12-22",
+         "follower_count": 66287
+        },
+        {
+         "date": "2025-12-29",
+         "follower_count": 66599
+        },
+        {
+         "date": "2026-01-05",
+         "follower_count": 66998
+        },
+        {
+         "date": "2026-01-19",
+         "follower_count": 68031
+        },
+        {
+         "date": "2026-01-26",
+         "follower_count": 68031
+        },
+        {
+         "date": "2026-02-02",
+         "follower_count": 69367
+        },
+        {
+         "date": "2026-02-09",
+         "follower_count": 70124
+        },
+        {
+         "date": "2026-02-16",
+         "follower_count": 70297
+        },
+        {
+         "date": "2026-02-23",
+         "follower_count": 71662
+        },
+        {
+         "date": "2026-03-02",
+         "follower_count": 72192
+        },
+        {
+         "date": "2026-03-09",
+         "follower_count": 72323
+        },
+        {
+         "date": "2026-03-16",
+         "follower_count": 73255
+        },
+        {
+         "date": "2026-03-23",
+         "follower_count": 73255
+        },
+        {
+         "date": "2026-03-30",
+         "follower_count": 73255
+        },
+        {
+         "date": "2026-04-06",
+         "follower_count": 73255
+        },
+        {
+         "date": "2026-04-13",
+         "follower_count": 73255
+        },
+        {
+         "date": "2026-04-20",
+         "follower_count": 73255
+        },
+        {
+         "date": "2026-04-27",
+         "follower_count": 73255
+        },
+        {
+         "date": "2026-05-04",
+         "follower_count": 73255
+        },
+        {
+         "date": "2026-05-11",
+         "follower_count": 73255
+        },
+        {
+         "date": "2026-05-18",
+         "follower_count": 73255
+        },
+        {
+         "date": "2026-05-25",
+         "follower_count": 73255
+        },
+        {
+         "date": "2026-06-01",
+         "follower_count": 73255
+        },
+        {
+         "date": "2026-06-08",
+         "follower_count": 81257
+        },
+        {
+         "date": "2026-07-06",
+         "follower_count": 83333
+        },
+        {
+         "date": "2026-08-03",
+         "follower_count": 85147
+        },
+        {
+         "date": "2026-09-07",
+         "follower_count": 88420
+        },
+        {
+         "date": "2026-10-12",
+         "follower_count": 90600
+        },
+        {
+         "date": "2026-10-29",
+         "follower_count": 91727
+        }
+       ],
+       "yoy_percent": 46.838381251200616
+      },
+      "software_reviews": {
+       "average_rating": 9.07895,
+       "review_count": 38,
+       "review_count_mom_pct": null,
+       "review_count_qoq_pct": null,
+       "review_count_yoy_pct": null
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

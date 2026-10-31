@@ -1,0 +1,40 @@
+{
+ "endpoint": "/company/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "taxonomy.categories",
+     "type": "=",
+     "value": "Lead Management"
+    },
+    {
+     "field": "basic_info.year_founded",
+     "type": "=>",
+     "value": 2017
+    },
+    {
+     "field": "crustdata_company_id",
+     "type": "!=",
+     "value": 664000
+    }
+   ]
+  },
+  "fields": [
+   "crustdata_company_id"
+  ],
+  "limit": 1
+ },
+ "status": 200,
+ "credits_used": "0.13",
+ "body": {
+  "companies": [
+   {
+    "crustdata_company_id": 431
+   }
+  ],
+  "next_cursor": "H4sIAJyS5WoC_xXMTQ7CIBBA4as0rF0wPwzgVYxphgHThZHY0kVjvLt1-b7F-7j33tZjXnRb3HVyvvgSsyfPKYYqjwitCROKJDUG4ELQMLcsZpA1CypWq0zVggVFd5nc1tdxvm5McD9z9KHP2fr--iv6xN8foVLBnXYAAAA=",
+  "total_count": 2084
+ }
+}

@@ -26,6 +26,7 @@ from pathlib import Path
 from typing import Any, Awaitable, Callable
 
 from proofroom import config, exceptions, gate, graph, llm, packet, prompts, render, report, store
+from proofroom import equity_report, scoring, signals
 from proofroom import crustdata as cd
 from proofroom.errors import ConfigError, CrustError, ModelError, ProofroomError, StoreError
 from proofroom.models import (AssessResult, AttemptRecord, CaseRecord, CheckResult, Claim,
@@ -70,6 +71,8 @@ class RunRequest:
     sentence: str = ""               # U5 one-sentence check (implies Mode B)
     fixture: str = ""
     email: bool | None = None        # U8 founder email draft; None = config default (off)
+    research: bool = True            # D24 equity-research report (signals + rating + PDF)
+    check_size_usd: float = 100_000.0  # the reader's standard ticket, for suggested sizing
 
     def normalized(self) -> "RunRequest":
         r = RunRequest(**{**self.__dict__})
@@ -215,6 +218,9 @@ async def _execute(r: _Run, rd: store.RunDir) -> RunOutcome:
         g, pk_b = await asyncio.gather(graph.resolve(client, req.domain), mode_b)
         r.limitations += g.limitations
         await r.progress("identity", g1=g.g1.as_dict(), team=[t.name for t in g.team])
+        # D24: investor signals run in parallel with the packet, call 1 and stage 4.
+        sig_task = (asyncio.create_task(_signals(client, g, req, r.limitations))
+                    if req.research and g.g1.company_id is not None else None)
 
         # Stage 1 packet (Mode A needs `news[]` from the enrich record).
         if req.input_mode == "A":
@@ -264,6 +270,7 @@ async def _execute(r: _Run, rd: store.RunDir) -> RunOutcome:
             g.g1, g.team, g.financing or {"milestones": [], "total_investment_usd": None,
                                           "record_refresh": "unknown", "total_is_capital": False})
         financing_lines = _financing_lines(g, selected, evidence, r.questions)
+        sig = await sig_task if sig_task is not None else None
 
     # Stage 5 call 2 (no more retrieval from here on).
     findings = []
@@ -328,8 +335,11 @@ async def _execute(r: _Run, rd: store.RunDir) -> RunOutcome:
     case.stats["exceptions"] = [d.as_dict() for d in desk]
     brief = _with_desk(render.brief_md(case, model_source=model_source, profile=prof.name),
                        exceptions.exception_desk_md(desk))
-    extra = {"questions.md": render.questions_md(case),
-             "report.md": report.report_md(case), "report.html": report.report_html(case)}
+    extra: dict[str, str | bytes] = {"questions.md": render.questions_md(case),
+                                     "report.md": report.report_md(case),
+                                     "report.html": report.report_html(case)}
+    if sig is not None:
+        extra.update(_research(case, sig, req, r))
     if req.email if req.email is not None else config.founder_email_enabled():
         extra["founder_email.md"] = exceptions.founder_email_md(case)
     st = r.store
@@ -612,6 +622,43 @@ def _write_failed(rd: store.RunDir, r: _Run, err: Exception) -> None:
             "model_attempts": [a.model_dump() for a in r.model_attempts]}, indent=2))
     except OSError as e:
         log.error("could not write failed.json: %s", e)
+
+
+async def _signals(client: cd.Crustdata, g: graph.GraphResult, req: RunRequest,
+                   limitations: list[str]) -> Any:
+    """Investor signals; a failure narrows the research report, never the brief."""
+    try:
+        return await signals.fetch_signals(client, g.g1.company_id, req.domain, founders=g.team)
+    except CrustError as e:
+        if e.fatal:
+            raise
+        limitations.append(f"Investor signals unavailable ({e.status} {e.type})")
+    except Exception as e:  # noqa: BLE001 - research data must never fail the brief
+        log.exception("signals failed")
+        limitations.append(f"Investor signals unavailable ({type(e).__name__})")
+    return None
+
+
+def _research(case: CaseRecord, sig: Any, req: RunRequest, r: _Run) -> dict[str, str | bytes]:
+    """D24: score, rate, size, and render the equity-research report (PDF when possible)."""
+    fl, pl, rec = scoring.assess(case, sig, req.check_size_usd)
+    case.stats.update({"rating": rec.rating, "signal_score": rec.score,
+                       "confidence": rec.confidence, "suggested_usd": rec.suggested_usd,
+                       "check_size_usd": rec.check_size_usd,
+                       "flags": {lv: sum(f.level == lv for f in fl)
+                                 for lv in ("critical", "red", "amber", "green")},
+                       "signals_credits": sig.credits_used})
+    html = equity_report.build_html(case, sig, fl, pl, rec, rules=scoring.RULES)
+    out: dict[str, str | bytes] = {"equity_report.html": html,
+                                   "signals.json": sig.model_dump_json(indent=2)}
+    try:
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            pdf = equity_report.render_pdf(html, Path(tmp) / "equity_report.pdf")
+            out["equity_report.pdf"] = pdf.read_bytes()
+    except ProofroomError as e:
+        r.limitations.append(f"PDF rendering unavailable ({e}); the HTML report is included")
+    return out
 
 
 def _with_desk(brief: str, desk_md: str) -> str:

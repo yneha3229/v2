@@ -1,0 +1,237 @@
+{
+ "endpoint": "/company/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "taxonomy.categories",
+     "type": "=",
+     "value": "Advertising Platforms"
+    },
+    {
+     "field": "taxonomy.categories",
+     "type": "=",
+     "value": "Artificial Intelligence (AI)"
+    },
+    {
+     "field": "basic_info.year_founded",
+     "type": "=>",
+     "value": 2020
+    },
+    {
+     "field": "crustdata_company_id",
+     "type": "!=",
+     "value": 3718859
+    },
+    {
+     "field": "funding.last_fundraise_date",
+     "type": "=>",
+     "value": "2024-10-01"
+    }
+   ]
+  },
+  "sorts": [
+   {
+    "field": "funding.total_investment_usd",
+    "order": "desc"
+   }
+  ],
+  "fields": [
+   "crustdata_company_id",
+   "basic_info.name",
+   "basic_info.primary_domain",
+   "basic_info.year_founded",
+   "headcount.total",
+   "headcount.growth_percent",
+   "funding.total_investment_usd",
+   "funding.last_round_type",
+   "funding.last_fundraise_date"
+  ],
+  "limit": 8
+ },
+ "status": 200,
+ "credits_used": "5.84",
+ "body": {
+  "companies": [
+   {
+    "crustdata_company_id": 1066247,
+    "basic_info": {
+     "name": "Agentio",
+     "primary_domain": "agentio.com",
+     "year_founded": 2023
+    },
+    "headcount": {
+     "total": 77,
+     "growth_percent": {
+      "1m": 4.054054054054054,
+      "3m": 11.594202898550725,
+      "6m": 37.5,
+      "12m": 83.33333333333334
+     }
+    },
+    "funding": {
+     "total_investment_usd": 56250000.0,
+     "last_fundraise_date": "2025-11-18",
+     "last_round_type": "series_b"
+    }
+   },
+   {
+    "crustdata_company_id": 17047441,
+    "basic_info": {
+     "name": "CloudX",
+     "primary_domain": "cloudx.ai",
+     "year_founded": 2025
+    },
+    "headcount": {
+     "total": 48,
+     "growth_percent": {
+      "1m": 11.627906976744185,
+      "3m": 17.073170731707318,
+      "6m": 54.83870967741935,
+      "12m": 220.00000000000003
+     }
+    },
+    "funding": {
+     "total_investment_usd": 45149997.0,
+     "last_fundraise_date": "2025-11-13",
+     "last_round_type": "series_a"
+    }
+   },
+   {
+    "crustdata_company_id": 654142,
+    "basic_info": {
+     "name": "Topsort",
+     "primary_domain": "topsort.com",
+     "year_founded": 2021
+    },
+    "headcount": {
+     "total": 144,
+     "growth_percent": {
+      "1m": -2.0408163265306123,
+      "3m": -0.6896551724137931,
+      "6m": 1.4084507042253522,
+      "12m": 12.5
+     }
+    },
+    "funding": {
+     "total_investment_usd": 28500000.0,
+     "last_fundraise_date": "2025-11-24",
+     "last_round_type": "series_unknown"
+    }
+   },
+   {
+    "crustdata_company_id": 820636,
+    "basic_info": {
+     "name": "Fanvue",
+     "primary_domain": "fanvue.com",
+     "year_founded": 2021
+    },
+    "headcount": {
+     "total": 184,
+     "growth_percent": {
+      "1m": 1.6574585635359116,
+      "3m": 0.0,
+      "6m": 10.179640718562874,
+      "12m": 47.199999999999996
+     }
+    },
+    "funding": {
+     "total_investment_usd": 26029156.0,
+     "last_fundraise_date": "2026-01-16",
+     "last_round_type": "series_a"
+    }
+   },
+   {
+    "crustdata_company_id": 15583806,
+    "basic_info": {
+     "name": "Searchable",
+     "primary_domain": "searchable.com",
+     "year_founded": 2025
+    },
+    "headcount": {
+     "total": 41,
+     "growth_percent": {
+      "1m": 5.128205128205128,
+      "3m": 32.25806451612903,
+      "6m": 95.23809523809523,
+      "12m": 925.0
+     }
+    },
+    "funding": {
+     "total_investment_usd": 22094336.0,
+     "last_fundraise_date": "2026-05-18",
+     "last_round_type": "series_unknown"
+    }
+   },
+   {
+    "crustdata_company_id": 1085045,
+    "basic_info": {
+     "name": "Creatify AI",
+     "primary_domain": "creatify.ai",
+     "year_founded": 2023
+    },
+    "headcount": {
+     "total": 64,
+     "growth_percent": {
+      "1m": 1.5873015873015872,
+      "3m": 4.918032786885246,
+      "6m": 23.076923076923077,
+      "12m": 30.612244897959183
+     }
+    },
+    "funding": {
+     "total_investment_usd": 18500000.0,
+     "last_fundraise_date": "2025-09-16",
+     "last_round_type": "series_unknown"
+    }
+   },
+   {
+    "crustdata_company_id": 1010197,
+    "basic_info": {
+     "name": "AdsGency AI",
+     "primary_domain": "adsgency.ai",
+     "year_founded": 2023
+    },
+    "headcount": {
+     "total": 31,
+     "growth_percent": {
+      "1m": 0.0,
+      "3m": -8.823529411764707,
+      "6m": 6.896551724137931,
+      "12m": 29.166666666666668
+     }
+    },
+    "funding": {
+     "total_investment_usd": 14780000.0,
+     "last_fundraise_date": "2025-10-20",
+     "last_round_type": "seed"
+    }
+   },
+   {
+    "crustdata_company_id": 1035340,
+    "basic_info": {
+     "name": "HeyMax",
+     "primary_domain": "heymax.ai",
+     "year_founded": 2023
+    },
+    "headcount": {
+     "total": 37,
+     "growth_percent": {
+      "1m": -2.631578947368421,
+      "3m": -2.631578947368421,
+      "6m": -7.5,
+      "12m": 2.7777777777777777
+     }
+    },
+    "funding": {
+     "total_investment_usd": 13581016.0,
+     "last_fundraise_date": "2026-01-28",
+     "last_round_type": "series_a"
+    }
+   }
+  ],
+  "next_cursor": "H4sIAOGS5WoC_xWMSQ7CIBRAr0JYd_EHPoNXMaZBPqQLI7GlC2O8u7h-w8e-zrq_1y0fm70YiyrZh4ikpPeQXEAUiU1ca6q1QkFwRShxyxHEJSkFPc_CawIksouxR9_HfF2RJSKgXwwCCzu4TTj6yI-19PP5dwJ9f5CgF6OCAAAA",
+  "total_count": 72
+ }
+}

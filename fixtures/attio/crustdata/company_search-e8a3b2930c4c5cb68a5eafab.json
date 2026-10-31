@@ -1,0 +1,40 @@
+{
+ "endpoint": "/company/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "taxonomy.categories",
+     "type": "=",
+     "value": "Marketing Automation"
+    },
+    {
+     "field": "basic_info.year_founded",
+     "type": "=>",
+     "value": 2017
+    },
+    {
+     "field": "crustdata_company_id",
+     "type": "!=",
+     "value": 664000
+    }
+   ]
+  },
+  "fields": [
+   "crustdata_company_id"
+  ],
+  "limit": 1
+ },
+ "status": 200,
+ "credits_used": "0.13",
+ "body": {
+  "companies": [
+   {
+    "crustdata_company_id": 956
+   }
+  ],
+  "next_cursor": "H4sIAJyS5WoC_xXMMQ6DMAxA0augzB0S24mdXqWqkANGDFWjQhhQ1bs3jP8N_-s-h23nuOq-uvvgSiYyKlFUC8BsJqbGCZEJp4UBvA-cUdWztwWFShfKQQCyFER3G9xet9ZfjxzTs2erTV_jVI_3pSEmib8_DV83X3cAAAA=",
+  "total_count": 15685
+ }
+}

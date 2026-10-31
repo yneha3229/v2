@@ -1,0 +1,45 @@
+{
+ "endpoint": "/company/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "taxonomy.categories",
+     "type": "=",
+     "value": "Lead Management"
+    },
+    {
+     "field": "taxonomy.categories",
+     "type": "=",
+     "value": "Sales Automation"
+    },
+    {
+     "field": "basic_info.year_founded",
+     "type": "=>",
+     "value": 2017
+    },
+    {
+     "field": "crustdata_company_id",
+     "type": "!=",
+     "value": 664000
+    }
+   ]
+  },
+  "fields": [
+   "crustdata_company_id"
+  ],
+  "limit": 1
+ },
+ "status": 200,
+ "credits_used": "0.13",
+ "body": {
+  "companies": [
+   {
+    "crustdata_company_id": 956
+   }
+  ],
+  "next_cursor": "H4sIALCS5WoC_xXMMQ7CMAxA0atUnhnSmNgxV0Goch1HHRARbTogxN1px_-G_4X37utnWnRb4DYAcSQ0Qq_kJCyJS2QsGS2xaeVQipFKtayjB490xRyJJCTUMLPDZYCtrf143SXR48jeuj4na_vr1DFK-v0BdqYE73YAAAA=",
+  "total_count": 1295
+ }
+}

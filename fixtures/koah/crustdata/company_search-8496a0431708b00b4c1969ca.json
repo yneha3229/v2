@@ -1,0 +1,40 @@
+{
+ "endpoint": "/company/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "taxonomy.categories",
+     "type": "=",
+     "value": "Advertising Platforms"
+    },
+    {
+     "field": "basic_info.year_founded",
+     "type": "=>",
+     "value": 2020
+    },
+    {
+     "field": "crustdata_company_id",
+     "type": "!=",
+     "value": 3718859
+    }
+   ]
+  },
+  "fields": [
+   "crustdata_company_id"
+  ],
+  "limit": 1
+ },
+ "status": 200,
+ "credits_used": "0.13",
+ "body": {
+  "companies": [
+   {
+    "crustdata_company_id": 956
+   }
+  ],
+  "next_cursor": "H4sIAJCS5WoC_xXMMQ7CMAxA0atUmRkax3ZsroJQldpBHRARbTpUiLtTxv-G_wnvva7HtJRtCdchkIpnHk0qMTvK7BmYGMkwPWYgwoImxQCqYwUS1RxHBklOsaiHyxC2tvbzdVPi-5m99fKcrO2vv2KM6fsDAFofXXYAAAA=",
+  "total_count": 4113
+ }
+}

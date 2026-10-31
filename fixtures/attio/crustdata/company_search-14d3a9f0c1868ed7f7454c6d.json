@@ -1,0 +1,40 @@
+{
+ "endpoint": "/company/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "taxonomy.categories",
+     "type": "=",
+     "value": "Sales Automation"
+    },
+    {
+     "field": "basic_info.year_founded",
+     "type": "=>",
+     "value": 2017
+    },
+    {
+     "field": "crustdata_company_id",
+     "type": "!=",
+     "value": 664000
+    }
+   ]
+  },
+  "fields": [
+   "crustdata_company_id"
+  ],
+  "limit": 1
+ },
+ "status": 200,
+ "credits_used": "0.13",
+ "body": {
+  "companies": [
+   {
+    "crustdata_company_id": 956
+   }
+  ],
+  "next_cursor": "H4sIAJyS5WoC_xWMMQ7CMAwAv1JlZkia2MZ8BaHKiR11QES06VAh_k4Y73S6j3sftp3LKvvqbpMLWqjUnGYxQwyRWav6SBShRFDQaD4jW9YsowxzSljIVyK8cjZxl8ntbevjdWfAx8DeujyX0o7X3wIH-P4AFdeEwHYAAAA=",
+  "total_count": 5915
+ }
+}

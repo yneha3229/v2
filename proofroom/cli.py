@@ -50,7 +50,8 @@ def _run(args: argparse.Namespace) -> int:
         run_mode=mode, profile="FAST" if args.fast else "FULL",
         provider="fixture" if args.fixture else args.provider, focus_note=args.focus or "",
         urls=args.url or [], pasted=pasted, sentence=args.sentence or "",
-        fixture=args.fixture or "", email=True if args.email else None)
+        fixture=args.fixture or "", email=True if args.email else None,
+        research=not args.no_research, check_size_usd=args.check_size)
 
     def show(stage: str, payload: dict) -> None:
         print(f"[{payload.get('elapsed', 0):6.2f}s] {stage}", flush=True)
@@ -60,6 +61,11 @@ def _run(args: argparse.Namespace) -> int:
 
     out = asyncio.run(pipeline.run(req, on_progress=show))
     print(f"{out.status} {out.run_dir or ''} in {out.seconds}s")
+    st = out.case.stats if out.case else {}
+    if st.get("rating"):
+        print(f"signal: {st['rating']} · score {st['signal_score']:.0f}/100 · confidence "
+              f"{st['confidence']} · suggested ${st['suggested_usd']:,.0f} of "
+              f"${st['check_size_usd']:,.0f} · flags {st['flags']}")
     if out.error:
         print(f"error: {out.error}", file=sys.stderr)
     return 0 if out.status in ("DELIVERED", "NARROWED") else 1
@@ -85,6 +91,10 @@ def main(argv: list[str] | None = None) -> int:
     rn.add_argument("--fast", action="store_true", help="FAST profile: every step, lighter checks")
     rn.add_argument("--email", action="store_true",
                     help="U8: also write founder_email.md (a draft, never sent)")
+    rn.add_argument("--check-size", type=float, default=100_000.0,
+                    help="your standard check in USD, for the suggested allocation (default 100000)")
+    rn.add_argument("--no-research", action="store_true",
+                    help="skip the equity-research report (signals, rating, PDF)")
     rn.add_argument("--provider", default="auto", choices=["auto", "session", "anthropic"])
     vf = sub.add_parser("verify", help="U1 proof receipt: re-check a published run offline")
     vf.add_argument("run_dir")

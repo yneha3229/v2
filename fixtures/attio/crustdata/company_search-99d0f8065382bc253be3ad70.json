@@ -1,0 +1,237 @@
+{
+ "endpoint": "/company/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "taxonomy.categories",
+     "type": "=",
+     "value": "Lead Management"
+    },
+    {
+     "field": "taxonomy.categories",
+     "type": "=",
+     "value": "Sales Automation"
+    },
+    {
+     "field": "basic_info.year_founded",
+     "type": "=>",
+     "value": 2017
+    },
+    {
+     "field": "crustdata_company_id",
+     "type": "!=",
+     "value": 664000
+    },
+    {
+     "field": "funding.last_fundraise_date",
+     "type": "=>",
+     "value": "2024-10-01"
+    }
+   ]
+  },
+  "sorts": [
+   {
+    "field": "funding.total_investment_usd",
+    "order": "desc"
+   }
+  ],
+  "fields": [
+   "crustdata_company_id",
+   "basic_info.name",
+   "basic_info.primary_domain",
+   "basic_info.year_founded",
+   "headcount.total",
+   "headcount.growth_percent",
+   "funding.total_investment_usd",
+   "funding.last_round_type",
+   "funding.last_fundraise_date"
+  ],
+  "limit": 8
+ },
+ "status": 200,
+ "credits_used": "5.84",
+ "body": {
+  "companies": [
+   {
+    "crustdata_company_id": 815246,
+    "basic_info": {
+     "name": "Attention",
+     "primary_domain": "attention.com",
+     "year_founded": 2021
+    },
+    "headcount": {
+     "total": 102,
+     "growth_percent": {
+      "1m": 3.0303030303030303,
+      "3m": 2.0,
+      "6m": 7.368421052631578,
+      "12m": 21.428571428571427
+     }
+    },
+    "funding": {
+     "total_investment_usd": 50269982.0,
+     "last_fundraise_date": "2026-06-23",
+     "last_round_type": "series_b"
+    }
+   },
+   {
+    "crustdata_company_id": 1045933,
+    "basic_info": {
+     "name": "Voze",
+     "primary_domain": "voze.com",
+     "year_founded": 2022
+    },
+    "headcount": {
+     "total": 70,
+     "growth_percent": {
+      "1m": 0.0,
+      "3m": -6.666666666666667,
+      "6m": -15.66265060240964,
+      "12m": -19.54022988505747
+     }
+    },
+    "funding": {
+     "total_investment_usd": 12000000.0,
+     "last_fundraise_date": "2024-10-28",
+     "last_round_type": "series_a"
+    }
+   },
+   {
+    "crustdata_company_id": 11613027,
+    "basic_info": {
+     "name": "The Resource Marketplace for AI Apps",
+     "primary_domain": "aisa.one",
+     "year_founded": 2025
+    },
+    "headcount": {
+     "total": 8,
+     "growth_percent": {
+      "1m": 33.33333333333333,
+      "3m": 0.0,
+      "6m": 0.0,
+      "12m": 100.0
+     }
+    },
+    "funding": {
+     "total_investment_usd": 6000000.0,
+     "last_fundraise_date": "2026-05-31",
+     "last_round_type": "seed"
+    }
+   },
+   {
+    "crustdata_company_id": 783299,
+    "basic_info": {
+     "name": "Traction Complete",
+     "primary_domain": "tractioncomplete.com",
+     "year_founded": 2019
+    },
+    "headcount": {
+     "total": 84,
+     "growth_percent": {
+      "1m": -4.545454545454546,
+      "3m": -8.695652173913043,
+      "6m": -12.5,
+      "12m": -8.695652173913043
+     }
+    },
+    "funding": {
+     "total_investment_usd": 5000000.0,
+     "last_fundraise_date": "2025-04-17",
+     "last_round_type": "debt_financing"
+    }
+   },
+   {
+    "crustdata_company_id": 3421721,
+    "basic_info": {
+     "name": "University of Aberdeen",
+     "primary_domain": "abdn.ac.uk",
+     "year_founded": 2020
+    },
+    "headcount": {
+     "total": 4696,
+     "growth_percent": {
+      "1m": -0.04257130693912303,
+      "3m": -0.3395585738539898,
+      "6m": -1.4273719563392109,
+      "12m": 0.9892473118279571
+     }
+    },
+    "funding": {
+     "total_investment_usd": 3008493.0,
+     "last_fundraise_date": "2025-12-09",
+     "last_round_type": "grant"
+    }
+   },
+   {
+    "crustdata_company_id": 15099607,
+    "basic_info": {
+     "name": "Pinova",
+     "primary_domain": "pinova.in",
+     "year_founded": 2024
+    },
+    "headcount": {
+     "total": 11,
+     "growth_percent": {
+      "1m": 10.0,
+      "3m": 22.22222222222222,
+      "6m": 83.33333333333334,
+      "12m": 37.5
+     }
+    },
+    "funding": {
+     "total_investment_usd": 2500000.0,
+     "last_fundraise_date": "2025-05-19",
+     "last_round_type": "series_unknown"
+    }
+   },
+   {
+    "crustdata_company_id": 5806399,
+    "basic_info": {
+     "name": "Salestarget.ai",
+     "primary_domain": "salestarget.ai",
+     "year_founded": 2024
+    },
+    "headcount": {
+     "total": 29,
+     "growth_percent": {
+      "1m": -3.3333333333333335,
+      "3m": 20.833333333333336,
+      "6m": 20.833333333333336,
+      "12m": 52.63157894736842
+     }
+    },
+    "funding": {
+     "total_investment_usd": 2000000.0,
+     "last_fundraise_date": "2024-12-11",
+     "last_round_type": "angel"
+    }
+   },
+   {
+    "crustdata_company_id": 15488988,
+    "basic_info": {
+     "name": "CancerVax Biotech",
+     "primary_domain": "cancervax.com",
+     "year_founded": 2021
+    },
+    "headcount": {
+     "total": 2,
+     "growth_percent": {
+      "1m": 0.0,
+      "3m": 0.0,
+      "6m": 0.0,
+      "12m": 100.0
+     }
+    },
+    "funding": {
+     "total_investment_usd": 1903060.0,
+     "last_fundraise_date": "2026-05-01",
+     "last_round_type": "equity_crowdfunding"
+    }
+   }
+  ],
+  "next_cursor": "H4sIAP2S5WoC_xWMSQ7CMAwAvxLl3IOdzQ5fQaiK3UQ9ICK6HCrE3wnXmdF87Pus2zWvZV_tzVhAT0LZq2oqlBzwAE2lkStIIZYaRNgljH6punggSDV4bEKi0RU7Gbv37RivO2bwkGAyGANzZn4MefSjPGft5-vfuPz9AcTN0kOCAAAA",
+  "total_count": 29
+ }
+}

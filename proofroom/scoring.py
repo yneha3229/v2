@@ -24,6 +24,7 @@ from datetime import date
 from proofroom import report as verif
 from proofroom.models import CaseRecord
 from proofroom.research_models import Flag, Pillar, Recommendation, Signals
+from proofroom.signals import CROWDING_HIGH as CROWDED_FUNDED_PEERS  # one threshold (D25)
 
 DISCLAIMER = ("Rules-based signal computed from public sources and Crustdata's indexed data "
               "(including estimates). It is not financial advice and does not replace "
@@ -38,7 +39,6 @@ THRESHOLDS = [(70.0, "INVEST"), (58.0, "ACCUMULATE"), (45.0, "HOLD"), (0.0, "AVO
 SIZING = {"INVEST": 1.0, "ACCUMULATE": 0.5, "HOLD": 0.0, "AVOID": 0.0}
 CONFIDENCE_MULT = {"high": 1.0, "medium": 0.75, "low": 0.5}
 
-CROWDED_FUNDED_PEERS = 15      # mirrors signals.py crowding "high"
 REGULATED_NAICS_PREFIXES = ("52", "62", "92")  # finance & insurance, health care, public admin
 
 # Rule id -> (level, condition). Printed in the methodology.
@@ -63,6 +63,8 @@ RULES: dict[str, tuple[str, str]] = {
     "A2 secondary-total": ("amber", "The indexed total includes secondary sales (liquidity, not capital)"),
     "A3 data-gap": ("amber", "A key data group is missing, so part of the score is a default"),
     "A4 regulated-sector": ("amber", "The company's NAICS code is in a regulated sector"),
+    "A5 revenue-vs-capital": ("amber", "Capital raised is 20x or more the upper bound of the "
+                                       "revenue estimate (early revenue for the money raised)"),
     "G1 verified-round": ("green", "An announced round matches the indexed record"),
     "G2 team-joined": ("green", "Every listed founder holds a current role at the company (ID join)"),
     "G3 strong-growth": ("green", "Headcount grew more than 30% year on year"),
@@ -205,6 +207,14 @@ def flags(case: CaseRecord, sig: Signals, today: date | None = None) -> list[Fla
         out.append(Flag(level="amber", rule="A4 regulated-sector", title="Regulated sector",
                         detail=f"NAICS {mk.naics}: expect licensing and compliance diligence",
                         evidence=["metric:market"]))
+    raised = _m(sig, "total_funding_primary_usd") or _m(sig, "total_funding_usd")  # never count secondary
+    if raised and sig.revenue_band_usd and sig.revenue_band_usd[1] > 0 \
+            and raised >= 20 * sig.revenue_band_usd[1]:
+        hi = sig.revenue_band_usd[1]
+        out.append(Flag(level="amber", rule="A5 revenue-vs-capital", title="Early revenue for capital raised",
+                        detail=f"${raised / 1e6:,.1f}M indexed funding vs a revenue estimate of at most "
+                               f"${hi / 1e6:,.1f}M ({raised / hi:.0f}x; third-party estimate)",
+                        evidence=["metric:total_funding_usd", "metric:revenue_band"]))
     missing = [g for g in ("headcount", "web_traffic", "funding") if sig.coverage.get(g) is False]
     if missing:
         out.append(Flag(level="amber", rule="A3 data-gap", title="Data gaps",

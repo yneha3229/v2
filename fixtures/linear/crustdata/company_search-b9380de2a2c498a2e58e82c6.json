@@ -1,0 +1,45 @@
+{
+ "endpoint": "/company/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "taxonomy.categories",
+     "type": "=",
+     "value": "Developer Platform"
+    },
+    {
+     "field": "taxonomy.categories",
+     "type": "=",
+     "value": "Developer Tools"
+    },
+    {
+     "field": "basic_info.year_founded",
+     "type": "=>",
+     "value": 2017
+    },
+    {
+     "field": "crustdata_company_id",
+     "type": "!=",
+     "value": 633791
+    }
+   ]
+  },
+  "fields": [
+   "crustdata_company_id"
+  ],
+  "limit": 1
+ },
+ "status": 200,
+ "credits_used": "0.13",
+ "body": {
+  "companies": [
+   {
+    "crustdata_company_id": 956
+   }
+  ],
+  "next_cursor": "H4sIALCS5WoC_xXMMQ7CMAxA0atUnhlijJ2YqyBUJU6sDoiINh0Q4u6U8b_hf-C1t_U9L3lb4DoBkzE7eXXBEOOFiJOSEXvUlss5SEhmmUOtLBydsAhiMVKnYC3BaYKtr-N43ZTlfuToIz9m6_vzr6ii3x_rHDEUdgAAAA==",
+  "total_count": 1969
+ }
+}

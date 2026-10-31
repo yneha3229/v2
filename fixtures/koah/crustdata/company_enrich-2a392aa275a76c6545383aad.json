@@ -1,0 +1,2474 @@
+{
+ "endpoint": "/company/enrich",
+ "request": {
+  "crustdata_company_ids": [
+   3718859
+  ],
+  "fields": [
+   "basic_info",
+   "funding",
+   "people",
+   "news",
+   "headcount",
+   "revenue",
+   "hiring",
+   "followers",
+   "web_traffic",
+   "competitors",
+   "taxonomy",
+   "employee_reviews",
+   "seo",
+   "locations",
+   "software_reviews",
+   "public_launches",
+   "market_intel",
+   "metadata"
+  ]
+ },
+ "status": 200,
+ "credits_used": "2",
+ "body": [
+  {
+   "matched_on": "3718859",
+   "match_type": "crustdata_company_id",
+   "matches": [
+    {
+     "confidence_score": 1.0,
+     "company_data": {
+      "crustdata_company_id": 3718859,
+      "funding": {
+       "acquired_by": [],
+       "acquisitions": [],
+       "investors_detailed": [
+        {
+         "name": "Andrew Karam",
+         "type": "person",
+         "categories": [
+          "angel"
+         ]
+        },
+        {
+         "name": "Forerunner",
+         "type": "organization",
+         "categories": [
+          "venture_capital"
+         ]
+        },
+        {
+         "name": "South Park Commons",
+         "type": "organization",
+         "categories": [
+          "accelerator",
+          "co_working_space",
+          "incubator",
+          "venture_capital"
+         ]
+        },
+        {
+         "name": "Theory Ventures",
+         "type": "organization",
+         "categories": [
+          "venture_capital"
+         ]
+        }
+       ],
+       "milestones": [
+        {
+         "round_type": "series_a",
+         "is_fund": false,
+         "investors_detailed": [
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "Theory Ventures",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "Forerunner",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "accelerator",
+            "co_working_space",
+            "incubator",
+            "venture_capital"
+           ],
+           "name": "South Park Commons",
+           "type": "organization"
+          }
+         ],
+         "date": "2026-02-24",
+         "funding_date": "2026-02-24",
+         "amount_usd": 20500000.0,
+         "investors": "Theory Ventures, Forerunner, South Park Commons",
+         "lead_investors": "Theory Ventures"
+        },
+        {
+         "round_type": "seed",
+         "is_fund": false,
+         "investors_detailed": [
+          {
+           "categories": [
+            "venture_capital"
+           ],
+           "name": "Forerunner",
+           "type": "organization"
+          },
+          {
+           "categories": [
+            "angel"
+           ],
+           "name": "Andrew Karam",
+           "type": "person"
+          },
+          {
+           "categories": [
+            "accelerator",
+            "co_working_space",
+            "incubator",
+            "venture_capital"
+           ],
+           "name": "South Park Commons",
+           "type": "organization"
+          }
+         ],
+         "date": "2025-09-07",
+         "funding_date": "2025-09-07",
+         "amount_usd": 5000000.0,
+         "investors": "Forerunner, Andrew Karam, South Park Commons",
+         "lead_investors": "Forerunner"
+        },
+        {
+         "round_type": "pre_seed",
+         "is_fund": false,
+         "investors_detailed": [
+          {
+           "categories": [
+            "accelerator",
+            "co_working_space",
+            "incubator",
+            "venture_capital"
+           ],
+           "name": "South Park Commons",
+           "type": "organization"
+          }
+         ],
+         "date": "2024-01-01",
+         "funding_date": "2024-01-01",
+         "amount_usd": null,
+         "investors": "South Park Commons",
+         "lead_investors": null
+        }
+       ],
+       "contact_email": "help@koahlabs.com",
+       "is_investor": false,
+       "phone_number": null,
+       "funds_total_usd": null,
+       "last_fund_date": null,
+       "num_funding_rounds": 3,
+       "num_funds": 0,
+       "total_investment_usd": 25500000.0,
+       "last_round_amount_usd": 20500000.0,
+       "last_round_type": "series_a",
+       "investors": [
+        "Andrew Karam",
+        "Forerunner",
+        "South Park Commons",
+        "Theory Ventures"
+       ],
+       "last_fundraise_date": "2026-02-24"
+      },
+      "headcount": {
+       "by_function_timeseries": {
+        "CURRENT_FUNCTION": {
+         "Marketing": [
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 2
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 4
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 5
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 5
+          }
+         ],
+         "Engineering": [
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 1
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 6
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 7
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 7
+          }
+         ],
+         "Business Development": [
+          {
+           "date": "2024-11-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2024-12-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-01-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-02-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-03-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-04-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-05-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-06-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-07-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-08-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-09-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-10-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-11-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2025-12-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-01-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-02-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-03-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-04-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-05-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-06-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-07-01 00:00:00",
+           "employee_count": 3
+          },
+          {
+           "date": "2026-08-01 00:00:00",
+           "employee_count": 3
+          }
+         ]
+        }
+       },
+       "largest_headcount_country": "USA",
+       "total": 24,
+       "growth_percent": {
+        "mom": 14.285714285714285,
+        "qoq": 20.0,
+        "six_months": 26.31578947368421,
+        "yoy": 166.66666666666669,
+        "two_years": 700.0
+       },
+       "growth_absolute": {
+        "mom": 3,
+        "qoq": 4,
+        "six_months": 5,
+        "yoy": 15,
+        "two_years": 21
+       },
+       "by_role_absolute": {
+        "Finance": 1,
+        "Marketing": 5,
+        "Arts and Design": 2,
+        "Support": 1,
+        "Engineering": 7,
+        "Business Development": 3,
+        "Product Management": 1
+       },
+       "by_role_percent": {
+        "Finance": 4.166666666666666,
+        "Marketing": 20.833333333333336,
+        "Arts and Design": 8.333333333333332,
+        "Support": 4.166666666666666,
+        "Engineering": 29.166666666666668,
+        "Business Development": 12.5,
+        "Product Management": 4.166666666666666
+       },
+       "by_role_growth_6m_pct": {
+        "Entrepreneurship": -50.0,
+        "Product Management": 0.0,
+        "Business Development": 0.0,
+        "Marketing": 400.0,
+        "Engineering": 16.666666666666664
+       },
+       "by_role_growth_yoy_pct": {
+        "Business Development": 0.0,
+        "Marketing": 400.0,
+        "Engineering": 600.0
+       },
+       "by_region_absolute": {
+        "United Kingdom": 2,
+        "Santa Cruz, CA": 1,
+        "Los Angeles, CA": 1,
+        "Greater London": 1,
+        "San Francisco Bay Area": 10,
+        "Los Angeles Metropolitan Area": 3,
+        "Brooklyn, NY": 2,
+        "New York, NY": 4,
+        "San Francisco, CA": 8,
+        "New York, United States": 6,
+        "New York City Metropolitan Area": 6,
+        "England, United Kingdom": 2,
+        "United States": 22,
+        "Brighton": 1,
+        "California, United States": 13
+       },
+       "by_region_percent": {
+        "United Kingdom": 8.333333333333332,
+        "Santa Cruz, CA": 4.166666666666666,
+        "Los Angeles, CA": 4.166666666666666,
+        "Greater London": 4.166666666666666,
+        "San Francisco Bay Area": 41.66666666666667,
+        "Los Angeles Metropolitan Area": 12.5,
+        "Brooklyn, NY": 8.333333333333332,
+        "New York, NY": 16.666666666666664,
+        "San Francisco, CA": 33.33333333333333,
+        "New York, United States": 25.0,
+        "New York City Metropolitan Area": 25.0,
+        "England, United Kingdom": 8.333333333333332,
+        "United States": 91.66666666666666,
+        "Brighton": 4.166666666666666,
+        "California, United States": 54.166666666666664
+       },
+       "timeseries": [
+        {
+         "date": "2023-02-27",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-03-06",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-03-13",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-03-20",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-03-27",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-04-03",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-04-10",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-04-17",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-04-24",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-05-01",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-05-08",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-05-15",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-05-22",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-05-29",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-06-05",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-06-12",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-06-19",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-06-26",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-07-03",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-07-10",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-07-17",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-07-24",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-07-31",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-08-07",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-08-14",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-08-21",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-08-28",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-09-04",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-09-11",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-09-18",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-09-25",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-10-02",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-10-09",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-10-16",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-10-23",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-10-30",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-11-06",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-11-13",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-11-20",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-11-27",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-12-04",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-12-11",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-12-18",
+         "employee_count": 1
+        },
+        {
+         "date": "2023-12-25",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-01-01",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-01-08",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-01-15",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-01-22",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-01-29",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-02-05",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-02-12",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-02-19",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-02-26",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-03-04",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-03-11",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-03-18",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-03-25",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-04-01",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-04-08",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-04-15",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-04-22",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-04-29",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-05-06",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-05-13",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-05-20",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-05-27",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-06-03",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-06-10",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-06-17",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-06-24",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-07-01",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-07-08",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-07-15",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-07-22",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-07-29",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-08-05",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-08-12",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-08-19",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-08-26",
+         "employee_count": 1
+        },
+        {
+         "date": "2024-09-02",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-09-09",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-09-16",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-09-23",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-09-30",
+         "employee_count": 3
+        },
+        {
+         "date": "2024-10-07",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-10-14",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-10-21",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-10-28",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-11-04",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-11-11",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-11-18",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-11-25",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-12-02",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-12-09",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-12-16",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-12-23",
+         "employee_count": 4
+        },
+        {
+         "date": "2024-12-30",
+         "employee_count": 4
+        },
+        {
+         "date": "2025-01-06",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-01-13",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-01-20",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-01-27",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-02-03",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-02-10",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-02-17",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-02-24",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-03-03",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-03-10",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-03-17",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-03-24",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-03-31",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-04-07",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-04-14",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-04-21",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-04-28",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-05-05",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-05-12",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-05-19",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-05-26",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-06-02",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-06-09",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-06-16",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-06-23",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-06-30",
+         "employee_count": 5
+        },
+        {
+         "date": "2025-07-07",
+         "employee_count": 6
+        },
+        {
+         "date": "2025-07-14",
+         "employee_count": 6
+        },
+        {
+         "date": "2025-07-21",
+         "employee_count": 6
+        },
+        {
+         "date": "2025-07-28",
+         "employee_count": 6
+        },
+        {
+         "date": "2025-08-04",
+         "employee_count": 6
+        },
+        {
+         "date": "2025-08-11",
+         "employee_count": 6
+        },
+        {
+         "date": "2025-08-18",
+         "employee_count": 6
+        },
+        {
+         "date": "2025-08-25",
+         "employee_count": 6
+        },
+        {
+         "date": "2025-09-01",
+         "employee_count": 9
+        },
+        {
+         "date": "2025-09-08",
+         "employee_count": 9
+        },
+        {
+         "date": "2025-09-15",
+         "employee_count": 9
+        },
+        {
+         "date": "2025-09-22",
+         "employee_count": 9
+        },
+        {
+         "date": "2025-09-29",
+         "employee_count": 9
+        },
+        {
+         "date": "2025-10-06",
+         "employee_count": 10
+        },
+        {
+         "date": "2025-10-13",
+         "employee_count": 10
+        },
+        {
+         "date": "2025-10-20",
+         "employee_count": 10
+        },
+        {
+         "date": "2025-10-27",
+         "employee_count": 10
+        },
+        {
+         "date": "2025-11-03",
+         "employee_count": 12
+        },
+        {
+         "date": "2025-11-10",
+         "employee_count": 12
+        },
+        {
+         "date": "2025-11-17",
+         "employee_count": 12
+        },
+        {
+         "date": "2025-11-24",
+         "employee_count": 12
+        },
+        {
+         "date": "2025-12-01",
+         "employee_count": 15
+        },
+        {
+         "date": "2025-12-08",
+         "employee_count": 15
+        },
+        {
+         "date": "2025-12-15",
+         "employee_count": 15
+        },
+        {
+         "date": "2025-12-22",
+         "employee_count": 15
+        },
+        {
+         "date": "2025-12-29",
+         "employee_count": 15
+        },
+        {
+         "date": "2026-01-05",
+         "employee_count": 17
+        },
+        {
+         "date": "2026-01-12",
+         "employee_count": 17
+        },
+        {
+         "date": "2026-01-19",
+         "employee_count": 17
+        },
+        {
+         "date": "2026-01-26",
+         "employee_count": 17
+        },
+        {
+         "date": "2026-02-02",
+         "employee_count": 18
+        },
+        {
+         "date": "2026-02-09",
+         "employee_count": 18
+        },
+        {
+         "date": "2026-02-16",
+         "employee_count": 18
+        },
+        {
+         "date": "2026-02-23",
+         "employee_count": 18
+        },
+        {
+         "date": "2026-03-02",
+         "employee_count": 19
+        },
+        {
+         "date": "2026-03-09",
+         "employee_count": 19
+        },
+        {
+         "date": "2026-03-16",
+         "employee_count": 19
+        },
+        {
+         "date": "2026-03-23",
+         "employee_count": 19
+        },
+        {
+         "date": "2026-03-30",
+         "employee_count": 19
+        },
+        {
+         "date": "2026-04-06",
+         "employee_count": 20
+        },
+        {
+         "date": "2026-04-13",
+         "employee_count": 20
+        },
+        {
+         "date": "2026-04-20",
+         "employee_count": 20
+        },
+        {
+         "date": "2026-04-27",
+         "employee_count": 20
+        },
+        {
+         "date": "2026-05-04",
+         "employee_count": 21
+        },
+        {
+         "date": "2026-05-11",
+         "employee_count": 21
+        },
+        {
+         "date": "2026-05-18",
+         "employee_count": 21
+        },
+        {
+         "date": "2026-05-25",
+         "employee_count": 21
+        },
+        {
+         "date": "2026-06-01",
+         "employee_count": 20
+        },
+        {
+         "date": "2026-06-08",
+         "employee_count": 20
+        },
+        {
+         "date": "2026-06-15",
+         "employee_count": 20
+        },
+        {
+         "date": "2026-06-22",
+         "employee_count": 20
+        },
+        {
+         "date": "2026-06-29",
+         "employee_count": 20
+        },
+        {
+         "date": "2026-07-06",
+         "employee_count": 21
+        },
+        {
+         "date": "2026-07-13",
+         "employee_count": 21
+        },
+        {
+         "date": "2026-07-20",
+         "employee_count": 21
+        },
+        {
+         "date": "2026-07-27",
+         "employee_count": 21
+        },
+        {
+         "date": "2026-08-03",
+         "employee_count": 21
+        },
+        {
+         "date": "2026-08-10",
+         "employee_count": 21
+        },
+        {
+         "date": "2026-08-17",
+         "employee_count": 21
+        },
+        {
+         "date": "2026-08-24",
+         "employee_count": 21
+        },
+        {
+         "date": "2026-08-31",
+         "employee_count": 21
+        },
+        {
+         "date": "2026-09-02",
+         "employee_count": 24
+        }
+       ]
+      },
+      "locations": {
+       "city": "San Francisco",
+       "country": "USA",
+       "state": "California",
+       "street_address": "San Francisco, California, United States",
+       "headquarters": "San Francisco, California, United States",
+       "all_office_addresses": []
+      },
+      "market_intel": {
+       "company_name": null,
+       "company_website_url": null,
+       "description": null,
+       "head_office_city": null,
+       "head_office_country": null,
+       "num_employees_max": null,
+       "num_employees_min": null,
+       "slug": null,
+       "year_founded": null
+      },
+      "people": {
+       "founders": [
+        {
+         "crustdata_person_id": 2739857,
+         "basic_profile": {
+          "name": "Mike Choi",
+          "headline": "Co-Founder @ Koah Labs | Monetize your AI App",
+          "current_title": "Co-Founder",
+          "languages": [
+           "Korean (Native or bilingual proficiency)",
+           "French (Limited working proficiency)",
+           "English (Native or bilingual proficiency)"
+          ],
+          "last_updated": "2026-10-23T03:09:13.742Z",
+          "location": {}
+         },
+         "social_handles": {
+          "professional_network_identifier": {
+           "profile_url": "https://www.linkedin.com/in/mikejschoi"
+          },
+          "twitter_identifier": {
+           "slug": "Bananamlkshake2"
+          }
+         },
+         "experience": {
+          "employment_details": {
+           "current": [
+            {
+             "employer_name": "Koah",
+             "employer_linkedin_id": "104947890",
+             "employer_company_id": [
+              "3718859"
+             ],
+             "employer_website": [
+              "koahlabs.com"
+             ],
+             "employee_title": "Co-Founder",
+             "employee_start_date": "2024-08-01T00:00:00.000Z",
+             "employee_end_date": null
+            }
+           ],
+           "past": [
+            {
+             "employer_name": "Google",
+             "employer_linkedin_id": "1441",
+             "employer_company_id": [
+              "4926893"
+             ],
+             "employer_website": [
+              "google.com"
+             ],
+             "employee_title": "Software Engineer Intern",
+             "employee_start_date": "2018-05-01T00:00:00.000Z",
+             "employee_end_date": "2018-08-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Apple",
+             "employer_linkedin_id": "162479",
+             "employer_company_id": [
+              "680979"
+             ],
+             "employer_website": [
+              "apple.com"
+             ],
+             "employee_title": "Software Engineer",
+             "employee_start_date": "2019-01-01T00:00:00.000Z",
+             "employee_end_date": "2021-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Twitter",
+             "employer_linkedin_id": "96622",
+             "employer_company_id": [
+              "662348"
+             ],
+             "employer_website": [
+              "twitter.com"
+             ],
+             "employee_title": "Senior Software Engineer",
+             "employee_start_date": "2021-01-01T00:00:00.000Z",
+             "employee_end_date": "2023-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "South Park Commons",
+             "employer_linkedin_id": "18169310",
+             "employer_company_id": [
+              "820009"
+             ],
+             "employer_website": [
+              "southparkcommons.com"
+             ],
+             "employee_title": "Founder Fellow",
+             "employee_start_date": "2023-01-01T00:00:00.000Z",
+             "employee_end_date": "2024-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Republic of Korea Army",
+             "employer_linkedin_id": "1271878",
+             "employer_company_id": [
+              "2225991"
+             ],
+             "employer_website": [
+              "onlinecareer360.com"
+             ],
+             "employee_title": "Sergeant",
+             "employee_start_date": "2015-01-01T00:00:00.000Z",
+             "employee_end_date": "2017-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "X",
+             "employer_linkedin_id": "96347071",
+             "employer_company_id": [
+              "13567232"
+             ],
+             "employer_website": [
+              null
+             ],
+             "employee_title": "Senior Software Engineer",
+             "employee_start_date": "2023-01-01T00:00:00.000Z",
+             "employee_end_date": "2023-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Detroit Labs",
+             "employer_linkedin_id": "2248250",
+             "employer_company_id": [
+              "1915816"
+             ],
+             "employer_website": [
+              "detroitlabs.com"
+             ],
+             "employee_title": "Software Engineer Intern",
+             "employee_start_date": "2015-05-01T00:00:00.000Z",
+             "employee_end_date": "2015-09-01T00:00:00.000Z"
+            }
+           ]
+          }
+         },
+         "education": {
+          "schools": [
+           {
+            "school": "Texas A&M University",
+            "degree": "Bachelor of Science (BS)",
+            "field_of_study": null
+           },
+           {
+            "school": "Wichita Collegiate School",
+            "degree": null,
+            "field_of_study": null
+           }
+          ]
+         },
+         "updated_at": "2026-10-23T03:09:13.742Z"
+        },
+        {
+         "crustdata_person_id": 28237678,
+         "basic_profile": {
+          "name": "Nic Baird",
+          "headline": "Co-Founder @ Koah Labs | Monetize Your AI App | Ads That Don’t Feel Like Ads 👉 koahlabs.com",
+          "current_title": "Co-Founder",
+          "languages": [],
+          "last_updated": "2026-10-23T03:15:42.804Z",
+          "location": {}
+         },
+         "social_handles": {
+          "professional_network_identifier": {
+           "profile_url": "https://www.linkedin.com/in/nicbaird"
+          },
+          "twitter_identifier": {
+           "slug": null
+          }
+         },
+         "experience": {
+          "employment_details": {
+           "current": [
+            {
+             "employer_name": "South Park Commons",
+             "employer_linkedin_id": "18169310",
+             "employer_company_id": [
+              "820009"
+             ],
+             "employer_website": [
+              "southparkcommons.com"
+             ],
+             "employee_title": "Founder Fellow",
+             "employee_start_date": "2024-01-01T00:00:00.000Z",
+             "employee_end_date": null
+            },
+            {
+             "employer_name": "Koah",
+             "employer_linkedin_id": "104947890",
+             "employer_company_id": [
+              "3718859"
+             ],
+             "employer_website": [
+              "koahlabs.com"
+             ],
+             "employee_title": "Co-Founder",
+             "employee_start_date": "2024-01-01T00:00:00.000Z",
+             "employee_end_date": null
+            }
+           ],
+           "past": [
+            {
+             "employer_name": "Halo Neuroscience",
+             "employer_linkedin_id": "3714802",
+             "employer_company_id": [
+              "637629"
+             ],
+             "employer_website": [
+              "haloneuroscience.com"
+             ],
+             "employee_title": "Marketing Intern, Esports",
+             "employee_start_date": "2017-09-01T00:00:00.000Z",
+             "employee_end_date": "2017-12-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "MarkSetBot",
+             "employer_linkedin_id": "65348418",
+             "employer_company_id": [
+              "3800198"
+             ],
+             "employer_website": [
+              "marksetbot.com"
+             ],
+             "employee_title": "Marketing and Sales",
+             "employee_start_date": "2019-01-01T00:00:00.000Z",
+             "employee_end_date": "2021-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "MarkSetBot",
+             "employer_linkedin_id": "65348418",
+             "employer_company_id": [
+              "3800198"
+             ],
+             "employer_website": [
+              "marksetbot.com"
+             ],
+             "employee_title": "Sales",
+             "employee_start_date": "2019-01-01T00:00:00.000Z",
+             "employee_end_date": "2019-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Thync Global, Inc.",
+             "employer_linkedin_id": "3200539",
+             "employer_company_id": [
+              "641938"
+             ],
+             "employer_website": [
+              "thync.com"
+             ],
+             "employee_title": "Chief of Staff",
+             "employee_start_date": "2020-01-01T00:00:00.000Z",
+             "employee_end_date": "2021-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Thinktiv",
+             "employer_linkedin_id": "688412",
+             "employer_company_id": [
+              "1224636"
+             ],
+             "employer_website": [
+              "thinktiv.com"
+             ],
+             "employee_title": "Consultant",
+             "employee_start_date": "2021-01-01T00:00:00.000Z",
+             "employee_end_date": "2022-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "South Park Commons",
+             "employer_linkedin_id": "18169310",
+             "employer_company_id": [
+              "820009"
+             ],
+             "employer_website": [
+              "southparkcommons.com"
+             ],
+             "employee_title": "Investor",
+             "employee_start_date": "2022-01-01T00:00:00.000Z",
+             "employee_end_date": "2023-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "South Park Commons",
+             "employer_linkedin_id": "18169310",
+             "employer_company_id": [
+              "820009"
+             ],
+             "employer_website": [
+              "southparkcommons.com"
+             ],
+             "employee_title": "Member",
+             "employee_start_date": "2023-01-01T00:00:00.000Z",
+             "employee_end_date": "2024-01-01T00:00:00.000Z"
+            }
+           ]
+          }
+         },
+         "education": {
+          "schools": [
+           {
+            "school": "Yale University",
+            "degree": "B.A. with Distinction",
+            "field_of_study": "Political Science and History"
+           },
+           {
+            "school": "Shorecrest Preparatory School",
+            "degree": "High School",
+            "field_of_study": null
+           },
+           {
+            "school": "Stanford University Graduate School of Business",
+            "degree": "Auditor",
+            "field_of_study": null
+           }
+          ]
+         },
+         "updated_at": "2026-10-23T03:15:42.804Z"
+        },
+        {
+         "crustdata_person_id": 28232995,
+         "basic_profile": {
+          "name": "Herrick Fang",
+          "headline": "Co-Founder @ Koah Labs",
+          "current_title": "Co-Founder",
+          "languages": [],
+          "last_updated": "2026-10-23T03:15:36.840Z",
+          "location": {}
+         },
+         "social_handles": {
+          "professional_network_identifier": {
+           "profile_url": "https://www.linkedin.com/in/herrickfang"
+          },
+          "twitter_identifier": {
+           "slug": null
+          }
+         },
+         "experience": {
+          "employment_details": {
+           "current": [
+            {
+             "employer_name": "Koah",
+             "employer_linkedin_id": "104947890",
+             "employer_company_id": [
+              "3718859"
+             ],
+             "employer_website": [
+              "koahlabs.com"
+             ],
+             "employee_title": "Co-Founder",
+             "employee_start_date": "2024-01-01T00:00:00.000Z",
+             "employee_end_date": null
+            }
+           ],
+           "past": [
+            {
+             "employer_name": "Qualified (Acquired by Salesforce)",
+             "employer_linkedin_id": "35580403",
+             "employer_company_id": [
+              "632707"
+             ],
+             "employer_website": [
+              "qualified.com"
+             ],
+             "employee_title": "Senior Software Engineer",
+             "employee_start_date": "2021-01-01T00:00:00.000Z",
+             "employee_end_date": "2023-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Supermove",
+             "employer_linkedin_id": "31437224",
+             "employer_company_id": [
+              "780882"
+             ],
+             "employer_website": [
+              "supermove.com"
+             ],
+             "employee_title": "Founding Software Engineer",
+             "employee_start_date": "2020-01-01T00:00:00.000Z",
+             "employee_end_date": "2021-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "Affirm",
+             "employer_linkedin_id": "2963249",
+             "employer_company_id": [
+              "632082"
+             ],
+             "employer_website": [
+              "affirm.com"
+             ],
+             "employee_title": "Software Engineer",
+             "employee_start_date": "2019-01-01T00:00:00.000Z",
+             "employee_end_date": "2020-01-01T00:00:00.000Z"
+            },
+            {
+             "employer_name": "South Park Commons",
+             "employer_linkedin_id": "18169310",
+             "employer_company_id": [
+              "820009"
+             ],
+             "employer_website": [
+              "southparkcommons.com"
+             ],
+             "employee_title": "Member",
+             "employee_start_date": "2023-01-01T00:00:00.000Z",
+             "employee_end_date": "2025-01-01T00:00:00.000Z"
+            }
+           ]
+          }
+         },
+         "education": {
+          "schools": [
+           {
+            "school": "Harvey Mudd College",
+            "degree": "Bachelor of Science",
+            "field_of_study": "Mathematics and Computer Science"
+           }
+          ]
+         },
+         "updated_at": "2026-10-23T03:15:36.840Z"
+        }
+       ]
+      },
+      "public_launches": {
+       "launches": [
+        {
+         "name": "Koah",
+         "launched_at": 1732867260,
+         "num_upvotes": 196,
+         "tagline": "Monetize your LLM application",
+         "slug": "koah-2"
+        }
+       ],
+       "angel_list_url": null,
+       "categories": [
+        "LLMs",
+        "Advertising tools"
+       ],
+       "company_name": "Koah",
+       "company_website_url": "https://koahlabs.com",
+       "description": "The first monetization layer for AI applications. Add contextual, non-intrusive ads to your LLM responses with one line of code. Start earning immediately with our SDK - the AdSense for the AI era. Works with any LLM platform.",
+       "facebook_url": null,
+       "github_url": null,
+       "instagram_url": null,
+       "last_updated": "2025-01-31T18:56:23.000Z",
+       "linkedin_url": null,
+       "num_followers": 144,
+       "num_reviews": 0,
+       "num_upvotes": 196,
+       "producthunt_url": "https://www.producthunt.com/products/koah",
+       "rating": 0.0,
+       "slug": "koah",
+       "threads_url": null,
+       "twitter_url": "https://twitter.com/koahlabs"
+      },
+      "metadata": {
+       "indexed_at": null,
+       "updated_at": null,
+       "growth_calculation_date": null
+      },
+      "basic_info": {
+       "status": "active",
+       "name": "Koah",
+       "primary_domain": "koahlabs.com",
+       "all_domains": [
+        "koahlabs.com"
+       ],
+       "website": "https://www.koahlabs.com",
+       "logo_permalink": "https://crustdata-media.s3.us-east-2.amazonaws.com/company/c7b1d61e12e22079da43bbdf3d99c5fea00b59fb217d00843d8e710877ab8c41.jpg",
+       "description": "Koah is the GenAI Ad Network:Publishers can monetize AI chat without compromising UX — and advertisers can reach high-intent users with 1:1 engagement inside GenAI environments.Native-built for AI, optimized for performance, and backed by Forerunner Ventures and South Park Commons — Koah is the go-to ad network for monetizing GenAI.📬 Reach out at hello@koahlabs.com to get started.",
+       "company_type": "Privately Held",
+       "year_founded": 2024,
+       "employee_count_range": "2-10",
+       "markets": [
+        "PRIVATE"
+       ],
+       "crustdata_company_id": 3718859,
+       "professional_network_id": "104947890",
+       "professional_network_url": "https://www.linkedin.com/company/koahlabs",
+       "profile_name": "Koah"
+      },
+      "revenue": {
+       "estimated": {
+        "lower_bound_usd": 0,
+        "upper_bound_usd": 500000,
+        "timeseries": [
+         {
+          "date": "2025-01-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-02-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-03-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-04-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-05-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-06-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-07-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-08-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-09-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-10-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-11-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2025-12-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2026-01-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2026-02-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2026-03-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2026-06-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2026-07-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2026-08-01",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2026-09-10",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         },
+         {
+          "date": "2026-10-10",
+          "revenue_lower_bound_usd": 0,
+          "revenue_upper_bound_usd": 500000
+         }
+        ]
+       },
+       "public_markets": {
+        "ipo_date": null,
+        "stock_symbols": [
+         "KOAH"
+        ],
+        "fiscal_year_end": null
+       },
+       "acquisition_status": null
+      },
+      "hiring": {
+       "recent_titles_csv": null,
+       "openings_count": null,
+       "openings_growth_percent": null,
+       "by_function_qoq_pct": null,
+       "by_function_6m_pct": null
+      },
+      "web_traffic": {
+       "domain_traffic": {
+        "koahlabs.com": {
+         "domain": "koahlabs.com",
+         "monthly_visitors": 17228.0,
+         "mom_pct": -21.39,
+         "qoq_pct": 14.44,
+         "source_search_pct": 33.76175893908775,
+         "source_direct_pct": 54.577145204066326,
+         "source_social_pct": 0.7754745933037688,
+         "source_paid_referral_pct": 2.2574271546022,
+         "source_referral_pct": 2.317340291275679,
+         "monthly_visitors_timeseries": [
+          {
+           "date": "2025-02-01T00:00:00+00:00",
+           "monthly_visitors": 0
+          },
+          {
+           "date": "2025-03-01T00:00:00+00:00",
+           "monthly_visitors": 0
+          },
+          {
+           "date": "2025-04-01T00:00:00+00:00",
+           "monthly_visitors": 6002
+          },
+          {
+           "date": "2025-06-01T00:00:00+00:00",
+           "monthly_visitors": 2264
+          },
+          {
+           "date": "2025-07-01T00:00:00+00:00",
+           "monthly_visitors": 1682
+          },
+          {
+           "date": "2025-08-01T00:00:00+00:00",
+           "monthly_visitors": 5949
+          },
+          {
+           "date": "2025-09-01T00:00:00+00:00",
+           "monthly_visitors": 13330
+          },
+          {
+           "date": "2025-10-01T00:00:00+00:00",
+           "monthly_visitors": 10872
+          },
+          {
+           "date": "2025-11-01T00:00:00+00:00",
+           "monthly_visitors": 6363
+          },
+          {
+           "date": "2025-12-01T00:00:00+00:00",
+           "monthly_visitors": 7342
+          },
+          {
+           "date": "2026-01-01T00:00:00+00:00",
+           "monthly_visitors": 9022
+          },
+          {
+           "date": "2026-02-01T00:00:00+00:00",
+           "monthly_visitors": 12184
+          },
+          {
+           "date": "2026-03-01T00:00:00+00:00",
+           "monthly_visitors": 11192
+          },
+          {
+           "date": "2026-04-01T00:00:00+00:00",
+           "monthly_visitors": 7791
+          },
+          {
+           "date": "2026-05-01T00:00:00+00:00",
+           "monthly_visitors": 10931
+          },
+          {
+           "date": "2026-06-01T00:00:00+00:00",
+           "monthly_visitors": 15054
+          },
+          {
+           "date": "2026-07-01T00:00:00+00:00",
+           "monthly_visitors": 14913
+          },
+          {
+           "date": "2026-08-01T00:00:00+00:00",
+           "monthly_visitors": 21916
+          },
+          {
+           "date": "2026-09-01T00:00:00+00:00",
+           "monthly_visitors": 17228
+          }
+         ]
+        }
+       }
+      },
+      "seo": {
+       "total_organic_results": 65,
+       "average_seo_organic_rank": 40.1,
+       "monthly_google_ads_budget": 0.0,
+       "monthly_paid_clicks": 0,
+       "monthly_organic_clicks": 160,
+       "monthly_organic_value": 19.43,
+       "average_ad_rank": 0.0,
+       "total_ads_purchased": 0,
+       "lost_ranked_seo_keywords": 14,
+       "gained_ranked_seo_keywords": 19,
+       "newly_ranked_seo_keywords": 18
+      },
+      "competitors": {
+       "all_domains": [],
+       "paid_seo": [],
+       "organic_seo": [
+        "koahai.com",
+        " apexautomationai.co.uk",
+        " kono-app.fr",
+        " koadigital.co",
+        " koahmedia.co"
+       ]
+      },
+      "taxonomy": {
+       "primary_naics_detail": {
+        "naics_code": "541810",
+        "year": 2022,
+        "sector": "Professional, Scientific, and Technical Services",
+        "sub_sector": "Professional, Scientific, and Technical Services",
+        "industry_group": "Advertising, Public Relations, and Related Services",
+        "industry": "Advertising Agencies"
+       },
+       "sic_detail_list": [
+        {
+         "sic_code": "7311",
+         "year": 1987,
+         "industry": "Advertising Agencies"
+        }
+       ],
+       "categories": [
+        "Advertising",
+        "Advertising Platforms",
+        "Artificial Intelligence (AI)",
+        "Sales"
+       ],
+       "professional_network_industries": [
+        "Technology, Information and Media"
+       ],
+       "professional_network_industry": "Technology, Information and Media",
+       "professional_network_specialities": []
+      },
+      "news": [
+       {
+        "article_publish_date": "2026-03-06",
+        "article_publisher_name": "Sherwood News",
+        "article_title": "Ads have entered the chat",
+        "article_url": "https://sherwood.news/tech/the-ai-chatbot-ad-rush-has-begun/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-03-03",
+        "article_publisher_name": "vcnewsdaily.com",
+        "article_title": "Koah Bags $20.5M Series A Round",
+        "article_url": "https://vcnewsdaily.com/koah/venture-capital-funding/hzlgltbgpx",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-03-02",
+        "article_publisher_name": "alleywatch.com",
+        "article_title": "The Weekly Notable Startup Funding Report: 3/2/26",
+        "article_url": "https://www.alleywatch.com/2026/03/the-weekly-notable-startup-funding-report-3-2-26/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-03-02",
+        "article_publisher_name": "PYMNTS.com",
+        "article_title": "Investors Ramp up Bets on the Agent Economy",
+        "article_url": "https://www.pymnts.com/news/artificial-intelligence/2026/investors-ramp-up-bets-on-the-agent-economy/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-02-27",
+        "article_publisher_name": "SiliconANGLE",
+        "article_title": "OpenAI raises its megaround, Anthropic’s battles multiply and the SaaSpocalypse widens — but Dell cashes in",
+        "article_url": "https://siliconangle.com/2026/02/27/openai-raises-megaround-anthropics-battles-multiply-saaspocalypse-widens/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-02-25",
+        "article_publisher_name": "Techmeme",
+        "article_title": "Koah, which embeds sponsored ads directly into AI chatbots and aims to build an AdSense for AI, raised a $20.5M Series A led by Theory Ventures (Trishla Ostwal/Adweek)",
+        "article_url": "http://www.techmeme.com/260224/p58#a260224p58",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-02-25",
+        "article_publisher_name": "Ventureburn",
+        "article_title": "Koah Raises $20.5M To Scale AI-Native Advertising Platform",
+        "article_url": "https://ventureburn.com/koah-raises-205m/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-02-24",
+        "article_publisher_name": "Morningstar.com",
+        "article_title": "Koah Raises $20.5M Series A Led by Theory Ventures to Scale AI-Native Monetization",
+        "article_url": "https://www.morningstar.com/news/pr-newswire/20260224sf92171/koah-raises-205m-series-a-led-by-theory-ventures-to-scale-ai-native-monetization",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-02-24",
+        "article_publisher_name": "FinSMEs",
+        "article_title": "Koah Raises $20.5M in Series A Funding",
+        "article_url": "https://www.finsmes.com/2026/02/koah-raises-20-5m-in-series-a-funding.html",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-02-24",
+        "article_publisher_name": "PR Newswire",
+        "article_title": "Koah Raises $20.5M Series A Led by Theory Ventures to Scale AI-Native Monetization",
+        "article_url": "https://www.prnewswire.com/news-releases/koah-raises-20-5m-series-a-led-by-theory-ventures-to-scale-ai-native-monetization-302695002.html",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2026-02-24",
+        "article_publisher_name": "Venture Capital Firms",
+        "article_title": "Koah Raises $20.5M Series A Led by Theory Ventures to Scale AI-Native Monetization",
+        "article_url": "https://www.vcaonline.com/news/2026022405/koah-raises-20-5m-series-a-led-by-theory-ventures-to-scale-ai-native-monetization/",
+        "confidence_score": null,
+        "publisher_domain": null,
+        "source": "crunchbase"
+       },
+       {
+        "article_publish_date": "2025-09-10",
+        "article_publisher_name": "StartupHub.ai",
+        "article_title": "Koah Raises $5M for AI App Advertising Platform",
+        "article_url": "https://www.startuphub.ai/ai-news/funding-round/2025/koah-raises-5m-for-ai-app-advertising-platform/",
+        "confidence_score": 1.0,
+        "publisher_domain": "startuphub.ai",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-10",
+        "article_publisher_name": "AI Insider",
+        "article_title": "Koah Secures $5M to Build Advertising Layer for AI Apps",
+        "article_url": "https://theaiinsider.tech/2025/09/10/koah-secures-5m-to-build-advertising-layer-for-ai-apps/",
+        "confidence_score": 1.0,
+        "publisher_domain": "theaiinsider.tech",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-10",
+        "article_publisher_name": "MarTech Cube",
+        "article_title": "Koah Launches “AdSense for GenAI” — Monetization Standard for AI Chat Apps",
+        "article_url": "https://www.martechcube.com/koah-launches-adsense-for-genai-monetization-standard-for-ai-chat-apps/",
+        "confidence_score": 1.0,
+        "publisher_domain": "martechcube.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-09",
+        "article_publisher_name": "CDP Institute",
+        "article_title": "Koah Raises $5 Million to Put Ads Inside AI Apps",
+        "article_url": "https://www.cdpinstitute.org/news/koah-raises-5-million-to-put-ads-inside-ai-apps/",
+        "confidence_score": 1.0,
+        "publisher_domain": "cdpinstitute.org",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-08",
+        "article_publisher_name": "CryptoRank",
+        "article_title": "Koah pushes ads into AI apps while OpenAI lags behind",
+        "article_url": "https://cryptorank.io/news/feed/729c3-koah-ads-fuel-ai-apps-openai-stalls",
+        "confidence_score": 1.0,
+        "publisher_domain": "cryptorank.io",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-08",
+        "article_publisher_name": "Tech in Asia",
+        "article_title": "US-based startup Koah raises $5m to bring ads into AI apps",
+        "article_url": "https://www.techinasia.com/news/us-based-startup-koah-raises-5m-to-bring-ads-into-ai-apps",
+        "confidence_score": 1.0,
+        "publisher_domain": "techinasia.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-07",
+        "article_publisher_name": "SQMagazine",
+        "article_title": "AI Monetization Gets a Boost as Koah Bags $5M Seed Funding",
+        "article_url": "https://sqmagazine.co.uk/koah-ads-ai-apps-funding/",
+        "confidence_score": 1.0,
+        "publisher_domain": "sqmagazine.co.uk",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-07",
+        "article_publisher_name": "TechCrunch",
+        "article_title": "Koah raises $5M to bring ads into AI apps",
+        "article_url": "https://techcrunch.com/2025/09/07/koah-raises-5m-to-bring-ads-into-ai-apps/",
+        "confidence_score": 1.0,
+        "publisher_domain": "techcrunch.com",
+        "source": "google_news"
+       },
+       {
+        "article_publish_date": "2025-09-07",
+        "article_publisher_name": "SSBCrack",
+        "article_title": "Koah Raises $5 Million to Monetize AI Apps Through Advertising",
+        "article_url": "https://news.ssbcrack.com/koah-raises-5-million-to-monetize-ai-apps-through-advertising/",
+        "confidence_score": 1.0,
+        "publisher_domain": "ssbcrack.com",
+        "source": "google_news"
+       }
+      ],
+      "employee_reviews": {
+       "career_opportunities_rating": null,
+       "overall_rating": {
+        "rating": null,
+        "rating_1_count": null,
+        "rating_2_count": null,
+        "rating_3_count": null,
+        "rating_4_count": null,
+        "rating_5_count": null,
+        "total_count": null
+       },
+       "senior_management_rating": null,
+       "work_life_balance_rating": null,
+       "business_outlook_rating": null,
+       "company_ceo": {
+        "ceo_rating": null
+       },
+       "compensation_and_benefits_rating": null,
+       "culture_and_values_rating": null,
+       "diversity_and_inclusion_rating": null,
+       "recommend_to_friend_rating": null
+      },
+      "followers": {
+       "count": 2176,
+       "mom_percent": 7.4037512339585385,
+       "qoq_percent": 22.52252252252252,
+       "six_months_growth_percent": 102.60707635009312,
+       "timeseries": [
+        {
+         "date": "2025-01-27",
+         "follower_count": 71
+        },
+        {
+         "date": "2025-02-03",
+         "follower_count": 72
+        },
+        {
+         "date": "2025-02-10",
+         "follower_count": 72
+        },
+        {
+         "date": "2025-02-17",
+         "follower_count": 78
+        },
+        {
+         "date": "2025-02-24",
+         "follower_count": 78
+        },
+        {
+         "date": "2025-03-03",
+         "follower_count": 78
+        },
+        {
+         "date": "2025-03-10",
+         "follower_count": 78
+        },
+        {
+         "date": "2025-03-17",
+         "follower_count": 78
+        },
+        {
+         "date": "2025-03-24",
+         "follower_count": 78
+        },
+        {
+         "date": "2025-03-31",
+         "follower_count": 78
+        },
+        {
+         "date": "2025-04-07",
+         "follower_count": 249
+        },
+        {
+         "date": "2025-04-14",
+         "follower_count": 249
+        },
+        {
+         "date": "2025-04-21",
+         "follower_count": 249
+        },
+        {
+         "date": "2025-04-28",
+         "follower_count": 249
+        },
+        {
+         "date": "2025-05-05",
+         "follower_count": 249
+        },
+        {
+         "date": "2025-05-12",
+         "follower_count": 249
+        },
+        {
+         "date": "2025-05-19",
+         "follower_count": 249
+        },
+        {
+         "date": "2025-05-26",
+         "follower_count": 249
+        },
+        {
+         "date": "2025-06-02",
+         "follower_count": 249
+        },
+        {
+         "date": "2025-06-09",
+         "follower_count": 261
+        },
+        {
+         "date": "2025-06-16",
+         "follower_count": 261
+        },
+        {
+         "date": "2025-06-23",
+         "follower_count": 261
+        },
+        {
+         "date": "2025-06-30",
+         "follower_count": 261
+        },
+        {
+         "date": "2025-07-07",
+         "follower_count": 261
+        },
+        {
+         "date": "2025-07-14",
+         "follower_count": 261
+        },
+        {
+         "date": "2025-07-21",
+         "follower_count": 261
+        },
+        {
+         "date": "2025-07-28",
+         "follower_count": 261
+        },
+        {
+         "date": "2025-08-04",
+         "follower_count": 261
+        },
+        {
+         "date": "2025-08-11",
+         "follower_count": 261
+        },
+        {
+         "date": "2025-08-18",
+         "follower_count": 261
+        },
+        {
+         "date": "2025-08-25",
+         "follower_count": 261
+        },
+        {
+         "date": "2025-09-01",
+         "follower_count": 261
+        },
+        {
+         "date": "2025-09-08",
+         "follower_count": 712
+        },
+        {
+         "date": "2025-09-15",
+         "follower_count": 848
+        },
+        {
+         "date": "2025-10-20",
+         "follower_count": 938
+        },
+        {
+         "date": "2025-10-27",
+         "follower_count": 944
+        },
+        {
+         "date": "2025-11-03",
+         "follower_count": 976
+        },
+        {
+         "date": "2025-11-10",
+         "follower_count": 980
+        },
+        {
+         "date": "2025-11-17",
+         "follower_count": 980
+        },
+        {
+         "date": "2025-11-24",
+         "follower_count": 1017
+        },
+        {
+         "date": "2025-12-29",
+         "follower_count": 1074
+        },
+        {
+         "date": "2026-01-05",
+         "follower_count": 1074
+        },
+        {
+         "date": "2026-01-12",
+         "follower_count": 1074
+        },
+        {
+         "date": "2026-01-19",
+         "follower_count": 1074
+        },
+        {
+         "date": "2026-01-26",
+         "follower_count": 1074
+        },
+        {
+         "date": "2026-02-02",
+         "follower_count": 1074
+        },
+        {
+         "date": "2026-02-09",
+         "follower_count": 1074
+        },
+        {
+         "date": "2026-02-16",
+         "follower_count": 1074
+        },
+        {
+         "date": "2026-02-23",
+         "follower_count": 1074
+        },
+        {
+         "date": "2026-03-02",
+         "follower_count": 1074
+        },
+        {
+         "date": "2026-03-09",
+         "follower_count": 1438
+        },
+        {
+         "date": "2026-04-27",
+         "follower_count": 1684
+        },
+        {
+         "date": "2026-05-04",
+         "follower_count": 1684
+        },
+        {
+         "date": "2026-05-11",
+         "follower_count": 1684
+        },
+        {
+         "date": "2026-05-18",
+         "follower_count": 1684
+        },
+        {
+         "date": "2026-05-25",
+         "follower_count": 1684
+        },
+        {
+         "date": "2026-06-01",
+         "follower_count": 1776
+        },
+        {
+         "date": "2026-06-29",
+         "follower_count": 1942
+        },
+        {
+         "date": "2026-07-27",
+         "follower_count": 2026
+        },
+        {
+         "date": "2026-08-31",
+         "follower_count": 2176
+        }
+       ],
+       "yoy_percent": 733.7164750957854
+      },
+      "software_reviews": {
+       "average_rating": null,
+       "review_count": null,
+       "review_count_mom_pct": null,
+       "review_count_qoq_pct": null,
+       "review_count_yoy_pct": null
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

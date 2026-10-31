@@ -50,7 +50,7 @@ def test_strong_company_gets_invest_and_full_size():
 
 def test_business_red_flags_cap_the_rating():
     s = sig(headcount_yoy_pct=-25, web_visitors_yoy_pct=-45, months_since_last_round=30)
-    s.market.funded_peers_24m, s.market.crowding = 22, "high"
+    s.market.funded_peers_24m, s.market.crowding = 120, "high"
     fl, pl, rec = scoring.assess(case(), s, 100_000, TODAY)
     reds = {f.rule for f in fl if f.level == "red"}
     assert {"R1 headcount-decline", "R2 traffic-decline", "R3 crowded-market",
@@ -97,3 +97,10 @@ def test_every_rule_fired_is_documented_and_disclaimer_present():
     fl, _, rec = scoring.assess(case(), s, 100_000, TODAY)
     assert all(f.rule in scoring.RULES for f in fl)
     assert "not financial advice" in rec.disclaimer and rec.revisit_triggers
+
+
+def test_revenue_vs_capital_amber():
+    s = sig(headcount_yoy_pct=50, total_funding_usd=25_500_000)
+    s.revenue_band_usd = (0, 500_000)
+    rules = {f.rule: f for f in scoring.flags(case(), s, TODAY)}
+    assert rules["A5 revenue-vs-capital"].level == "amber" and "51x" in rules["A5 revenue-vs-capital"].detail

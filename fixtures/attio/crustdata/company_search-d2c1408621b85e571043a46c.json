@@ -1,0 +1,40 @@
+{
+ "endpoint": "/company/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "taxonomy.categories",
+     "type": "=",
+     "value": "CRM"
+    },
+    {
+     "field": "basic_info.year_founded",
+     "type": "=>",
+     "value": 2017
+    },
+    {
+     "field": "crustdata_company_id",
+     "type": "!=",
+     "value": 664000
+    }
+   ]
+  },
+  "fields": [
+   "crustdata_company_id"
+  ],
+  "limit": 1
+ },
+ "status": 200,
+ "credits_used": "0.13",
+ "body": {
+  "companies": [
+   {
+    "crustdata_company_id": 431
+   }
+  ],
+  "next_cursor": "H4sIAJyS5WoC_xXMMQ6DMAxA0asgzx2wY0LCVSqEYtcRQ9UICANC3B06_jf8E5bd1mOa0zbD0IATlUhEURSVkJJlRup861lMVTwK9Zo5SGLuzQWhD8bozNS63GZ4NbCVtT6vNzscn6ylpu-kZf_9FSmwv25jl5xgdwAAAA==",
+  "total_count": 12846
+ }
+}

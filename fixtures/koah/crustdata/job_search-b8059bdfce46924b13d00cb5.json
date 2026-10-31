@@ -1,0 +1,64 @@
+{
+ "endpoint": "/job/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "company.basic_info.company_id",
+     "type": "=",
+     "value": 3718859
+    },
+    {
+     "field": "metadata.date_added",
+     "type": "=>",
+     "value": "2026-07-01"
+    }
+   ]
+  },
+  "limit": 0,
+  "aggregations": [
+   {
+    "type": "count"
+   },
+   {
+    "type": "group_by",
+    "field": "job_details.category",
+    "agg": "count",
+    "size": 10
+   }
+  ]
+ },
+ "status": 200,
+ "credits_used": "0",
+ "body": {
+  "job_listings": [],
+  "next_cursor": null,
+  "total_count": 7,
+  "aggregations": [
+   {
+    "type": "count",
+    "field": null,
+    "value": 7
+   },
+   {
+    "type": "group_by",
+    "field": "job_details.category",
+    "buckets": [
+     {
+      "key": "Engineering",
+      "count": 4
+     },
+     {
+      "key": "Go To Market",
+      "count": 2
+     },
+     {
+      "key": "Sales",
+      "count": 1
+     }
+    ]
+   }
+  ]
+ }
+}

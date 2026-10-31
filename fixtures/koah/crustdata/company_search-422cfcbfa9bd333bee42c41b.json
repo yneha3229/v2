@@ -1,0 +1,45 @@
+{
+ "endpoint": "/company/search",
+ "request": {
+  "filters": {
+   "op": "and",
+   "conditions": [
+    {
+     "field": "taxonomy.categories",
+     "type": "=",
+     "value": "Advertising Platforms"
+    },
+    {
+     "field": "taxonomy.categories",
+     "type": "=",
+     "value": "Artificial Intelligence (AI)"
+    },
+    {
+     "field": "basic_info.year_founded",
+     "type": "=>",
+     "value": 2020
+    },
+    {
+     "field": "crustdata_company_id",
+     "type": "!=",
+     "value": 3718859
+    }
+   ]
+  },
+  "fields": [
+   "crustdata_company_id"
+  ],
+  "limit": 1
+ },
+ "status": 200,
+ "credits_used": "0.13",
+ "body": {
+  "companies": [
+   {
+    "crustdata_company_id": 956
+   }
+  ],
+  "next_cursor": "H4sIALCS5WoC_xWMuw7CMAwAf6XyzECcONT8CkKVH4k6ICLadECIfydsdzfcB15H2d7LKvsK1wmcMWOdncmVqmUkPkelOGgeVa1QSuhGwhovEozRg1pMRbBiMThNsLetj9eNKd-H9tblsVg7nv8aKIXvD7mlgs52AAAA",
+  "total_count": 1541
+ }
+}
