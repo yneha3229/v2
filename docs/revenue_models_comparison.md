@@ -146,6 +146,12 @@ Plain-English reasons:
 - **Mercury**: Close (1.05x reported): headcount 1,782 is inflated by namesake profiles, so per-employee figures are distorted.
 - **Terrastack**: No reported revenue to compare: band is stale (listed 11-50, actual 7); early-stage: no reported-revenue correction; model and band only.
 
+Reading the drivers: in the band-trained model faster headcount growth LOWERS the prediction (hc_growth_log has a negative coefficient: Crustdata's bands lag growth), and log_size_bucket (the listed LinkedIn bucket at training time, the implied bucket at inference) carries most of the size signal. That is why every band-trained family underpredicts fast-growing scaleups by 2–5x (section 2, 'raw' rows) and why a reported-revenue correction is needed at all.
+
 ## 5. Recommendation
 
-RECOMMENDATION_PLACEHOLDER
+- **Use: tobit (interval-censored ridge) raw output x reported-revenue bias factor, geometric 50/50 blend with the reported revenue-per-employee benchmark, then guardrails** (`predict_alt`). LOO on the 6 reported companies: median error 14% (D29 ensemble 31%), within 30% 67% (50%), within 2x 100% (67%), worst 1.50x over / 1.23x under (D29 2.09x / 2.11x). Unflagged only: 19% vs 20%.
+- The gain over D29 comes from correcting the model's UNCLAMPED output for its known low bias instead of blending a band-clamped v1 point; ridge_v1 and the stack give the same result in that pipeline (section 2), so the model family matters far less than the bias correction. Tobit is chosen because it has the best band CV among linear models and its drivers are exactly additive (explanations). gbm wins on band CV but transfers worst to reported revenue and is not additive.
+- Clay's 1.50x depends on the band-cap guardrail (its $2.5–5M band is wildly stale); without guardrails the same pipeline is 2.97x over on Clay. Guardrails never fired against a correct estimate on the 9 study companies.
+- **Honesty: n=6 (3 unflagged).** The bias factor and benchmark each rest on 2–3 companies per LOO fold; the blend weight (0.5) and guardrail bounds were fixed a priori, not tuned on these companies, but the families compared were chosen with them in view. Treat the reported-revenue numbers as indicative; keep labelling every output an ESTIMATE.
+- Early-stage companies (< 50 staff or < $20M primary capital: Koah, Terrastack) get the raw model + guardrails only; no scaleup benchmark or bias factor applies.
